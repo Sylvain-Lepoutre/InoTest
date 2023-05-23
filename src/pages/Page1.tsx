@@ -1,7 +1,11 @@
+import Nav from "@components/Nav";
+
 export default function Home() {
   return (
-    <header>
-      <p className="text-3xl font-bold underline">Hello page 1 !</p>
-    </header>
+    <>
+      <header>
+        <Nav title="InoBox" />
+      </header>
+    </>
   );
 }
