@@ -1,10 +1,10 @@
-import Nav from "@components/Nav";
+import NavBar from "@components/NavBar";
 
 export default function Home() {
   return (
     <>
       <header>
-        <Nav title="InoBox" />
+        <NavBar title="InoLab" />
       </header>
     </>
   );

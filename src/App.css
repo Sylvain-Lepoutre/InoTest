@@ -19,9 +19,8 @@ body {
   src: local("3x5 Font"), url("./font/3x5-9OYA.ttf") format("truetype");
 }
 
-h1,
-h2 {
-  font-family: "Roboto", serif;
+body {
+  font-family: "Basis", arial;
 }
 
 .link-underline {

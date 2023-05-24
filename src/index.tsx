@@ -6,6 +6,7 @@ import Root from "./routes/Root";
 import AboutUs from "@pages/AboutUs";
 import Contact from "@pages/Contact";
 import ErrorPage from "@pages/ErrorPage";
+import GetStarted from "@pages/GetStarted";
 
 const router = createBrowserRouter([
   {
@@ -14,12 +15,16 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: "/page1",
+    path: "/about",
     element: <AboutUs />,
   },
   {
-    path: "/page2",
+    path: "/contact",
     element: <Contact />,
+  },
+  {
+    path: "/getstarted",
+    element: <GetStarted />,
   },
 ]);
 

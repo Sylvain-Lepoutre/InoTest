@@ -1,15 +1,16 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 type Props = {
-  title: string;
+  title?: string;
 };
 
-export default function Nav({ title }: Props) {
+export default function NavBar({ title }: Props) {
+  const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const genericHamburgerLine = `h-1 w-6 my-1 rounded-full bg-black transition ease transform duration-300`;
 
-  const handleMenu: void = () => {
+  const closeMenu: void = () => {
     setIsMenuOpen(false);
   };
 
@@ -22,9 +23,13 @@ export default function Nav({ title }: Props) {
         >
           <h1>
             {title}
-            <p className="scale-50 lg:block absolute top-0 right-0 xl:mt-[-3rem] xl:mr-[-4.5rem] lg:mt-[-3.5rem] lg:mr-[-4.5rem] hidden">
-              ©
-            </p>
+            {location.pathname != "/getstarted" ? (
+              <p className="scale-50 lg:block absolute top-0 right-0 xl:mt-[-3rem] xl:mr-[-4.5rem] lg:mt-[-3.5rem] lg:mr-[-4.5rem] hidden">
+                ©
+              </p>
+            ) : (
+              ""
+            )}
           </h1>
         </Link>
         <div className="relative md:hidden flex items-start mr-[-1rem]">
@@ -57,17 +62,17 @@ export default function Nav({ title }: Props) {
             }`}
           >
             <li>
-              <Link onKeyDown={handleMenu} onClick={handleMenu} to="/" className="block px-4 py-2">
+              <Link onKeyDown={closeMenu} onClick={closeMenu} to="/" className="block px-4 py-2">
                 Home
               </Link>
             </li>
             <li>
-              <Link onKeyDown={handleMenu} onClick={handleMenu} to="/page1" className="block max-w-full px-4 py-2">
+              <Link onKeyDown={closeMenu} onClick={closeMenu} to="/about" className="block max-w-full px-4 py-2">
                 About us
               </Link>
             </li>
             <li>
-              <Link onKeyDown={handleMenu} onClick={handleMenu} to="/page2" className="block px-4 py-2">
+              <Link onKeyDown={closeMenu} onClick={closeMenu} to="/contact" className="block px-4 py-2">
                 Contact
               </Link>
             </li>
@@ -76,17 +81,29 @@ export default function Nav({ title }: Props) {
 
         <ul className="menu hidden md:flex md:items-start mt-5">
           <li>
-            <Link to="/" className="block px-4 py-2 link link-underline link-underline-black text-black">
+            <Link
+              to="/"
+              className="block px-4 py-2 link link-underline link-underline-black text-black"
+              {...(location.pathname === "/" ? { "aria-current": "page" } : {})}
+            >
               Home
             </Link>
           </li>
           <li>
-            <Link to="/page1" className="block px-4 py-2 link link-underline link-underline-black text-black">
+            <Link
+              to="/about"
+              className="block px-4 py-2 link link-underline link-underline-black text-black"
+              {...(location.pathname === "/about" ? { "aria-current": "page" } : {})}
+            >
               About us
             </Link>
           </li>
           <li>
-            <Link to="/page2" className="block px-4 py-2 link link-underline link-underline-black text-black">
+            <Link
+              to="/contact"
+              className="block px-4 py-2 link link-underline link-underline-black text-black"
+              {...(location.pathname === "/contact" ? { "aria-current": "page" } : {})}
+            >
               Contact
             </Link>
           </li>
