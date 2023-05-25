@@ -8,7 +8,7 @@ export default function Home() {
       </header>
       <article
         aria-label="about us"
-        className="flex flex-col justify-center items-center  mx-2 bg-black w-[25rem] h-[26rem] p-10 rounded-lg mt-[-7rem] md:block lg:block xl:block md:ml-[35rem] lg:ml-[45rem] xl:mt-[-4.5rem] xl:ml-[56rem]"
+        className="flex flex-col justify-center items-center  mx-2 bg-[#202020] w-[25rem] h-[26rem] p-10 rounded-lg mt-[-7rem] md:block lg:block xl:block md:ml-[35rem] lg:ml-[45rem] xl:mt-[-4.5rem] xl:ml-[56rem]"
       >
         <p className="text-white">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. At dolor tempora ex accusantium nemo est, quis

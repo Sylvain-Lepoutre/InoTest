@@ -23,12 +23,10 @@ export default function NavBar({ title }: Props) {
         >
           <h1>
             {title}
-            {location.pathname != "/getstarted" ? (
+            {location.pathname != "/getstarted" && (
               <p className="scale-50 lg:block absolute top-0 right-0 xl:mt-[-3rem] xl:mr-[-4.5rem] lg:mt-[-3.5rem] lg:mr-[-4.5rem] hidden">
                 ©
               </p>
-            ) : (
-              ""
             )}
           </h1>
         </Link>
@@ -62,17 +60,17 @@ export default function NavBar({ title }: Props) {
             }`}
           >
             <li>
-              <Link onKeyDown={closeMenu} onClick={closeMenu} to="/" className="block px-4 py-2">
+              <Link onClick={closeMenu} to="/" className="block px-4 py-2">
                 Home
               </Link>
             </li>
             <li>
-              <Link onKeyDown={closeMenu} onClick={closeMenu} to="/about" className="block max-w-full px-4 py-2">
+              <Link onClick={closeMenu} to="/about" className="block max-w-full px-4 py-2">
                 About us
               </Link>
             </li>
             <li>
-              <Link onKeyDown={closeMenu} onClick={closeMenu} to="/contact" className="block px-4 py-2">
+              <Link onClick={closeMenu} to="/contact" className="block px-4 py-2">
                 Contact
               </Link>
             </li>
