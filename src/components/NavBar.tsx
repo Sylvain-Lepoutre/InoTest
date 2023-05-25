@@ -23,12 +23,10 @@ export default function NavBar({ title }: Props) {
         >
           <h1>
             {title}
-            {location.pathname != "/getstarted" ? (
+            {location.pathname != "/getstarted" && (
               <p className="scale-50 lg:block absolute top-0 right-0 xl:mt-[-3rem] xl:mr-[-4.5rem] lg:mt-[-3.5rem] lg:mr-[-4.5rem] hidden">
                 ©
               </p>
-            ) : (
-              ""
             )}
           </h1>
         </Link>

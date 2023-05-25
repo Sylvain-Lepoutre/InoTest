@@ -25,16 +25,12 @@ const Stepper: React.FC = () => {
 
     switch (key) {
       case "ArrowRight": {
-        if (activeStep < steps.length - 1) {
-          focusButton(1);
-        }
+        focusButton(1);
         break;
       }
 
       case "ArrowLeft": {
-        if (activeStep > 0) {
-          focusButton(0);
-        }
+        focusButton(0);
         break;
       }
     }
