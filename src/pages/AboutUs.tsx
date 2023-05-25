@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <>
       <header>
-        <NavBar title="InoLab" />
+        <NavBar title="Inotest" />
       </header>
       <article
         aria-label="about us"
