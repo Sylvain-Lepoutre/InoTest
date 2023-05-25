@@ -5,7 +5,15 @@ interface Step {
   text: string;
 }
 
-const Stepper: React.FC = () => {
+interface StepperProps {
+  style: string;
+  style2: string;
+  style3: string;
+  styledImage: string;
+  styledButtons: string;
+}
+
+const Stepper: React.FC = (props: StepperProps) => {
   const [activeStep, setActiveStep] = useState<number>(0);
   const buttonRefs = [useRef<HTMLButtonElement>(null), useRef<HTMLButtonElement>(null)];
 
@@ -51,14 +59,14 @@ const Stepper: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col items-center" role="tabpanel">
+    <div className={`${props.style}`} role="tabpanel">
       <div>
-        <img src={steps[activeStep].image} alt={`img ${activeStep + 1}`} className="" />
+        <img className={`${props.styledImage}`} src={steps[activeStep].image} alt={`img ${activeStep + 1}`} />
       </div>
-      <p className="text-center mt-4" aria-label={`text ${activeStep + 1}`}>
+      <p className={`${props.style2}`} aria-label={`text ${activeStep + 1}`}>
         {steps[activeStep].text}
       </p>
-      <div className="mt-4">
+      <div className={`${props.style3}`}>
         <button
           ref={buttonRefs[0]}
           aria-label="previous step button"
@@ -66,7 +74,7 @@ const Stepper: React.FC = () => {
           type="button"
           onClick={handlePrevious}
           onKeyDown={handleKeyDown}
-          className="px-4 py-2 mr-2 rounded bg-black text-white"
+          className={`${props.styledButtons}`}
         >
           Previous
         </button>
@@ -77,7 +85,7 @@ const Stepper: React.FC = () => {
           type="button"
           onClick={handleNext}
           onKeyDown={handleKeyDown}
-          className="px-4 py-2 mr-2 rounded bg-black text-white"
+          className={`${props.styledButtons}`}
         >
           Next
         </button>
