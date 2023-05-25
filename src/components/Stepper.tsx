@@ -7,7 +7,6 @@ interface Step {
 
 const Stepper: React.FC = () => {
   const [activeStep, setActiveStep] = useState<number>(0);
-  const stepperRef = useRef<HTMLDivElement>(null);
   const buttonRefs = [useRef<HTMLButtonElement>(null), useRef<HTMLButtonElement>(null)];
 
   const steps: Step[] = [
@@ -56,7 +55,7 @@ const Stepper: React.FC = () => {
   };
 
   return (
-    <div ref={stepperRef} className="flex flex-col items-center" role="tabpanel">
+    <div className="flex flex-col items-center" role="tabpanel">
       <div>
         <img src={steps[activeStep].image} alt={`img ${activeStep + 1}`} className="" />
       </div>
