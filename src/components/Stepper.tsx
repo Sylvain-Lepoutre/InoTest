@@ -1,8 +1,9 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, RefObject } from "react";
+import useFocus from "../hook/useFocus";
 
 interface Step {
-  image: string;
-  text: string;
+  image?: string;
+  text?: string;
 }
 
 interface StepperProps {
@@ -15,7 +16,7 @@ interface StepperProps {
 
 const Stepper: React.FC = (props: StepperProps) => {
   const [activeStep, setActiveStep] = useState<number>(0);
-  const buttonRefs = [useRef<HTMLButtonElement>(null), useRef<HTMLButtonElement>(null)];
+  const buttonRefs: RefObject<HTMLButtonElement>[] = [useRef<HTMLButtonElement>(null), useRef<HTMLButtonElement>(null)];
 
   const steps: Step[] = [
     { image: "", text: "Step 1" },
@@ -24,38 +25,20 @@ const Stepper: React.FC = (props: StepperProps) => {
     { image: "", text: "Step 4" },
   ];
 
-  const focusButton = (index: number) => {
-    buttonRefs[index]?.current?.focus();
-  };
+  const { horizontalFocus, activeFocus, setActiveFocus } = useFocus(buttonRefs);
 
-  const handleKeyDown = (event: KeyboardEvent) => {
-    const { key } = event;
-
-    switch (key) {
-      case "ArrowRight": {
-        focusButton(1);
-        break;
-      }
-
-      case "ArrowLeft": {
-        focusButton(0);
-        break;
-      }
-    }
-  };
-
-  const handleNext = () => {
-    const nextStep = Math.min(activeStep + 1, steps.length - 1);
-
+  const handleNext = (array: Step[]) => {
+    const nextStep: number = Math.min(activeStep + 1, array.length - 1);
+    const focus: number = Math.min(activeFocus + 1, buttonRefs.length - 1);
     setActiveStep(nextStep);
-    focusButton(1);
+    setActiveFocus(focus);
   };
 
   const handlePrevious = () => {
-    const previousStep = Math.max(activeStep - 1, 0);
-
+    const previousStep: number = Math.max(activeStep - 1, 0);
+    const focus: number = Math.max(activeFocus - 1, 0);
     setActiveStep(previousStep);
-    focusButton(0);
+    setActiveFocus(focus);
   };
 
   return (
@@ -72,8 +55,12 @@ const Stepper: React.FC = (props: StepperProps) => {
           aria-label="previous step button"
           tabIndex={0}
           type="button"
-          onClick={handlePrevious}
-          onKeyDown={handleKeyDown}
+          onClick={() => {
+            handlePrevious();
+          }}
+          onKeyDown={() => {
+            horizontalFocus(event);
+          }}
           className={`${props.styledButtons}`}
         >
           Previous
@@ -83,8 +70,12 @@ const Stepper: React.FC = (props: StepperProps) => {
           aria-label="next step button"
           tabIndex={0}
           type="button"
-          onClick={handleNext}
-          onKeyDown={handleKeyDown}
+          onClick={() => {
+            handleNext(steps);
+          }}
+          onKeyDown={() => {
+            horizontalFocus(event);
+          }}
           className={`${props.styledButtons}`}
         >
           Next
