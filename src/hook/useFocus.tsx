@@ -1,21 +1,26 @@
 import { useEffect, useState, RefObject, useCallback } from "react";
 
+const body = document.querySelector("body");
+
 /**
- * Mon hook useFocus
+ * My hook useFocus
  */
-const useFocus = (refs: RefObject<HTMLElement>[]) => {
-  const [activeFocus, setActiveFocus] = useState<number>(0);
+
+const useFocus = (refs: RefObject<HTMLElement>[], initialIndex?: number) => {
+  const [activeFocus, setActiveFocus] = useState<number>(initialIndex ?? 0);
 
   const focusButton = useCallback(
     (index: number) => {
-      refs[index]?.current?.focus();
+      if (document.activeElement !== body || initialIndex !== undefined) {
+        refs[index]?.current?.focus();
+      }
     },
-    [refs]
+    [initialIndex, refs]
   );
 
   useEffect(() => {
     focusButton(activeFocus);
-  }, [activeFocus, focusButton, refs]);
+  }, [activeFocus, focusButton]);
 
   const horizontalFocus = (event: KeyboardEvent) => {
     const { key } = event;
