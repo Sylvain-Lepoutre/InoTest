@@ -3,7 +3,7 @@ import { useEffect, useState, RefObject, useCallback } from "react";
 const body = document.querySelector("body");
 
 /**
- * useFocus is a custom hook that enables keyboard navigation on a large range of components.
+ * useFocus is a custom React hook that enables keyboard navigation on a large range of components.
  *
  * @param {Array<RefObject<HTMLButtonElement>>} refArray - An array of RefObjects that require an HTMLButtonElement type (mandatory).
  * @param {number} [initialIndex] - A number representing the initial index of the refArray, providing an option for positioning the initial focus on mount (optional).
@@ -22,7 +22,7 @@ const body = document.querySelector("body");
  * @param {KeyboardEvent} event - The event object passed from the onKeyDown event.
  *
  * @example
- * const Component: React.FC = () => {
+ * const ExampleComponent: React.FC = () => {
  *   const buttonRefs: RefObject<HTMLButtonElement>[] = [
  *     useRef<HTMLButtonElement>(null),
  *     useRef<HTMLButtonElement>(null)
