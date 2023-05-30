@@ -25,20 +25,16 @@ const Stepper: React.FC = (props: StepperProps) => {
     { image: "", text: "Step 4" },
   ];
 
-  const { horizontalFocus, activeFocus, setActiveFocus } = useFocus(buttonRefs);
+  const { horizontalFocus } = useFocus(buttonRefs);
 
   const handleNext = (array: Step[]) => {
     const nextStep: number = Math.min(activeStep + 1, array.length - 1);
-    const focus: number = Math.min(activeFocus + 1, buttonRefs.length - 1);
     setActiveStep(nextStep);
-    setActiveFocus(focus);
   };
 
   const handlePrevious = () => {
     const previousStep: number = Math.max(activeStep - 1, 0);
-    const focus: number = Math.max(activeFocus - 1, 0);
     setActiveStep(previousStep);
-    setActiveFocus(focus);
   };
 
   return (
