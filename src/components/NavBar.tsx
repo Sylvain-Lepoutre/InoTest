@@ -1,14 +1,22 @@
-import { useState } from "react";
+import { useRef, useState, RefObject } from "react";
 import { Link, useLocation } from "react-router-dom";
+import useFocus from "../hook/useFocus";
 
 type Props = {
   title?: string;
 };
 
-export default function NavBar({ title }: Props) {
+const NavBar: React.FC = ({ title }: Props) => {
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const genericHamburgerLine = `h-1 w-6 my-1 rounded-full bg-black transition ease transform duration-300`;
+  const navRefs: RefObject<HTMLElement>[] = [
+    useRef<HTMLElement>(null),
+    useRef<HTMLElement>(null),
+    useRef<HTMLElement>(null),
+  ];
+
+  const { horizontalFocus } = useFocus(navRefs);
 
   const closeMenu: void = () => {
     setIsMenuOpen(false);
@@ -80,6 +88,10 @@ export default function NavBar({ title }: Props) {
         <ul className="menu hidden md:flex md:items-start mt-5">
           <li>
             <Link
+              ref={navRefs[0]}
+              onKeyDown={() => {
+                horizontalFocus(event);
+              }}
               to="/"
               className="block px-4 py-2 link link-underline link-underline-black text-black"
               {...(location.pathname === "/" ? { "aria-current": "page" } : {})}
@@ -89,6 +101,10 @@ export default function NavBar({ title }: Props) {
           </li>
           <li>
             <Link
+              ref={navRefs[1]}
+              onKeyDown={() => {
+                horizontalFocus(event);
+              }}
               to="/about"
               className="block px-4 py-2 link link-underline link-underline-black text-black"
               {...(location.pathname === "/about" ? { "aria-current": "page" } : {})}
@@ -98,6 +114,10 @@ export default function NavBar({ title }: Props) {
           </li>
           <li>
             <Link
+              ref={navRefs[2]}
+              onKeyDown={() => {
+                horizontalFocus(event);
+              }}
               to="/contact"
               className="block px-4 py-2 link link-underline link-underline-black text-black"
               {...(location.pathname === "/contact" ? { "aria-current": "page" } : {})}
@@ -109,4 +129,6 @@ export default function NavBar({ title }: Props) {
       </nav>
     </>
   );
-}
+};
+
+export default NavBar;
