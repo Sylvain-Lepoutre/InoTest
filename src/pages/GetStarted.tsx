@@ -13,7 +13,7 @@ export default function GetStarted() {
           style2="text-center mt-4 text-white my-[5rem]"
           style3="md:flex-row flex flex-col relative"
           styledButtons="px-4 py-2 mx-2 w-[8rem] my-1 rounded bg-white text-black"
-          styledButtons2="px-4 py-2 mt-4 w-[8rem] my-1 rounded bg-white text-black absolute bottom-[3.2rem] flex justify-center align-center"
+          styledButtons2="px-4 py-2 w-[8rem] my-1 rounded bg-white text-black absolute bottom-[3.2rem] flex justify-center align-center"
           styledImage="hidden"
         />
       </header>
