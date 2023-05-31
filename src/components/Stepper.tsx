@@ -51,8 +51,6 @@ const Stepper: React.FC = (props: StepperProps) => {
     setButtonVisible(lastStep);
   }, [activeStep, steps.length]);
 
-  console.log(steps.length);
-
   return (
     <div className={`${props.container}`}>
       <div className="absolute top-[-10rem]">

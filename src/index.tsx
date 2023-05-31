@@ -1,7 +1,7 @@
 import { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
-
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
 import Root from "./routes/Root";
 import AboutUs from "@pages/AboutUs";
 import Contact from "@pages/Contact";
