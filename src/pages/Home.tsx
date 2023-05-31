@@ -1,4 +1,5 @@
 import NavBar from "@components/NavBar";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
@@ -12,12 +13,12 @@ export default function Home() {
         </h2>
       </div>
       <div className="md:grid md:grid-cols-2 md:grid-rows-2 md:mt-32 flex justify-center w-screen mt-60">
-        <a
-          href="/getstarted"
+        <Link
+          to="/getstarted"
           className="bg-[#000] text-white w-[15rem] rounded-lg h-[3rem] md:col-start-2 md:row-start-2 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 flex justify-center items-center"
         >
           GET STARTED
-        </a>
+        </Link>
       </div>
     </>
   );
