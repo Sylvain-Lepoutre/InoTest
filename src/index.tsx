@@ -7,6 +7,7 @@ import AboutUs from "@pages/AboutUs";
 import Contact from "@pages/Contact";
 import ErrorPage from "@pages/ErrorPage";
 import GetStarted from "@pages/GetStarted";
+import Path1 from "@pages/Path1";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
   {
     path: "/getstarted",
     element: <GetStarted />,
+  },
+  {
+    path: "/path1",
+    element: <Path1 />,
   },
 ]);
 
