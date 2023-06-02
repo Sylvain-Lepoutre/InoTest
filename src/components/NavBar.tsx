@@ -1,15 +1,22 @@
-import { useRef, useState, RefObject } from "react";
+import { useRef, useState, RefObject, useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { DarkModeSwitch } from "react-toggle-dark-mode";
+
 import useFocus from "../hook/useFocus";
+import { ThemeContext } from "../routes/Root";
 
 type Props = {
   title?: string;
 };
 
-const NavBar: React.FC = ({ title }: Props) => {
+const NavBar: React.FC<Props> = ({ title }: Props) => {
+  const { theme, toggleTheme } = useContext(ThemeContext) as {
+    theme: string;
+    toggleTheme: () => void;
+  };
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
-  const genericHamburgerLine = `h-1 w-6 my-1 rounded-full bg-black transition ease transform duration-300`;
+  const genericHamburgerLine = `h-1 w-6 my-1 rounded-full burgerStyle transition ease transform duration-300`;
   const navRefs: RefObject<HTMLElement>[] = [
     useRef<HTMLElement>(null),
     useRef<HTMLElement>(null),
@@ -18,7 +25,7 @@ const NavBar: React.FC = ({ title }: Props) => {
 
   const { horizontalFocus } = useFocus(navRefs);
 
-  const closeMenu: void = () => {
+  const closeMenu = () => {
     setIsMenuOpen(false);
   };
 
@@ -29,9 +36,9 @@ const NavBar: React.FC = ({ title }: Props) => {
           to="/"
           className="md:mt-[3rem] md:ml-[3rem] mt-5 relative md:text-7xl text-4xl font-bold flex flex-row-reverse items-start lg:text-9xl lg:mt-[7rem] lg:ml-[5rem]"
         >
-          <h1>
+          <h1 className="title">
             {title}
-            {location.pathname != "/getstarted" && location.pathname != "/path1" && (
+            {location.pathname !== "/getstarted" && location.pathname != "/path1" && (
               <p className="scale-50 lg:block absolute top-0 right-0 xl:mt-[-3rem] xl:mr-[-4.5rem] lg:mt-[-3.5rem] lg:mr-[-4.5rem] hidden">
                 ©
               </p>
@@ -39,6 +46,12 @@ const NavBar: React.FC = ({ title }: Props) => {
           </h1>
         </Link>
         <div className="relative md:hidden flex items-start mr-[-1rem]">
+          <DarkModeSwitch
+            style={{ marginRight: "1rem", marginTop: "1.7rem", marginLeft: "0.3rem" }}
+            checked={theme === "dark"}
+            onChange={toggleTheme}
+            size={30}
+          />
           <button
             className="flex flex-col h-12 w-12  mt-5 rounded justify-center"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -93,7 +106,7 @@ const NavBar: React.FC = ({ title }: Props) => {
                 horizontalFocus(event);
               }}
               to="/"
-              className="block px-4 py-2 link link-underline link-underline-black text-black"
+              className="block px-4 py-2 link link-underline link-underline-black navStyle"
               {...(location.pathname === "/" ? { "aria-current": "page" } : {})}
             >
               Home
@@ -106,7 +119,7 @@ const NavBar: React.FC = ({ title }: Props) => {
                 horizontalFocus(event);
               }}
               to="/about"
-              className="block px-4 py-2 link link-underline link-underline-black text-black"
+              className="block px-4 py-2 link link-underline link-underline-black navStyle"
               {...(location.pathname === "/about" ? { "aria-current": "page" } : {})}
             >
               About us
@@ -119,12 +132,18 @@ const NavBar: React.FC = ({ title }: Props) => {
                 horizontalFocus(event);
               }}
               to="/contact"
-              className="block px-4 py-2 link link-underline link-underline-black text-black"
+              className="block px-4 py-2 link link-underline link-underline-black navStyle"
               {...(location.pathname === "/contact" ? { "aria-current": "page" } : {})}
             >
               Contact
             </Link>
           </li>
+          <DarkModeSwitch
+            style={{ marginRight: "0.3rem", marginTop: "0.2rem", marginLeft: "0.3rem" }}
+            checked={theme === "dark"}
+            onChange={toggleTheme}
+            size={33}
+          />
         </ul>
       </nav>
     </>

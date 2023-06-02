@@ -1,21 +1,27 @@
 import { useState, createContext } from "react";
 
-import Home from "@pages/Home";
 import "../App.css";
+import { Outlet } from "react-router-dom";
+
+type ThemeContextType = {
+  theme: string;
+  toggleTheme: () => void;
+};
+
+export const ThemeContext = createContext<ThemeContextType | null>(null);
 
 function Root() {
-  const ThemeContext = createContext("light");
-  const [theme, setTheme] = useState();
+  const [theme, setTheme] = useState("light");
 
-  const toggleTheme = () => {
+  const toggleTheme: void = () => {
     setTheme((current) => (current === "light" ? "dark" : "light"));
   };
 
   return (
     <div>
-      <ThemeContext.Provider value={{ theme, setTheme }}>
-        <div id="light">
-          <Home />
+      <ThemeContext.Provider value={{ theme, toggleTheme }}>
+        <div id={theme} className="h-screen">
+          <Outlet />
         </div>
       </ThemeContext.Provider>
     </div>
