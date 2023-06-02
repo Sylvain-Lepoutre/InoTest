@@ -8,28 +8,35 @@ import Contact from "@pages/Contact";
 import ErrorPage from "@pages/ErrorPage";
 import GetStarted from "@pages/GetStarted";
 import Path1 from "@pages/Path1";
+import Home from "@pages/Home";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
     errorElement: <ErrorPage />,
-  },
-  {
-    path: "/about",
-    element: <AboutUs />,
-  },
-  {
-    path: "/contact",
-    element: <Contact />,
-  },
-  {
-    path: "/getstarted",
-    element: <GetStarted />,
-  },
-  {
-    path: "/path1",
-    element: <Path1 />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/about",
+        element: <AboutUs />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
+      {
+        path: "/getstarted",
+        element: <GetStarted />,
+      },
+      {
+        path: "/path1",
+        element: <Path1 />,
+      },
+    ],
   },
 ]);
 

@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
+#light {
   background: linear-gradient(-90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
     linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
     linear-gradient(-90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
@@ -26,6 +26,60 @@ body {
   background-size: 4px 4px, 4px 4px, 80px 80px, 80px 80px, 80px 80px, 80px 80px, 80px 80px, 80px 80px;
 }
 
+#light .title {
+  color: #000;
+}
+
+#dark .title {
+  color: #fff;
+}
+
+#light .buttonClass {
+  background-color: #000;
+  color: #fff;
+}
+
+#dark .buttonClass {
+  background-color: #fff;
+  color: #000;
+}
+
+#light .button2Class {
+  background-color: #fff;
+  color: #000;
+}
+
+#dark .button2Class {
+  background-color: #000;
+  color: #fff;
+}
+
+#light .navStyle {
+  color: #000;
+}
+
+#dark .navStyle {
+  color: #fff;
+}
+
+#light .burgerStyle {
+  background-color: #000;
+}
+
+#dark .burgerStyle {
+  background-color: #fff;
+}
+
+#light .windowStyle {
+  background-color: #151515;
+  color: #fff;
+}
+
+#dark .windowStyle {
+  background-color: #fff;
+  color: #000;
+}
+
 @font-face {
   font-family: "graph";
   src: local("3x5 Font"), url("./font/3x5-9OYA.ttf") format("truetype");
@@ -35,7 +89,7 @@ body {
   font-family: "Basis", arial;
 }
 
-.link-underline {
+#light .link-underline {
   border-bottom-width: 0;
   background-image: linear-gradient(transparent, transparent), linear-gradient(#fff, #fff);
   background-size: 0 3px;
@@ -44,11 +98,29 @@ body {
   transition: background-size 0.5s ease-in-out;
 }
 
-.link-underline-black {
+#light .link-underline-black {
   background-image: linear-gradient(transparent, transparent), linear-gradient(#000, #000);
 }
 
-.link-underline:hover {
+#light .link-underline:hover {
+  background-size: 100% 3px;
+  background-position: 0 100%;
+}
+
+#dark .link-underline {
+  border-bottom-width: 0;
+  background-image: linear-gradient(transparent, transparent), linear-gradient(#000, #000);
+  background-size: 0 3px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.5s ease-in-out;
+}
+
+#dark .link-underline-black {
+  background-image: linear-gradient(transparent, transparent), linear-gradient(#fff, #fff);
+}
+
+#dark .link-underline:hover {
   background-size: 100% 3px;
   background-position: 0 100%;
 }
