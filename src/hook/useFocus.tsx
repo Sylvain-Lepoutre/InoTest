@@ -1,7 +1,5 @@
 import { useEffect, useState, RefObject, useCallback } from "react";
 
-const body = document.querySelector("body");
-
 /**
  * useFocus is a custom React hook that enables keyboard navigation on a large range of components.
  *
@@ -55,6 +53,8 @@ const body = document.querySelector("body");
  *   );
  * };
  */
+
+const body = document.querySelector("body");
 
 const useFocus = (refArray: RefObject<HTMLElement>[], initialIndex?: number) => {
   const [activeFocus, setActiveFocus] = useState<number>(initialIndex ?? 0);
