@@ -32,7 +32,7 @@ const NavBar: React.FC<Props> = ({ title }: Props) => {
 
   return (
     <>
-      <nav className="h-[20rem] flex justify-between px-4">
+      <nav className="h-[5rem] flex justify-between px-4">
         <Link
           to="/"
           className="md:mt-[3rem] md:ml-[3rem] mt-5 relative md:text-7xl text-4xl font-bold flex flex-row-reverse items-start lg:text-9xl lg:mt-[7rem] lg:ml-[5rem]"
