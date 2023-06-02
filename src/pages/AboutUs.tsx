@@ -14,13 +14,13 @@ export default function Home() {
           <p className="windowStyle">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. At dolor tempora ex accusantium nemo est, quis
             voluptate harum corporis saepe et velit rerum dignissimos eum, accusamus obcaecati veritatis! Illum,
-            necessitatibus. Lorem ipsum dolor sit amet consectetur adipisicing elit. At dolor tempora ex accusantium nemo
-            est, quis voluptate harum corporis saepe et velit rerum dignissimos eum, accusamus obcaecati veritatis! Illum,
-            necessitatibus.
+            necessitatibus. Lorem ipsum dolor sit amet consectetur adipisicing elit. At dolor tempora ex accusantium
+            nemo est, quis voluptate harum corporis saepe et velit rerum dignissimos eum, accusamus obcaecati veritatis!
+            Illum, necessitatibus.
           </p>
           <a
             href="https://www.inolib.com/"
-            className="justify-center items-center focus:outline-none my-6 focus:border-slate-700 focus:ring-2 focus:ring-slate-700 w-[10rem] rounded h-[3rem] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 flex button2Class"
+            className="justify-center items-center buttonClass2 focus:outline-none my-6 focus:border-slate-700 focus:ring-2 focus:ring-slate-700 text-black w-[10rem] rounded h-[3rem] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 flex"
           >
             LEARN MORE
           </a>

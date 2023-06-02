@@ -21,6 +21,7 @@ const NavBar: React.FC<Props> = ({ title }: Props) => {
     useRef<HTMLElement>(null),
     useRef<HTMLElement>(null),
     useRef<HTMLElement>(null),
+    useRef<HTMLElement>(null),
   ];
 
   const { horizontalFocus } = useFocus(navRefs);
@@ -102,7 +103,7 @@ const NavBar: React.FC<Props> = ({ title }: Props) => {
           <li>
             <Link
               ref={navRefs[0]}
-              onKeyDown={() => {
+              onKeyDown={(event) => {
                 horizontalFocus(event);
               }}
               to="/"
@@ -115,7 +116,7 @@ const NavBar: React.FC<Props> = ({ title }: Props) => {
           <li>
             <Link
               ref={navRefs[1]}
-              onKeyDown={() => {
+              onKeyDown={(event) => {
                 horizontalFocus(event);
               }}
               to="/about"
@@ -128,7 +129,7 @@ const NavBar: React.FC<Props> = ({ title }: Props) => {
           <li>
             <Link
               ref={navRefs[2]}
-              onKeyDown={() => {
+              onKeyDown={(event) => {
                 horizontalFocus(event);
               }}
               to="/contact"
@@ -138,12 +139,22 @@ const NavBar: React.FC<Props> = ({ title }: Props) => {
               Contact
             </Link>
           </li>
-          <DarkModeSwitch
-            style={{ marginRight: "0.3rem", marginTop: "0.2rem", marginLeft: "0.3rem" }}
-            checked={theme === "dark"}
-            onChange={toggleTheme}
-            size={33}
-          />
+          <button
+            type="button"
+            aria-label="dark mode button"
+            ref={navRefs[3]}
+            onKeyDown={(event) => {
+              horizontalFocus(event);
+              event.key == "Enter" || (event.key == "space" && toggleTheme());
+            }}
+            onClick={toggleTheme}
+          >
+            <DarkModeSwitch
+              style={{ marginRight: "0.3rem", marginTop: "0.2rem", marginLeft: "0.3rem" }}
+              checked={theme === "dark"}
+              size={33}
+            />
+          </button>
         </ul>
       </nav>
     </>
