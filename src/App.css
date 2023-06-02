@@ -63,11 +63,19 @@
 }
 
 #light .burgerStyle {
-  background-color: #000;
+  background-color: #151515;
 }
 
 #dark .burgerStyle {
-  background-color: #fff;
+  background-color: #f5f5f5;
+}
+
+#light .burgerStyle2 {
+  background-color: #f5f5f5;
+}
+
+#dark .burgerStyle2 {
+  background-color: #151515;
 }
 
 #light .windowStyle {
