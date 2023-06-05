@@ -3,13 +3,23 @@ import { useState } from "react";
 
 import "../../App.css";
 
-const FakeNavBar:React.FC<Props> = () => {
+const FakeNavBar:React.FC<Props> = ({activeStep2, setActiveStep2}) => {
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
     const genericHamburgerLine = `h-1 w-6 my-1 rounded-full burgerStyle2 transition ease transform duration-300`;
 
   const closeMenu: void = () => {
     setIsMenuOpen(false);
   };
+
+  const handlePreviousPage = () => {
+    const previousStep: number = Math.max(activeStep2 - 1, 0);
+    setActiveStep2(previousStep);
+  }  
+
+  const handleNextPage = () => {
+    const nextStep: number = Math.min(activeStep2 + 1, 1);
+    setActiveStep2(nextStep);
+  }
 
   return (
     <>
@@ -39,37 +49,41 @@ const FakeNavBar:React.FC<Props> = () => {
           </button>
 
           <ul
-            className={`menu mt-4 right-0 w-36 mr-2 burgerStyle rounded-lg shadow-md ${
+            className={`menu mt-4 right-0 w-36 mr-2 buttonClass2 rounded-lg shadow-md ${
               isMenuOpen ? "block" : "hidden"
             }`}
           >
             <li>
-              <p onClick={closeMenu} className="block px-4 py-2">
+              <button type="button" onClick={closeMenu, handlePreviousPage} className="block px-4 py-2">
                 Home
-              </p>
+              </button>
             </li>
             <li>
-              <p onClick={closeMenu} className="block px-4 py-2">
+              <button type="button" onClick={closeMenu, handleNextPage} className="block px-4 py-2">
                 Contact
-              </p>
+              </button>
             </li>
           </ul>
         </div>
 
         <ul className="menu hidden md:flex md:items-start mt-5 windowStyle">
           <li>
-            <p
+            <button
+              type="button"
               className="block px-4 py-2"
+              onClick={handlePreviousPage}
             >
               Home
-            </p>
+            </button>
           </li>
           <li>
-            <p
+            <button
+              type="button"
               className="block px-4 py-2"
+              onClick={handleNextPage}
             >
               Contact
-            </p>
+            </button>
           </li>
         </ul>
       </nav>
