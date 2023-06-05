@@ -52,69 +52,71 @@ const Stepper: React.FC = (props: StepperProps) => {
   }, [activeStep, steps.length]);
 
   return (
-    <div className={`${props.container}`}>
-      <div className="absolute top-[-10rem]">
-        <div className={`${props.style}`} role="tabpanel">
-          <div>
-            <img className={`${props.styledImage}`} src={steps[activeStep].image} alt={`img ${activeStep + 1}`} />
+    <>
+      <div className={`${props.container}`}>
+        <div className="absolute top-[-10rem]">
+          <div className={`${props.style}`} role="tabpanel">
+            <div>
+              <img className={`${props.styledImage}`} src={steps[activeStep].image} alt={`img ${activeStep + 1}`} />
+            </div>
+            <p className={`${props.style2}`} aria-label={`text ${activeStep + 1}`}>
+              {steps[activeStep].text}
+            </p>
+            <div className={`${props.style3}`}>
+              <button
+                ref={buttonRefs[0]}
+                aria-label="previous step button"
+                tabIndex={0}
+                type="button"
+                onClick={() => {
+                  handlePrevious();
+                }}
+                onKeyDown={() => {
+                  horizontalFocus(event);
+                }}
+                className={`${props.styledButtons}`}
+              >
+                Previous
+              </button>
+              <button
+                ref={buttonRefs[1]}
+                aria-label="next step button"
+                tabIndex={0}
+                type="button"
+                onClick={() => {
+                  handleNext(steps);
+                }}
+                onKeyDown={() => {
+                  horizontalFocus(event);
+                }}
+                className={`${props.styledButtons}`}
+              >
+                Next
+              </button>
+            </div>
+            {activeStep === steps.length - 1 ? (
+              <Link
+                to={`${props.href}`}
+                ref={buttonRefs[2]}
+                aria-label="start button"
+                tabIndex={0}
+                type="button"
+                onKeyDown={() => {
+                  horizontalFocus(event);
+                }}
+                className={`transition-opacity duration-[1000ms] ${props.styledButtons2} ${
+                  buttonVisible ? "opacity-100" : "opacity-0"
+                }`}
+              >
+                Start
+              </Link>
+            ) : (
+              ""
+            )}
           </div>
-          <p className={`${props.style2}`} aria-label={`text ${activeStep + 1}`}>
-            {steps[activeStep].text}
-          </p>
-          <div className={`${props.style3}`}>
-            <button
-              ref={buttonRefs[0]}
-              aria-label="previous step button"
-              tabIndex={0}
-              type="button"
-              onClick={() => {
-                handlePrevious();
-              }}
-              onKeyDown={() => {
-                horizontalFocus(event);
-              }}
-              className={`${props.styledButtons}`}
-            >
-              Previous
-            </button>
-            <button
-              ref={buttonRefs[1]}
-              aria-label="next step button"
-              tabIndex={0}
-              type="button"
-              onClick={() => {
-                handleNext(steps);
-              }}
-              onKeyDown={() => {
-                horizontalFocus(event);
-              }}
-              className={`${props.styledButtons}`}
-            >
-              Next
-            </button>
-          </div>
-          {activeStep === steps.length - 1 ? (
-            <Link
-              to={`${props.href}`}
-              ref={buttonRefs[2]}
-              aria-label="start button"
-              tabIndex={0}
-              type="button"
-              onKeyDown={() => {
-                horizontalFocus(event);
-              }}
-              className={`transition-opacity duration-[1000ms] ${props.styledButtons2} ${
-                buttonVisible ? "opacity-100" : "opacity-0"
-              }`}
-            >
-              Start
-            </Link>
-          ) : (
-            ""
-          )}
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
