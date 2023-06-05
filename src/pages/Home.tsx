@@ -1,4 +1,4 @@
-import NavBar from "@components/NavBar";
+import NavBar from "@components/header/NavBar";
 import { Link } from "react-router-dom";
 
 export default function Home() {

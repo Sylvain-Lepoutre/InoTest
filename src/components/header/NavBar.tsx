@@ -2,8 +2,9 @@ import { useRef, useState, RefObject, useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
 
-import useFocus from "../hook/useFocus";
-import { ThemeContext } from "../routes/Root";
+import useFocus from "../../hook/useFocus";
+import { ThemeContext } from "../../routes/Root";
+import FastAccesMenu from "./FastAccesMenu";
 
 type Props = {
   title?: string;
@@ -22,6 +23,7 @@ const NavBar: React.FC<Props> = ({ title }: Props) => {
     useRef<HTMLElement>(null),
     useRef<HTMLElement>(null),
     useRef<HTMLElement>(null),
+    useRef<HTMLElement>(null),
   ];
 
   const { horizontalFocus } = useFocus(navRefs);
@@ -29,6 +31,8 @@ const NavBar: React.FC<Props> = ({ title }: Props) => {
   const closeMenu = () => {
     setIsMenuOpen(false);
   };
+
+  const accesRef = navRefs[0];
 
   return (
     <>
@@ -39,7 +43,7 @@ const NavBar: React.FC<Props> = ({ title }: Props) => {
         >
           <h1 className="title">
             {title}
-            {location.pathname !== "/getstarted" && location.pathname != "/path1" && (
+            {location.pathname !== "/getstarted" && location.pathname !== "/path1" && (
               <p className="scale-50 lg:block absolute top-0 right-0 xl:mt-[-3rem] xl:mr-[-4.5rem] lg:mt-[-3.5rem] lg:mr-[-4.5rem] hidden">
                 ©
               </p>
@@ -100,9 +104,19 @@ const NavBar: React.FC<Props> = ({ title }: Props) => {
         </div>
 
         <ul className="menu hidden md:flex md:items-start mt-5">
+          <button
+            type="button"
+            aria-label="main content"
+            onKeyDown={(event) => {
+              horizontalFocus(event);
+            }}
+            className="sr-only focus-within:not-sr-only"
+          >
+            <FastAccesMenu href="#main" accesRef={accesRef} />
+          </button>
           <li>
             <Link
-              ref={navRefs[0]}
+              ref={navRefs[1]}
               onKeyDown={(event) => {
                 horizontalFocus(event);
               }}
@@ -115,7 +129,7 @@ const NavBar: React.FC<Props> = ({ title }: Props) => {
           </li>
           <li>
             <Link
-              ref={navRefs[1]}
+              ref={navRefs[2]}
               onKeyDown={(event) => {
                 horizontalFocus(event);
               }}
@@ -128,7 +142,7 @@ const NavBar: React.FC<Props> = ({ title }: Props) => {
           </li>
           <li>
             <Link
-              ref={navRefs[2]}
+              ref={navRefs[3]}
               onKeyDown={(event) => {
                 horizontalFocus(event);
               }}
@@ -142,10 +156,10 @@ const NavBar: React.FC<Props> = ({ title }: Props) => {
           <button
             type="button"
             aria-label="dark mode button"
-            ref={navRefs[3]}
+            ref={navRefs[4]}
             onKeyDown={(event) => {
               horizontalFocus(event);
-              event.key == "Enter" || (event.key == "space" && toggleTheme());
+              event.key === "Enter" || (event.key === "space" && toggleTheme());
             }}
             onClick={toggleTheme}
           >

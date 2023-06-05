@@ -1,4 +1,4 @@
-import NavBar from "@components/NavBar";
+import NavBar from "@components/header/NavBar";
 import Stepper from "@components/Stepper";
 
 export default function GetStarted() {
