@@ -19,27 +19,6 @@ export default function Path1(): JSX.Element {
         <header>
           <NavBar escapeRef={escapeRef} />
         </header>
-        <main>
-          <section className="overflow-auto mx-2 sm:mx-16 mb-6 xl:h-[25rem] 2xl:h-[32rem] rounded shadow-lg md:mt-[1rem] windowStyle">
-            <FakeNavBar activeStep2={activeStep2} setActiveStep2={setActiveStep2} />
-            {activeStep2 === 0 ? (
-              <>
-                <FakeArticle
-                  title="This is a testing zone"
-                  content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ac interdum lectus, vitae tempus arcu. Donec molestie nisi diam, sed mattis dui volutpat eu. Pellentesque hendrerit nisl vitae mollis rhoncus. Suspendisse sed dolor in dui bibendum rhoncus ac quis odio. Suspendisse tempor odio eu aliquet ultrices. Sed venenatis, metus a euismod sagittis, neque lectus fringilla purus, non vehicula odio risus vel ante. Duis eget velit a metus egestas vestibulum."
-                  imageSrcTop="/fake-1.jpg"
-                  imageSrcBottom="/fake-2.jpg"
-                  style="windowStyle md:mt-0 mt-12"
-                  styleContainer="max-w-5xl px-4 mx-auto sm:px-6 lg:px-8"
-                  styleSubContainer="grid items-center md:grid-cols-2 gap-y-10 md:gap-x-20 mt-8"
-                  styleImageContainer="md:pr-12 pr-0 md:block flex flex-col items-center"
-                  styleTextContainer="windowStyle"
-                  styleImage="relative max-w-xs mb-12 mt-8"
-                  styleImageTop="hidden md:block object-bottom rounded-md scale-75 object-cover h-[25rem]"
-                  styleImageBottom="md:absolute md:origin-bottom-right scale-100 md:scale-75 rounded -bottom-6 md:-bottom-12 md:-right-12"
-                  styleTitle="text-3xl text-center md:text-left font-bold leading-tight sm:text-4xl lg:text-5xl"
-                  styleContent="mt-8 md:text-base leading-relaxed"
-                />
 
         <section className="overflow-auto overflow-x-hidden mx-2 sm:mx-16 mb-6 h-[70vh] rounded shadow-lg md:mt-[1rem] windowStyle">
           <FakeNavBar activeStep2={activeStep2} setActiveStep2={setActiveStep2} />

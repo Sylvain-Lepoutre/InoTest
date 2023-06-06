@@ -49,7 +49,6 @@ export default function FakeArticle(props: FakeArticleProps) {
                                 modalContent='Il manque ceci : alt="" aria-hidden="true" role="presentation"'
                                 style="text-black mt-3 md:mt-0 place-self-center"
                             />
-                            <img className={styleImageBottom} src={imageSrcBottom} />
                         </div>
                     </div>
         
@@ -67,14 +66,6 @@ export default function FakeArticle(props: FakeArticleProps) {
                     </div>
                 </div>
             </div>
-          </div>
-
-          <div className={styleTextContainer}>
-            <h2 className={styleTitle}>{title}</h2>
-            <p className={styleContent}>{content}</p>
-          </div>
-        </div>
-      </div>
     </section>
   );
 }
