@@ -8,9 +8,10 @@ import FastAccesMenu from "./FastAccesMenu";
 
 type Props = {
   title?: string;
+  escapeRef?: RefObject<HTMLElement>;
 };
 
-const NavBar: React.FC<Props> = ({ title }: Props) => {
+const NavBar: React.FC<Props> = ({ title, escapeRef }: Props) => {
   const { theme, toggleTheme } = useContext(ThemeContext) as {
     theme: string;
     toggleTheme: () => void;
@@ -105,6 +106,7 @@ const NavBar: React.FC<Props> = ({ title }: Props) => {
 
         <ul className="menu hidden md:flex md:items-start mt-5">
           <button
+            ref={escapeRef}
             type="button"
             aria-label="main content"
             onKeyDown={(event) => {

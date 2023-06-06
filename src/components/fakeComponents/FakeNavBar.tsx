@@ -1,30 +1,34 @@
-import { constants } from "http2";
 import { useState } from "react";
 
 import "../../App.css";
 
-const FakeNavBar:React.FC<Props> = ({activeStep2, setActiveStep2}) => {
-    const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
-    const genericHamburgerLine = `h-1 w-6 my-1 rounded-full burgerStyle2 transition ease transform duration-300`;
+interface Props {
+  activeStep2: number;
+  setActiveStep2: React.Dispatch<React.SetStateAction<number>>;
+}
+
+const FakeNavBar: React.FC<Props> = (props: Props) => {
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const genericHamburgerLine = `h-1 w-6 my-1 rounded-full burgerStyle2 transition ease transform duration-300`;
 
   const closeMenu: void = () => {
     setIsMenuOpen(false);
   };
 
   const handlePreviousPage = () => {
-    const previousStep: number = Math.max(activeStep2 - 1, 0);
-    setActiveStep2(previousStep);
-  }  
+    const previousStep: number = Math.max(props.activeStep2 - 1, 0);
+    props.setActiveStep2(previousStep);
+  };
 
   const handleNextPage = () => {
-    const nextStep: number = Math.min(activeStep2 + 1, 1);
-    setActiveStep2(nextStep);
-  }
+    const nextStep: number = Math.min(props.activeStep2 + 1, 1);
+    props.setActiveStep2(nextStep);
+  };
 
   return (
     <>
       <nav className="h-[2rem] flex justify-between px-4">
-      <div className="relative md:hidden flex items-start mr-[-1rem]">
+        <div className="relative md:hidden flex items-start mr-[-1rem]">
           <button
             className="flex flex-col h-12 w-12  mt-5 rounded justify-center"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -54,12 +58,12 @@ const FakeNavBar:React.FC<Props> = ({activeStep2, setActiveStep2}) => {
             }`}
           >
             <li>
-              <button type="button" onClick={closeMenu, handlePreviousPage} className="block px-4 py-2">
+              <button type="button" onClick={(closeMenu, handlePreviousPage)} className="block px-4 py-2">
                 Home
               </button>
             </li>
             <li>
-              <button type="button" onClick={closeMenu, handleNextPage} className="block px-4 py-2">
+              <button type="button" onClick={(closeMenu, handleNextPage)} className="block px-4 py-2">
                 Contact
               </button>
             </li>
@@ -68,20 +72,12 @@ const FakeNavBar:React.FC<Props> = ({activeStep2, setActiveStep2}) => {
 
         <ul className="menu hidden md:flex md:items-start mt-5 windowStyle">
           <li>
-            <button
-              type="button"
-              className="block px-4 py-2"
-              onClick={handlePreviousPage}
-            >
+            <button type="button" className="block px-4 py-2" onClick={handlePreviousPage}>
               Home
             </button>
           </li>
           <li>
-            <button
-              type="button"
-              className="block px-4 py-2"
-              onClick={handleNextPage}
-            >
+            <button type="button" className="block px-4 py-2" onClick={handleNextPage}>
               Contact
             </button>
           </li>
@@ -90,6 +86,5 @@ const FakeNavBar:React.FC<Props> = ({activeStep2, setActiveStep2}) => {
     </>
   );
 };
-
 
 export default FakeNavBar;
