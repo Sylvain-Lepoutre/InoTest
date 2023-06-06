@@ -8,7 +8,7 @@ export default function Home() {
         <NavBar title="Inotest" />
       </header>
       <section className="md:grid md:grid-cols-2 md:grid-rows-2 md:justify-items-start">
-        <div className="h-[8rem] md:h-[14rem] flex flex-col items-center justify-center md:col-start-1 md:row-start-1 md:place-content-end">
+        <div className="h-[8rem] md:h-[35vh] flex flex-col items-center justify-center md:col-start-1 md:row-start-1 md:place-content-end">
           <h2 className="title md:max-w-min text-3xl md:block lg:block xl:block md:text-4xl xl:text-5xl lg:text-5xl md:ml-[35rem] lg:ml-[45rem] xl:mt-[-3.5rem] xl:ml-[59rem]">
             Accessibility Testing
           </h2>

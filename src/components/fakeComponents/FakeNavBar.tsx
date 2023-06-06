@@ -23,10 +23,10 @@ const FakeNavBar:React.FC<Props> = ({activeStep2, setActiveStep2}) => {
 
   return (
     <>
-      <nav className="h-[2rem] flex justify-between px-4">
+      <nav className="h-[2rem] flex justify-between px-4 py-8">
       <div className="relative md:hidden flex items-start mr-[-1rem]">
           <button
-            className="flex flex-col h-12 w-12  mt-5 rounded justify-center"
+            className="flex flex-col h-12 w-12 rounded justify-center"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             <div
@@ -49,28 +49,28 @@ const FakeNavBar:React.FC<Props> = ({activeStep2, setActiveStep2}) => {
           </button>
 
           <ul
-            className={`menu mt-4 right-0 w-36 mr-2 buttonClass2 rounded-lg shadow-md ${
+            className={`menu right-0 w-36 mr-2 buttonClass2 rounded-lg shadow-md ${
               isMenuOpen ? "block" : "hidden"
             }`}
           >
             <li>
-              <button type="button" onClick={closeMenu, handlePreviousPage} className="block px-4 py-2">
+              <button type="button" onClick={closeMenu, handlePreviousPage} className="block px-4 py-2 transition duration-300 ease-in-out transform hover:scale-105">
                 Home
               </button>
             </li>
             <li>
-              <button type="button" onClick={closeMenu, handleNextPage} className="block px-4 py-2">
+              <button type="button" onClick={closeMenu, handleNextPage} className="block px-4 py-2 transition duration-300 ease-in-out transform hover:scale-105">
                 Contact
               </button>
             </li>
           </ul>
         </div>
 
-        <ul className="menu hidden md:flex md:items-start mt-5 windowStyle">
+        <ul className="menu hidden md:flex md:items-end mt-5 windowStyle">
           <li>
             <button
               type="button"
-              className="block px-4 py-2"
+              className="block px-4 py-2 transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-md"
               onClick={handlePreviousPage}
             >
               Home
@@ -79,7 +79,7 @@ const FakeNavBar:React.FC<Props> = ({activeStep2, setActiveStep2}) => {
           <li>
             <button
               type="button"
-              className="block px-4 py-2"
+              className="block px-4 py-2 transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-md"
               onClick={handleNextPage}
             >
               Contact

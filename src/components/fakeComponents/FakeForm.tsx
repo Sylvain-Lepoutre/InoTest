@@ -85,7 +85,7 @@ export default function FakeForm() {
             />
             </div>
             <div class="md:w-full md:mt-6 ml-3">
-                <button type="submit" class="cursor-pointer shadow formStyle focus:shadow-outline focus:outline-none font-bold py-2 px-4 rounded">Send form</button>
+                <button type="submit" class="cursor-pointer shadow formStyle focus:shadow-outline focus:outline-none font-bold py-2 px-4 rounded hover:scale-110 transform transition-transform duration-200">Send form</button>
             </div>
         </div>
     </form>

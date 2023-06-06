@@ -7,7 +7,7 @@ export default function GetStarted() {
       <header>
         <NavBar />
         <Stepper
-          container="flex justify-center align-center relative mt-52 md:mt-40"
+          container="flex justify-center align-center relative mt-52 md:mt-[30vh]"
           href="/path1"
           style="flex justify-center align-center flex-col items-center rounded bg-[#151515] md:w-[40rem] p-4 m-8 md:h-[20rem] windowStyle"
           style2="text-center mt-4 text-white my-[5rem] windowStyle"
