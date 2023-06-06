@@ -55,13 +55,17 @@ export default function Path1() {
           ) : (
             <section className="flex flex-row gap-12 justify-center items-center mt-10 p-6">
               <FakeForm />
-              <img src="/contact-1.avif" className="min-[940px]:block hidden max-w-md mb-12 mt-8 shadow rounded" />
+              <img
+                src="/contact-1.avif"
+                className="min-[940px]:block hidden max-w-md mb-12 mt-8 shadow rounded"
+                alt=""
+              />
             </section>
           )}
         </section>
 
         <section className="md:grid md:grid-cols-2 md:justify-items-end flex flex-col gap-1 justify-center items-center h-fit">
-        <Link
+          <Link
             to="/getstarted"
             className="md:col-start-1 md:place-self-start buttonClass w-[15rem] rounded-lg xl:h-[2rem] 2xl:h-[3rem] md:ml-16 md:row-start-1 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 flex justify-center items-center"
           >
