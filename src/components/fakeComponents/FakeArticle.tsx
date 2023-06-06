@@ -67,6 +67,14 @@ export default function FakeArticle(props: FakeArticleProps) {
                     </div>
                 </div>
             </div>
-        </section>      
-    )
+          </div>
+
+          <div className={styleTextContainer}>
+            <h2 className={styleTitle}>{title}</h2>
+            <p className={styleContent}>{content}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }
