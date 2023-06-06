@@ -1,14 +1,12 @@
-import React from "react";
-
 export default function FakeForm() {
   return (
     <>
-      <form className="w-full max-w-lg md:p-0 px-6" action="#" method="post">
+      <section className="w-full max-w-lg md:p-0 px-6">
         <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-            <label htmlFor="grid-first-name" className="block uppercase tracking-wide formTitle text-xs font-bold mb-2">
+            <p htmlFor="grid-first-name" className="block uppercase tracking-wide formTitle text-xs font-bold mb-2">
               First Name
-            </label>
+            </p>
             <input
               id="grid-first-name"
               type="text"
@@ -17,12 +15,12 @@ export default function FakeForm() {
             />
           </div>
           <div className="w-full md:w-1/2 px-3">
-            <label
+            <p
               htmlFor="grid-last-name"
               className="block uppercase tracking-wide formTitle formTitle text-xs font-bold mb-2"
             >
               Last Name
-            </label>
+            </p>
             <input
               id="grid-last-name"
               type="text"
@@ -33,9 +31,9 @@ export default function FakeForm() {
         </div>
         <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full px-3">
-            <label htmlFor="grid-message" className="block uppercase tracking-wide formTitle text-xs font-bold mb-2">
+            <p htmlFor="grid-message" className="block uppercase tracking-wide formTitle text-xs font-bold mb-2">
               Message
-            </label>
+            </p>
             <textarea
               id="grid-message"
               type="message"
@@ -46,9 +44,9 @@ export default function FakeForm() {
         </div>
         <div className="flex flex-wrap -mx-3 mb-2">
           <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-            <label htmlFor="grid-city" className="block uppercase tracking-wide formTitle text-xs font-bold mb-2">
+            <p htmlFor="grid-city" className="block uppercase tracking-wide formTitle text-xs font-bold mb-2">
               City
-            </label>
+            </p>
             <input
               id="grid-city"
               type="text"
@@ -57,9 +55,9 @@ export default function FakeForm() {
             />
           </div>
           <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-            <label htmlFor="grid-state" className="block uppercase tracking-wide formTitle text-xs font-bold mb-2">
+            <p htmlFor="grid-state" className="block uppercase tracking-wide formTitle text-xs font-bold mb-2">
               State
-            </label>
+            </p>
             <div className="relative">
               <select
                 id="grid-state"
@@ -77,9 +75,9 @@ export default function FakeForm() {
             </div>
           </div>
           <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-            <label htmlFor="grid-zip" className="block uppercase tracking-wide formTitle text-xs font-bold mb-2">
+            <p htmlFor="grid-zip" className="block uppercase tracking-wide formTitle text-xs font-bold mb-2">
               Zip
-            </label>
+            </p>
             <input
               id="grid-zip"
               type="text"
@@ -96,7 +94,7 @@ export default function FakeForm() {
             </button>
           </div>
         </div>
-      </form>
+      </section>
     </>
   );
 }
