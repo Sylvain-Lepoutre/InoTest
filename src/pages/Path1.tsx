@@ -19,7 +19,6 @@ export default function Path1(): JSX.Element {
         <header>
           <NavBar escapeRef={escapeRef} />
         </header>
-        <main>
 
         <section className="overflow-auto overflow-x-hidden mx-2 sm:mx-16 mb-6 h-[70vh] rounded shadow-lg md:mt-[1rem] windowStyle">
           <FakeNavBar activeStep2={activeStep2} setActiveStep2={setActiveStep2} />
