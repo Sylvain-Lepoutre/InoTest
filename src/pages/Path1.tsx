@@ -7,11 +7,11 @@ import FakeNavBar from "@components/fakeComponents/FakeNavBar";
 import FakeForm from "@components/fakeComponents/FakeForm";
 import useEscapeKey from "../hook/useEscapeKey";
 
-export default function Path1(): JSX.Element {
+export default function Path1() {
   const [activeStep2, setActiveStep2] = useState<number>(0);
   const escapeRef = useRef<HTMLElement>(null);
 
-  useEscapeKey(escapeRef);
+  useEscapeKey(escapeRef)
 
   return (
     <>
