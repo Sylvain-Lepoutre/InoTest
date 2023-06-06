@@ -44,7 +44,7 @@ const NavBar: React.FC<Props> = ({ title, escapeRef }: Props) => {
         >
           <h1 className="title">
             {title}
-            {location.pathname !== "/getstarted" && location.pathname !== "/path1" && (
+            {location.pathname !== "/getstarted" && location.pathname !== "/path1" && location.pathname !== "/path2" && (
               <p className="scale-50 lg:block absolute top-0 right-0 xl:mt-[-3rem] xl:mr-[-4.5rem] lg:mt-[-3.5rem] lg:mr-[-4.5rem] hidden">
                 ©
               </p>

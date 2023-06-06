@@ -8,6 +8,7 @@ import Contact from "@pages/Contact";
 import ErrorPage from "@pages/ErrorPage";
 import GetStarted from "@pages/GetStarted";
 import Path1 from "@pages/Path1";
+import Path2 from "@pages/Path2";
 import Home from "@pages/Home";
 
 const router = createBrowserRouter([
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: "/path1",
         element: <Path1 />,
+      },
+      {
+        path: "/path2",
+        element: <Path2 />,
       },
     ],
   },

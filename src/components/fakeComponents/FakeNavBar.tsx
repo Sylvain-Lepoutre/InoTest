@@ -28,9 +28,9 @@ const FakeNavBar: React.FC<Props> = (props: Props) => {
   return (
     <>
       <nav className="h-[2rem] flex justify-between px-4">
-        <div className="relative md:hidden flex items-start mr-[-1rem]">
+      <div className="relative md:hidden flex items-start mr-[-1rem]">
           <button
-            className="flex flex-col h-12 w-12  mt-5 rounded justify-center"
+            className="flex flex-col h-12 w-12 rounded justify-center"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             <div
@@ -53,31 +53,39 @@ const FakeNavBar: React.FC<Props> = (props: Props) => {
           </button>
 
           <ul
-            className={`menu mt-4 right-0 w-36 mr-2 buttonClass2 rounded-lg shadow-md ${
+            className={`menu right-0 w-36 mr-2 buttonClass2 rounded-lg shadow-md ${
               isMenuOpen ? "block" : "hidden"
             }`}
           >
             <li>
-              <button type="button" onClick={(closeMenu, handlePreviousPage)} className="block px-4 py-2">
+              <button type="button" onClick={closeMenu, handlePreviousPage} className="block px-4 py-2">
                 Home
               </button>
             </li>
             <li>
-              <button type="button" onClick={(closeMenu, handleNextPage)} className="block px-4 py-2">
+              <button type="button" onClick={closeMenu, handleNextPage} className="block px-4 py-2">
                 Contact
               </button>
             </li>
           </ul>
         </div>
 
-        <ul className="menu hidden md:flex md:items-start mt-5 windowStyle">
+        <ul className="menu hidden md:flex md:items-end mt-5 windowStyle">
           <li>
-            <button type="button" className="block px-4 py-2" onClick={handlePreviousPage}>
+            <button
+              type="button"
+              className="block px-4 py-2"
+              onClick={handlePreviousPage}
+            >
               Home
             </button>
           </li>
           <li>
-            <button type="button" className="block px-4 py-2" onClick={handleNextPage}>
+            <button
+              type="button"
+              className="block px-4 py-2"
+              onClick={handleNextPage}
+            >
               Contact
             </button>
           </li>
