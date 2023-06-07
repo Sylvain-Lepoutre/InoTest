@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import useEscapeKey from "../hook/useEscapeKey";
+import useEscapeKey from "../../hook/useEscapeKey";
 
 type ModalButtonProps = {
   buttonText: string;
