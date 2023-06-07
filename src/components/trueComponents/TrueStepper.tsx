@@ -1,5 +1,6 @@
 import React, { useState, useRef, RefObject } from "react";
 import useFocus from "../../hook/useFocus";
+import RightModalButton from "@components/UI/RightModal";
 
 interface TrueStep {
   image?: string;
@@ -19,7 +20,6 @@ interface TrueStepperProps {
 
 const Stepper: React.FC = (props: TrueStepperProps) => {
   const [activeStep, setActiveStep] = useState<number>(0);
-  const [isTransitioning, setIsTransitioning] = useState<boolean>(false);
   const buttonRefs: RefObject<HTMLButtonElement>[] = [
     useRef<HTMLButtonElement>(null),
     useRef<HTMLButtonElement>(null),
@@ -27,46 +27,40 @@ const Stepper: React.FC = (props: TrueStepperProps) => {
   ];
 
   const steps: TrueStep[] = [
-    { image: "/carousel-1.avif", text: "InoTest 1" },
-    { image: "/carousel-2.avif", text: "InoTest 2" },
-    { image: "/carousel-3.avif", text: "InoTest 3" },
-    { image: "/carousel-4.avif", text: "InoTest 4" },
+    { image: "https://picsum.photos/id/116/500/200", text: "InoTest 1" },
+    { image: "https://picsum.photos/id/196/500/200", text: "InoTest 2" },
+    { image: "https://picsum.photos/id/176/500/200", text: "InoTest 3" },
+    { image: "https://picsum.photos/id/184/500/200", text: "InoTest 4" },
   ];
 
   const { horizontalFocus } = useFocus(buttonRefs);
 
   const handleNext = (array: FakeStep[]) => {
-    setIsTransitioning(true);
-    setTimeout(() => {
-      const nextStep: number = Math.min(activeStep + 1, array.length - 1);
-      setActiveStep(nextStep);
-      setIsTransitioning(false);
-    }, 900);
+    const nextStep: number = Math.min(activeStep + 1, array.length - 1);
+    setActiveStep(nextStep);
+
   };
 
   const handlePrevious = () => {
-    setIsTransitioning(true);
-    setTimeout(() => {
-      const previousStep: number = Math.max(activeStep - 1, 0);
-      setActiveStep(previousStep);
-      setIsTransitioning(false);
-    }, 900);
+    const previousStep: number = Math.max(activeStep - 1, 0);
+    setActiveStep(previousStep);
   };
 
   return (
     <>
       <div className={`${props.container}`}>
         <div className="absolute top-[-10rem]">
-          <div className={`${props.style}`}>
-            <div className={`${props.style2} ${isTransitioning ? "fade-left" : ""}`}>
-              <img
-                className={`${props.styledImage}`}
-                src={steps[activeStep].image}
-                alt={`img ${activeStep + 1}`}
-                aria-hidden="true"
-                role="presentation"
-              />
-              <p aria-label={`text ${activeStep + 1}`}>{steps[activeStep].text}</p>
+          <div className={`${props.style}`} role="tabpanel">
+            <RightModalButton
+              buttonText="✓"
+              modalContent="Buttons have aria-label and type attribute, and can be moved by keyboard keys. And images have the following attributes: alt='' aria-hidden='true' role='presentation'."
+              style="text-black"
+            />
+            <div className={`${props.style2}`}>
+              <img className={`${props.styledImage}`} src={steps[activeStep].image} alt={`img ${activeStep + 1}`} aria-hidden="true" role="presentation" />
+              <p aria-label={`text ${activeStep + 1}`}>
+                {steps[activeStep].text}
+              </p>
             </div>
             <button
               ref={buttonRefs[0]}

@@ -1,3 +1,5 @@
+import RightModalButton from "@components/UI/RightModal";
+
 type TrueArticleProps = {
     style?: string;
     styleContainer?: string;
@@ -42,12 +44,24 @@ export default function TrueArticle(props: TrueArticleProps) {
                     <div className={styleImageContainer}>
                         <div className={styleImage}>
                             <img className={styleImageTop} src={imageSrcTop} alt="" aria-hidden="true" role="presentation" />
+                            <RightModalButton
+                              buttonText="✓"
+                              modalContent="Images have the following attributes: alt='' aria-hidden='true' role='presentation'."
+                              style="text-black mt-3 md:mt-0 place-self-center"
+                            />
                             <img className={styleImageBottom} src={imageSrcBottom} alt="" aria-hidden="true" role="presentation" />
                         </div>
                     </div>
         
                     <section className={styleTextContainer}>
-                        <h1 className={styleTitle}>{title}</h1>
+                        <div className="flex flex-col md:flex-row gap-2 justify-center items-center">
+                          <h1 className={styleTitle}>{title}</h1>
+                          <RightModalButton
+                            buttonText="✓"
+                            modalContent="The semantic hierarchy of title tags is consistent."
+                            style="text-black"
+                          />
+                        </div>
                         <h2 className={styleSubTitle}>{subTitle}</h2>
                         <p className={styleContent}>{content}</p>
                     </section>

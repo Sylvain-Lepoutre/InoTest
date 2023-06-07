@@ -1,7 +1,15 @@
+import ErrorModalButton from "@components/UI/ErrorModal";
+import SelectMenu from "@components/UI/SelectMenu";
+
 export default function FakeForm() {
   return (
     <>
       <section className="w-full max-w-lg md:p-0 px-6">
+        <ErrorModalButton
+          buttonText="!"
+          modalContent="The tags used in the form are not semantically correct. For example there is no label tags wrapped around the input tags."
+          style="text-black ml-24 mb-2 md:mt-0 place-self-center"
+        />
         <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
             <p htmlFor="grid-first-name" className="block uppercase tracking-wide formTitle text-xs font-bold mb-2">
@@ -85,13 +93,18 @@ export default function FakeForm() {
               className="appearance-none block w-full formStyle border rounded py-3 px-4 leading-tight"
             />
           </div>
-          <div className="md:w-full md:mt-6 ml-3">
+          <div className="flex flex-row gap-20 md:w-full md:mt-6 ml-3">
             <button
               type="submit"
               className="cursor-pointer shadow formStyle focus:shadow-outline focus:outline-none font-bold py-2 px-4 rounded  hover:scale-110 transform transition-transform duration-200"
             >
               Send form
             </button>
+            <ErrorModalButton
+                buttonText="!"
+                modalContent="The select menu doesn't have the aria-expanded attribute."
+                style="text-black md:mt-0 place-self-center"
+              />
           </div>
         </div>
       </section>

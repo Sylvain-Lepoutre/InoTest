@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/alt-text */
-import ModalButton from "@components/UI/Modal";
+import ErrorModalButton from "@components/UI/ErrorModal";
 
 type FakeArticleProps = {
   style?: string;
@@ -45,7 +45,7 @@ export default function FakeArticle(props: FakeArticleProps) {
           <div className={styleImageContainer}>
             <div className={styleImage}>
               <img className={styleImageTop} src={imageSrcTop} />
-              <ModalButton
+              <ErrorModalButton
                 aria-label="information popup"
                 buttonText="!"
                 modalContent="Images do not have the following attributes: alt='' aria-hidden='true' role='presentation'."
@@ -58,7 +58,7 @@ export default function FakeArticle(props: FakeArticleProps) {
           <div className={styleTextContainer}>
             <div className="flex flex-col md:flex-row gap-2 justify-center items-center">
               <h4 className={styleTitle}>{title}</h4>
-              <ModalButton
+              <ErrorModalButton
                 aria-label="information popup"
                 buttonText="!"
                 modalContent="The semantic hierarchy of title tags is inconsistent."
