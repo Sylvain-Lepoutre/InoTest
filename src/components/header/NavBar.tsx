@@ -8,10 +8,11 @@ import FastAccesMenu from "./FastAccesMenu";
 
 type Props = {
   title?: string;
+  href?: string;
   escapeRef?: RefObject<HTMLElement>;
 };
 
-const NavBar: React.FC<Props> = ({ title, escapeRef }: Props) => {
+const NavBar: React.FC<Props> = ({ title, escapeRef, href }: Props) => {
   const { theme, toggleTheme } = useContext(ThemeContext) as {
     theme: string;
     toggleTheme: () => void;
@@ -107,7 +108,7 @@ const NavBar: React.FC<Props> = ({ title, escapeRef }: Props) => {
 
         <ul className="menu hidden md:flex md:items-start mt-5">
           <li>
-            <FastAccesMenu horizontalFocus={horizontalFocus} navRef={navRefs[0]} />
+            <FastAccesMenu href={href} horizontalFocus={horizontalFocus} navRef={navRefs[0]} />
           </li>
           <li>
             <Link

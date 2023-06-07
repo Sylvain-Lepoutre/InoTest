@@ -5,7 +5,7 @@ export default function GetStarted() {
   return (
     <>
       <header>
-        <NavBar />
+        <NavBar href="#main"/>
       </header>
 
       <section className="">

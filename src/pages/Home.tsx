@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <>
       <header>
-        <NavBar title="Inotest" />
+        <NavBar href="#main" title="Inotest" />
       </header>
 
       <section className="md:grid md:grid-cols-2 md:grid-rows-2 md:justify-items-start h-[90vh]">
