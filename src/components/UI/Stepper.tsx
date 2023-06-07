@@ -1,5 +1,5 @@
 import React, { useState, useRef, RefObject, useEffect } from "react";
-import useFocus from "../hook/useFocus";
+import useFocus from "../../hook/useFocus";
 import { Link } from "react-router-dom";
 
 interface Step {

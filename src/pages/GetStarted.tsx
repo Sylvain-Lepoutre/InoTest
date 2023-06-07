@@ -1,5 +1,5 @@
 import NavBar from "@components/header/NavBar";
-import Stepper from "@components/Stepper";
+import Stepper from "@components/UI/Stepper";
 
 export default function GetStarted() {
   return (
