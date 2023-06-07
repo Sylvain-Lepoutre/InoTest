@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <>
       <header>
-        <NavBar title="Inotest" />
+        <NavBar href="#main" title="Inotest" />
       </header>
       <section className="md:grid md:grid-cols-2 md:grid-rows-2 md:justify-items-start">
         <div className="h-[8rem] md:h-[35vh] flex flex-col items-center justify-center md:col-start-1 md:row-start-1 md:place-content-end">

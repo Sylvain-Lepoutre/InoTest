@@ -11,13 +11,13 @@ export default function Path1() {
   const [activeStep2, setActiveStep2] = useState<number>(0);
   const escapeRef = useRef<HTMLElement>(null);
 
-  useEscapeKey(escapeRef)
+  useEscapeKey(escapeRef);
 
   return (
     <>
       <section>
         <header>
-          <NavBar escapeRef={escapeRef} />
+          <NavBar href="#main" escapeRef={escapeRef} />
         </header>
 
         <section className="overflow-auto overflow-x-hidden mx-2 sm:mx-16 mb-6 h-[70vh] rounded shadow-lg md:mt-[1rem] windowStyle">

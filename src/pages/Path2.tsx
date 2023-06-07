@@ -17,7 +17,7 @@ export default function Path2() {
     <>
       <section>
         <header>
-          <NavBar escapeRef={escapeRef} />
+          <NavBar href="#main" escapeRef={escapeRef} />
         </header>
 
         <section
