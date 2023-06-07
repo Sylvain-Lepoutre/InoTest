@@ -20,9 +20,9 @@ function Root() {
   return (
     <div>
       <ThemeContext.Provider value={{ theme, toggleTheme }}>
-        <div id={theme} className="h-screen">
+        <body id={theme} className="h-full w-full">
           <Outlet />
-        </div>
+        </body>
       </ThemeContext.Provider>
     </div>
   );

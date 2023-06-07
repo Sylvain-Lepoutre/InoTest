@@ -6,6 +6,7 @@ import FakeStepper from "@components/fakeComponents/FakeStepper";
 import FakeNavBar from "@components/fakeComponents/FakeNavBar";
 import FakeForm from "@components/fakeComponents/FakeForm";
 import useEscapeKey from "../hook/useEscapeKey";
+import ErrorModalButton from "@components/UI/ErrorModal";
 
 export default function Path1() {
   const [activeStep2, setActiveStep2] = useState<number>(0);
@@ -20,7 +21,7 @@ export default function Path1() {
           <NavBar escapeRef={escapeRef} />
         </header>
 
-        <section className="overflow-auto overflow-x-hidden mx-2 sm:mx-16 mb-6 h-[70vh] rounded shadow-lg md:mt-[1rem] windowStyle">
+        <section className="overflow-auto overflow-x-hidden mx-2 sm:mx-16 mb-6 h-[70vh] rounded shadow-lg md:mt-[1rem] windowStyle testing">
           <FakeNavBar activeStep2={activeStep2} setActiveStep2={setActiveStep2} />
           {activeStep2 === 0 ? (
             <>
@@ -28,8 +29,8 @@ export default function Path1() {
                 title="This is a testing zone"
                 subTitle="And it is not accessible !"
                 content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ac interdum lectus, vitae tempus arcu. Donec molestie nisi diam, sed mattis dui volutpat eu. Pellentesque hendrerit nisl vitae mollis rhoncus. Suspendisse sed dolor in dui bibendum rhoncus ac quis odio. Suspendisse tempor odio eu aliquet ultrices."
-                imageSrcTop="/fake-1.avif"
-                imageSrcBottom="/fake-2.avif"
+                imageSrcTop="https://picsum.photos/id/112/200/300"
+                imageSrcBottom="https://picsum.photos/id/103/300/200"
                 style="windowStyle md:mt-0 mt-12"
                 styleContainer="max-w-5xl px-4 mx-auto sm:px-6 lg:px-8 md:mt-[-1em]"
                 styleSubContainer="grid items-center md:grid-cols-2 md:gap-x-20"
@@ -53,12 +54,17 @@ export default function Path1() {
               />
             </>
           ) : (
-            <section className="flex flex-row gap-12 justify-center items-center mt-10 p-6">
+            <section className="flex flex-row gap-12 justify-center items-center mt-[-1em] p-x-6">
               <FakeForm />
               <img
-                src="/contact-1.avif"
+                src="https://picsum.photos/800/500"
                 className="min-[940px]:block hidden max-w-md mb-12 mt-8 shadow rounded"
                 alt=""
+              />
+              <ErrorModalButton
+                buttonText="!"
+                modalContent="This image do not have the following attributes: alt='' aria-hidden='true' role='presentation'."
+                style="text-black mt-3 md:mt-0 place-self-center min-[940px]:block hidden"
               />
             </section>
           )}
