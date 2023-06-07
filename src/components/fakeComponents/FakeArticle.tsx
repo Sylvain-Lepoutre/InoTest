@@ -50,7 +50,7 @@ export default function FakeArticle(props: FakeArticleProps) {
                 modalContent="Images do not have the following attributes: alt='' aria-hidden='true' role='presentation'."
                 style="text-black mt-3 md:mt-0 place-self-center"
               />
-            <img className={styleImageBottom} src={imageSrcBottom} />
+              <img className={styleImageBottom} src={imageSrcBottom} />
             </div>
           </div>
 
