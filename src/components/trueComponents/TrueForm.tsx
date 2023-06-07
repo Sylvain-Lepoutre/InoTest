@@ -1,9 +1,15 @@
+import RightModalButton from "@components/UI/RightModal";
 import SelectMenu from "@components/UI/SelectMenu";
 
 export default function TrueForm() {
   return (
     <>
-      <form className="w-full max-w-lg md:p-0 px-6" action="#" method="post">
+    <form className="w-full max-w-lg md:p-0 px-6" action="#" method="post">
+        <RightModalButton
+          buttonText="✓"
+          modalContent="The tags used in the form are semantically correct. For example there is label tags wrapping the input tags and there is a form tag."
+          style="text-black ml-24 mb-2 md:mt-0 place-self-center"
+        />
         <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
             <label htmlFor="grid-first-name" className="block uppercase tracking-wide formTitle text-xs font-bold mb-2">
@@ -79,15 +85,15 @@ export default function TrueForm() {
               placeholder="90210"
               className="appearance-none block w-full formStyle border rounded py-3 px-4 leading-tight"
             />
-          </div>
-          <div className="md:w-full md:mt-6 ml-3">
-            <button
-              type="submit"
-              className="cursor-pointer shadow formStyle focus:shadow-outline focus:outline-none font-bold py-2 px-4 rounded hover:scale-110 transform transition-transform duration-200"
-            >
-              Send form
-            </button>
-          </div>
+            </div>
+            <div class="flex flex-row gap-20 md:w-full md:mt-6 ml-3">
+                <button type="submit" class="cursor-pointer shadow formStyle focus:shadow-outline focus:outline-none font-bold py-2 px-4 rounded hover:scale-110 transform transition-transform duration-200">Send form</button>
+                <RightModalButton
+                    buttonText="✓"
+                    modalContent="The select menu have the aria-expanded attribute."
+                    style="text-black md:mt-0 place-self-center"
+                />
+            </div>
         </div>
       </form>
     </>

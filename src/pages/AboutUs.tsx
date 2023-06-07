@@ -4,8 +4,9 @@ export default function Home() {
   return (
     <>
       <header>
-        <NavBar title="Inotest" />
+        <NavBar href="#main" title="Inotest" />
       </header>
+
       <section className="flex justify-center items-center md:grid md:grid-cols-2 md:grid-rows-1 md:justify-items-start mt-[5rem]">
         <article
           aria-label="about us"

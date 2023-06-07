@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <>
       <header>
-        <NavBar title="Inotest" />
+        <NavBar href="#main" title="Inotest" />
       </header>
     </>
   );
