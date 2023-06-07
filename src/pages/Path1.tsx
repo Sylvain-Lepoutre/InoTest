@@ -12,7 +12,7 @@ export default function Path1() {
   const [activeStep2, setActiveStep2] = useState<number>(0);
   const escapeRef = useRef<HTMLElement>(null);
 
-  useEscapeKey(escapeRef)
+  useEscapeKey(escapeRef);
 
   return (
     <>

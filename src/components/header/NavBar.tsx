@@ -7,6 +7,7 @@ import { ThemeContext } from "../../routes/Root";
 import FastAccesMenu from "./FastAccesMenu";
 
 type Props = {
+  href: string;
   title?: string;
   href?: string;
   escapeRef?: RefObject<HTMLElement>;
@@ -39,9 +40,7 @@ const NavBar: React.FC<Props> = ({ title, escapeRef, href }: Props) => {
   return (
     <>
       <nav className="h-[5rem] flex justify-between px-4">
-        <div
-          className="md:mt-[3rem] md:ml-[3rem] mt-5 relative md:text-7xl text-4xl font-bold flex flex-row-reverse items-start lg:text-9xl lg:mt-[7rem] lg:ml-[5rem]"
-        >
+        <div className="md:mt-[3rem] md:ml-[3rem] mt-5 relative md:text-7xl text-4xl font-bold flex flex-row-reverse items-start lg:text-9xl lg:mt-[7rem] lg:ml-[5rem]">
           <h1 className="title">
             {title}
             {location.pathname !== "/getstarted" &&
