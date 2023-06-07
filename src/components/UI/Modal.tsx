@@ -32,15 +32,14 @@ export default function ModalButton(props: ModalButtonProps) {
 
       {isModalOpen && (
         <dialog
-          className="fixed inset-0 flex items-center justify-center z-50 border-none"
+          className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50 w-screen h-screen"
           aria-label="Accessibility error window"
         >
-          <div className="absolute inset-0 bg-gray-900 opacity-75"></div>
-          <div className="bg-white p-4 rounded z-10">
-            <p>{modalContent}</p>
+          <div className="bg-white p-8 rounded-lg shadow-lg z-10">
+            <p className="text-gray-800 text-lg">{modalContent}</p>
             <button
               ref={escapeRef}
-              className="mt-4 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+              className="mt-6 bg-red-500 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg"
               onClick={closeModal}
             >
               Fermer

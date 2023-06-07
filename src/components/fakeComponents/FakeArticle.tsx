@@ -43,7 +43,7 @@ export default function FakeArticle(props: FakeArticleProps) {
         <div className={styleSubContainer}>
           <div className={styleImageContainer}>
             <div className={styleImage}>
-              <img className={styleImageTop} src={imageSrcTop} />
+              <img className={styleImageTop} src={imageSrcTop} alt="" />
               <ModalButton
                 buttonText="!"
                 modalContent='Il manque ceci : alt="" aria-hidden="true" role="presentation"'
