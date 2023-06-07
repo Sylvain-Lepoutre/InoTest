@@ -30,17 +30,17 @@ export default function Path1() {
                 content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ac interdum lectus, vitae tempus arcu. Donec molestie nisi diam, sed mattis dui volutpat eu. Pellentesque hendrerit nisl vitae mollis rhoncus. Suspendisse sed dolor in dui bibendum rhoncus ac quis odio. Suspendisse tempor odio eu aliquet ultrices."
                 imageSrcTop="/fake-1.avif"
                 imageSrcBottom="/fake-2.avif"
-                style="windowStyle md:mt-0 mt-8"
+                style="windowStyle md:mt-0 mt-12"
                 styleContainer="max-w-5xl px-4 mx-auto sm:px-6 lg:px-8 md:mt-[-1em]"
                 styleSubContainer="grid items-center md:grid-cols-2 md:gap-x-20"
                 styleImageContainer="md:pr-12 pr-0 md:block flex flex-col items-center"
                 styleTextContainer="windowStyle"
                 styleImage="md:block flex flex-col relative max-w-xs"
                 styleImageTop="hidden md:block object-bottom rounded-md scale-75 object-cover h-[22rem]"
-                styleImageBottom="md:absolute md:origin-bottom-right scale-75 md:scale-75 rounded -bottom-6 md:-bottom-12 md:-right-12"
+                styleImageBottom="md:absolute md:origin-bottom-right scale-75 md:scale-75 rounded md:-bottom-2 md:-right-12"
                 styleTitle="text-3xl text-center md:text-left font-bold leading-tight sm:text-4xl lg:text-5xl"
                 styleSubTitle="text-xl text-center md:text-left font-bold leading-tight sm:text-2xl lg:text-3xl mt-2"
-                styleContent="mt-8 md:text-base leading-relaxed"
+                styleContent="mt-6 md:text-base leading-relaxed"
               />
 
               <FakeStepper
