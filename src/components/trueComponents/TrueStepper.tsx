@@ -1,6 +1,5 @@
-import React, { useState, useRef, RefObject, useEffect } from "react";
+import React, { useState, useRef, RefObject } from "react";
 import useFocus from "../../hook/useFocus";
-import { Link } from "react-router-dom";
 
 interface TrueStep {
   image?: string;
@@ -20,7 +19,6 @@ interface TrueStepperProps {
 
 const Stepper: React.FC = (props: TrueStepperProps) => {
   const [activeStep, setActiveStep] = useState<number>(0);
-  const [buttonVisible, setButtonVisible] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState<boolean>(false);
   const buttonRefs: RefObject<HTMLButtonElement>[] = [
     useRef<HTMLButtonElement>(null),
@@ -45,7 +43,7 @@ const Stepper: React.FC = (props: TrueStepperProps) => {
       setIsTransitioning(false);
     }, 900);
   };
-  
+
   const handlePrevious = () => {
     setIsTransitioning(true);
     setTimeout(() => {
@@ -55,21 +53,20 @@ const Stepper: React.FC = (props: TrueStepperProps) => {
     }, 900);
   };
 
-  useEffect(() => {
-    const lastStep = activeStep === steps.length - 1;
-    setButtonVisible(lastStep);
-  }, [activeStep, steps.length]);
-
   return (
     <>
       <div className={`${props.container}`}>
         <div className="absolute top-[-10rem]">
-          <div className={`${props.style}`} role="tabpanel">
-            <div className={`${props.style2} ${isTransitioning ? 'fade-left' : ''}`}>
-              <img className={`${props.styledImage}`} src={steps[activeStep].image} alt={`img ${activeStep + 1}`} aria-hidden="true" role="presentation" />
-              <p aria-label={`text ${activeStep + 1}`}>
-                {steps[activeStep].text}
-              </p>
+          <div className={`${props.style}`}>
+            <div className={`${props.style2} ${isTransitioning ? "fade-left" : ""}`}>
+              <img
+                className={`${props.styledImage}`}
+                src={steps[activeStep].image}
+                alt={`img ${activeStep + 1}`}
+                aria-hidden="true"
+                role="presentation"
+              />
+              <p aria-label={`text ${activeStep + 1}`}>{steps[activeStep].text}</p>
             </div>
             <button
               ref={buttonRefs[0]}
@@ -84,8 +81,14 @@ const Stepper: React.FC = (props: TrueStepperProps) => {
               }}
               className={`${props.styledButtons}`}
             >
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-4 h-4">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 5l-7 7m0 0l7 7m-7-7h18" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                className="w-4 h-4"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 5l-7 7m0 0l7 7m-7-7h18" />
               </svg>
             </button>
             <button
@@ -101,8 +104,14 @@ const Stepper: React.FC = (props: TrueStepperProps) => {
               }}
               className={`${props.styledButtons2}`}
             >
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-4 h-4">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                className="w-4 h-4"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
             </button>
           </div>

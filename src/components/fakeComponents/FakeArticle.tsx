@@ -46,6 +46,7 @@ export default function FakeArticle(props: FakeArticleProps) {
             <div className={styleImage}>
               <img className={styleImageTop} src={imageSrcTop} />
               <ModalButton
+                aria-label="information popup"
                 buttonText="!"
                 modalContent="Images do not have the following attributes: alt='' aria-hidden='true' role='presentation'."
                 style="text-black mt-3 md:mt-0 place-self-center"
@@ -58,6 +59,7 @@ export default function FakeArticle(props: FakeArticleProps) {
             <div className="flex flex-col md:flex-row gap-2 justify-center items-center">
               <h4 className={styleTitle}>{title}</h4>
               <ModalButton
+                aria-label="information popup"
                 buttonText="!"
                 modalContent="The semantic hierarchy of title tags is inconsistent."
                 style="text-black"
