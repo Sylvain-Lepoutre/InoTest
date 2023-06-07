@@ -1,6 +1,5 @@
 import ErrorModalButton from "@components/UI/ErrorModal";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 
 interface FakeStep {
   image?: string;
@@ -32,12 +31,11 @@ const FakeStepper: React.FC = (props: FakeStepperProps) => {
     setActiveStep(nextStep);
 
   };
-  
+
   const handlePrevious = () => {
     const previousStep: number = Math.max(activeStep - 1, 0);
     setActiveStep(previousStep);
   };
-  
 
   return (
     <div className={`${props.container}`}>
@@ -58,15 +56,21 @@ const FakeStepper: React.FC = (props: FakeStepperProps) => {
               </p>
             </div>
           </div>
-          <button             
-           onClick={() => {
+          <button
+            onClick={() => {
               handlePrevious();
             }}
             className={`${props.styledButtons}`}
           >
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-4 h-4">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 5l-7 7m0 0l7 7m-7-7h18" />
-          </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              className="w-4 h-4"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 5l-7 7m0 0l7 7m-7-7h18" />
+            </svg>
           </button>
           <button
             onClick={() => {
@@ -74,8 +78,14 @@ const FakeStepper: React.FC = (props: FakeStepperProps) => {
             }}
             className={`${props.styledButtons2}`}
           >
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-4 h-4">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              className="w-4 h-4"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
           </button>
         </div>

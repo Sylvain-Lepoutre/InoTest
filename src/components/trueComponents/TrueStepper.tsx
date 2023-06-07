@@ -1,6 +1,5 @@
-import React, { useState, useRef, RefObject, useEffect } from "react";
+import React, { useState, useRef, RefObject } from "react";
 import useFocus from "../../hook/useFocus";
-import { Link } from "react-router-dom";
 import RightModalButton from "@components/UI/RightModal";
 
 interface TrueStep {
@@ -21,7 +20,6 @@ interface TrueStepperProps {
 
 const Stepper: React.FC = (props: TrueStepperProps) => {
   const [activeStep, setActiveStep] = useState<number>(0);
-  const [buttonVisible, setButtonVisible] = useState(false);
   const buttonRefs: RefObject<HTMLButtonElement>[] = [
     useRef<HTMLButtonElement>(null),
     useRef<HTMLButtonElement>(null),
@@ -42,16 +40,11 @@ const Stepper: React.FC = (props: TrueStepperProps) => {
     setActiveStep(nextStep);
 
   };
-  
+
   const handlePrevious = () => {
     const previousStep: number = Math.max(activeStep - 1, 0);
     setActiveStep(previousStep);
   };
-
-  useEffect(() => {
-    const lastStep = activeStep === steps.length - 1;
-    setButtonVisible(lastStep);
-  }, [activeStep, steps.length]);
 
   return (
     <>
@@ -82,8 +75,14 @@ const Stepper: React.FC = (props: TrueStepperProps) => {
               }}
               className={`${props.styledButtons}`}
             >
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-4 h-4">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 5l-7 7m0 0l7 7m-7-7h18" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                className="w-4 h-4"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 5l-7 7m0 0l7 7m-7-7h18" />
               </svg>
             </button>
             <button
@@ -99,8 +98,14 @@ const Stepper: React.FC = (props: TrueStepperProps) => {
               }}
               className={`${props.styledButtons2}`}
             >
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-4 h-4">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                className="w-4 h-4"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
             </button>
           </div>

@@ -12,7 +12,7 @@ export default function Path2() {
   const [activeStep2, setActiveStep2] = useState<number>(0);
   const escapeRef = useRef<HTMLElement>(null);
 
-  useEscapeKey(escapeRef)
+  useEscapeKey(escapeRef);
 
   return (
     <>
@@ -21,7 +21,10 @@ export default function Path2() {
           <NavBar escapeRef={escapeRef} />
         </header>
 
-        <section className="overflow-auto overflow-x-hidden mx-2 sm:mx-16 mb-6 h-[70vh] rounded shadow-lg md:mt-[1rem] windowStyle testing" aria-haspopup="dialog" role="tablist">
+        <section
+          className="overflow-auto overflow-x-hidden mx-2 sm:mx-16 mb-6 h-[70vh] rounded shadow-lg md:mt-[1rem] windowStyle"
+          role="tablist"
+        >
           <TrueNavBar activeStep2={activeStep2} setActiveStep2={setActiveStep2} />
           {activeStep2 === 0 ? (
             <div role="tab">
@@ -67,7 +70,7 @@ export default function Path2() {
         </section>
 
         <section className="md:grid md:grid-cols-2 md:justify-items-end flex flex-col gap-1 justify-center items-center h-fit">
-        <Link
+          <Link
             to="/path1"
             className="md:col-start-1 md:place-self-start buttonClass w-[15rem] rounded-lg xl:h-[2rem] 2xl:h-[3rem] md:ml-16 md:row-start-1 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 flex justify-center items-center"
           >

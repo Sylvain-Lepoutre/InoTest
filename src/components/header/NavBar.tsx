@@ -27,13 +27,13 @@ const NavBar: React.FC<Props> = ({ title, escapeRef }: Props) => {
     useRef<HTMLElement>(null),
   ];
 
+  navRefs[0] = escapeRef ?? navRefs[0];
+
   const { horizontalFocus } = useFocus(navRefs);
 
   const closeMenu = () => {
     setIsMenuOpen(false);
   };
-
-  const accesRef = navRefs[0];
 
   return (
     <>
@@ -43,11 +43,13 @@ const NavBar: React.FC<Props> = ({ title, escapeRef }: Props) => {
         >
           <h1 className="title">
             {title}
-            {location.pathname !== "/getstarted" && location.pathname !== "/path1" && location.pathname !== "/path2" && (
-              <p className="scale-50 lg:block absolute top-0 right-0 xl:mt-[-3rem] xl:mr-[-4.5rem] lg:mt-[-3.5rem] lg:mr-[-4.5rem] hidden">
-                ©
-              </p>
-            )}
+            {location.pathname !== "/getstarted" &&
+              location.pathname !== "/path1" &&
+              location.pathname !== "/path2" && (
+                <p className="scale-50 lg:block absolute top-0 right-0 xl:mt-[-3rem] xl:mr-[-4.5rem] lg:mt-[-3.5rem] lg:mr-[-4.5rem] hidden">
+                  ©
+                </p>
+              )}
           </h1>
         </div>
         <div className="relative md:hidden flex items-start mr-[-1rem]">
@@ -104,17 +106,9 @@ const NavBar: React.FC<Props> = ({ title, escapeRef }: Props) => {
         </div>
 
         <ul className="menu hidden md:flex md:items-start mt-5">
-          <button
-            ref={escapeRef}
-            type="button"
-            aria-label="main content"
-            onKeyDown={(event) => {
-              horizontalFocus(event);
-            }}
-            className="sr-only focus-within:not-sr-only"
-          >
-            <FastAccesMenu href="#main" accesRef={accesRef} />
-          </button>
+          <li>
+            <FastAccesMenu horizontalFocus={horizontalFocus} navRef={navRefs[0]} />
+          </li>
           <li>
             <Link
               ref={navRefs[1]}
@@ -123,7 +117,7 @@ const NavBar: React.FC<Props> = ({ title, escapeRef }: Props) => {
               }}
               to="/"
               className="block px-4 py-2 link link-underline link-underline-black navStyle"
-              {...(location.pathname === "/" ? { "aria-current": "page" } : {})}
+              aria-current={location.pathname === "/" ? "page" : undefined}
             >
               Home
             </Link>
@@ -136,7 +130,7 @@ const NavBar: React.FC<Props> = ({ title, escapeRef }: Props) => {
               }}
               to="/about"
               className="block px-4 py-2 link link-underline link-underline-black navStyle"
-              {...(location.pathname === "/about" ? { "aria-current": "page" } : {})}
+              aria-current={location.pathname === "/about" ? "page" : undefined}
             >
               About us
             </Link>
@@ -149,7 +143,7 @@ const NavBar: React.FC<Props> = ({ title, escapeRef }: Props) => {
               }}
               to="/contact"
               className="block px-4 py-2 link link-underline link-underline-black navStyle"
-              {...(location.pathname === "/contact" ? { "aria-current": "page" } : {})}
+              aria-current={location.pathname === "/contact" ? "page" : undefined}
             >
               Contact
             </Link>
