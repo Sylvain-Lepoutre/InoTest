@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import ModalButton from "@components/UI/Modal";
 
 type FakeArticleProps = {
@@ -43,7 +44,7 @@ export default function FakeArticle(props: FakeArticleProps) {
         <div className={styleSubContainer}>
           <div className={styleImageContainer}>
             <div className={styleImage}>
-              <img className={styleImageTop} src={imageSrcTop} alt="" />
+              <img className={styleImageTop} src={imageSrcTop} />
               <ModalButton
                 buttonText="!"
                 modalContent='Il manque ceci : alt="" aria-hidden="true" role="presentation"'
