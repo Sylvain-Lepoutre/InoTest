@@ -46,9 +46,10 @@ export default function FakeArticle(props: FakeArticleProps) {
                             <img className={styleImageTop} src={imageSrcTop} />
                             <ModalButton 
                                 buttonText="!" 
-                                modalContent='Il manque ceci : alt="" aria-hidden="true" role="presentation"'
+                                modalContent="Les images n'ont pas les attributs suivants : alt='' aria-hidden='true' role='presentation'"
                                 style="text-black mt-3 md:mt-0 place-self-center"
                             />
+                            <img className={styleImageBottom} src={imageSrcBottom} />
                         </div>
                     </div>
         
@@ -57,7 +58,7 @@ export default function FakeArticle(props: FakeArticleProps) {
                             <h4 className={styleTitle}>{title}</h4>
                             <ModalButton 
                                 buttonText="!" 
-                                modalContent="L'utilisation et l'ordre des balises de titres sont incohérents." 
+                                modalContent="La hiérarchie sémantique des balises de titre est incohérente." 
                                 style="text-black"
                             />
                         </div>
@@ -66,6 +67,6 @@ export default function FakeArticle(props: FakeArticleProps) {
                     </div>
                 </div>
             </div>
-    </section>
-  );
+        </section>      
+    )
 }

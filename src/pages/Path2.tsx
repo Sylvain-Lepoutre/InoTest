@@ -1,23 +1,27 @@
-import React, { useState } from "react";
+import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import NavBar from "@components/header/NavBar";
-import FakeNavBar from "@components/fakeComponents/FakeNavBar";
-import TrueStepper from "@components/trueComponents/TrueStepper";
 import TrueArticle from "@components/trueComponents/TrueArticle";
+import TrueStepper from "@components/trueComponents/TrueStepper";
+import TrueNavBar from "@components/trueComponents/TrueNavBar";
 import TrueForm from "@components/trueComponents/TrueForm";
+import useEscapeKey from "../hook/useEscapeKey";
 
 export default function Path2() {
   const [activeStep2, setActiveStep2] = useState<number>(0);
+  const escapeRef = useRef<HTMLElement>(null);
+
+  useEscapeKey(escapeRef)
 
   return (
     <>
       <section>
         <header>
-          <NavBar />
+          <NavBar escapeRef={escapeRef} />
         </header>
 
         <section className="overflow-auto overflow-x-hidden mx-2 sm:mx-16 mb-6 h-[70vh] rounded shadow-lg md:mt-[1rem] windowStyle" aria-haspopup="dialog" role="tablist">
-          <FakeNavBar activeStep2={activeStep2} setActiveStep2={setActiveStep2} />
+          <TrueNavBar activeStep2={activeStep2} setActiveStep2={setActiveStep2} />
           {activeStep2 === 0 ? (
             <div role="tab">
               <TrueArticle
@@ -36,22 +40,22 @@ export default function Path2() {
                 styleImageBottom="md:absolute md:origin-bottom-right scale-75 md:scale-75 rounded -bottom-6 md:-bottom-12 md:-right-12"
                 styleTitle="text-3xl text-center md:text-left font-bold leading-tight sm:text-4xl lg:text-5xl"
                 styleSubTitle="text-xl text-center md:text-left font-bold leading-tight sm:text-2xl lg:text-3xl mt-2"
-                styleContent="mt-8 md:text-base leading-relaxed"
+                styleContent="mt-6 md:text-base leading-relaxed"
               />
 
               <TrueStepper
                 container="flex justify-center bg-white align-center relative top-60"
-                style="md:grid md:grid-cols-3 md:grid-rows-1 md:gap-0 gap-2 flex flex-row justify-center align-center bg-white items-center rounded w-[20wh] p-4 m-8 md:h-[20rem] burgerStyle2"
+                style="md:grid md:grid-cols-3 md:grid-rows-1 md:gap-0 gap-2 flex flex-row justify-center align-center bg-white items-center rounded w-fit h-fit p-4 p-x-36 m-8 burgerStyle2"
                 style2="md:col-start-2 md:row-start-1 flex flex-col title text-center text-lg gap-2 font-bold"
-                styledButtons="md:col-start-1 md:row-start-1 md:place-self-center order-first flex items-center justify-center px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 hover:-translate-x-1 transform transition-transform duration-200 md:mr-[60wh]"
-                styledButtons2="md:col-start-3 md:row-start-1 md:place-self-center order-last flex items-center justify-center px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 hover:translate-x-1 transform transition-transform duration-200 md:ml-[60wh]"
+                styledButtons="md:col-start-1 md:row-start-1 md:place-self-center order-first flex items-center justify-center px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 hover:-translate-x-1 transform transition-transform duration-200 md:mr-[20vw]"
+                styledButtons2="md:col-start-3 md:row-start-1 md:place-self-center order-last flex items-center justify-center px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 hover:translate-x-1 transform transition-transform duration-200 md:ml-[20vw]"
                 styledImage="rounded shadow-lg"
               />
             </div>
           ) : (
             <section className="flex flex-row gap-12 justify-center items-center mt-10 p-6" role="tab">
               <TrueForm />
-              <img src="/contact-1.avif" className="md:block hidden max-w-md mb-12 mt-8 shadow rounded" alt="" aria-hidden="true" role="presentation" />
+              <img src="/contact-1.avif" className="min-[940px]:block hidden max-w-md mb-12 mt-8 shadow rounded" alt="" aria-hidden="true" role="presentation" />
             </section>
           )}
         </section>

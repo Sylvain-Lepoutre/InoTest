@@ -1,13 +1,17 @@
-import { constants } from "http2";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import useFocus from "../../hook/useFocus";
 
-import "../../App.css";
+const TrueNavBar:React.FC<Props> = ({activeStep2, setActiveStep2}) => {
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const genericHamburgerLine = `h-1 w-6 my-1 rounded-full burgerStyle transition ease transform duration-300`;
+  const trueNavRefs: RefObject<HTMLElement>[] = [
+    useRef<HTMLElement>(null),
+    useRef<HTMLElement>(null),
+  ];
 
-const FakeNavBar:React.FC<Props> = ({activeStep2, setActiveStep2}) => {
-    const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
-    const genericHamburgerLine = `h-1 w-6 my-1 rounded-full burgerStyle2 transition ease transform duration-300`;
+  const { horizontalFocus } = useFocus(trueNavRefs);
 
-  const closeMenu: void = () => {
+  const closeMenu = () => {
     setIsMenuOpen(false);
   };
 
@@ -54,7 +58,7 @@ const FakeNavBar:React.FC<Props> = ({activeStep2, setActiveStep2}) => {
             }`}
           >
             <li>
-              <button type="button" onClick={closeMenu, handlePreviousPage} className="block px-4 py-2 transition duration-300 ease-in-out transform hover:scale-105">
+              <button type="button" onClick={closeMenu, handlePreviousPage}  className="block px-4 py-2 transition duration-300 ease-in-out transform hover:scale-105">
                 Home
               </button>
             </li>
@@ -70,6 +74,10 @@ const FakeNavBar:React.FC<Props> = ({activeStep2, setActiveStep2}) => {
           <li>
             <button
               type="button"
+              ref={trueNavRefs[0]}
+              onKeyDown={(event) => {
+                horizontalFocus(event);
+              }}
               className="block px-4 py-2 transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-md"
               onClick={handlePreviousPage}
             >
@@ -79,6 +87,10 @@ const FakeNavBar:React.FC<Props> = ({activeStep2, setActiveStep2}) => {
           <li>
             <button
               type="button"
+              ref={trueNavRefs[1]}
+              onKeyDown={(event) => {
+                horizontalFocus(event);
+              }}
               className="block px-4 py-2 transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-md"
               onClick={handleNextPage}
             >
@@ -92,4 +104,4 @@ const FakeNavBar:React.FC<Props> = ({activeStep2, setActiveStep2}) => {
 };
 
 
-export default FakeNavBar;
+export default TrueNavBar;
