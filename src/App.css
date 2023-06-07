@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  font-family: "Basis", arial;
+  min-height: 100vh;
+}
+
 #light {
   background: linear-gradient(-90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
     linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
@@ -19,10 +29,34 @@
     linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
     linear-gradient(-90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
     linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(transparent 3px, #000000 3px, #000000 78px, transparent 78px),
+    linear-gradient(transparent 3px, #111111 3px, #111111 78px, transparent 78px),
     linear-gradient(-90deg, #ffffff 1px, transparent 1px),
-    linear-gradient(-90deg, transparent 3px, #000000 3px, #000000 78px, transparent 78px),
-    linear-gradient(#ffffff 1px, transparent 1px), #000000;
+    linear-gradient(-90deg, transparent 3px, #111111 3px, #111111 78px, transparent 78px),
+    linear-gradient(#ffffff 1px, transparent 1px), #111111;
+  background-size: 4px 4px, 4px 4px, 80px 80px, 80px 80px, 80px 80px, 80px 80px, 80px 80px, 80px 80px;
+}
+
+#light .library {
+  background: linear-gradient(-90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(-90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(transparent 3px, #f2f2f2 3px, #f2f2f2 78px, transparent 78px),
+    linear-gradient(-90deg, #aaa 1px, transparent 1px),
+    linear-gradient(-90deg, transparent 3px, #f2f2f2 3px, #f2f2f2 78px, transparent 78px),
+    linear-gradient(#aaa 1px, transparent 1px), #f2f2f2;
+  background-size: 4px 4px, 4px 4px, 80px 80px, 80px 80px, 80px 80px, 80px 80px, 80px 80px, 80px 80px;
+}
+
+#dark .library {
+  background: linear-gradient(-90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(-90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(transparent 3px, #111111 3px, #111111 78px, transparent 78px),
+    linear-gradient(-90deg, #ffffff 1px, transparent 1px),
+    linear-gradient(-90deg, transparent 3px, #111111 3px, #111111 78px, transparent 78px),
+    linear-gradient(#ffffff 1px, transparent 1px), #111111;
   background-size: 4px 4px, 4px 4px, 80px 80px, 80px 80px, 80px 80px, 80px 80px, 80px 80px, 80px 80px;
 }
 
@@ -35,7 +69,7 @@
 }
 
 #light .buttonClass {
-  background-color: #000;
+  background-color: #222222;
   color: #fff;
 }
 
@@ -50,7 +84,7 @@
 }
 
 #dark .buttonClass2 {
-  background-color: #000;
+  background-color: #222222;
   color: #fff;
 }
 
@@ -63,7 +97,7 @@
 }
 
 #light .burgerStyle {
-  background-color: #151515;
+  background-color: #222222;
 }
 
 #dark .burgerStyle {
@@ -75,11 +109,11 @@
 }
 
 #dark .burgerStyle2 {
-  background-color: #151515;
+  background-color: #222222;
 }
 
 #light .windowStyle {
-  background-color: #151515;
+  background-color: #222222;
   color: #f5f5f5;
 }
 
@@ -89,7 +123,6 @@
 }
 
 #light .formStyle {
-  --tw-bg-opacity: 1;
   background-color: rgb(229 231 235);
   border-color: rgb(229 231 235);
   color: rgb(55 65 81);
@@ -122,10 +155,6 @@
 @font-face {
   font-family: "graph";
   src: local("3x5 Font"), url("./font/3x5-9OYA.ttf") format("truetype");
-}
-
-body {
-  font-family: "Basis", arial;
 }
 
 #light .link-underline {
@@ -165,67 +194,52 @@ body {
 }
 
 /* Styles pour la scrollbar */
-::-webkit-scrollbar {
+.testing::-webkit-scrollbar {
   width: 8px;
 }
 
-#dark ::-webkit-scrollbar-track {
+#dark .testing::-webkit-scrollbar-track {
   background-color: #f2f2f2;
 }
 
-#dark ::-webkit-scrollbar-thumb {
+#dark .testing::-webkit-scrollbar-thumb {
   background-color: #a5a5a5;
   border-radius: 4px;
 }
 
-#dark ::-webkit-scrollbar-thumb:hover {
+#dark .testing::-webkit-scrollbar-thumb:hover {
   background-color: #7d7d7d;
 }
 
-#dark ::-webkit-scrollbar-thumb:active {
+#dark .testing::-webkit-scrollbar-thumb:active {
   background-color: #808080;
 }
 
-#dark ::-webkit-scrollbar-corner {
+#dark .testing::-webkit-scrollbar-corner {
   background-color: #f2f2f2;
 }
 
-#light ::-webkit-scrollbar-track {
+#light .testing::-webkit-scrollbar-track {
   background-color: #0d0d0d;
 }
 
-#light ::-webkit-scrollbar-thumb {
+#light .testing::-webkit-scrollbar-thumb {
   background-color: #5a5a5a;
   border-radius: 4px;
 }
 
-#light ::-webkit-scrollbar-thumb:hover {
+#light .testing::-webkit-scrollbar-thumb:hover {
   background-color: #828282;
 }
 
-#light ::-webkit-scrollbar-thumb:active {
+#light .testing::-webkit-scrollbar-thumb:active {
   background-color: #7f7f7f;
 }
 
-#light ::-webkit-scrollbar-corner {
+#light .testing::-webkit-scrollbar-corner {
   background-color: #0d0d0d;
 }
 
-/* Carousel animation */
-
-.fade-left {
-  animation-name: fadeLeft;
-  animation-duration: 0.9s;
-  animation-timing-function: ease-in;
-}
-
-@keyframes fadeLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+::-webkit-scrollbar {
+  width: 0px;
 }

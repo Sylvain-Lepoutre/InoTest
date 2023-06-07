@@ -7,7 +7,7 @@ const FakeNavBar:React.FC<Props> = ({activeStep2, setActiveStep2}) => {
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
     const genericHamburgerLine = `h-1 w-6 my-1 rounded-full burgerStyle2 transition ease transform duration-300`;
 
-  const closeMenu: void = () => {
+  const closeMenu = () => {
     setIsMenuOpen(false);
   };
 
@@ -54,12 +54,12 @@ const FakeNavBar:React.FC<Props> = ({activeStep2, setActiveStep2}) => {
             }`}
           >
             <li>
-              <button type="button" onClick={closeMenu, handlePreviousPage} className="block px-4 py-2 transition duration-300 ease-in-out transform hover:scale-105">
+              <button type="button" onClick={() => { closeMenu(); handlePreviousPage(); }} className="block px-4 py-2 transition duration-300 ease-in-out transform hover:scale-105">
                 Home
               </button>
             </li>
             <li>
-              <button type="button" onClick={closeMenu, handleNextPage} className="block px-4 py-2 transition duration-300 ease-in-out transform hover:scale-105">
+              <button type="button" onClick={() => { closeMenu(); handleNextPage(); }} className="block px-4 py-2 transition duration-300 ease-in-out transform hover:scale-105">
                 Contact
               </button>
             </li>

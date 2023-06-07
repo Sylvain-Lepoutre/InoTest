@@ -54,7 +54,6 @@ const Stepper: React.FC = (props: StepperProps) => {
   return (
     <>
       <section className={`${props.container}`} aria-label="tutorial window">
-        <div className="absolute top-[-10rem]">
           <div className={`${props.style}`} role="tablist">
             <div>
               <img className={`${props.styledImage}`} src={steps[activeStep].image} alt={`img ${activeStep + 1}`} />
@@ -114,7 +113,6 @@ const Stepper: React.FC = (props: StepperProps) => {
               ""
             )}
           </div>
-        </div>
       </section>
     </>
   );

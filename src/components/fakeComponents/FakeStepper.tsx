@@ -1,3 +1,4 @@
+import ErrorModalButton from "@components/UI/ErrorModal";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -18,31 +19,23 @@ interface FakeStepperProps {
 
 const FakeStepper: React.FC = (props: FakeStepperProps) => {
   const [activeStep, setActiveStep] = useState<number>(0);
-  const [isTransitioning, setIsTransitioning] = useState<boolean>(false);
 
   const steps: FakeStep[] = [
-    { image: "/carousel-1.avif", text: "InoTest 1" },
-    { image: "/carousel-2.avif", text: "InoTest 2" },
-    { image: "/carousel-3.avif", text: "InoTest 3" },
-    { image: "/carousel-4.avif", text: "InoTest 4" },
+    { image: "https://picsum.photos/id/116/500/200", text: "InoTest 1" },
+    { image: "https://picsum.photos/id/196/500/200", text: "InoTest 2" },
+    { image: "https://picsum.photos/id/176/500/200", text: "InoTest 3" },
+    { image: "https://picsum.photos/id/184/500/200", text: "InoTest 4" },
   ];
 
   const handleNext = (array: FakeStep[]) => {
-    setIsTransitioning(true);
-    setTimeout(() => {
-      const nextStep: number = Math.min(activeStep + 1, array.length - 1);
-      setActiveStep(nextStep);
-      setIsTransitioning(false);
-    }, 900);
+    const nextStep: number = Math.min(activeStep + 1, array.length - 1);
+    setActiveStep(nextStep);
+
   };
   
   const handlePrevious = () => {
-    setIsTransitioning(true);
-    setTimeout(() => {
-      const previousStep: number = Math.max(activeStep - 1, 0);
-      setActiveStep(previousStep);
-      setIsTransitioning(false);
-    }, 900); 
+    const previousStep: number = Math.max(activeStep - 1, 0);
+    setActiveStep(previousStep);
   };
   
 
@@ -50,11 +43,20 @@ const FakeStepper: React.FC = (props: FakeStepperProps) => {
     <div className={`${props.container}`}>
       <div className="absolute top-[-10rem]">
         <div className={`${props.style}`} >
-          <div className={`${props.style2} ${isTransitioning ? 'fade-left' : ''}`}>
-            <img className={`${props.styledImage}`} src={steps[activeStep].image} alt="" />
-            <p>
-              {steps[activeStep].text}
-            </p>
+          <ErrorModalButton
+            buttonText="!"
+            modalContent="Buttons have no aria-label or type attribute, and cannot be moved by keyboard keys. And images do not have the following attributes: alt='' aria-hidden='true' role='presentation'."
+            style="text-black"
+          />
+          <div className={`${props.style2}`}>
+            <div>
+              <img className={`${props.styledImage}`} src={steps[activeStep].image} alt="" />
+            </div>
+            <div>
+              <p>
+                {steps[activeStep].text}
+              </p>
+            </div>
           </div>
           <button             
            onClick={() => {

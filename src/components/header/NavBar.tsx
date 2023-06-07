@@ -38,8 +38,7 @@ const NavBar: React.FC<Props> = ({ title, escapeRef }: Props) => {
   return (
     <>
       <nav className="h-[5rem] flex justify-between px-4">
-        <Link
-          to="/"
+        <div
           className="md:mt-[3rem] md:ml-[3rem] mt-5 relative md:text-7xl text-4xl font-bold flex flex-row-reverse items-start lg:text-9xl lg:mt-[7rem] lg:ml-[5rem]"
         >
           <h1 className="title">
@@ -50,7 +49,7 @@ const NavBar: React.FC<Props> = ({ title, escapeRef }: Props) => {
               </p>
             )}
           </h1>
-        </Link>
+        </div>
         <div className="relative md:hidden flex items-start mr-[-1rem]">
           <DarkModeSwitch
             style={{ marginRight: "1rem", marginTop: "1.7rem", marginLeft: "0.3rem" }}
