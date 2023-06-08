@@ -14,7 +14,7 @@ const FastAccesMenu: React.FC<FastAccesMenuProps> = (props: FastAccesMenuProps) 
       onKeyDown={(event) => {
         props.horizontalFocus(event);
       }}
-      className="block px-4 py-2 sr-only focus:not-sr-only focus:text-black navStyle"
+      className="block focus:px-4 focus:py-2 sr-only focus:not-sr-only focus:text-black navStyle"
       href={props.href}
     >
       Main content

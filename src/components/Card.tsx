@@ -8,7 +8,7 @@ export default function Card(props: CardProps) {
     return (
         <section className={style}>
             <div>
-                <img src="https://picsum.photos/id/209/300/200" alt="" aria-hidden="true" role="presentation" />
+                <img src="https://picsum.photos/id/209/300/200" className="rounded" alt="" aria-hidden="true" role="presentation" />
             </div>
             <div className="pt-2">
                 <h3 className="font-bold text-xl">Card Title</h3>
