@@ -97,11 +97,6 @@ const NavBar: React.FC<Props> = ({ title, escapeRef, href }: Props) => {
                 About us
               </Link>
             </li>
-            <li>
-              <Link onClick={closeMenu} to="/contact" className="block px-4 py-2">
-                Contact
-              </Link>
-            </li>
           </ul>
         </div>
 
@@ -135,23 +130,10 @@ const NavBar: React.FC<Props> = ({ title, escapeRef, href }: Props) => {
               About us
             </Link>
           </li>
-          <li>
-            <Link
-              ref={navRefs[3]}
-              onKeyDown={(event) => {
-                horizontalFocus(event);
-              }}
-              to="/contact"
-              className="block px-4 py-2 link link-underline link-underline-black navStyle"
-              aria-current={location.pathname === "/contact" ? "page" : undefined}
-            >
-              Contact
-            </Link>
-          </li>
           <button
             type="button"
             aria-label="dark mode button"
-            ref={navRefs[4]}
+            ref={navRefs[3]}
             onKeyDown={(event) => {
               horizontalFocus(event);
               event.key === "Enter" || (event.key === "space" && toggleTheme());

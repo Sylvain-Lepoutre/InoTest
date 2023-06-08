@@ -36,7 +36,7 @@ export default function ErrorModalButton(props: ErrorModalButtonProps) {
           aria-label="Accessibility error window"
         >
           <div className="bg-white p-8 rounded-lg shadow-lg z-10">
-            <p className="text-gray-800 text-lg">{modalContent}</p>
+            <p className="text-gray-800 text-lg max-w-[35rem]">{modalContent}</p>
             <button
               ref={escapeRef}
               className="mt-6 bg-red-500 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg"
