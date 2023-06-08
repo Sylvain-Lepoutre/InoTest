@@ -1,9 +1,22 @@
-import Card from "@components/Card";
 import NavBar from "@components/header/NavBar";
 import { Link } from "react-router-dom";
 import ImageSlider from "../components/UI/cardAnim";
+import Modal from "@components/UI/cardModal";
+import { useState } from "react";
 
 export default function Home() {
+  const [selectedItem, setSelectedItem] = useState(null); // État pour stocker l'élément sélectionné
+
+  // Fonction pour ouvrir le Modal avec l'élément sélectionné
+  const openModal = (item) => {
+    setSelectedItem(item);
+  };
+
+  // Fonction pour fermer le Modal
+  const closeModal = () => {
+    setSelectedItem(null);
+  };
+
   return (
     <>
       <header>
@@ -32,7 +45,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section  id="main">
+      <section id="main">
         <div className="max-w-xl ml-5 p-6 mt-0 items-start">
           <h2 className="title text-3xl md:text-4xl xl:text-5xl lg:text-5xl">Accessible components library</h2>
           <p className="title mt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae voluptatibus deserunt perspiciatis odit maxime provident ratione nemo, recusandae quas consequatur sapiente fuga deleniti autem est? Eligendi eveniet neque asperiores.</p>
@@ -44,6 +57,10 @@ export default function Home() {
           <ImageSlider />
         </div>
       </section>
+
+      {selectedItem && (
+        <Modal item={selectedItem} closeModal={closeModal} />
+      )}
     </>
   );
 }

@@ -17,6 +17,11 @@ const ImageSlider = () => {
       prevPercentageRef.current = trackRef.current.dataset.percentage;
     };
 
+      // Fonction pour gérer le clic sur un élément
+    const handleItemClick = (item) => {
+      openModal(item); // Appellez la fonction openModal avec l'élément sélectionné
+    };
+
     const handleOnMove = (e) => {
       if (mouseDownAtRef.current === 0) return;
 
@@ -74,12 +79,14 @@ const ImageSlider = () => {
         src="https://images.unsplash.com/photo-1524781289445-ddf8f5695861?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
         draggable="false"
         alt="Slider Image 1"
+        onClick={() => handleItemClick(1)} // Appel de handleItemClick avec l'identifiant ou l'objet représentant l'élément
       />
       <img
         className="image w-40 h-56  object-cover object-center"
         src="https://images.unsplash.com/photo-1610194352361-4c81a6a8967e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1674&q=80"
         draggable="false"
         alt="Slider Image 2"
+        onClick={() => handleItemClick(2)} // Appel de handleItemClick avec l'identifiant ou l'objet représentant l'élément
       />
       <img
         className="image w-40 h-56  object-cover object-center"
