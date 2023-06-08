@@ -1,6 +1,7 @@
 import Card from "@components/Card";
 import NavBar from "@components/header/NavBar";
 import { Link } from "react-router-dom";
+import ImageSlider from "../components/UI/cardAnim";
 
 export default function Home() {
   return (
@@ -31,21 +32,16 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="main">
-        <div className="max-w-xl ml-5 p-6 mt-0">
+      <section  id="main">
+        <div className="max-w-xl ml-5 p-6 mt-0 items-start">
           <h2 className="title text-3xl md:text-4xl xl:text-5xl lg:text-5xl">Accessible components library</h2>
           <p className="title mt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae voluptatibus deserunt perspiciatis odit maxime provident ratione nemo, recusandae quas consequatur sapiente fuga deleniti autem est? Eligendi eveniet neque asperiores.</p>
         </div>
-        <div className="md:grid md:grid-cols-3 md:grid-rows-1 place-items-center flex flex-col justify-center items-center gap-6 p-6">
-          <Card
-            style="md:col-start-1 max-w-xs windowStyle p-3 rounded backdrop-blur-md bg-opacity-50"
-          />
-          <Card 
-            style="md:col-start-2 max-w-xs windowStyle p-3 rounded backdrop-blur-md bg-opacity-20"
-          />
-          <Card 
-            style="md:col-start-3 max-w-xs windowStyle p-3 rounded backdrop-blur-md bg-opacity-50"
-          />
+      </section>
+
+      <section className="flex flex-col items-center justify-end mt-auto">
+        <div className="mt-28">
+          <ImageSlider />
         </div>
       </section>
     </>
