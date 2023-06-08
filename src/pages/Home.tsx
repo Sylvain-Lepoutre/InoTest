@@ -48,7 +48,11 @@ export default function Home() {
       <section id="main">
         <div className="max-w-xl ml-5 p-6 mt-0 items-start">
           <h2 className="title text-3xl md:text-4xl xl:text-5xl lg:text-5xl">Accessible components library</h2>
-          <p className="title mt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae voluptatibus deserunt perspiciatis odit maxime provident ratione nemo, recusandae quas consequatur sapiente fuga deleniti autem est? Eligendi eveniet neque asperiores.</p>
+          <p className="title mt-2">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae voluptatibus deserunt perspiciatis odit
+            maxime provident ratione nemo, recusandae quas consequatur sapiente fuga deleniti autem est? Eligendi
+            eveniet neque asperiores.
+          </p>
         </div>
       </section>
 
