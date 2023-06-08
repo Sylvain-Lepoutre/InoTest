@@ -1,13 +1,15 @@
 import { useRef, useState } from "react";
 import useFocus from "../../hook/useFocus";
 
-const TrueNavBar:React.FC<Props> = ({activeStep2, setActiveStep2}) => {
+type TrueNavBarProps = {
+  activeStep2: number;
+  setActiveStep2: React.Dispatch<React.SetStateAction<number>>;
+};
+
+const TrueNavBar: React.FC<Props> = (props: TrueNavBarProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const genericHamburgerLine = `h-1 w-6 my-1 rounded-full burgerStyle2 transition ease transform duration-300`;
-  const trueNavRefs: RefObject<HTMLElement>[] = [
-    useRef<HTMLElement>(null),
-    useRef<HTMLElement>(null),
-  ];
+  const trueNavRefs: RefObject<HTMLElement>[] = [useRef<HTMLElement>(null), useRef<HTMLElement>(null)];
 
   const { horizontalFocus } = useFocus(trueNavRefs);
 
@@ -16,23 +18,20 @@ const TrueNavBar:React.FC<Props> = ({activeStep2, setActiveStep2}) => {
   };
 
   const handlePreviousPage = () => {
-    const previousStep: number = Math.max(activeStep2 - 1, 0);
-    setActiveStep2(previousStep);
-  }  
+    const previousStep: number = Math.max(props.activeStep2 - 1, 0);
+    props.setActiveStep2(previousStep);
+  };
 
   const handleNextPage = () => {
-    const nextStep: number = Math.min(activeStep2 + 1, 1);
-    setActiveStep2(nextStep);
-  }
+    const nextStep: number = Math.min(props.activeStep2 + 1, 1);
+    props.setActiveStep2(nextStep);
+  };
 
   return (
     <>
       <nav className="h-[2rem] flex justify-between px-4 py-8">
-      <div className="relative md:hidden flex items-start mr-[-1rem]">
-          <button
-            className="flex flex-col h-12 w-12 rounded justify-center"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
+        <div className="relative md:hidden flex items-start mr-[-1rem]">
+          <button className="flex flex-col h-12 w-12 rounded justify-center" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             <div
               className={`${genericHamburgerLine} ${
                 isMenuOpen
@@ -52,18 +51,28 @@ const TrueNavBar:React.FC<Props> = ({activeStep2, setActiveStep2}) => {
             />
           </button>
 
-          <ul
-            className={`menu right-0 w-36 mr-2 buttonClass2 rounded-lg shadow-md ${
-              isMenuOpen ? "block" : "hidden"
-            }`}
-          >
+          <ul className={`menu right-0 w-36 mr-2 buttonClass2 rounded-lg shadow-md ${isMenuOpen ? "block" : "hidden"}`}>
             <li>
-              <button type="button" onClick={() => { closeMenu(); handlePreviousPage(); }}  className="block px-4 py-2 transition duration-300 ease-in-out transform hover:scale-105">
+              <button
+                type="button"
+                onClick={() => {
+                  closeMenu();
+                  handlePreviousPage();
+                }}
+                className="block px-4 py-2 transition duration-300 ease-in-out transform hover:scale-105"
+              >
                 Home
               </button>
             </li>
             <li>
-              <button type="button" onClick={() => { closeMenu(); handleNextPage(); }} className="block px-4 py-2 transition duration-300 ease-in-out transform hover:scale-105">
+              <button
+                type="button"
+                onClick={() => {
+                  closeMenu();
+                  handleNextPage();
+                }}
+                className="block px-4 py-2 transition duration-300 ease-in-out transform hover:scale-105"
+              >
                 Contact
               </button>
             </li>
@@ -102,6 +111,5 @@ const TrueNavBar:React.FC<Props> = ({activeStep2, setActiveStep2}) => {
     </>
   );
 };
-
 
 export default TrueNavBar;

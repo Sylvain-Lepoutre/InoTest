@@ -45,12 +45,12 @@ export default function Path1() {
               />
 
               <FakeStepper
-                container="flex justify-center bg-white align-center relative top-60"
-                style="md:grid md:grid-cols-3 md:grid-rows-1 md:gap-0 gap-2 flex flex-row justify-center align-center bg-white items-center rounded w-fit h-fit p-4 p-x-36 m-8 burgerStyle2"
-                style2="md:col-start-2 md:row-start-1 flex flex-col title text-center text-lg gap-2 font-bold"
-                styledButtons="md:col-start-1 md:row-start-1 md:place-self-center order-first flex items-center justify-center px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 hover:-translate-x-1 transform transition-transform duration-200 md:mr-[20vw]"
-                styledButtons2="md:col-start-3 md:row-start-1 md:place-self-center order-last flex items-center justify-center px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 hover:translate-x-1 transform transition-transform duration-200 md:ml-[20vw]"
-                styledImage="rounded shadow-lg"
+                container="flex justify-center align-center relative mt-[6rem]"
+                style="md:grid md:grid-cols-3 md:grid-rows-1 md:gap-0 gap-2 flex flex-row justify-center align-center items-center rounded w-[70%] h-[30rem] p-4 p-x-36 m-8 "
+                style2="md:col-start-1 md:row-start-1 md:col-span-3 flex flex-col title text-center text-lg gap-2 font-bold"
+                styledButtons="md:col-start-1 md:row-start-1 md:place-self-center order-first flex items-center buttonClass2 justify-center px-4 py-2 rounded-md hover:-translate-x-1 transform transition-transform duration-200 md:mr-[20vw]"
+                styledButtons2="md:col-start-3 md:row-start-1 md:place-self-center order-last flex items-center buttonClass2 justify-center px-4 py-2 rounded-md hover:translate-x-1 transform transition-transform duration-200 md:ml-[20vw]"
+                styledImage="rounded"
               />
             </>
           ) : (

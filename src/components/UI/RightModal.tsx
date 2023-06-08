@@ -26,7 +26,11 @@ export default function RightModalButton(props: RightModalButtonProps) {
 
   return (
     <div className={style}>
-      <button type="button" className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" onClick={openRightModal}>
+      <button
+        type="button"
+        className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+        onClick={openRightModal}
+      >
         {buttonText}
       </button>
 
@@ -36,7 +40,7 @@ export default function RightModalButton(props: RightModalButtonProps) {
           aria-label="Accessibility error window"
         >
           <div className="bg-white p-8 rounded-lg shadow-lg z-10">
-            <p className="text-gray-800 text-lg">{modalContent}</p>
+            <p className="text-gray-800 text-lg max-w-[35rem]">{modalContent}</p>
             <button
               type="button"
               ref={escapeRef}
