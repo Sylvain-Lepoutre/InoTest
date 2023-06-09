@@ -1,6 +1,12 @@
 import NavBar from "@components/header/NavBar";
 
+import { useTranslation } from 'react-i18next';
+import i18n from "../../i18n";
+
 export default function Home() {
+  const { t } = useTranslation();
+  i18n.language;
+
   return (
     <>
       <header>
@@ -23,7 +29,7 @@ export default function Home() {
             href="https://www.inolib.com/"
             className="justify-center items-center buttonClass2 focus:outline-none my-6 focus:border-slate-700 focus:ring-2 focus:ring-slate-700 text-black w-[10rem] rounded h-[3rem] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 flex"
           >
-            LEARN MORE
+            {t('learnmore')}
           </a>
         </article>
       </section>

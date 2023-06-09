@@ -2,6 +2,9 @@ import React, { useState, useRef, RefObject, useEffect } from "react";
 import useFocus from "../../hook/useFocus";
 import { Link } from "react-router-dom";
 
+import { useTranslation } from 'react-i18next';
+import i18n from "../../../i18n";
+
 interface Step {
   image?: string;
   text?: string;
@@ -19,6 +22,9 @@ interface StepperProps {
 }
 
 const Stepper: React.FC = (props: StepperProps) => {
+  const { t } = useTranslation();
+  i18n.language;
+
   const [activeStep, setActiveStep] = useState<number>(0);
   const [buttonVisible, setButtonVisible] = useState(false);
   const buttonRefs: RefObject<HTMLButtonElement>[] = [
@@ -75,7 +81,7 @@ const Stepper: React.FC = (props: StepperProps) => {
                 }}
                 className={`${props.styledButtons}`}
               >
-                Previous
+                {t('previous')}
               </button>
               <button
                 ref={buttonRefs[1]}
@@ -90,7 +96,7 @@ const Stepper: React.FC = (props: StepperProps) => {
                 }}
                 className={`${props.styledButtons}`}
               >
-                Next
+                {t('next')}
               </button>
             </div>
             {activeStep === steps.length - 1 ? (
@@ -107,7 +113,7 @@ const Stepper: React.FC = (props: StepperProps) => {
                   buttonVisible ? "opacity-100" : "opacity-0"
                 }`}
               >
-                Start
+                {t('start')}
               </Link>
             ) : (
               ""

@@ -1,4 +1,6 @@
 import RightModalButton from "@components/UI/RightModal";
+import { useTranslation } from 'react-i18next';
+import i18n from "../../../i18n";
 
 type TrueArticleProps = {
     style?: string;
@@ -20,6 +22,9 @@ type TrueArticleProps = {
   }
 
 export default function TrueArticle(props: TrueArticleProps) {
+    const { t } = useTranslation();
+    i18n.language;
+
     const style = props.style !== undefined ? props.style : "";
     const styleContainer = props.styleContainer !== undefined ? props.styleContainer : "";
     const styleSubContainer = props.styleSubContainer !== undefined ? props.styleSubContainer : "";
@@ -46,7 +51,7 @@ export default function TrueArticle(props: TrueArticleProps) {
                             <img className={styleImageTop} src={imageSrcTop} alt="" aria-hidden="true" role="presentation" />
                             <RightModalButton
                               buttonText="✓"
-                              modalContent="Images have the following attributes: alt='' aria-hidden='true' role='presentation'."
+                              modalContent={t('images-right')}
                               style="text-black mt-3 md:mt-0 place-self-center"
                             />
                             <img className={styleImageBottom} src={imageSrcBottom} alt="" aria-hidden="true" role="presentation" />
@@ -58,7 +63,7 @@ export default function TrueArticle(props: TrueArticleProps) {
                           <h1 className={styleTitle}>{title}</h1>
                           <RightModalButton
                             buttonText="✓"
-                            modalContent="The semantic hierarchy of title tags is consistent."
+                            modalContent={t('title-right')}
                             style="text-black"
                           />
                         </div>

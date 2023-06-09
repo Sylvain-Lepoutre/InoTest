@@ -150,7 +150,6 @@ const NavBar: React.FC<Props> = ({ title, escapeRef, href }: Props) => {
             onKeyDown={(event) => {
               horizontalFocus(event);
             }}
-            onKeyDown={handleKeyPress}
           >
             <LanguageSelector horizontalFocus={horizontalFocus} navRef={navRefs[3]} />
           </button>

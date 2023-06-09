@@ -1,5 +1,7 @@
 import { useRef, useState } from "react";
 import useEscapeKey from "../../hook/useEscapeKey";
+import { useTranslation } from 'react-i18next';
+import i18n from "../../../i18n";
 
 type RightModalButtonProps = {
   buttonText: string;
@@ -8,6 +10,9 @@ type RightModalButtonProps = {
 };
 
 export default function RightModalButton(props: RightModalButtonProps) {
+  const { t } = useTranslation();
+  i18n.language;
+
   const buttonText = props.buttonText !== undefined ? props.buttonText : "";
   const modalContent = props.modalContent !== undefined ? props.modalContent : "";
   const style = props.style !== undefined ? props.style : "";
@@ -47,7 +52,7 @@ export default function RightModalButton(props: RightModalButtonProps) {
               className="mt-6 bg-green-500 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg"
               onClick={closeRightModal}
             >
-              Fermer
+              {t('close')}
             </button>
           </div>
         </dialog>

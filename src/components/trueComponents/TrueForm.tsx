@@ -1,19 +1,24 @@
 import RightModalButton from "@components/UI/RightModal";
 import SelectMenu from "@components/UI/SelectMenu";
+import { useTranslation } from 'react-i18next';
+import i18n from "../../../i18n";
 
 export default function TrueForm() {
+  const { t } = useTranslation();
+  i18n.language;
+
   return (
     <>
     <form className="w-full max-w-lg md:p-0 px-6" action="#" method="post">
         <RightModalButton
           buttonText="✓"
-          modalContent="The tags used in the form are semantically correct. For example there is label tags wrapping the input tags and there is a form tag."
+          modalContent={t('form-right')}
           style="text-black ml-24 mb-2 md:mt-0 place-self-center"
         />
         <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
             <label htmlFor="grid-first-name" className="block uppercase tracking-wide formTitle text-xs font-bold mb-2">
-              First Name
+            {t('first-name')}
             </label>
             <input
               id="grid-first-name"
@@ -27,7 +32,7 @@ export default function TrueForm() {
               htmlFor="grid-last-name"
               className="block uppercase tracking-wide formTitle formTitle text-xs font-bold mb-2"
             >
-              Last Name
+              {t('last-name')}
             </label>
             <input
               id="grid-last-name"
@@ -45,7 +50,7 @@ export default function TrueForm() {
             <textarea
               id="grid-message"
               type="message"
-              placeholder="Hello there !"
+              placeholder={t('message')}
               className="appearance-none block w-full formStyle border rounded py-3 px-4 mb-3 leading-tight focus:outline-none"
             />
           </div>
@@ -53,7 +58,7 @@ export default function TrueForm() {
         <div className="flex flex-wrap -mx-3 mb-2">
           <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
             <label htmlFor="grid-city" className="block uppercase tracking-wide formTitle text-xs font-bold mb-2">
-              City
+            {t('city')}
             </label>
             <input
               id="grid-city"
@@ -64,7 +69,7 @@ export default function TrueForm() {
           </div>
           <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
             <label htmlFor="grid-state" className="block uppercase tracking-wide formTitle text-xs font-bold mb-2">
-              State
+            {t('state')}
             </label>
             <div className="relative">
               <SelectMenu style="block appearance-none w-full py-3 px-4 pr-8 rounded leading-tight focus:outline-none formStyle" />
@@ -77,7 +82,7 @@ export default function TrueForm() {
           </div>
           <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
             <label htmlFor="grid-zip" className="block uppercase tracking-wide formTitle text-xs font-bold mb-2">
-              Zip
+            {t('zip')}
             </label>
             <input
               id="grid-zip"
@@ -87,10 +92,10 @@ export default function TrueForm() {
             />
             </div>
             <div class="flex flex-row gap-20 md:w-full md:mt-6 ml-3">
-                <button type="submit" class="cursor-pointer shadow formStyle focus:shadow-outline focus:outline-none font-bold py-2 px-4 rounded hover:scale-110 transform transition-transform duration-200">Send form</button>
+                <button type="submit" class="cursor-pointer shadow formStyle focus:shadow-outline focus:outline-none font-bold py-2 px-4 rounded hover:scale-110 transform transition-transform duration-200">{t('send')}</button>
                 <RightModalButton
                     buttonText="✓"
-                    modalContent="The select menu have the aria-expanded attribute."
+                    modalContent={t('select-right')}
                     style="text-black md:mt-0 place-self-center"
                 />
             </div>

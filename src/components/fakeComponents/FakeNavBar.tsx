@@ -1,5 +1,8 @@
 import { useState } from "react";
 
+import { useTranslation } from 'react-i18next';
+import i18n from "../../../i18n";
+
 import "../../App.css";
 
 type FakeNavBarProps = {
@@ -8,6 +11,8 @@ type FakeNavBarProps = {
 };
 
 const FakeNavBar: React.FC<Props> = (props: FakeNavBarProps) => {
+  const { t } = useTranslation();
+  console.log(i18n.language);
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const genericHamburgerLine = `h-1 w-6 my-1 rounded-full burgerStyle2 transition ease transform duration-300`;
 
@@ -59,7 +64,7 @@ const FakeNavBar: React.FC<Props> = (props: FakeNavBarProps) => {
                 }}
                 className="block px-4 py-2 transition duration-300 ease-in-out transform hover:scale-105"
               >
-                Home
+                {t('nav-home')}
               </button>
             </li>
             <li>
@@ -84,7 +89,7 @@ const FakeNavBar: React.FC<Props> = (props: FakeNavBarProps) => {
               className="block px-4 py-2 transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-md"
               onClick={handlePreviousPage}
             >
-              Home
+              {t('nav-home')}
             </button>
           </li>
           <li>

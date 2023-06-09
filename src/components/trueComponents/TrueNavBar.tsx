@@ -1,12 +1,17 @@
 import { useRef, useState } from "react";
 import useFocus from "../../hook/useFocus";
 
+import { useTranslation } from 'react-i18next';
+import i18n from "../../../i18n";
+
 type TrueNavBarProps = {
   activeStep2: number;
   setActiveStep2: React.Dispatch<React.SetStateAction<number>>;
 };
 
 const TrueNavBar: React.FC<Props> = (props: TrueNavBarProps) => {
+  const { t } = useTranslation();
+  console.log(i18n.language);
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const genericHamburgerLine = `h-1 w-6 my-1 rounded-full burgerStyle2 transition ease transform duration-300`;
   const trueNavRefs: RefObject<HTMLElement>[] = [useRef<HTMLElement>(null), useRef<HTMLElement>(null)];
@@ -61,7 +66,7 @@ const TrueNavBar: React.FC<Props> = (props: TrueNavBarProps) => {
                 }}
                 className="block px-4 py-2 transition duration-300 ease-in-out transform hover:scale-105"
               >
-                Home
+                {t('nav-home')}
               </button>
             </li>
             <li>
@@ -90,7 +95,7 @@ const TrueNavBar: React.FC<Props> = (props: TrueNavBarProps) => {
               className="block px-4 py-2 transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-md"
               onClick={handlePreviousPage}
             >
-              Home
+              {t('nav-home')}
             </button>
           </li>
           <li>
