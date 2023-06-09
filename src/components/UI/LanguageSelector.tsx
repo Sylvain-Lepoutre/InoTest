@@ -3,7 +3,12 @@ import { useTranslation } from 'react-i18next';
 import englishFlag from '/en-flag.png';
 import frenchFlag from '/fr-flag.png';
 
-function LanguageSelector() {
+type LanguageSelectorProps = {
+  horizontalFocus: (event: KeyboardEvent) => void;
+  navRef: RefObject<HTMLElement>;
+}
+
+function LanguageSelector(props: LanguageSelectorProps) {
   const { i18n } = useTranslation();
 
   const changeLanguage = () => {
@@ -12,26 +17,14 @@ function LanguageSelector() {
     i18n.changeLanguage(newLanguage);
   };
 
-  const handleKeyPress = (event) => {
-    if (event.key === 'Enter') {
-      changeLanguage();
-    }
-  };
-
   const flagImage = i18n.language === 'en' ? englishFlag : frenchFlag;
-
-  const buttonRef = useRef(null);
-
-  useEffect(() => {
-    buttonRef.current.focus();
-  }, []);
 
   return (
     <div>
       <button
-        ref={buttonRef}
+        ref={props.navRef}
         onClick={changeLanguage}
-        onKeyPress={handleKeyPress}
+        onKeyDown={props.horizontalFocus}
         tabIndex="0"
         aria-label="Change language"
       >
