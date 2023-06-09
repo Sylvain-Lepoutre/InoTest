@@ -68,7 +68,7 @@ export default function Path1() {
               />
               <ErrorModalButton
                 buttonText="!"
-                modalContent="This image do not have the following attributes: alt='' aria-hidden='true' role='presentation'."
+                modalContent={t('image-error')}
                 style="text-black mt-3 md:mt-0 place-self-center min-[940px]:block hidden"
               />
             </section>
