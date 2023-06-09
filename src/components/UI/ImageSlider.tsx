@@ -1,7 +1,7 @@
 import { useRef, useEffect, MouseEvent, TouchEvent } from "react";
 
 const ImageSlider = () => {
-  const trackRef: RefObject<HTMLElement> = useRef(null);
+  const trackRef = useRef<HTMLElement>(null);
   const prevPercentageRef = useRef<number>(0);
   const mouseDownAtRef = useRef<number>(0);
   const minPercentage = -100;
@@ -14,7 +14,7 @@ const ImageSlider = () => {
 
     const handleOnUp = () => {
       mouseDownAtRef.current = 0;
-      prevPercentageRef.current = parseFloat(trackRef.current!.dataset.percentage || "0");
+      prevPercentageRef.current = parseFloat(trackRef.current?.dataset.percentage || "0");
     };
 
     const handleOnMove = (e: MouseEvent) => {
@@ -34,11 +34,11 @@ const ImageSlider = () => {
         nextPercentage = nextPercentage < minPercentage ? maxPercentage + overflow : minPercentage - overflow;
       }
 
-      trackRef.current!.dataset.percentage = nextPercentage.toString();
+      trackRef.current.dataset.percentage = nextPercentage.toString();
 
-      trackRef.current!.style.transform = `translate(${nextPercentage}%, -50%)`;
+      trackRef.current.style.transform = `translate(${nextPercentage}%, -50%)`;
 
-      const images = trackRef.current!.getElementsByClassName("image");
+      const images = trackRef.current?.getElementsByClassName("image");
       for (const image of Array.from(images)) {
         image.setAttribute("style", `object-position: ${100 + nextPercentage}% center`);
       }
@@ -59,7 +59,7 @@ const ImageSlider = () => {
       window.removeEventListener("mousemove", handleOnMove);
       window.removeEventListener("touchmove", (e: TouchEvent) => handleOnMove(e.touches[0]));
     };
-  }, []);
+  }, [minPercentage]);
 
   return (
     <div

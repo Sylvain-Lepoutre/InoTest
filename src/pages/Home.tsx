@@ -1,6 +1,6 @@
 import NavBar from "@components/header/NavBar";
 import { Link } from "react-router-dom";
-import ImageSlider from "../components/UI/cardAnim";
+import ImageSlider from "../components/UI/ImageSlider";
 
 export default function Home() {
   return (
