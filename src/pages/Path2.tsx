@@ -7,8 +7,12 @@ import TrueNavBar from "@components/trueComponents/TrueNavBar";
 import TrueForm from "@components/trueComponents/TrueForm";
 import useEscapeKey from "../hook/useEscapeKey";
 import RightModalButton from "@components/UI/RightModal";
+import { useTranslation } from 'react-i18next';
+import i18n from "../../i18n";
 
 export default function Path2() {
+  const { t } = useTranslation();
+  i18n.language;
   const [activeStep2, setActiveStep2] = useState<number>(0);
   const escapeRef = useRef<HTMLElement>(null);
 
@@ -29,8 +33,8 @@ export default function Path2() {
           {activeStep2 === 0 ? (
             <div role="tab">
               <TrueArticle
-                title="This is a testing zone"
-                subTitle="And it is accessible !"
+                title={t('article-title')}
+                subTitle={t('true-title')}
                 content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ac interdum lectus, vitae tempus arcu. Donec molestie nisi diam, sed mattis dui volutpat eu. Pellentesque hendrerit nisl vitae mollis rhoncus. Suspendisse sed dolor in dui bibendum rhoncus ac quis odio. Suspendisse tempor odio eu aliquet ultrices."
                 imageSrcTop="https://picsum.photos/id/112/200/300"
                 imageSrcBottom="https://picsum.photos/id/103/300/200"
@@ -68,7 +72,7 @@ export default function Path2() {
               />
               <RightModalButton
                 buttonText="✓"
-                modalContent="This image have the following attributes: alt='' aria-hidden='true' role='presentation'."
+                modalContent={t('image-right')}
                 style="text-black mt-3 md:mt-0 place-self-center min-[1250px]:block hidden"
               />
             </section>
@@ -80,13 +84,13 @@ export default function Path2() {
             to="/path1"
             className="md:col-start-1 md:place-self-start buttonClass w-[15rem] rounded-lg xl:h-[2rem] 2xl:h-[3rem] md:ml-16 md:row-start-1 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 flex justify-center items-center"
           >
-            Previous
+            {t('previous')}
           </Link>
           <Link
             to="/"
             className="md:col-start-2 buttonClass w-[15rem] rounded-lg xl:h-[2rem] 2xl:h-[3rem] md:mr-16 md:row-start-1 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 flex justify-center items-center"
           >
-            Return to home
+            {t('return-home')}
           </Link>
         </section>
       </section>

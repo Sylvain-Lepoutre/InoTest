@@ -1,5 +1,7 @@
 import ErrorModalButton from "@components/UI/ErrorModal";
 import React, { useState } from "react";
+import { useTranslation } from 'react-i18next';
+import i18n from "../../../i18n";
 
 interface FakeStep {
   image?: string;
@@ -17,6 +19,8 @@ interface FakeStepperProps {
 }
 
 const FakeStepper: React.FC = (props: FakeStepperProps) => {
+  const { t } = useTranslation();
+  i18n.language;
   const [activeStep, setActiveStep] = useState<number>(0);
 
   const steps: FakeStep[] = [
@@ -41,7 +45,7 @@ const FakeStepper: React.FC = (props: FakeStepperProps) => {
       <div className={`${props.style}`}>
         <ErrorModalButton
           buttonText="!"
-          modalContent="Buttons have no aria-label or type attribute, and cannot be moved by keyboard keys. And images do not have the following attributes: alt='' aria-hidden='true' role='presentation'."
+          modalContent={t('stepper-error')}
           style="text-black"
         />
         <div className={`${props.style2}`}>

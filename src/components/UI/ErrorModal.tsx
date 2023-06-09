@@ -1,5 +1,7 @@
 import { useRef, useState } from "react";
 import useEscapeKey from "../../hook/useEscapeKey";
+import { useTranslation } from 'react-i18next';
+import i18n from "../../../i18n";
 
 type ErrorModalButtonProps = {
   buttonText: string;
@@ -8,6 +10,9 @@ type ErrorModalButtonProps = {
 };
 
 export default function ErrorModalButton(props: ErrorModalButtonProps) {
+  const { t } = useTranslation();
+  i18n.language;
+
   const buttonText = props.buttonText !== undefined ? props.buttonText : "";
   const modalContent = props.modalContent !== undefined ? props.modalContent : "";
   const style = props.style !== undefined ? props.style : "";
@@ -42,7 +47,7 @@ export default function ErrorModalButton(props: ErrorModalButtonProps) {
               className="mt-6 bg-red-500 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg"
               onClick={closeErrorModal}
             >
-              Fermer
+              {t('close')}
             </button>
           </div>
         </dialog>

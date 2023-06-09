@@ -1,6 +1,8 @@
 import React, { useState, useRef, RefObject } from "react";
 import useFocus from "../../hook/useFocus";
 import RightModalButton from "@components/UI/RightModal";
+import { useTranslation } from 'react-i18next';
+import i18n from "../../../i18n";
 
 interface TrueStep {
   image?: string;
@@ -19,6 +21,9 @@ interface TrueStepperProps {
 }
 
 const Stepper: React.FC = (props: TrueStepperProps) => {
+  const { t } = useTranslation();
+  i18n.language;
+
   const [activeStep, setActiveStep] = useState<number>(0);
   const buttonRefs: RefObject<HTMLButtonElement>[] = [
     useRef<HTMLButtonElement>(null),
@@ -51,7 +56,7 @@ const Stepper: React.FC = (props: TrueStepperProps) => {
         <div className={`${props.style}`} role="tabpanel">
           <RightModalButton
             buttonText="✓"
-            modalContent="Buttons have aria-label and type attribute, and can be moved by keyboard keys. And images have the following attributes: alt='' aria-hidden='true' role='presentation'."
+            modalContent={t('stepper-right')}
             style="text-black"
           />
           <div className={`${props.style2}`}>

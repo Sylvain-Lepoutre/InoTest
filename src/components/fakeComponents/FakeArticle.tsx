@@ -1,5 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import ErrorModalButton from "@components/UI/ErrorModal";
+import { useTranslation } from 'react-i18next';
+import i18n from "../../../i18n";
 
 type FakeArticleProps = {
   style?: string;
@@ -21,6 +23,9 @@ type FakeArticleProps = {
 };
 
 export default function FakeArticle(props: FakeArticleProps) {
+  const { t } = useTranslation();
+  i18n.language;
+
   const style = props.style !== undefined ? props.style : "";
   const styleContainer = props.styleContainer !== undefined ? props.styleContainer : "";
   const styleSubContainer = props.styleSubContainer !== undefined ? props.styleSubContainer : "";
@@ -48,7 +53,7 @@ export default function FakeArticle(props: FakeArticleProps) {
               <ErrorModalButton
                 aria-label="information popup"
                 buttonText="!"
-                modalContent="Images do not have the following attributes: alt='' aria-hidden='true' role='presentation'."
+                modalContent={t('images-error')}
                 style="text-black mt-3 md:mt-0 place-self-center"
               />
               <img className={styleImageBottom} src={imageSrcBottom} />
@@ -61,7 +66,7 @@ export default function FakeArticle(props: FakeArticleProps) {
               <ErrorModalButton
                 aria-label="information popup"
                 buttonText="!"
-                modalContent="The semantic hierarchy of title tags is inconsistent."
+                modalContent={t('title-error')}
                 style="text-black"
               />
             </div>
