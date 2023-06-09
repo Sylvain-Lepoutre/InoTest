@@ -147,14 +147,12 @@ const NavBar: React.FC<Props> = ({ title, escapeRef, href }: Props) => {
           <button
             type="button"
             aria-label="language button"
-            ref={navRefs[3]}
             onKeyDown={(event) => {
               horizontalFocus(event);
             }}
-            ref={buttonRef}
             onKeyDown={handleKeyPress}
           >
-            <LanguageSelector />
+            <LanguageSelector horizontalFocus={horizontalFocus} navRef={navRefs[3]} />
           </button>
           <button
             type="button"
