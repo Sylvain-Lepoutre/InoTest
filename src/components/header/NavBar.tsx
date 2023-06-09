@@ -5,6 +5,10 @@ import { DarkModeSwitch } from "react-toggle-dark-mode";
 import useFocus from "../../hook/useFocus";
 import { ThemeContext } from "../../routes/Root";
 import FastAccesMenu from "./FastAccesMenu";
+import LanguageSelector from "@components/UI/LanguageSelector";
+
+import { useTranslation } from 'react-i18next';
+import i18n from "../../../i18n";
 
 type Props = {
   href: string;
@@ -14,6 +18,9 @@ type Props = {
 };
 
 const NavBar: React.FC<Props> = ({ title, escapeRef, href }: Props) => {
+  const { t } = useTranslation();
+  console.log(i18n.language);
+
   const { theme, toggleTheme } = useContext(ThemeContext) as {
     theme: string;
     toggleTheme: () => void;
@@ -37,6 +44,12 @@ const NavBar: React.FC<Props> = ({ title, escapeRef, href }: Props) => {
     setIsMenuOpen(false);
   };
 
+  const handleKeyPress = (event: React.KeyboardEvent<HTMLButtonElement>) => {
+    if (event.key === 'Enter') {
+      buttonRef.current?.click();
+    }
+  };
+
   return (
     <>
       <nav className="h-[5rem] flex justify-between px-4">
@@ -53,6 +66,7 @@ const NavBar: React.FC<Props> = ({ title, escapeRef, href }: Props) => {
           </h1>
         </div>
         <div className="relative md:hidden flex items-start mr-[-1rem]">
+          <LanguageSelector />
           <DarkModeSwitch
             style={{ marginRight: "1rem", marginTop: "1.7rem", marginLeft: "0.3rem" }}
             checked={theme === "dark"}
@@ -89,12 +103,12 @@ const NavBar: React.FC<Props> = ({ title, escapeRef, href }: Props) => {
           >
             <li>
               <Link onClick={closeMenu} to="/" className="block px-4 py-2">
-                Home
+              {t('nav-home')}
               </Link>
             </li>
             <li>
               <Link onClick={closeMenu} to="/about" className="block max-w-full px-4 py-2">
-                About us
+              {t('nav-about')}
               </Link>
             </li>
           </ul>
@@ -114,7 +128,7 @@ const NavBar: React.FC<Props> = ({ title, escapeRef, href }: Props) => {
               className="block px-4 py-2 link link-underline link-underline-black navStyle"
               aria-current={location.pathname === "/" ? "page" : undefined}
             >
-              Home
+              {t('nav-home')}
             </Link>
           </li>
           <li>
@@ -127,13 +141,25 @@ const NavBar: React.FC<Props> = ({ title, escapeRef, href }: Props) => {
               className="block px-4 py-2 link link-underline link-underline-black navStyle"
               aria-current={location.pathname === "/about" ? "page" : undefined}
             >
-              About us
+              {t('nav-about')}
             </Link>
           </li>
           <button
             type="button"
-            aria-label="dark mode button"
+            aria-label="language button"
             ref={navRefs[3]}
+            onKeyDown={(event) => {
+              horizontalFocus(event);
+            }}
+            ref={buttonRef}
+            onKeyDown={handleKeyPress}
+          >
+            <LanguageSelector />
+          </button>
+          <button
+            type="button"
+            aria-label="dark mode button"
+            ref={navRefs[4]}
             onKeyDown={(event) => {
               horizontalFocus(event);
               event.key === "Enter" || (event.key === "space" && toggleTheme());
