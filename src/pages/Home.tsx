@@ -1,11 +1,11 @@
 import React from 'react';
 import NavBar from "@components/header/NavBar";
 import { Link } from "react-router-dom";
-import ImageSlider from "../components/UI/CardAnim";
 import { useState } from "react";
 import TextReveal from '@components/UI/TextReveal';
 import { useTranslation } from 'react-i18next';
 import i18n from '../../i18n';
+import ImageSlider from "../components/UI/ImageSlider";
 
 const Home = () => {
   const { t } = useTranslation();
