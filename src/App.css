@@ -61,32 +61,6 @@ body {
   background-size: 4px 4px, 4px 4px, 80px 80px, 80px 80px, 80px 80px, 80px 80px, 80px 80px, 80px 80px;
 }
 
-.slide-in {
-  animation: slideIn 1s forwards;
-}
-
-.slide-out {
-  animation: slideOut 1s forwards;
-}
-
-@keyframes slideIn {
-  from {
-    transform: translateX(-100%);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideOut {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(100%);
-  }
-}
-
 #light .title {
   color: #000;
 }
@@ -121,6 +95,26 @@ body {
 #dark .buttonClass2 {
   background-color: #222222;
   color: #fff;
+}
+
+#light .buttonClass3 {
+  background-color: #222;
+  color: #fff;
+}
+
+#dark .buttonClass3 {
+  background-color: #fff;
+  color: #000;
+}
+
+#light .buttonClass3:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+#dark .buttonClass3:hover {
+  background-color: #f3f6f4;
+  color: #000;
 }
 
 #light .navStyle {
@@ -308,4 +302,16 @@ body {
 
 .image-animation {
   transition: object-position 0.3s ease-out; /* Add the desired animation properties */
+}
+
+/* Text reveal animation */
+.reveal {
+  position: relative;
+  transform: translateY(150px);
+  opacity: 0;
+  transition: 2s all ease;
+}
+.reveal.active {
+  transform: translateY(0);
+  opacity: 1;
 }

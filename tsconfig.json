@@ -1,5 +1,5 @@
 {
-  "include": ["./src"],
+  "include": ["./src", "i18n.ts"],
   "compilerOptions": {
     "esModuleInterop": true,
     "exactOptionalPropertyTypes": true,
