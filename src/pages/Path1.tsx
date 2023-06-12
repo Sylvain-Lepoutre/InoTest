@@ -21,7 +21,7 @@ export default function Path1() {
 
   return (
     <>
-      <section>
+      <section className="h-[100vh]">
         <header>
           <NavBar href="#main" escapeRef={escapeRef} />
         </header>

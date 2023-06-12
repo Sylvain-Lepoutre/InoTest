@@ -44,7 +44,7 @@ const NavBar: React.FC<Props> = ({ escapeRef, href }: Props) => {
 
   return (
     <>
-      <nav className="h-[5rem] flex justify-end px-4">
+      <nav className="h-[10vh] flex justify-end px-4">
         <div className="relative md:hidden flex  mr-[-1rem]">
           <LanguageSelector />
           <DarkModeSwitch
