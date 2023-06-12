@@ -18,13 +18,11 @@ function Root() {
   };
 
   return (
-    <div>
-      <ThemeContext.Provider value={{ theme, toggleTheme }}>
-        <body id={theme} className="h-full w-full">
-          <Outlet />
-        </body>
-      </ThemeContext.Provider>
-    </div>
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+      <div id={theme} className="h-full w-full">
+        <Outlet />
+      </div>
+    </ThemeContext.Provider>
   );
 }
 
