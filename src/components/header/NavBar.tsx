@@ -49,6 +49,7 @@ const NavBar: React.FC<Props> = ({ escapeRef, href }: Props) => {
           <LanguageSelector />
           <DarkModeSwitch
             style={{ marginRight: "1rem", marginTop: "1.7rem", marginLeft: "0.3rem" }}
+            checked={theme === "dark"}
             onChange={toggleTheme}
             size={30}
           />
@@ -136,7 +137,11 @@ const NavBar: React.FC<Props> = ({ escapeRef, href }: Props) => {
             }}
             onClick={toggleTheme}
           >
-            <DarkModeSwitch style={{ marginRight: "0.3rem", marginTop: "0.2rem", marginLeft: "0.3rem" }} size={33} />
+            <DarkModeSwitch
+              style={{ marginRight: "0.3rem", marginTop: "0.2rem", marginLeft: "0.3rem" }}
+              checked={theme === "dark"}
+              size={33}
+            />
           </button>
         </ul>
       </nav>
