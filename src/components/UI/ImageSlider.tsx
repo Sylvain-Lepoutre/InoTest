@@ -1,10 +1,10 @@
 import { useRef, useEffect, MouseEvent, TouchEvent } from "react";
 import { Link } from "react-router-dom";
-import { useTranslation } from 'react-i18next';
-import i18n from '../../../i18n';
+import { useTranslation } from "react-i18next";
+import i18n from "../../../i18n";
 
 const ImageSlider = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation<any>();
   i18n.language;
   const trackRef = useRef<HTMLElement>(null);
   const prevPercentageRef = useRef<number>(0);

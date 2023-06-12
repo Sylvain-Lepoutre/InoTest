@@ -7,7 +7,7 @@ import { ThemeContext } from "../../routes/Root";
 import FastAccesMenu from "./FastAccesMenu";
 import LanguageSelector from "@components/UI/LanguageSelector";
 
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 import i18n from "../../../i18n";
 
 type Props = {
@@ -42,12 +42,6 @@ const NavBar: React.FC<Props> = ({ title, escapeRef, href }: Props) => {
 
   const closeMenu = () => {
     setIsMenuOpen(false);
-  };
-
-  const handleKeyPress = (event: React.KeyboardEvent<HTMLButtonElement>) => {
-    if (event.key === 'Enter') {
-      buttonRef.current?.click();
-    }
   };
 
   return (
@@ -103,12 +97,12 @@ const NavBar: React.FC<Props> = ({ title, escapeRef, href }: Props) => {
           >
             <li>
               <Link onClick={closeMenu} to="/" className="block px-4 py-2">
-              {t('nav-home')}
+                {t("nav-home")}
               </Link>
             </li>
             <li>
               <Link onClick={closeMenu} to="/about" className="block max-w-full px-4 py-2">
-              {t('nav-about')}
+                {t("nav-about")}
               </Link>
             </li>
           </ul>
@@ -128,7 +122,7 @@ const NavBar: React.FC<Props> = ({ title, escapeRef, href }: Props) => {
               className="block px-4 py-2 link link-underline link-underline-black navStyle"
               aria-current={location.pathname === "/" ? "page" : undefined}
             >
-              {t('nav-home')}
+              {t("nav-home")}
             </Link>
           </li>
           <li>
@@ -141,7 +135,7 @@ const NavBar: React.FC<Props> = ({ title, escapeRef, href }: Props) => {
               className="block px-4 py-2 link link-underline link-underline-black navStyle"
               aria-current={location.pathname === "/about" ? "page" : undefined}
             >
-              {t('nav-about')}
+              {t("nav-about")}
             </Link>
           </li>
           <button

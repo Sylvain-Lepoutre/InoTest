@@ -7,7 +7,7 @@ import TrueNavBar from "@components/trueComponents/TrueNavBar";
 import TrueForm from "@components/trueComponents/TrueForm";
 import useEscapeKey from "../hook/useEscapeKey";
 import RightModalButton from "@components/UI/RightModal";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 import i18n from "../../i18n";
 
 export default function Path2() {
@@ -33,8 +33,8 @@ export default function Path2() {
           {activeStep2 === 0 ? (
             <div role="tab">
               <TrueArticle
-                title={t('article-title')}
-                subTitle={t('true-title')}
+                title={t("article-title")}
+                subTitle={t("true-title")}
                 content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ac interdum lectus, vitae tempus arcu. Donec molestie nisi diam, sed mattis dui volutpat eu. Pellentesque hendrerit nisl vitae mollis rhoncus. Suspendisse sed dolor in dui bibendum rhoncus ac quis odio. Suspendisse tempor odio eu aliquet ultrices."
                 imageSrcTop="https://picsum.photos/id/112/200/300"
                 imageSrcBottom="https://picsum.photos/id/103/300/200"
@@ -51,14 +51,7 @@ export default function Path2() {
                 styleContent="mt-6 md:text-base leading-relaxed"
               />
 
-              <TrueStepper
-                container="flex justify-center align-center relative mt-[6rem]"
-                style="md:grid md:grid-cols-3 md:grid-rows-1 md:gap-0 gap-2 flex flex-row justify-center align-center items-center rounded w-[70%] h-[30rem] p-4 p-x-36 m-8 "
-                style2="md:col-start-1 md:row-start-1 md:col-span-3 flex flex-col title text-center text-lg gap-2 font-bold"
-                styledButtons="md:col-start-1 md:row-start-1 md:place-self-center order-first flex items-center buttonClass2 justify-center px-4 py-2 rounded-md hover:-translate-x-1 transform transition-transform duration-200 md:mr-[20vw]"
-                styledButtons2="md:col-start-3 md:row-start-1 md:place-self-center order-last flex items-center buttonClass2 justify-center px-4 py-2 rounded-md hover:translate-x-1 transform transition-transform duration-200 md:ml-[20vw]"
-                styledImage="rounded"
-              />
+              <TrueStepper />
             </div>
           ) : (
             <section className="flex flex-row gap-12 justify-center items-center p-x-6" role="tab">
@@ -72,7 +65,7 @@ export default function Path2() {
               />
               <RightModalButton
                 buttonText="✓"
-                modalContent={t('image-right')}
+                modalContent={t("image-right")}
                 style="text-black mt-3 md:mt-0 place-self-center min-[1250px]:block hidden"
               />
             </section>
@@ -84,13 +77,13 @@ export default function Path2() {
             to="/path1"
             className="md:col-start-1 md:place-self-start buttonClass w-[15rem] rounded-lg xl:h-[2rem] 2xl:h-[3rem] md:ml-16 md:row-start-1 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 flex justify-center items-center"
           >
-            {t('previous')}
+            {t("previous")}
           </Link>
           <Link
             to="/"
             className="md:col-start-2 buttonClass w-[15rem] rounded-lg xl:h-[2rem] 2xl:h-[3rem] md:mr-16 md:row-start-1 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 flex justify-center items-center"
           >
-            {t('return-home')}
+            {t("return-home")}
           </Link>
         </section>
       </section>
