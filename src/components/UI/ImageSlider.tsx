@@ -1,10 +1,10 @@
 import { useRef, useEffect, MouseEvent, TouchEvent } from "react";
 import { Link } from "react-router-dom";
-import { useTranslation } from 'react-i18next';
-import i18n from '../../../i18n';
+import { useTranslation } from "react-i18next";
+import i18n from "../../../i18n";
 
 const ImageSlider = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation<any>();
   i18n.language;
   const trackRef = useRef<HTMLElement>(null);
   const prevPercentageRef = useRef<number>(0);
@@ -83,9 +83,12 @@ const ImageSlider = () => {
             alt="Slider 1"
           />
         </div>
-        <Link to="/path1" className="buttonClass3 flex flex-col w-full rounded-b h-[4rem] transition ease-in-out delay-150 duration-300 justify-center items-center cursor-pointer">
-          <h3>{t('nav')}</h3>
-          <h4>{t('component')}</h4>
+        <Link
+          to="/path1"
+          className="buttonClass3 flex flex-col w-full rounded-b h-[4rem] transition ease-in-out delay-150 duration-300 justify-center items-center cursor-pointer"
+        >
+          <h3>{t("nav")}</h3>
+          <h4>{t("component")}</h4>
         </Link>
       </div>
       <div className="flex flex-col gap-2 items-center">
@@ -97,9 +100,12 @@ const ImageSlider = () => {
             alt="Slider 2"
           />
         </div>
-        <Link to="/path1" className="buttonClass3 flex flex-col w-full rounded-b h-[4rem] transition ease-in-out delay-150 duration-300 justify-center items-center cursor-pointer">
+        <Link
+          to="/path1"
+          className="buttonClass3 flex flex-col w-full rounded-b h-[4rem] transition ease-in-out delay-150 duration-300 justify-center items-center cursor-pointer"
+        >
           <h3>Images</h3>
-          <h4>{t('component')}</h4>
+          <h4>{t("component")}</h4>
         </Link>
       </div>
       <div className="flex flex-col gap-2 items-center">
@@ -111,9 +117,12 @@ const ImageSlider = () => {
             alt="Slider 3"
           />
         </div>
-        <Link to="/path1" className="buttonClass3 flex flex-col w-full rounded-b h-[4rem] transition ease-in-out delay-150 duration-300 justify-center items-center cursor-pointer">
+        <Link
+          to="/path1"
+          className="buttonClass3 flex flex-col w-full rounded-b h-[4rem] transition ease-in-out delay-150 duration-300 justify-center items-center cursor-pointer"
+        >
           <h3>Article</h3>
-          <h4>{t('component')}</h4>
+          <h4>{t("component")}</h4>
         </Link>
       </div>
       <div className="flex flex-col gap-2 items-center">
@@ -125,9 +134,12 @@ const ImageSlider = () => {
             alt="Slider 4"
           />
         </div>
-        <Link to="/path1" className="buttonClass3 flex flex-col w-full rounded-b h-[4rem] transition ease-in-out delay-150 duration-300 justify-center items-center cursor-pointer">
+        <Link
+          to="/path1"
+          className="buttonClass3 flex flex-col w-full rounded-b h-[4rem] transition ease-in-out delay-150 duration-300 justify-center items-center cursor-pointer"
+        >
           <h3>Stepper</h3>
-          <h4>{t('component')}</h4>
+          <h4>{t("component")}</h4>
         </Link>
       </div>
       <div className="flex flex-col gap-2 items-center">
@@ -139,9 +151,12 @@ const ImageSlider = () => {
             alt="Slider 5"
           />
         </div>
-        <Link to="/path1" className="buttonClass3 flex flex-col w-full rounded-b h-[4rem] transition ease-in-out delay-150 duration-300 justify-center items-center cursor-pointer">
-          <h3>{t('form')}</h3>
-          <h4>{t('component')}</h4>
+        <Link
+          to="/path1"
+          className="buttonClass3 flex flex-col w-full rounded-b h-[4rem] transition ease-in-out delay-150 duration-300 justify-center items-center cursor-pointer"
+        >
+          <h3>{t("form")}</h3>
+          <h4>{t("component")}</h4>
         </Link>
       </div>
       <div className="flex flex-col gap-2 items-center">
@@ -153,9 +168,12 @@ const ImageSlider = () => {
             alt="Slider 6"
           />
         </div>
-        <Link to="/" className="buttonClass3 flex flex-col w-full rounded-b h-[4rem] transition ease-in-out delay-150 duration-300 justify-center items-center cursor-pointer">
-          <h3>{t('coming')}</h3>
-          <h4>{t('soon')}</h4>
+        <Link
+          to="/"
+          className="buttonClass3 flex flex-col w-full rounded-b h-[4rem] transition ease-in-out delay-150 duration-300 justify-center items-center cursor-pointer"
+        >
+          <h3>{t("coming")}</h3>
+          <h4>{t("soon")}</h4>
         </Link>
       </div>
       <div className="flex flex-col gap-2 items-center">
@@ -167,9 +185,12 @@ const ImageSlider = () => {
             alt="Slider 7"
           />
         </div>
-        <Link to="/" className="buttonClass3 flex flex-col w-full rounded-b h-[4rem] transition ease-in-out delay-150 duration-300 justify-center items-center cursor-pointer">
-          <h3>{t('coming')}</h3>
-          <h4>{t('soon')}</h4>
+        <Link
+          to="/"
+          className="buttonClass3 flex flex-col w-full rounded-b h-[4rem] transition ease-in-out delay-150 duration-300 justify-center items-center cursor-pointer"
+        >
+          <h3>{t("coming")}</h3>
+          <h4>{t("soon")}</h4>
         </Link>
       </div>
       <div className="flex flex-col gap-2 items-center">
@@ -181,9 +202,12 @@ const ImageSlider = () => {
             alt="Slider 8"
           />
         </div>
-        <Link to="/" className="buttonClass3 flex flex-col w-full rounded-b h-[4rem] transition ease-in-out delay-150 duration-300 justify-center items-center cursor-pointer">
-          <h3>{t('coming')}</h3>
-          <h4>{t('soon')}</h4>
+        <Link
+          to="/"
+          className="buttonClass3 flex flex-col w-full rounded-b h-[4rem] transition ease-in-out delay-150 duration-300 justify-center items-center cursor-pointer"
+        >
+          <h3>{t("coming")}</h3>
+          <h4>{t("soon")}</h4>
         </Link>
       </div>
     </div>

@@ -1,23 +1,23 @@
-import React, { useEffect, useRef } from 'react';
-import { useTranslation } from 'react-i18next';
-import englishFlag from '/en-flag.png';
-import frenchFlag from '/fr-flag.png';
+import {} from "react";
+import { useTranslation } from "react-i18next";
+import englishFlag from "/en-flag.png";
+import frenchFlag from "/fr-flag.png";
 
 type LanguageSelectorProps = {
   horizontalFocus: (event: KeyboardEvent) => void;
   navRef: RefObject<HTMLElement>;
-}
+};
 
 function LanguageSelector(props: LanguageSelectorProps) {
   const { i18n } = useTranslation();
 
   const changeLanguage = () => {
     const currentLanguage = i18n.language;
-    const newLanguage = currentLanguage === 'en' ? 'fr' : 'en';
+    const newLanguage = currentLanguage === "en" ? "fr" : "en";
     i18n.changeLanguage(newLanguage);
   };
 
-  const flagImage = i18n.language === 'en' ? englishFlag : frenchFlag;
+  const flagImage = i18n.language === "en" ? englishFlag : frenchFlag;
 
   return (
     <div>
