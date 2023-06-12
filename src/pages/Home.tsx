@@ -11,7 +11,7 @@ const Home = () => {
 
   return (
     <>
-      <header id="header">
+      <header id="header" className="sticky top-0 z-50">
         <NavBar href="#main" title="Inotest" />
       </header>
 

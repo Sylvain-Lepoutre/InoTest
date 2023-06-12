@@ -47,60 +47,62 @@ const FakeStepper = () => {
   };
 
   return (
-    <div className="flex flex-col items-center p-4">
-      <div className="md:w-[40rem] bg-transparent rounded-lg">
-        <div className="flex flex-col items-center ">
-          <div className="mb-4 flex ">
-            <img src={steps[activeStep].image} alt="" className="scale-75 object-cover" />
-            <div className="flex items-center justify-between p-4">
-              <ErrorModalButton buttonText="!" modalContent={t("stepper-error")} style="text-black" />
+    <>
+      <div className="flex flex-col items-center p-4">
+        <div className="md:w-[40rem] bg-transparent rounded-lg">
+          <div className="flex flex-col items-center ">
+            <div className="mb-4 flex ">
+              <img src={steps[activeStep].image} alt="" className="scale-75 object-cover" />
+              <div className="flex items-center justify-between p-4">
+                <ErrorModalButton buttonText="!" modalContent={t("stepper-error")} style="text-black" />
+              </div>
             </div>
+            <div>
+              <p className="text-center md:-mt-[2rem]">{steps[activeStep].text}</p>
+            </div>
+            <ErrorModalButton
+              buttonText="!"
+              modalContent={t("stepper-error")}
+              style="md:hidden text-black flex items-center justify-between p-4"
+            />
           </div>
-          <div>
-            <p className="text-center md:-mt-[2rem]">{steps[activeStep].text}</p>
+          <div className="flex justify-between md:-mt-[2rem]">
+            <button
+              onClick={() => {
+                handlePrevious();
+              }}
+              className="md:place-self-center  flex items-center buttonClass2 justify-center px-4 py-2 rounded-md hover:-translate-x-1 transform md:transition-transform duration-200 md:mr-[20vw]"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                className="w-4 h-4"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 5l-7 7m0 0l7 7m-7-7h18" />
+              </svg>
+            </button>
+            <button
+              onClick={() => {
+                handleNext(steps);
+              }}
+              className="md:place-self-center  flex items-center buttonClass2 justify-center px-4 py-2 rounded-md hover:translate-x-1 transform md:transition-transform duration-200 md:ml-[20vw]"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                className="w-4 h-4"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </button>
           </div>
-          <ErrorModalButton
-            buttonText="!"
-            modalContent={t("stepper-error")}
-            style="md:hidden text-black flex items-center justify-between p-4"
-          />
-        </div>
-        <div className="flex justify-between md:-mt-[2rem]">
-          <button
-            onClick={() => {
-              handlePrevious();
-            }}
-            className="md:place-self-center  flex items-center buttonClass2 justify-center px-4 py-2 rounded-md hover:-translate-x-1 transform md:transition-transform duration-200 md:mr-[20vw]"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              className="w-4 h-4"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 5l-7 7m0 0l7 7m-7-7h18" />
-            </svg>
-          </button>
-          <button
-            onClick={() => {
-              handleNext(steps);
-            }}
-            className="md:place-self-center  flex items-center buttonClass2 justify-center px-4 py-2 rounded-md hover:translate-x-1 transform md:transition-transform duration-200 md:ml-[20vw]"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              className="w-4 h-4"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-          </button>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
