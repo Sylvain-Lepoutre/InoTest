@@ -34,10 +34,10 @@ const Stepper: React.FC = (props: StepperProps) => {
   ];
 
   const steps: Step[] = [
-    { image: "", text: "lorem ipsum dolor fatem si vis pacem para bellum 1" },
-    { image: "", text: "lorem ipsum dolor fatem si vis pacem para bellum 2" },
-    { image: "", text: "lorem ipsum dolor fatem si vis pacem para bellum 3" },
-    { image: "", text: "lorem ipsum dolor fatem si vis pacem para bellum 4" },
+    { image: "/Step-1.jpg", text: t('step-1') },
+    { image: "/Step-2.png", text: t('step-2') },
+    { image: "/Step-3.png", text: t('step-3') },
+    { image: "/Step-4.png", text: t('step-4') },
   ];
 
   const { horizontalFocus } = useFocus(buttonRefs);

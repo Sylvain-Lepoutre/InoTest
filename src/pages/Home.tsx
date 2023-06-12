@@ -45,13 +45,13 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="flex flex-col items-center justify-end">
+      <section className="flex flex-col items-center justify-end overflow-x-hidden">
         <div className="mt-36">
           <ImageSlider />
         </div>
       </section>
 
-      <footer className="flex justify-center pb-4 mt-[-6em]">
+      <footer className="flex justify-center pb-12">
         <div>
           <a
             href="#header"
