@@ -17,7 +17,7 @@ function LanguageSelector(props: LanguageSelectorProps) {
     i18n.changeLanguage(newLanguage);
   };
 
-  const flagImage = i18n.language === 'en' ? englishFlag : frenchFlag;
+  const flagImage = i18n.language === 'en' ? frenchFlag : englishFlag;
 
   return (
     <div>

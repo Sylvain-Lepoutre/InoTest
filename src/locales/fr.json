@@ -39,6 +39,11 @@
     "select-right": "Le menu de sélection a l'attribut aria-expanded.",
     "title-right": "La hiérarchie sémantique des balises de titre est cohérente.",
     "stepper-right": "Les boutons ont l'attribut aria-label ou type et peuvent être déplacés à l'aide des touches du clavier. De plus, les images ont les attributs suivants : alt='', aria-hidden='true' et role='presentation'.",
-    "close": "Fermer"
+    "close": "Fermer",
+    "inolib": "Inolib est une agence digitale spécialisée dans l'accessibilité numérique, dont la mission est de rendre le numérique accessible à tous. Depuis sa création en 2022, Inolib conçoit, développe et commercialise des solutions et des services visant à favoriser l'inclusion numérique. L'agence est profondément engagée dans l'économie sociale et solidaire, alliant performance économique et impact social.",
+    "step-1": "Bienvenue dans notre zone de tests de composants accessible ! Cette zone est conçue pour vous permettre d'explorer et de tester l'accessibilité des composants d'une application. Aujourd'hui, nous allons vous présenter deux pages : une avec des composants non accessibles et une autre avec des composants accessibles. Prêt à commencer ?",
+    "step-2": "Sur la première page de test, vous verrez des composants non accessibles aux personnes handicapées. À côté de chaque composant, un bouton '!' indique le problème. Cliquez dessus pour en savoir plus. Utilisez un lecteur d'écran (NVDA ou JAWS) et testez la navigation au clavier avec TAB, flèches droite/gauche.",
+    "step-3": "Lorsque vous cliquez sur le bouton 'Détails' d'un composant non accessible, vous verrez une explication détaillée de la raison pour laquelle le composant pose problème.",
+    "step-4": "Maintenant, passons à la deuxième page où vous trouverez des composants spécialement conçus pour être accessibles à tous les utilisateurs. Interagissez avec ces composants pour constater comment ils sont conçus pour offrir une expérience inclusive à tous."
 }
   

@@ -39,6 +39,10 @@
     "select-right": "The select menu has the aria-expanded attribute.",
     "title-right": "The semantic hierarchy of title tags is consistent.",
     "stepper-right": "Buttons have the aria-label or type attribute, and can be moved by keyboard keys. Additionally, images have the following attributes: alt='', aria-hidden='true', and role='presentation'.",
-    "close": "Close"
-
+    "close": "Close",
+    "inolib": "Inolib is a digital agency specializing in digital accessibility, whose mission is to make the digital world accessible to all. Since its creation in 2022, Inolib has been designing, developing and marketing solutions and services to promote digital inclusion. The agency is deeply committed to the social economy, combining economic performance with social impact.",
+    "step-1": "Welcome to our accessible component testing area! This area is designed to allow you to explore and test the accessibility of an application's components. Today, we're going to present you with two pages: one with non-accessible components and another with accessible components. Ready to get started?",
+    "step-2": "On the first test page, you'll see components that aren't accessible to the disabled. Next to each component, a '! Click on it to find out more. Use a screen reader (NVDA or JAWS) and test keyboard navigation with TAB, right/left arrows.",
+    "step-3": "When you click on the 'Details' button of a component that is not accessible, you'll see a detailed explanation of why the component is problematic.",
+    "step-4": "Now let's move on to the second page, where you'll find components specially designed to be accessible to all users. Interact with these components to see how they are designed to provide an inclusive experience for all."
 }

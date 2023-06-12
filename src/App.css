@@ -10,7 +10,6 @@ html,
 body {
   font-family: "Basis", arial;
   min-height: 100vh;
-  overflow-x: hidden; /* Disable horizontal scrolling */
 }
 
 #light {
@@ -147,8 +146,8 @@ body {
 }
 
 #dark .windowStyle {
-  background-color: #808080;
-  color: #000;
+  background-color: #f5f5f5;
+  color: #222222;
 }
 
 #light .formStyle {

@@ -1,7 +1,5 @@
-import React from 'react';
 import NavBar from "@components/header/NavBar";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import ImageSlider from "../components/UI/ImageSlider";
 import TextReveal from '@components/UI/TextReveal';
 import { useTranslation } from 'react-i18next';
@@ -49,13 +47,13 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="flex flex-col items-center justify-end">
+      <section className="flex flex-col items-center justify-end overflow-x-hidden">
         <div className="mt-36">
           <ImageSlider />
         </div>
       </section>
 
-      <footer className="flex justify-center pb-4 mt-[-6em]">
+      <footer className="flex justify-center pb-12">
         <div>
           <a href="#header" className="buttonClass p-3 w-fit rounded h-[3rem] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 flex justify-center items-center cursor-pointer">{t('backtop')}</a>
         </div>
