@@ -52,7 +52,7 @@ const Home = () => {
 
       <section id="main">
         <TextReveal />
-        <div className="flex flex-col gap-6 max-w-xl ml-5 p-6 mt-0 items-start reveal">
+        <div className="flex flex-col gap-6 max-w-3xl ml-5 p-6 mt-0 items-start reveal">
           <h2 className="title text-3xl md:text-4xl xl:text-5xl lg:text-5xl font-semibold">{t("library-title")}</h2>
           <p className="title text-xl">{t("library-content")}</p>
         </div>
@@ -63,19 +63,6 @@ const Home = () => {
           <ImageSlider />
         </div>
       </section>
-
-      <footer className="flex justify-center pb-12">
-        <div>
-          <button
-            type="button"
-            aria-label="lien vers le haut de la page"
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="buttonClass p-3 w-fit rounded h-[3rem] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 flex justify-center items-center cursor-pointer"
-          >
-            {t("backtop")}
-          </button>
-        </div>
-      </footer>
     </>
   );
 };
