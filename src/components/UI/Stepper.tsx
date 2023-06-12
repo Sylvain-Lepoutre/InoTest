@@ -18,7 +18,6 @@ interface StepperProps {
   style3: string;
   styledImage: string;
   styledButtons: string;
-  styledButtons2: string;
 }
 
 const Stepper: React.FC = (props: StepperProps) => {
@@ -106,26 +105,26 @@ const Stepper: React.FC = (props: StepperProps) => {
             ) : (
               ""
             )}
+            {activeStep === steps.length - 1 ? (
+              <Link
+                to={`${props.href}`}
+                ref={buttonRefs[2]}
+                aria-label="start button"
+                tabIndex={0}
+                type="button"
+                onKeyDown={() => {
+                  horizontalFocus(event);
+                }}
+                className={`transition-opacity duration-[1000ms] ${props.styledButtons} ${
+                  buttonVisible ? "opacity-100" : "opacity-0"
+                }`}
+              >
+                {t("start")}
+              </Link>
+            ) : (
+              ""
+            )}
           </div>
-          {activeStep === steps.length - 1 ? (
-            <Link
-              to={`${props.href}`}
-              ref={buttonRefs[2]}
-              aria-label="start button"
-              tabIndex={0}
-              type="button"
-              onKeyDown={() => {
-                horizontalFocus(event);
-              }}
-              className={`transition-opacity duration-[1000ms] ${props.styledButtons2} ${
-                buttonVisible ? "opacity-100" : "opacity-0"
-              }`}
-            >
-              {t("start")}
-            </Link>
-          ) : (
-            ""
-          )}
         </div>
       </section>
     </>
