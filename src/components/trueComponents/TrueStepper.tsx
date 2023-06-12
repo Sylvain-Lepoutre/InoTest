@@ -71,7 +71,11 @@ const Stepper = () => {
                 {steps[activeStep].text}
               </p>
             </div>
-            <RightModalButton buttonText="!" modalContent={t("stepper-right")} style="text-black" />
+            <RightModalButton
+              buttonText="!"
+              modalContent={t("stepper-right")}
+              style="md:hidden text-black flex items-center justify-between p-4"
+            />
           </div>
           <div className="flex justify-between md:-mt-[2rem]">
             <button
