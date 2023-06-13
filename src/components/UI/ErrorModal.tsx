@@ -1,15 +1,16 @@
 import { useRef, useState } from "react";
 import useEscapeKey from "../../hook/useEscapeKey";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 import i18n from "../../../i18n";
+import useOuterClick from "../../hook/useOuterClick";
 
-type ErrorModalButtonProps = {
+type ErrorModalProps = {
   buttonText: string;
   modalContent: string;
   style?: string;
 };
 
-export default function ErrorModalButton(props: ErrorModalButtonProps) {
+export default function ErrorModal(props: ErrorModalProps) {
   const { t } = useTranslation();
   i18n.language;
 
@@ -18,16 +19,18 @@ export default function ErrorModalButton(props: ErrorModalButtonProps) {
   const style = props.style !== undefined ? props.style : "";
   const [isErrorModalOpen, setIsErrorModalOpen] = useState(false);
   const escapeRef = useRef<HTMLElement>(null);
+  const clickRef = useRef<HTMLElement>();
 
-  useEscapeKey(escapeRef);
+  const closeErrorModal = () => {
+    setIsErrorModalOpen(false);
+  };
 
   const openErrorModal = () => {
     setIsErrorModalOpen(true);
   };
 
-  const closeErrorModal = () => {
-    setIsErrorModalOpen(false);
-  };
+  useEscapeKey(escapeRef);
+  useOuterClick(clickRef, closeErrorModal);
 
   return (
     <div className={style}>
@@ -37,6 +40,7 @@ export default function ErrorModalButton(props: ErrorModalButtonProps) {
 
       {isErrorModalOpen && (
         <dialog
+          ref={clickRef}
           className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50 w-screen h-screen"
           aria-label="Accessibility error window"
         >
@@ -47,7 +51,7 @@ export default function ErrorModalButton(props: ErrorModalButtonProps) {
               className="mt-6 bg-red-500 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg"
               onClick={closeErrorModal}
             >
-              {t('close')}
+              {t("close")}
             </button>
           </div>
         </dialog>
