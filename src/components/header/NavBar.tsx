@@ -36,7 +36,7 @@ const NavBar: React.FC<Props> = ({ escapeRef, href }: Props) => {
 
   navRefs[0] = escapeRef ?? navRefs[0];
 
-  const { horizontalFocus } = useFocus(navRefs);
+  const { horizontalFocus, mouseFocus } = useFocus(navRefs);
 
   const closeMenu = () => {
     setIsMenuOpen(false);
@@ -96,13 +96,16 @@ const NavBar: React.FC<Props> = ({ escapeRef, href }: Props) => {
 
         <ul className="menu hidden md:flex md:items-start mt-5">
           <li>
-            <FastAccesMenu href={href} horizontalFocus={horizontalFocus} navRef={navRefs[0]} />
+            <FastAccesMenu href={href} horizontalFocus={horizontalFocus} mouseFocus={mouseFocus} navRef={navRefs[0]} />
           </li>
           <li>
             <Link
               ref={navRefs[1]}
               onKeyDown={(event) => {
                 horizontalFocus(event);
+              }}
+              onClick={() => {
+                mouseFocus();
               }}
               to="/"
               className="block px-4 py-2 link link-underline link-underline-black navStyle"
@@ -116,6 +119,9 @@ const NavBar: React.FC<Props> = ({ escapeRef, href }: Props) => {
               ref={navRefs[2]}
               onKeyDown={(event) => {
                 horizontalFocus(event);
+              }}
+              onClick={() => {
+                mouseFocus();
               }}
               to="/about"
               className="block px-4 py-2 link link-underline link-underline-black navStyle"
@@ -135,7 +141,10 @@ const NavBar: React.FC<Props> = ({ escapeRef, href }: Props) => {
               horizontalFocus(event);
               event.key === "Enter" || (event.key === "space" && toggleTheme());
             }}
-            onClick={toggleTheme}
+            onClick={(event) => {
+              mouseFocus();
+              toggleTheme(event);
+            }}
           >
             <DarkModeSwitch
               style={{ marginRight: "0.3rem", marginTop: "0.2rem", marginLeft: "0.3rem" }}

@@ -71,6 +71,10 @@ const useFocus = (refArray: RefObject<HTMLElement>[], initialIndex?: number) => 
     focusButton(activeFocus);
   }, [activeFocus, focusButton]);
 
+  const mouseFocus = () => {
+    setActiveFocus(refArray.findIndex((ref) => ref.current === document.activeElement));
+  };
+
   const horizontalFocus = (event: KeyboardEvent) => {
     const { key } = event;
     const focus = activeFocus;
@@ -125,7 +129,7 @@ const useFocus = (refArray: RefObject<HTMLElement>[], initialIndex?: number) => 
     }
   };
 
-  return { horizontalFocus, verticalFocus, activeFocus, setActiveFocus };
+  return { horizontalFocus, verticalFocus, activeFocus, setActiveFocus, mouseFocus };
 };
 
 export default useFocus;

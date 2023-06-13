@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
-import ErrorModalButton from "@components/UI/ErrorModal";
-import { useTranslation } from 'react-i18next';
+import ErrorModal from "@components/UI/ErrorModal";
+import { useTranslation } from "react-i18next";
 import i18n from "../../../i18n";
 
 type FakeArticleProps = {
@@ -50,10 +50,10 @@ export default function FakeArticle(props: FakeArticleProps) {
           <div className={styleImageContainer}>
             <div className={styleImage}>
               <img className={styleImageTop} src={imageSrcTop} />
-              <ErrorModalButton
+              <ErrorModal
                 aria-label="information popup"
                 buttonText="!"
-                modalContent={t('images-error')}
+                modalContent={t("images-error")}
                 style="text-black mt-3 md:mt-0 place-self-center"
               />
               <img className={styleImageBottom} src={imageSrcBottom} />
@@ -63,10 +63,10 @@ export default function FakeArticle(props: FakeArticleProps) {
           <div className={styleTextContainer}>
             <div className="flex flex-col md:flex-row gap-2 justify-center items-center">
               <h4 className={styleTitle}>{title}</h4>
-              <ErrorModalButton
+              <ErrorModal
                 aria-label="information popup"
                 buttonText="!"
-                modalContent={t('title-error')}
+                modalContent={t("title-error")}
                 style="text-black"
               />
             </div>
