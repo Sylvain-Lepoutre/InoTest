@@ -38,7 +38,7 @@ export default function Path1() {
                 imageSrcBottom="https://picsum.photos/id/103/300/200"
                 style="windowStyle md:mt-0 mt-12"
                 styleContainer="max-w-5xl px-4 mx-auto sm:px-6 lg:px-8 md:mt-[-1em]"
-                styleSubContainer="grid  items-center md:grid-cols-2 md:gap-x-20"
+                styleSubContainer="grid items-center md:grid-cols-2 md:gap-x-20"
                 styleImageContainer="md:pr-12 pr-0 md:block flex flex-col items-center"
                 styleTextContainer="windowStyle"
                 styleImage="md:block flex flex-col relative max-w-xs"

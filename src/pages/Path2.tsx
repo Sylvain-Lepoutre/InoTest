@@ -45,7 +45,7 @@ export default function Path2() {
                 styleTextContainer="windowStyle"
                 styleImage="md:block flex flex-col relative max-w-xs"
                 styleImageTop="hidden md:block object-bottom rounded-md scale-75 object-cover h-[22rem]"
-                styleImageBottom="md:absolute md:origin-bottom-right scale-75 md:scale-75 rounded -bottom-6 md:-bottom-12 md:-right-12"
+                styleImageBottom="md:absolute md:origin-bottom-right scale-75 md:scale-75 rounded  md:-bottom-2 md:-right-12"
                 styleTitle="text-3xl text-center md:text-left font-bold leading-tight sm:text-4xl lg:text-5xl"
                 styleSubTitle="text-xl text-center md:text-left font-bold leading-tight sm:text-2xl lg:text-3xl mt-2"
                 styleContent="mt-6 md:text-base leading-relaxed"

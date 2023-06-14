@@ -12,7 +12,7 @@ type FakeNavBarProps = {
 
 const FakeNavBar: React.FC<Props> = (props: FakeNavBarProps) => {
   const { t } = useTranslation();
-  console.log(i18n.language);
+  i18n.language;
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const genericHamburgerLine = `h-1 w-6 my-1 rounded-full burgerStyle2 transition ease transform duration-300`;
 

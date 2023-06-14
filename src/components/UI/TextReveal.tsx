@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 
 const TextReveal = () => {
-  useEffect(() => {
     const revealElements = document.querySelectorAll('.reveal');
 
     const revealOnScroll = () => {
@@ -10,22 +9,14 @@ const TextReveal = () => {
         const elementTop = element.getBoundingClientRect().top;
         const elementVisible = 200;
 
-        if (elementTop < windowHeight - elementVisible) {
+        if (elementTop < windowHeight - elementVisible && !element.classList.contains('active')) {
           element.classList.add('active');
-        } else {
-          element.classList.remove('active');
         }
       });
     };
 
     window.addEventListener('scroll', revealOnScroll);
 
-    return () => {
-      window.removeEventListener('scroll', revealOnScroll);
-    };
-  }, []);
-
-  return null;
 };
 
 export default TextReveal;
