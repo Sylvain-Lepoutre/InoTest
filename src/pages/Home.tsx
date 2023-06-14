@@ -4,11 +4,23 @@ import ImageSlider from "../components/UI/ImageSlider";
 import TextReveal from "@components/UI/TextReveal";
 import { useTranslation } from "react-i18next";
 import i18n from "../../i18n";
+import SwitchButton from "@components/UI/SwitchButton";
+import useKeys from "../hook/useKeys";
+import { useRef, useState } from "react";
 
 const Home = () => {
-  const { t } = useTranslation();
   i18n.language;
+  const { t } = useTranslation();
   const location = useLocation();
+  const keyRef = useRef<HTMLElement>();
+
+  const [isChecked, setIsChecked] = useState<boolean>(false);
+
+  const handleToggle = () => {
+    setIsChecked(!isChecked);
+  };
+
+  useKeys(handleToggle, keyRef, "Enter", " ");
 
   return (
     <>
@@ -49,7 +61,9 @@ const Home = () => {
           </a>
         </div>
       </section>
-
+      <div className="w-14" tabIndex={0}>
+        <SwitchButton handleToggle={handleToggle} isChecked={isChecked} keyRef={keyRef} />
+      </div>
       <section id="main">
         <TextReveal />
         <div className="flex flex-col gap-6 max-w-3xl ml-5 p-6 mt-0 items-start reveal">

@@ -5,6 +5,7 @@ import { RefObject, KeyboardEvent } from "react";
 
 type LanguageSelectorProps = {
   horizontalFocus: (event: KeyboardEvent) => void;
+  mouseFocus: (event: MouseEvent) => void;
   navRef: RefObject<HTMLElement>;
 };
 
@@ -23,6 +24,7 @@ function LanguageSelector(props: LanguageSelectorProps) {
       <button
         ref={props.navRef}
         onClick={() => {
+          props.mouseFocus();
           void changeLanguage();
         }}
         onKeyDown={props.horizontalFocus}
