@@ -1,4 +1,4 @@
-import ErrorModalButton from "@components/UI/ErrorModal";
+import ErrorModal from "@components/UI/ErrorModal";
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import i18n from "../../../i18n";
@@ -54,13 +54,13 @@ const FakeStepper = () => {
             <div className="mb-4 flex ">
               <img src={steps[activeStep].image} alt="" className="scale-75 object-cover" />
               <div className="flex items-center justify-between p-4">
-                <ErrorModalButton buttonText="!" modalContent={t("stepper-error")} style="text-black" />
+                <ErrorModal buttonText="!" modalContent={t("stepper-error")} style="text-black" />
               </div>
             </div>
             <div>
               <p className="text-center md:-mt-[2rem]">{steps[activeStep].text}</p>
             </div>
-            <ErrorModalButton
+            <ErrorModal
               buttonText="!"
               modalContent={t("stepper-error")}
               style="md:hidden text-black flex items-center justify-between p-4"

@@ -6,7 +6,7 @@ import FakeStepper from "@components/fakeComponents/FakeStepper";
 import FakeNavBar from "@components/fakeComponents/FakeNavBar";
 import FakeForm from "@components/fakeComponents/FakeForm";
 import useEscapeKey from "../hook/useEscapeKey";
-import ErrorModalButton from "@components/UI/ErrorModal";
+import ErrorModal from "@components/UI/ErrorModal";
 import { useTranslation } from "react-i18next";
 import i18n from "../../i18n";
 
@@ -59,7 +59,7 @@ export default function Path1() {
                 className="min-[940px]:block hidden max-w-md mb-12 mt-8 shadow rounded"
                 alt=""
               />
-              <ErrorModalButton
+              <ErrorModal
                 buttonText="!"
                 modalContent={t("image-error")}
                 style="text-black mt-3 md:mt-0 place-self-center min-[940px]:block hidden"

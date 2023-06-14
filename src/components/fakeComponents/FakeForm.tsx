@@ -1,6 +1,6 @@
-import ErrorModalButton from "@components/UI/ErrorModal";
+import ErrorModal from "@components/UI/ErrorModal";
 import SelectMenu from "@components/UI/SelectMenu";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 import i18n from "../../../i18n";
 
 export default function FakeForm() {
@@ -10,15 +10,15 @@ export default function FakeForm() {
   return (
     <>
       <section className="w-full max-w-lg md:p-0 px-6">
-        <ErrorModalButton
+        <ErrorModal
           buttonText="!"
-          modalContent={t('form-error')}
+          modalContent={t("form-error")}
           style="text-black ml-24 mb-2 md:mt-0 place-self-center"
         />
         <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
             <p htmlFor="grid-first-name" className="block uppercase tracking-wide formTitle text-xs font-bold mb-2">
-              {t('first-name')}
+              {t("first-name")}
             </p>
             <input
               id="grid-first-name"
@@ -32,7 +32,7 @@ export default function FakeForm() {
               htmlFor="grid-last-name"
               className="block uppercase tracking-wide formTitle formTitle text-xs font-bold mb-2"
             >
-              {t('last-name')}
+              {t("last-name")}
             </p>
             <input
               id="grid-last-name"
@@ -50,7 +50,7 @@ export default function FakeForm() {
             <textarea
               id="grid-message"
               type="message"
-              placeholder={t('message')}
+              placeholder={t("message")}
               className="appearance-none block w-full formStyle border rounded py-3 px-4 mb-3 leading-tight focus:outline-none"
             />
           </div>
@@ -58,7 +58,7 @@ export default function FakeForm() {
         <div className="flex flex-wrap -mx-3 mb-2">
           <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
             <p htmlFor="grid-city" className="block uppercase tracking-wide formTitle text-xs font-bold mb-2">
-              {t('city')}
+              {t("city")}
             </p>
             <input
               id="grid-city"
@@ -69,7 +69,7 @@ export default function FakeForm() {
           </div>
           <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
             <p htmlFor="grid-state" className="block uppercase tracking-wide formTitle text-xs font-bold mb-2">
-              {t('state')}
+              {t("state")}
             </p>
             <div className="relative">
               <select
@@ -89,7 +89,7 @@ export default function FakeForm() {
           </div>
           <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
             <p htmlFor="grid-zip" className="block uppercase tracking-wide formTitle text-xs font-bold mb-2">
-              {t('zip')}
+              {t("zip")}
             </p>
             <input
               id="grid-zip"
@@ -103,13 +103,9 @@ export default function FakeForm() {
               type="submit"
               className="cursor-pointer shadow formStyle focus:shadow-outline focus:outline-none font-bold py-2 px-4 rounded  hover:scale-110 transform transition-transform duration-200"
             >
-              {t('send')}
+              {t("send")}
             </button>
-            <ErrorModalButton
-                buttonText="!"
-                modalContent={t('select-error')}
-                style="text-black md:mt-0 place-self-center"
-              />
+            <ErrorModal buttonText="!" modalContent={t("select-error")} style="text-black md:mt-0 place-self-center" />
           </div>
         </div>
       </section>
