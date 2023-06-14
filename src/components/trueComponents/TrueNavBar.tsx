@@ -11,7 +11,7 @@ type TrueNavBarProps = {
 
 const TrueNavBar: React.FC<Props> = (props: TrueNavBarProps) => {
   const { t } = useTranslation();
-  console.log(i18n.language);
+  i18n.language;
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const genericHamburgerLine = `h-1 w-6 my-1 rounded-full burgerStyle2 transition ease transform duration-300`;
   const trueNavRefs: RefObject<HTMLElement>[] = [useRef<HTMLElement>(null), useRef<HTMLElement>(null)];
