@@ -10,13 +10,10 @@ import { dracula } from 'react-syntax-highlighter/dist/esm/styles/prism';
 const ImageSlider = () => {
   const libraryNavBar = `
   import { useState } from "react";
-  import { useLocation } from "react-router-dom";
 
   const LibraryNavBar = () => {
-
-    const location = useLocation();
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
-    const genericHamburgerLine = \`h-1 w-6 my-1 rounded-full burgerStyle2 transition ease transform duration-300\`;
+    const genericHamburgerLine = \`h-1 w-6 my-1 rounded-full bg-white transition ease transform duration-300\`;
   
     const closeMenu = () => {
       setIsMenuOpen(false);
@@ -24,7 +21,7 @@ const ImageSlider = () => {
   
     return (
       <>
-        <nav className="bg-black text-white rounded-md h-[10vh] flex justify-center items-center">
+        <nav role="menu" className="bg-black rounded-md h-[10vh] flex justify-center items-center">
           <div className="relative md:hidden flex mr-[-1rem]">
             <button
               className="flex flex-col h-12 w-12 rounded justify-center"
@@ -41,7 +38,7 @@ const ImageSlider = () => {
               />
             </button>
   
-            <ul className={\`menu absolute top-16 right-0 w-36 mr-2 bg-black text-white rounded-lg shadow-md \${isMenuOpen ? "block" : "hidden"}\`}>
+            <ul className={\`menu absolute top-16 right-0 w-36 mr-2 bg-black rounded-lg shadow-md \${isMenuOpen ? "block" : "hidden"}\`}>
               <li>
                 <a onClick={closeMenu} href="#" className="block px-4 py-2 text-white">
                   Your text here
@@ -59,8 +56,8 @@ const ImageSlider = () => {
             <li>
               <a
                 href="#"
-                className="block px-4 py-2 link link-underline link-underline text-white"
-                aria-current={location.pathname === "/" ? "page" : undefined}
+                className="block px-4 py-2 text-white"
+                aria-current="page"
               >
                 Your text here
               </a>
@@ -68,8 +65,7 @@ const ImageSlider = () => {
             <li>
               <a
                 href="#"
-                className="block px-4 py-2 link link-underline link-underline text-white"
-                aria-current={location.pathname === "/" ? "page" : undefined}
+                className="block px-4 py-2 text-white"
               >
                 Your text here
               </a>
@@ -83,7 +79,6 @@ const ImageSlider = () => {
   export default LibraryNavBar;
   `;
   
-
   const { t } = useTranslation();
   i18n.language;
   const trackRef = useRef<HTMLElement>(null);
@@ -92,21 +87,7 @@ const ImageSlider = () => {
   const minPercentage = -100;
   const maxPercentage = 0;
   const [activeSection, setActiveSection] = useState("");
-  const [isMobile, setIsMobile] = useState(false);
 
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768); // Ajoutez votre valeur de breakpoint ici
-    };
-
-    window.addEventListener("resize", handleResize);
-    handleResize();
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-  
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -152,16 +133,6 @@ const ImageSlider = () => {
       for (const image of Array.from(images)) {
         image.setAttribute("style", `object-position: ${100 + nextPercentage}% center`);
       }
-
-      let transitionDuration = "0.3s"; // Durée de transition par défaut (pour les écrans non mobiles)
-
-      if (isMobile) {
-        // Personnalisez la durée de transition pour les écrans mobiles
-        transitionDuration = "1s"; // Par exemple, une durée de 1 seconde pour un défilement plus lent
-      }
-
-      trackRef.current.style.transitionDuration = transitionDuration;
-
     };
 
     window.addEventListener("mousedown", handleOnDown);
@@ -180,6 +151,7 @@ const ImageSlider = () => {
       window.removeEventListener("touchmove", (e: TouchEvent) => handleOnMove(e.touches[0]));
     };
   }, [minPercentage]);
+
 
   const handleButtonClick = (section: string) => {
     setActiveSection(prevSection => {
@@ -312,18 +284,53 @@ const ImageSlider = () => {
 
       <section className="flex justify-center -mt-32 p-6">
           {activeSection === "nav" && (
-            <div className={`overflow-auto rounded-lg w-[95vw] h-[70vh] buttonClass2 relative border-2 border-black backdrop-filter backdrop-blur-[2px] ${activeSection ? 'element' : ''}`}>
-              <div className="absolute top-0 left-0 w-full h-full"></div>
-              <div className="relative">
-                <h2 className="pt-3 mb-2 text-center text-3xl font-bold title">{t('nav')}</h2>
-                <div className="px-6 mb-2">
-                  <LibraryNavBar />
+            <div className="card rounded-lg element">
+              <div className="overflow-auto flex flex-col rounded-lg w-[95vw] h-[70vh] relative shadow-lg backdrop-filter backdrop-blur-[7px]">
+                <div className="relative">
+                  <h2 className="pt-3 mb-2 text-center text-3xl font-bold text">{t('nav')}</h2>
+                  <div className="px-6 mb-2">
+                    <LibraryNavBar />
+                  </div>
+                  <div className="h-fit title px-6">
+                    <div className="pb-6">
+                      <SyntaxHighlighter language="javascript" style={dracula}>
+                        {libraryNavBar}
+                      </SyntaxHighlighter>
+                    </div>
+                  </div>
                 </div>
-                <div className="h-[90vh] title px-6">
-                  <div className="pb-6">
-                    <SyntaxHighlighter language="javascript" style={dracula}>
-                      {libraryNavBar}
-                    </SyntaxHighlighter>
+                <div className="px-6 pb-6">
+                  <div className="windowStyle rounded-lg p-6 shadow-lg text-lg">
+                    <p className="mb-4">
+                      Ce code est conçu pour rendre la barre de navigation de votre site web 
+                      accessible aux utilisateurs, y compris ceux qui ont des limitations visuelles 
+                      ou motrices. Les bonnes pratiques d'accessibilité ont été prises en compte pour 
+                      offrir une expérience inclusive à tous les utilisateurs. Voici comment cela est réalisé :
+                    </p>
+                    <ul className="list-disc pl-6">
+                      <li className="mb-3">
+                        Utilisation de balises sémantiques : Les balises utilisées, telles que
+                        &lt;nav&gt;, &lt;ul&gt;, &lt;li&gt;, et &lt;a&gt;, ont des significations spécifiques 
+                        pour les lecteurs d'écran et autres technologies d'assistance. Elles aident les utilisateurs 
+                        à comprendre la structure et la fonctionnalité de la barre de navigation.
+                      </li>
+                      <li className="mb-3">
+                        Contrôles accessibles au clavier : Les utilisateurs qui ne peuvent pas utiliser une souris ou un 
+                        écran tactile peuvent naviguer dans la barre de navigation à l'aide du clavier. Les éléments 
+                        interactifs, tels que les boutons et les liens, sont conçus pour être activés en appuyant sur la 
+                        touche "Entrée" ou "Espace" lorsqu'ils sont en surbrillance.
+                      </li>
+                      <li className="mb-3">
+                        Contraste visuel : Les couleurs utilisées pour le texte et l'arrière-plan de la barre 
+                        de navigation ont été choisies pour offrir un bon contraste, facilitant la lisibilité pour 
+                        les personnes ayant une vision réduite ou une sensibilité aux couleurs.
+                      </li>
+                      <li className="mb-3">
+                        Gestion de l'état du menu : Lorsque vous cliquez sur l'icône de hamburger, le menu s'ouvre et 
+                        se ferme. Cette fonctionnalité permet aux utilisateurs de comprendre si le menu est ouvert ou 
+                        fermé, même s'ils ne peuvent pas voir l'icône.
+                      </li>
+                    </ul>
                   </div>
                 </div>
               </div>

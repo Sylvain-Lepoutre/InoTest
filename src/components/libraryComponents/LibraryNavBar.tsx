@@ -1,35 +1,13 @@
-import { useRef, useState, RefObject, useContext } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { DarkModeSwitch } from "react-toggle-dark-mode";
-
-import useFocus from "../../hook/useFocus";
-import { ThemeContext } from "../../routes/Root";
-import FastAccesMenu from "../header/FastAccesMenu";
-import LanguageSelector from "@components/UI/LanguageSelector";
-
+import { useState, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import i18n from "../../../i18n";
 
-type Props = {
-  href?: string;
-  escapeRef?: RefObject<HTMLElement>;
-};
-
-const LibraryNavBar: React.FC<Props> = ({ escapeRef, href }: Props) => {
+const LibraryNavBar = () => {
   const { t } = useTranslation();
   i18n.language;
 
-  const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const genericHamburgerLine = `h-1 w-6 my-1 rounded-full burgerStyle2 transition ease transform duration-300`;
-  const navRefs: RefObject<HTMLElement>[] = [
-    useRef<HTMLElement>(null),
-    useRef<HTMLElement>(null)
-  ];
-
-  navRefs[0] = escapeRef ?? navRefs[0];
-
-  const { horizontalFocus } = useFocus(navRefs);
 
   const closeMenu = () => {
     setIsMenuOpen(false);
@@ -37,7 +15,7 @@ const LibraryNavBar: React.FC<Props> = ({ escapeRef, href }: Props) => {
 
   return (
     <>
-      <nav className="windowStyle rounded-md h-[10vh] flex justify-center items-center">
+      <nav className="libraryNav rounded-md h-[10vh] flex justify-center items-center">
         <div className="relative md:hidden flex mr-[-1rem]">
           <button
             className="flex flex-col h-12 w-12 rounded justify-center"
@@ -63,49 +41,40 @@ const LibraryNavBar: React.FC<Props> = ({ escapeRef, href }: Props) => {
           </button>
 
           <ul
-            className={`menu absolute top-16 right-0 w-36 mr-2 buttonClass rounded-lg shadow-md ${
+            className={`libraryNav menu absolute top-[5rem] right-0 w-36 mr-2 rounded-lg shadow-md ${
               isMenuOpen ? "block" : "hidden"
             }`}
           >
             <li>
-              <Link onClick={closeMenu} to="/" className="block px-4 py-2 text">
+              <a onClick={closeMenu} href="#" className="block px-4 py-2 title">
                 {t("nav-home")}
-              </Link>
+              </a>
             </li>
             <li>
-              <Link onClick={closeMenu} to="/" className="block max-w-full px-4 py-2 text">
+              <a onClick={closeMenu} href="#" className="block max-w-full px-4 py-2 title">
                 {t("nav-about")}
-              </Link>
+              </a>
             </li>
           </ul>
         </div>
 
         <ul className="menu hidden md:flex md:items-start">
           <li>
-            <Link
-              ref={navRefs[0]}
-              onKeyDown={(event) => {
-                horizontalFocus(event);
-              }}
-              to="/"
-              className="block px-4 py-2 link link-underline link-underline text"
-              aria-current={location.pathname === "/" ? "page" : undefined}
+            <a
+              href="#"
+              className="block px-4 py-2"
+              aria-current="page"
             >
               {t("nav-home")}
-            </Link>
+            </a>
           </li>
           <li>
-            <Link
-              ref={navRefs[1]}
-              onKeyDown={(event) => {
-                horizontalFocus(event);
-              }}
-              to="/"
-              className="block px-4 py-2 link link-underline link-underline text"
-              aria-current={location.pathname === "/" ? "page" : undefined}
+            <a
+              href="#"
+              className="block px-4 py-2"
             >
               {t("nav-about")}
-            </Link>
+            </a>
           </li>
         </ul>
       </nav>
