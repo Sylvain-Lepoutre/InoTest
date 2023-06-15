@@ -326,6 +326,7 @@ body {
   animation-fill-mode: forwards; /* Keeps the final state after animation ends */
   animation-iteration-count: 1; /* Play the animation only once */
 }
+
 .reveal.active {
   transform: translateY(0);
   opacity: 1;
