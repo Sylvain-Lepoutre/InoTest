@@ -131,7 +131,7 @@ const NavBar: React.FC<Props> = ({ escapeRef, href }: Props) => {
             </Link>
           </li>
           <li aria-label="language button">
-            <LanguageSelector horizontalFocus={horizontalFocus} navRef={navRefs[3]} />
+            <LanguageSelector mouseFocus={mouseFocus} horizontalFocus={horizontalFocus} navRef={navRefs[3]} />
           </li>
           <button
             type="button"

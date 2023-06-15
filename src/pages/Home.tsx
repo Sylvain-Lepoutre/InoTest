@@ -6,8 +6,8 @@ import { useTranslation } from "react-i18next";
 import i18n from "../../i18n";
 
 const Home = () => {
-  const { t } = useTranslation();
   i18n.language;
+  const { t } = useTranslation();
   const location = useLocation();
 
   return (
@@ -49,7 +49,6 @@ const Home = () => {
           </a>
         </div>
       </section>
-
       <section id="main">
         <TextReveal />
         <div className="flex flex-col gap-6 max-w-3xl ml-5 p-6 mt-0 items-start reveal">
