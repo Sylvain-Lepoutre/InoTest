@@ -9,15 +9,14 @@ const TextReveal = () => {
         const windowHeight = window.innerHeight;
         const elementTop = element.getBoundingClientRect().top;
         const elementVisible = 200;
+        
+      if (elementTop < windowHeight - elementVisible && !element.classList.contains("active")) {
+        element.classList.add("active");
+      }
+    });
+  };
 
-        if (elementTop < windowHeight - elementVisible && !element.classList.contains('active')) {
-          element.classList.add('active');
-        }
-      });
-    };
-
-    window.addEventListener('scroll', revealOnScroll);
-  });
+  window.addEventListener("scroll", revealOnScroll);
 };
 
 export default TextReveal;
