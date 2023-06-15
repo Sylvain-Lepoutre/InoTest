@@ -10,11 +10,11 @@ const TextReveal = () => {
       const elementTop = element.getBoundingClientRect().top;
       const elementVisible = 200;
 
-        if (elementTop < windowHeight - elementVisible && !element.classList.contains('active')) {
-          element.classList.add('active');
-        }
-      });
-    };
+      if (elementTop < windowHeight - elementVisible && !element.classList.contains("active")) {
+        element.classList.add("active");
+      }
+    });
+  };
 
     window.addEventListener('scroll', revealOnScroll);
   });
