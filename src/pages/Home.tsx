@@ -4,30 +4,17 @@ import ImageSlider from "../components/UI/ImageSlider";
 import TextReveal from "@components/UI/TextReveal";
 import { useTranslation } from "react-i18next";
 import i18n from "../../i18n";
-import SwitchButton from "@components/UI/SwitchButton";
-import useKeys from "../hook/useKeys";
-import { useRef, useState } from "react";
 
 const Home = () => {
   i18n.language;
   const { t } = useTranslation();
   const location = useLocation();
-  const keyRef = useRef<HTMLElement>();
-
-  const [isChecked, setIsChecked] = useState<boolean>(false);
-
-  const handleToggle = () => {
-    setIsChecked(!isChecked);
-  };
-
-  useKeys(handleToggle, keyRef, "Enter", " ");
 
   return (
     <>
       <header id="header" className="sticky top-0 z-50">
         <NavBar href="#main" title="Inotest" />
       </header>
-
       <section className="md:grid md:grid-cols-2 md:grid-rows-2 md:justify-items-start h-[90vh] ">
         <div className=" md:ml-[3rem] col-start-1 row-start-1 -mt-[3.5rem] ml-4 relative md:text-7xl text-4xl font-bold flex flex-row items-start lg:text-9xl lg:mt-[7rem] lg:ml-[5rem]">
           <h1 className="title">
@@ -61,9 +48,6 @@ const Home = () => {
           </a>
         </div>
       </section>
-      <div className="w-14" tabIndex={0}>
-        <SwitchButton handleToggle={handleToggle} isChecked={isChecked} keyRef={keyRef} />
-      </div>
       <section id="main">
         <TextReveal />
         <div className="flex flex-col gap-6 max-w-3xl ml-5 p-6 mt-0 items-start reveal">

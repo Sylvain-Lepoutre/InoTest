@@ -1,34 +1,30 @@
-import { RefObject } from "react";
+import { useState } from "react";
 
-type SwitchButtonProps = {
-  isChecked: boolean;
-  handleToggle: () => void;
-  keyRef: RefObject<HTMLElement>;
-};
+const SwitchButton = () => {
+  const [isChecked, setIsChecked] = useState<boolean>(false);
 
-const SwitchButton: React.FC<SwitchButtonProps> = (props: SwitchButtonProps) => {
+  const handleSwitch = () => {
+    setIsChecked(!isChecked);
+  };
   return (
-    <label>
-      <input
-        type="checkbox"
-        checked={props.isChecked}
-        onChange={props.handleToggle}
-        onKeyDown={props.handleToggle}
+    <>
+      <button
+        type="button"
+        role="switch"
+        aria-checked={isChecked}
+        onClick={handleSwitch}
+        onKeyDown={() => {
+          event.key === "Enter" || (event.key === "space" && handleSwitch);
+        }}
         aria-label="Toggle Switch"
-        className="hidden"
-        ref={props.keyRef}
-      />
-      <div className="bg-slate-900 w-14 flex justify-center items-center rounded-xl">
-        <div className={`${props.isChecked ? "transform translate-x-full" : ""} text-white p-[0.1rem]`}>
-          {props.isChecked ? "on" : "off"}
+        className="bg-slate-900 w-16 flex justify-center items-center mx-1 rounded-xl"
+      >
+        <div className={`text-white py-[0.3rem] ${isChecked ? "translate-x-full" : ""}`}>
+          {isChecked ? "on" : "off"}
         </div>
-        <div
-          className={`${props.isChecked ? "bg-blue-500 " : "bg-white mx-1"} w-5 h-5 rounded-full ${
-            props.isChecked ? "transform -translate-x-full" : ""
-          }`}
-        ></div>
-      </div>
-    </label>
+        <div className={`w-5 h-5 rounded-full ${isChecked ? "bg-blue-500 -translate-x-full" : "bg-white"}`}></div>
+      </button>
+    </>
   );
 };
 
