@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react'
 
 const TextReveal = () => {
+  useEffect(() => {
     const revealElements = document.querySelectorAll('.reveal');
 
     const revealOnScroll = () => {
@@ -16,7 +17,7 @@ const TextReveal = () => {
     };
 
     window.addEventListener('scroll', revealOnScroll);
-
+  });
 };
 
 export default TextReveal;
