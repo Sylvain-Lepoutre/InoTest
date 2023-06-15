@@ -61,7 +61,7 @@ const Stepper = () => {
         <div className="md:w-[40rem] bg-transparent rounded-lg">
           <div className="flex flex-col items-center ">
             <div className="mb-4 flex ">
-              <img src={steps[activeStep].image} alt="" className="scale-75 object-cover" />
+              <img src={steps[activeStep].image} alt="" aria-hidden="true" role="presentation" className="scale-75 object-cover" />
               <div className="flex items-center justify-between p-4">
                 <RightModalButton buttonText="!" modalContent={t("stepper-right")} style="text-black" />
               </div>
@@ -77,7 +77,7 @@ const Stepper = () => {
               style="md:hidden text-black flex items-center justify-between p-4"
             />
           </div>
-          <div className="flex justify-between md:-mt-[2rem]">
+          <div className="flex justify-between md:justify-around md:gap-96 md:-mt-[2rem]">
             <button
               ref={buttonRefs[0]}
               aria-label="previous step button"
@@ -89,7 +89,7 @@ const Stepper = () => {
               onKeyDown={() => {
                 horizontalFocus(event);
               }}
-              className="md:place-self-center  flex items-center buttonClass2 justify-center px-4 py-2 rounded-md hover:-translate-x-1 transform md:transition-transform duration-200 md:mr-[20vw]"
+              className="md:place-self-center  flex items-center buttonClass2 justify-center px-4 py-2 rounded-md hover:-translate-x-1 transform md:transition-transform duration-200"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -112,7 +112,7 @@ const Stepper = () => {
               onKeyDown={() => {
                 horizontalFocus(event);
               }}
-              className="md:place-self-center  flex items-center buttonClass2 justify-center px-4 py-2 rounded-md hover:translate-x-1 transform md:transition-transform duration-200 md:ml-[20vw]"
+              className="md:place-self-center  flex items-center buttonClass2 justify-center px-4 py-2 rounded-md hover:translate-x-1 transform md:transition-transform duration-200"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

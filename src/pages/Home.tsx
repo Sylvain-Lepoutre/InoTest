@@ -15,7 +15,8 @@ const Home = () => {
       <header id="header" className="sticky top-0 z-50">
         <NavBar href="#main" title="Inotest" />
       </header>
-      <section className="md:grid md:grid-cols-2 md:grid-rows-2 md:justify-items-start h-[90vh] ">
+
+      <section className="md:grid md:grid-cols-2 md:grid-rows-2 md:justify-items-start h-[90vh] mb-12">
         <div className=" md:ml-[3rem] col-start-1 row-start-1 -mt-[3.5rem] ml-4 relative md:text-7xl text-4xl font-bold flex flex-row items-start lg:text-9xl lg:mt-[7rem] lg:ml-[5rem]">
           <h1 className="title">
             Inotest
@@ -28,7 +29,7 @@ const Home = () => {
               )}
           </h1>
         </div>
-        <div className="h-[8rem] md:h-[35vh] flex flex-col items-center justify-center md:col-start-1 md:row-start-1 md:place-content-end">
+        <div className="h-[35vh] flex flex-col items-center justify-center md:col-start-1 md:row-start-1 md:place-content-end">
           <h2 className="title md:max-w-min text-3xl md:block lg:block xl:block md:text-4xl xl:text-5xl lg:text-5xl md:ml-[35rem] lg:ml-[45rem] xl:mt-[-3.5rem] xl:ml-[59rem]">
             {t("home-title")}
           </h2>
