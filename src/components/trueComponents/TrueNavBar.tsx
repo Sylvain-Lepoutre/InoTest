@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import useFocus from "../../hook/useFocus";
 
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 import i18n from "../../../i18n";
 
 type TrueNavBarProps = {
@@ -66,7 +66,7 @@ const TrueNavBar: React.FC<Props> = (props: TrueNavBarProps) => {
                 }}
                 className="block px-4 py-2 transition duration-300 ease-in-out transform hover:scale-105"
               >
-                {t('nav-home')}
+                {t("nav-home")}
               </button>
             </li>
             <li>
@@ -95,7 +95,7 @@ const TrueNavBar: React.FC<Props> = (props: TrueNavBarProps) => {
               className="block px-4 py-2 transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-md"
               onClick={handlePreviousPage}
             >
-              {t('nav-home')}
+              {t("nav-home")}
             </button>
           </li>
           <li>

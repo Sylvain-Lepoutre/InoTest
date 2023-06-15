@@ -17,10 +17,7 @@ const LibraryNavBar = () => {
     <>
       <nav className="libraryNav rounded-md h-[10vh] flex justify-center items-center">
         <div className="relative md:hidden flex mr-[-1rem]">
-          <button
-            className="flex flex-col h-12 w-12 rounded justify-center"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
+          <button className="flex flex-col h-12 w-12 rounded justify-center" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             <div
               className={`${genericHamburgerLine} ${
                 isMenuOpen
@@ -60,19 +57,12 @@ const LibraryNavBar = () => {
 
         <ul className="menu hidden md:flex md:items-start">
           <li>
-            <a
-              href="#"
-              className="block px-4 py-2"
-              aria-current="page"
-            >
+            <a href="#" className="block px-4 py-2" aria-current="page">
               {t("nav-home")}
             </a>
           </li>
           <li>
-            <a
-              href="#"
-              className="block px-4 py-2"
-            >
+            <a href="#" className="block px-4 py-2">
               {t("nav-about")}
             </a>
           </li>
