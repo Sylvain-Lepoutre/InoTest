@@ -61,7 +61,13 @@ const Stepper = () => {
         <div className="md:w-[40rem] bg-transparent rounded-lg">
           <div className="flex flex-col items-center ">
             <div className="mb-4 flex ">
-              <img src={steps[activeStep].image} alt="" aria-hidden="true" role="presentation" className="scale-75 object-cover" />
+              <img
+                src={steps[activeStep].image}
+                alt=""
+                aria-hidden="true"
+                role="presentation"
+                className="scale-75 object-cover"
+              />
               <div className="flex items-center justify-between p-4">
                 <RightModalButton buttonText="!" modalContent={t("stepper-right")} style="text-black" />
               </div>
