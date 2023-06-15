@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import useEscapeKey from "../../hook/useEscapeKey";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 import i18n from "../../../i18n";
 
 type RightModalButtonProps = {
@@ -52,7 +52,7 @@ export default function RightModalButton(props: RightModalButtonProps) {
               className="mt-6 bg-green-500 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg"
               onClick={closeRightModal}
             >
-              {t('close')}
+              {t("close")}
             </button>
           </div>
         </dialog>

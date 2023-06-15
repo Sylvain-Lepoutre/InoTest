@@ -1,10 +1,10 @@
 // i18n.ts
-import i18n from 'i18next';
-import { initReactI18next } from 'react-i18next';
+import i18n from "i18next";
+import { initReactI18next } from "react-i18next";
 
 // Importez les fichiers de traduction
-import translationEN from '/src/locales/en.json';
-import translationFR from '/src/locales/fr.json';
+import translationEN from "/src/locales/en.json";
+import translationFR from "/src/locales/fr.json";
 
 // Configurez les langues prises en charge et les traductions
 i18n.use(initReactI18next).init({
@@ -16,8 +16,8 @@ i18n.use(initReactI18next).init({
       translation: translationFR,
     },
   },
-  lng: 'fr', // Langue par défaut
-  fallbackLng: 'en', // Langue de repli
+  lng: "fr", // Langue par défaut
+  fallbackLng: "en", // Langue de repli
   interpolation: {
     escapeValue: false, // Pas besoin d'échapper les valeurs
   },
