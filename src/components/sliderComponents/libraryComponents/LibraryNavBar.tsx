@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import i18n from "../../../i18n";
+import i18n from "../../../../i18n";
 
 const LibraryNavBar = () => {
   const { t } = useTranslation();
@@ -62,7 +62,7 @@ const LibraryNavBar = () => {
             </div>
           </li>
           <li>
-            <div href="#" className="block px-4 py-2">
+            <a href="#" className="block px-4 py-2">
               {t("nav-about")}
             </div>
           </li>

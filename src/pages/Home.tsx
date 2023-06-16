@@ -1,6 +1,6 @@
 import NavBar from "@components/header/NavBar";
 import { Link, useLocation } from "react-router-dom";
-import ImageSlider from "../components/UI/ImageSlider";
+import ImageSlider from "../components/sliderComponents/ImageSlider";
 import TextReveal from "@components/UI/TextReveal";
 import { useTranslation } from "react-i18next";
 import i18n from "../../i18n";
