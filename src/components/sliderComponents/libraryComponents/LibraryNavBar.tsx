@@ -67,9 +67,9 @@ const LibraryNavBar = () => {
             </div>
           </li>
           <li>
-            <a href="#" className="block px-4 py-2">
+            <div href="#" className="block px-4 py-2">
               Contact
-            </a>
+            </div>
           </li>
         </ul>
       </nav>
