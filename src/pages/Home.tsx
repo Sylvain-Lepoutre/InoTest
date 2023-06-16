@@ -4,6 +4,7 @@ import ImageSlider from "../components/sliderComponents/ImageSlider";
 import TextReveal from "@components/UI/TextReveal";
 import { useTranslation } from "react-i18next";
 import i18n from "../../i18n";
+import Tabs from "@components/UI/Tabs";
 
 const Home = () => {
   i18n.language;
@@ -49,6 +50,7 @@ const Home = () => {
           </a>
         </div>
       </section>
+      <Tabs />
       <section id="main">
         <TextReveal />
         <div className="flex flex-col gap-6 max-w-3xl ml-5 p-6 mt-0 items-start reveal">
@@ -56,7 +58,6 @@ const Home = () => {
           <p className="title text-xl">{t("library-content")}</p>
         </div>
       </section>
-
       <section className="flex flex-col items-center justify-end overflow-x-hidden">
         <div className="mt-36">
           <ImageSlider />
