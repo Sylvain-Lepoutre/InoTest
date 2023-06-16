@@ -7,6 +7,14 @@ import CardSlider from "./CardSlider";
 import CardSliderContent from "./CardSliderContent";
 import LibraryNavBar from "@components/sliderComponents/libraryComponents/LibraryNavBar";
 import NavCode from "./codeComponents/NavCode";
+import LibrarySwitch from "./libraryComponents/LibrarySwitch";
+import SwitchCode from "./codeComponents/SwitchCode";
+import LibraryForm from "./libraryComponents/LibraryForm";
+import FormCode from "./codeComponents/FormCode";
+import LibraryArticle from "./libraryComponents/LibraryArticle";
+import ArticleCode from "./codeComponents/ArticleCode";
+import LibraryImages from "./libraryComponents/LibraryImages";
+import ImagesCode from "./codeComponents/ImagesCode";
 
 const ImageSlider = () => {
   const { t } = useTranslation();
@@ -103,7 +111,7 @@ const ImageSlider = () => {
       >
         <CardSlider
           imageSrc="https://images.unsplash.com/photo-1524146128017-b9dd0bfd2778?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bmF2aWdhdGlvbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60"
-          cardName="nav"
+          cardName="Navbar"
           onButtonClick={handleButtonClick}
         />
         <CardSlider
@@ -123,7 +131,7 @@ const ImageSlider = () => {
         />
         <CardSlider
           imageSrc="https://images.unsplash.com/photo-1579444741963-5ae219cfe27c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9ybXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60"
-          cardName="form"
+          cardName="Form"
           onButtonClick={handleButtonClick}
         />
         <CardSlider
@@ -132,117 +140,80 @@ const ImageSlider = () => {
           onButtonClick={handleButtonClick}
         />
         <CardSlider
-          imageSrc="https://images.unsplash.com/photo-1614332287897-cdc485fa562d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y29taW5nfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60"
-          cardName="coming"
+          imageSrc="https://images.unsplash.com/photo-1598744609005-6c45c55c5e57?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dGFibGVhdXh8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60"
+          cardName="Tabs"
           onButtonClick={handleButtonClick}
         />
         <CardSlider
-          imageSrc="https://images.unsplash.com/photo-1556327070-9661a89d51db?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fGNvbWluZyUyMHNvb258ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60"
-          cardName="coming"
+          imageSrc="https://images.unsplash.com/photo-1614332287897-cdc485fa562d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y29taW5nfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60"
+          cardName="Coming soon"
           onButtonClick={handleButtonClick}
         />
       </section>
 
       <section className="flex justify-center -mt-32 p-6">
-        {activeSection === "nav" && (
+        {activeSection === "Navbar" && (
           <CardSliderContent
-            cardName="nav"
+            cardName="Navbar"
             libraryComponent={<LibraryNavBar />}
             componentCode={NavCode}
-            dash1="Utilisation de balises sémantiques : Les balises utilisées, telles que
-              &lt;nav&gt;, &lt;ul&gt;, &lt;li&gt;, et &lt;a&gt;, ont des significations spécifiques
-              pour les lecteurs d'écran et autres technologies d'assistance. Elles aident les utilisateurs
-              à comprendre la structure et la fonctionnalité de la barre de navigation."
-            dash2="Contrôles accessibles au clavier : Les utilisateurs qui ne peuvent pas utiliser une souris ou un
-              écran tactile peuvent naviguer dans la barre de navigation à l'aide du clavier. Les éléments
-              interactifs, tels que les boutons et les liens, sont conçus pour être activés en appuyant sur la
-              touche Entrée ouEspace lorsqu'ils sont en surbrillance."
-            dash3="Contraste visuel : Les couleurs utilisées pour le texte et l'arrière-plan de la barre
-              de navigation ont été choisies pour offrir un bon contraste, facilitant la lisibilité pour
-              les personnes ayant une vision réduite ou une sensibilité aux couleurs."
-            dash4="Gestion de l'état du menu : Lorsque vous cliquez sur l'icône de hamburger, le menu s'ouvre et
-              se ferme. Cette fonctionnalité permet aux utilisateurs de comprendre si le menu est ouvert ou
-              fermé, même s'ils ne peuvent pas voir l'icône."
+            dash1="Utilisation de balises sémantiques : Les balises utilisées, telles que &lt;nav&gt;, &lt;ul&gt;, &lt;li&gt;, et &lt;a&gt;, ont des significations spécifiques pour les lecteurs d'écran et autres technologies d'assistance. Elles aident les utilisateurs à comprendre la structure et la fonctionnalité de la barre de navigation."
+            dash2="Contrôles accessibles au clavier : Les utilisateurs qui ne peuvent pas utiliser une souris ou un écran tactile peuvent naviguer dans la barre de navigation à l'aide du clavier. Les éléments interactifs, tels que les boutons et les liens, sont conçus pour être activés en appuyant sur la touche Entrée ouEspace lorsqu'ils sont en surbrillance."
+            dash3="Contraste visuel : Les couleurs utilisées pour le texte et l'arrière-plan de la barre de navigation ont été choisies pour offrir un bon contraste, facilitant la lisibilité pour les personnes ayant une vision réduite ou une sensibilité aux couleurs."
+            dash4="Gestion de l'état du menu : Lorsque vous cliquez sur l'icône de hamburger, le menu s'ouvre et se ferme. Cette fonctionnalité permet aux utilisateurs de comprendre si le menu est ouvert ou fermé, même s'ils ne peuvent pas voir l'icône."
           />
         )}
 
         {activeSection === "Image" && (
-          <div
-            className={`rounded w-[95vw] h-[70vh] buttonClass2 relative border-2 border-black backdrop-filter backdrop-blur-[2px] ${
-              activeSection ? "element" : ""
-            }`}
-          >
-            <div className="absolute top-0 left-0 w-full h-full"></div>
-            <div className="relative">
-              <h2 className="pt-3 text-center text-3xl font-bold">Image</h2>
-            </div>
-          </div>
+          <CardSliderContent cardName="Image" libraryComponent={<LibraryImages />} componentCode={ImagesCode} />
         )}
 
         {activeSection === "Article" && (
-          <div
-            className={`rounded w-[95vw] h-[70vh] buttonClass2 relative border-2 border-black backdrop-filter backdrop-blur-[2px] ${
-              activeSection ? "element" : ""
-            }`}
-          >
-            <div className="absolute top-0 left-0 w-full h-full"></div>
-            <div className="relative">
-              <h2 className="pt-3 text-center text-3xl font-bold">Article</h2>
-            </div>
-          </div>
+          <CardSliderContent
+            cardName="Article"
+            libraryComponent={<LibraryArticle />}
+            componentCode={ArticleCode}
+            dash1="Les balises HTML sont utilisées de manière appropriée : Le code utilise des balises sémantiques telles que <article>, <section>, <h1>, <h2>, <p>, etc., ce qui améliore l'accessibilité pour les lecteurs d'écran et facilite la compréhension de la structure de la page pour tous les utilisateurs."
+            dash2="Les attributs alt et aria-hidden sont utilisés pour les images : Les images incluses dans le code ont des attributs alt et aria-hidden définis, ce qui permet aux lecteurs d'écran de comprendre le contenu des images et de les ignorer lorsqu'elles ne sont pas pertinentes pour le contexte."
+            dash3="Les classes CSS sont utilisées de manière adaptative : Le code utilise des classes CSS adaptatives, telles que md:mt-0, sm:px-6, lg:px-8, etc., qui permettent de modifier le style en fonction de la taille de l'écran. Cela garantit que le contenu reste lisible et bien disposé sur différents appareils et résolutions d'écran."
+            dash4="La structure de lecture est cohérente : Le code suit une structure de lecture logique avec des balises appropriées pour les titres, les sous-titres et les paragraphes. Cela facilite la navigation et la compréhension du contenu pour les utilisateurs qui dépendent de la structure de la page pour accéder à l'information."
+          />
         )}
 
         {activeSection === "Stepper" && (
-          <div
-            className={`rounded w-[95vw] h-[70vh] buttonClass2 relative border-2 border-black backdrop-filter backdrop-blur-[2px] ${
-              activeSection ? "element" : ""
-            }`}
-          >
-            <div className="absolute top-0 left-0 w-full h-full"></div>
-            <div className="relative">
-              <h2 className="pt-3 text-center text-3xl font-bold">Stepper</h2>
-            </div>
-          </div>
+          <CardSliderContent cardName="Stepper" libraryComponent={<LibraryNavBar />} componentCode={NavCode} />
         )}
 
-        {activeSection === "form" && (
-          <div
-            className={`rounded w-[95vw] h-[70vh] buttonClass2 relative border-2 border-black backdrop-filter backdrop-blur-[2px] ${
-              activeSection ? "element" : ""
-            }`}
-          >
-            <div className="absolute top-0 left-0 w-full h-full"></div>
-            <div className="relative">
-              <h2 className="pt-3 text-center text-3xl font-bold">{t("form")}</h2>
-            </div>
-          </div>
+        {activeSection === "Form" && (
+          <CardSliderContent
+            cardName="Form"
+            libraryComponent={<LibraryForm />}
+            componentCode={FormCode}
+            dash1="Les éléments de formulaire (balises &lt;input&gt;, &lt;textarea&gt;, &lt;select&gt;, etc.) sont tous associés à des étiquettes (&lt;label&gt;) appropriées à l'aide de l'attribut htmlFor (ou for en HTML), ce qui permet aux lecteurs d'écran de les associer correctement et d'annoncer l'étiquette correspondante lorsqu'un élément de formulaire reçoit le focus."
+            dash2="Les étiquettes sont écrites de manière descriptive, ce qui facilite la compréhension pour les utilisateurs ayant des difficultés de lecture ou de vision."
+            dash3="Les contrôles de formulaire ont des styles et des attributs (aria-*) appropriés pour fournir des indices visuels et contextuels aux utilisateurs, en particulier ceux qui utilisent des lecteurs d'écran."
+            dash4="Les boutons ont des textes explicites et des classes CSS appropriées pour indiquer leur rôle (par exemple, le bouton 'send' indique clairement son objectif)."
+          />
         )}
 
         {activeSection === "Switch" && (
-          <div
-            className={`rounded w-[95vw] h-[70vh] buttonClass2 relative border-2 border-black backdrop-filter backdrop-blur-[2px] ${
-              activeSection ? "element" : ""
-            }`}
-          >
-            <div className="absolute top-0 left-0 w-full h-full"></div>
-            <div className="relative">
-              <h2 className="pt-3 text-center text-3xl font-bold">Switch</h2>
-            </div>
-          </div>
+          <CardSliderContent
+            cardName="Switch"
+            libraryComponent={<LibrarySwitch />}
+            componentCode={SwitchCode}
+            dash1="Utilisation appropriée des rôles et des attributs ARIA : Le bouton dans ce code utilise les attributs ARIA (Accessible Rich Internet Applications) pour améliorer l'accessibilité. L'attribut role='switch' indique que le bouton agit comme un interrupteur. L'attribut aria-checked={isChecked} est utilisé pour indiquer l'état actuel de l'interrupteur, en fonction de la valeur de isChecked."
+            dash2="Gestion du clavier : L'événement onKeyDown est utilisé pour détecter les touches du clavier pressées par l'utilisateur. Si l'utilisateur appuie sur la touche Enter ou sur la touche Espace, la fonction handleSwitch est appelée pour changer l'état de l'interrupteur."
+            dash3="Texte alternatif : L'attribut aria-label fournit un texte alternatif pour l'interrupteur, ce qui est utile pour les lecteurs d'écran ou toute autre technologie d'assistance."
+            dash4="Styles visuels distincts pour les états : Les classes CSS conditionnelles sont utilisées pour appliquer des styles visuels distincts en fonction de l'état de l'interrupteur. Cela permet aux utilisateurs ayant une déficience visuelle de distinguer clairement l'état actuel de l'interrupteur."
+          />
         )}
 
-        {activeSection === "coming" && (
-          <div
-            className={`flex justify-center items-center rounded w-[95vw] h-[70vh] buttonClass2 relative border-2 border-black backdrop-filter backdrop-blur-[2px] ${
-              activeSection ? "element" : ""
-            }`}
-          >
-            <div className="absolute top-0 left-0 w-full h-full"></div>
-            <div className="relative">
-              <h2 className="text-center text-3xl font-bold">{t("coming")}</h2>
-              <p className="text-center text-xl font-bold">{t("soon")}</p>
-            </div>
-          </div>
+        {activeSection === "Tabs" && (
+          <CardSliderContent cardName="Tabs" libraryComponent={<LibraryNavBar />} componentCode={NavCode} />
+        )}
+
+        {activeSection === "Coming soon" && (
+          <CardSliderContent cardName="Coming soon" libraryComponent={<LibraryNavBar />} componentCode={NavCode} />
         )}
       </section>
     </>

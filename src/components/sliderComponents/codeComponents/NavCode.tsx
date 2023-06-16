@@ -1,5 +1,4 @@
-export default `
-    import { useState } from "react";
+export default `import { useState } from "react";
 
     const LibraryNavBar = () => {
       const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);

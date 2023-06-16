@@ -27,12 +27,14 @@ const CardSliderContent = (props: CardContentProps) => {
   const dash4 = props.dash4 !== undefined ? props.dash4 : "";
 
   return (
-    <div className="card rounded-lg element">
-      <div className="overflow-auto flex flex-col rounded-lg w-[95vw] h-[70vh] relative shadow-lg backdrop-filter backdrop-blur-[7px]">
-        <div className="relative">
-          <h2 className="pt-3 mb-2 text-center text-3xl font-bold text">{t(cardName)}</h2>
-          <div className="px-6 mb-2">{libraryComponent}</div>
-          <div className="h-fit title px-6">
+    <div className="rounded-lg element">
+      <div className="overflow-auto flex flex-col w-screen h-[70vh] bg-transparent relative">
+        <div className="flex flex-col items-center relative">
+          <div>
+            <h2 className="pt-3 mb-2 ml-6 text-left text-4xl font-bold title items-start">{cardName}</h2>
+            <div className="px-6 mb-2">{libraryComponent}</div>
+          </div>
+          <div className="w-[90vw] title px-6">
             <div className="pb-6">
               <SyntaxHighlighter language="javascript" style={dracula}>
                 {props.componentCode}
@@ -41,12 +43,11 @@ const CardSliderContent = (props: CardContentProps) => {
           </div>
         </div>
         <div className="px-6 pb-6">
-          <div className="windowStyle rounded-lg p-6 shadow-lg text-lg">
+          <div className="rounded-lg px-16 text-lg">
             <p className="mb-4">
-              Ce code est conçu pour rendre la barre de navigation de votre site web accessible aux utilisateurs, y
-              compris ceux qui ont des limitations visuelles ou motrices. Les bonnes pratiques d'accessibilité ont été
-              prises en compte pour offrir une expérience inclusive à tous les utilisateurs. Voici comment cela est
-              réalisé :
+              Ce code est conçu pour rendre votre site web accessible aux utilisateurs, y compris ceux qui ont des
+              limitations visuelles ou motrices. Les bonnes pratiques d'accessibilité ont été prises en compte pour
+              offrir une expérience inclusive à tous les utilisateurs. Voici comment cela est réalisé :
             </p>
             <ul className="list-disc pl-6">
               <li className="mb-3">{dash1}</li>
