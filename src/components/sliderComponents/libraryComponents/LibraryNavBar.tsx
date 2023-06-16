@@ -15,7 +15,7 @@ const LibraryNavBar = () => {
 
   return (
     <>
-      <nav className="libraryNav rounded-md h-[10vh] flex justify-center items-center">
+      <nav className="windowStyle rounded-md h-[10vh] flex justify-end items-center w-[87vw]">
         <div className="relative md:hidden flex mr-[-1rem]">
           <button className="flex flex-col h-12 w-12 rounded justify-center" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             <div
@@ -64,6 +64,11 @@ const LibraryNavBar = () => {
           <li>
             <a href="#" className="block px-4 py-2">
               {t("nav-about")}
+            </a>
+          </li>
+          <li>
+            <a href="#" className="block px-4 py-2">
+              Contact
             </a>
           </li>
         </ul>
