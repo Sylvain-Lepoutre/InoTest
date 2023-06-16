@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import i18n from "../../../../i18n";
 
@@ -43,28 +43,28 @@ const LibraryNavBar = () => {
             }`}
           >
             <li>
-              <a onClick={closeMenu} href="#" className="block px-4 py-2 title">
+              <button onClick={closeMenu} className="block px-4 py-2 title">
                 {t("nav-home")}
-              </a>
+              </button>
             </li>
             <li>
-              <a onClick={closeMenu} href="#" className="block max-w-full px-4 py-2 title">
+              <button onClick={closeMenu} className="block max-w-full px-4 py-2 title">
                 {t("nav-about")}
-              </a>
+              </button>
             </li>
           </ul>
         </div>
 
         <ul className="menu hidden md:flex md:items-start">
           <li>
-            <a href="#" className="block px-4 py-2" aria-current="page">
+            <div className="block px-4 py-2" aria-current="page">
               {t("nav-home")}
-            </a>
+            </div>
           </li>
           <li>
-            <a href="#" className="block px-4 py-2">
+            <div href="#" className="block px-4 py-2">
               {t("nav-about")}
-            </a>
+            </div>
           </li>
         </ul>
       </nav>
