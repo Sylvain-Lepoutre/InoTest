@@ -1,5 +1,6 @@
+export default `
 import { useState, useRef, RefObject } from "react";
-import useFocus from "../../hook/useFocus";
+import useFocus from "../../../hook/useFocus";
 
 type Tab = {
   id: number;
@@ -7,7 +8,7 @@ type Tab = {
   content: string;
 };
 
-const Tabs = () => {
+const LibraryTabs = () => {
   const tabs: Tab[] = [
     {
       id: 1,
@@ -46,13 +47,11 @@ const Tabs = () => {
           <button
             ref={tabRefs[index]}
             key={tab.id}
-            className={`px-4 py-2 font-semibold text-gray-600 rounded-t-lg focus:outline-black ${
-              activeTab === tab.id ? "bg-gray-300" : ""
-            }`}
+            className={\`px-4 py-2 font-semibold text-gray-600 rounded-t-lg focus:outline-black \${activeTab === tab.id ? "bg-gray-300" : ""}\`}
             role="tab"
-            id={`tab-${tab.id}`}
+            id={\`tab-\${tab.id}\`}
             aria-selected={activeTab === tab.id ? "true" : "false"}
-            aria-controls={`tabpanel-${tab.id}`}
+            aria-controls={\`tabpanel-\${tab.id}\`}
             onClick={() => handleTabClick(tab.id)}
             onKeyDown={horizontalFocus}
             tabIndex={activeTab === tab.id ? 0 : -1}
@@ -65,10 +64,10 @@ const Tabs = () => {
         {tabs.map((tab) => (
           <div
             key={tab.id}
-            id={`tabpanel-${tab.id}`}
+            id={\`tabpanel-\${tab.id}\`}
             role="tabpanel"
-            aria-labelledby={`tab-${tab.id}`}
-            className={`${activeTab === tab.id ? "block" : "hidden"} bg-gray-500`}
+            aria-labelledby={\`tab-\${tab.id}\`}
+            className={\`\${activeTab === tab.id ? "block" : "hidden"} bg-gray-500\`}
             tabIndex={activeTab === tab.id ? 0 : -1}
           >
             {tab.content}
@@ -79,4 +78,5 @@ const Tabs = () => {
   );
 };
 
-export default Tabs;
+export default LibraryTabs;
+`;
