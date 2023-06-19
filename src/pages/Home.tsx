@@ -13,7 +13,7 @@ const Home = () => {
   return (
     <>
       <header id="header">
-        <NavBar href="#main" title="Inotest" />
+        <NavBar href="#main" />
       </header>
 
       <section className="md:grid md:grid-cols-2 md:grid-rows-2 md:justify-items-start h-[90vh] mb-12">

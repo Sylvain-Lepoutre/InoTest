@@ -45,7 +45,7 @@ const NavBar: React.FC<Props> = ({ escapeRef, href }: Props) => {
   return (
     <>
       <nav className="h-[10vh] flex justify-end px-4">
-        <div className="relative md:hidden flex  mr-[-1rem]">
+        <div className="relative md:hidden flex mr-[-1rem] z-50">
           <LanguageSelector mouseFocus={mouseFocus} />
           <DarkModeSwitch
             style={{ marginRight: "1rem", marginTop: "1.7rem", marginLeft: "0.3rem" }}
