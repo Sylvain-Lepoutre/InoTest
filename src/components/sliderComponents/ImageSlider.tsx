@@ -1,6 +1,6 @@
 import { useRef, useEffect, MouseEvent, TouchEvent, useState } from "react";
-import { useTranslation } from "react-i18next";
 import i18n from "../../../i18n";
+import { useTranslation } from "react-i18next";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { dracula } from "react-syntax-highlighter/dist/esm/styles/prism";
 import CardSlider from "./CardSlider";
@@ -26,6 +26,8 @@ const ImageSlider = () => {
   const mouseDownAtRef = useRef<number>(0);
   const minPercentage = -100;
   const maxPercentage = 0;
+  const mobileMaxDelta = window.innerWidth / 0.5; // Vitesse de défilement pour mobile
+  const desktopMaxDelta = window.innerWidth / 1; // Vitesse de défilement pour ordinateur
   const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
@@ -54,7 +56,7 @@ const ImageSlider = () => {
       if (mouseDownAtRef.current === 0) return;
 
       const mouseDelta = parseFloat(mouseDownAtRef.current) - e.clientX;
-      const maxDelta = window.innerWidth / 2;
+      const maxDelta = window.innerWidth < 600 ? mobileMaxDelta : desktopMaxDelta;
 
       const percentage = (mouseDelta / maxDelta) * -100;
       const nextPercentageUnconstrained = parseFloat(prevPercentageRef.current) + percentage;
