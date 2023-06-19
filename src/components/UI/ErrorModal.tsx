@@ -8,6 +8,8 @@ type ErrorModalProps = {
   buttonText: string;
   modalContent: string;
   style?: string;
+  labelledby?: string;
+  describedby?: string;
 };
 
 export default function ErrorModal(props: ErrorModalProps) {
@@ -29,7 +31,7 @@ export default function ErrorModal(props: ErrorModalProps) {
     setIsErrorModalOpen(true);
   };
 
-  useEscapeKey(escapeRef);
+  useEscapeKey(closeErrorModal);
   useOuterClick(clickRef, closeErrorModal);
 
   return (
@@ -40,6 +42,8 @@ export default function ErrorModal(props: ErrorModalProps) {
 
       {isErrorModalOpen && (
         <dialog
+          aria-labelledby={props.labelledby}
+          aria-describedby={props.describedby}
           ref={clickRef}
           className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50 w-screen h-screen"
           aria-label="Accessibility error window"

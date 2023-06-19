@@ -2,50 +2,55 @@ import { useRef, useState } from "react";
 import useEscapeKey from "../../hook/useEscapeKey";
 import { useTranslation } from "react-i18next";
 import i18n from "../../../i18n";
+import useOuterClick from "../../hook/useOuterClick";
 
-type RightModalButtonProps = {
+type ModalProps = {
   buttonText: string;
   modalContent: string;
   style?: string;
+  labelledby?: string;
+  describedby?: string;
 };
 
-export default function RightModalButton(props: RightModalButtonProps) {
+export default function Modal(props: ModalProps) {
   const { t } = useTranslation();
   i18n.language;
 
-  const buttonText = props.buttonText !== undefined ? props.buttonText : "";
-  const modalContent = props.modalContent !== undefined ? props.modalContent : "";
-  const style = props.style !== undefined ? props.style : "";
-  const [isRightModalOpen, setIsRightModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const escapeRef = useRef<HTMLElement>(null);
-
-  useEscapeKey(escapeRef);
+  const clickRef = useRef<HTMLElement>();
 
   const openRightModal = () => {
-    setIsRightModalOpen(true);
+    setIsModalOpen(true);
   };
 
   const closeRightModal = () => {
-    setIsRightModalOpen(false);
+    setIsModalOpen(false);
   };
 
+  useEscapeKey(closeRightModal);
+  useOuterClick(clickRef, closeRightModal);
+
   return (
-    <div className={style}>
+    <div className={props.style}>
       <button
         type="button"
         className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
         onClick={openRightModal}
       >
-        {buttonText}
+        {props.buttonText}
       </button>
 
-      {isRightModalOpen && (
+      {isModalOpen && (
         <dialog
+          aria-labelledby={props.labelledby}
+          aria-describedby={props.describedby}
+          ref={clickRef}
           className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50 w-screen h-screen"
-          aria-label="Accessibility error window"
+          aria-label="Accessibility window"
         >
           <div className="bg-white p-8 rounded-lg shadow-lg z-10">
-            <p className="text-gray-800 text-lg max-w-[35rem]">{modalContent}</p>
+            <p className="text-gray-800 text-lg max-w-[35rem]">{props.modalContent}</p>
             <button
               type="button"
               ref={escapeRef}

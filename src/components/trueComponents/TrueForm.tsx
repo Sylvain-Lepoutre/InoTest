@@ -1,4 +1,4 @@
-import RightModalButton from "@components/UI/RightModal";
+import Modal from "@components/UI/Modal";
 import SelectMenu from "@components/UI/SelectMenu";
 import { useTranslation } from "react-i18next";
 import i18n from "../../../i18n";
@@ -10,11 +10,7 @@ export default function TrueForm() {
   return (
     <>
       <form className="w-full max-w-lg md:p-0 px-6" action="#" method="post">
-        <RightModalButton
-          buttonText="✓"
-          modalContent={t("form-right")}
-          style="text-black ml-24 mb-2 md:mt-0 place-self-center"
-        />
+        <Modal buttonText="✓" modalContent={t("form-right")} style="text-black ml-24 mb-2 md:mt-0 place-self-center" />
         <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
             <label htmlFor="grid-first-name" className="block uppercase tracking-wide formTitle text-xs font-bold mb-2">
@@ -98,11 +94,7 @@ export default function TrueForm() {
             >
               {t("send")}
             </button>
-            <RightModalButton
-              buttonText="✓"
-              modalContent={t("select-right")}
-              style="text-black md:mt-0 place-self-center"
-            />
+            <Modal buttonText="✓" modalContent={t("select-right")} style="text-black md:mt-0 place-self-center" />
           </div>
         </div>
       </form>
