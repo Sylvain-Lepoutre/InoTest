@@ -1,26 +1,16 @@
 import React, { useState, useRef, RefObject, useEffect } from "react";
-import useFocus from "../../hook/useFocus";
 import { Link } from "react-router-dom";
 
 import { useTranslation } from "react-i18next";
-import i18n from "../../../i18n";
+import i18n from "../../../../i18n";
+import useFocus from "../../../hook/useFocus";
 
 interface Step {
   image?: string;
   text?: string;
 }
 
-interface StepperProps {
-  container: string;
-  href: string;
-  style: string;
-  style2: string;
-  style3: string;
-  styledImage: string;
-  styledButtons: string;
-}
-
-const Stepper: React.FC = (props: StepperProps) => {
+const LibraryStepper = () => {
   const { t } = useTranslation();
   i18n.language;
 
@@ -58,15 +48,22 @@ const Stepper: React.FC = (props: StepperProps) => {
 
   return (
     <>
-      <section className={`${props.container}`} role="region" aria-roledescription="Fenêtre de tutoriel">
-        <div className={`${props.style}`}>
+      <section
+        className="flex justify-start align-center md:mt-0 p-6 w-[87vw]"
+        role="region"
+        aria-roledescription="Fenêtre de tutoriel"
+      >
+        <div className="mt-20 md:mt-0 flex justify-center align-center flex-col items-center rounded-lg bg-[#151515] w-[60vw] p-4 mx-8 windowStyle">
           <div>
-            <img className={`${props.styledImage}`} src={steps[activeStep].image} alt={steps[activeStep].alt} />
+            <img className="md:block hidden" src={steps[activeStep].image} alt={steps[activeStep].alt} />
           </div>
-          <p className={`${props.style2}`} aria-label={`${activeStep + 1} sur 4`}>
+          <p
+            className="text-center md:text-justify mt-4 text-white my-[1rem] windowStyle h-[15vh]"
+            aria-label={`${activeStep + 1} sur 4`}
+          >
             {steps[activeStep].text}
           </p>
-          <div className={`${props.style3}`}>
+          <div className="mt-80 md:mt-0 md:flex-row flex flex-col relative">
             {activeStep !== 0 ? (
               <button
                 ref={buttonRefs[0]}
@@ -79,7 +76,7 @@ const Stepper: React.FC = (props: StepperProps) => {
                 onKeyDown={() => {
                   horizontalFocus(event);
                 }}
-                className={`${props.styledButtons}`}
+                className="px-4 py-2 mx-2 w-[8rem] my-1 rounded bg-white text-black buttonClass2"
               >
                 {t("previous")}
               </button>
@@ -98,7 +95,7 @@ const Stepper: React.FC = (props: StepperProps) => {
                 onKeyDown={() => {
                   horizontalFocus(event);
                 }}
-                className={`${props.styledButtons}`}
+                className="px-4 py-2 mx-2 w-[8rem] my-1 rounded bg-white text-black buttonClass2"
               >
                 {t("next")}
               </button>
@@ -106,8 +103,7 @@ const Stepper: React.FC = (props: StepperProps) => {
               ""
             )}
             {activeStep === steps.length - 1 ? (
-              <Link
-                to={`${props.href}`}
+              <div
                 ref={buttonRefs[2]}
                 aria-label="start button"
                 tabIndex={0}
@@ -115,12 +111,12 @@ const Stepper: React.FC = (props: StepperProps) => {
                 onKeyDown={() => {
                   horizontalFocus(event);
                 }}
-                className={`transition-opacity duration-[1000ms] ${props.styledButtons} ${
+                className={`transition-opacity duration-[1000ms] px-4 py-2 mx-2 w-[8rem] my-1 rounded bg-white text-black buttonClass2 ${
                   buttonVisible ? "opacity-100" : "opacity-0"
                 }`}
               >
                 {t("start")}
-              </Link>
+              </div>
             ) : (
               ""
             )}
@@ -131,4 +127,4 @@ const Stepper: React.FC = (props: StepperProps) => {
   );
 };
 
-export default Stepper;
+export default LibraryStepper;

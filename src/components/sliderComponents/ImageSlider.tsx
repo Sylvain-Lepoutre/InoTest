@@ -17,6 +17,8 @@ import LibraryImages from "./libraryComponents/LibraryImages";
 import ImagesCode from "./codeComponents/ImagesCode";
 import LibraryTabs from "./libraryComponents/LibraryTabs";
 import TabsCode from "./codeComponents/TabsCode";
+import LibraryStepper from "./libraryComponents/LibraryStepper";
+import StepperCode from "./codeComponents/StepperCode";
 
 const ImageSlider = () => {
   const { t } = useTranslation();
@@ -193,7 +195,15 @@ const ImageSlider = () => {
         )}
 
         {activeSection === "Stepper" && (
-          <CardSliderContent cardName="Stepper" libraryComponent={<LibraryNavBar />} componentCode={NavCode} />
+          <CardSliderContent
+            cardName="Stepper"
+            libraryComponent={<LibraryStepper />}
+            componentCode={StepperCode}
+            dash1="Le code utilise des attributs accessibilité tels que role, aria-roledescription et aria-label pour décrire les éléments et fournir des informations aux technologies d'assistance."
+            dash2="Il gère le focus clavier en utilisant les événements onKeyDown et une fonction personnalisée horizontalFocus, permettant aux utilisateurs de naviguer dans les étapes du tutoriel à l'aide du clavier."
+            dash3="Les images utilisées dans le tutoriel sont accompagnées d'un attribut alt qui fournit une description alternative pour les utilisateurs qui ne peuvent pas voir l'image."
+            dash4="Le code utilise des attributs tabIndex pour rendre les boutons du tutoriel accessibles au clavier. En attribuant une valeur de 0 au tabIndex, les boutons deviennent focusables et peuvent être activés en appuyant sur la touche Entrée ou la barre d'espace. Cela permet aux utilisateurs qui ne peuvent pas utiliser la souris de naviguer et d'interagir avec les boutons du tutoriel en utilisant uniquement le clavier."
+          />
         )}
 
         {activeSection === "Form" && (
