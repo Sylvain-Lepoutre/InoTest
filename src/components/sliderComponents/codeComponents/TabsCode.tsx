@@ -1,5 +1,4 @@
-export default `
-import { useState, useRef, RefObject } from "react";
+export default `import { useState, useRef, RefObject } from "react";
 import useFocus from "../../../hook/useFocus";
 
 type Tab = {

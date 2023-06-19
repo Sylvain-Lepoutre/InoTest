@@ -42,13 +42,9 @@ const CardSliderContent = (props: CardContentProps) => {
             </div>
           </div>
         </div>
-        <div className="px-6 pb-6">
+        <div className="px-6 pb-6 title">
           <div className="rounded-lg px-16 text-lg">
-            <p className="mb-4">
-              Ce code est conçu pour rendre votre site web accessible aux utilisateurs, y compris ceux qui ont des
-              limitations visuelles ou motrices. Les bonnes pratiques d'accessibilité ont été prises en compte pour
-              offrir une expérience inclusive à tous les utilisateurs. Voici comment cela est réalisé :
-            </p>
+            <p className="mb-4">{t("code-pres")}</p>
             <ul className="list-disc pl-6">
               <li className="mb-3">{dash1}</li>
               <li className="mb-3">{dash2}</li>
