@@ -111,7 +111,7 @@ const Stepper: React.FC = (props: StepperProps) => {
                   }
                   horizontalFocus(event);
                 }}
-                className={`transition-opacity duration-[1000ms] ${props.styledButtons} ${
+                className={`transition-opacity duration-[1000ms] text-center ${props.styledButtons} ${
                   buttonVisible ? "opacity-100" : "opacity-0"
                 }`}
               >

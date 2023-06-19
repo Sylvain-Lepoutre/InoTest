@@ -8,7 +8,7 @@ const LibrarySwitch = () => {
   };
   return (
     <>
-      <section className="md:mt-0 p-6 w-[87vw]">
+      <section className="md:mt-0 p-6 w-[87vw] flex items-center justify-center">
         <button
           type="button"
           role="switch"
