@@ -15,6 +15,8 @@ import LibraryArticle from "./libraryComponents/LibraryArticle";
 import ArticleCode from "./codeComponents/ArticleCode";
 import LibraryImages from "./libraryComponents/LibraryImages";
 import ImagesCode from "./codeComponents/ImagesCode";
+import LibraryTabs from "./libraryComponents/LibraryTabs";
+import TabsCode from "./codeComponents/TabsCode";
 
 const ImageSlider = () => {
   const { t } = useTranslation();
@@ -219,7 +221,7 @@ const ImageSlider = () => {
         )}
 
         {activeSection === "Tabs" && (
-          <CardSliderContent cardName="Tabs" libraryComponent={<LibraryNavBar />} componentCode={NavCode} />
+          <CardSliderContent cardName="Tabs" libraryComponent={<LibraryTabs />} componentCode={TabsCode} />
         )}
 
         {activeSection === "Coming soon" && (
