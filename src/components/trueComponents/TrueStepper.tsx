@@ -69,7 +69,7 @@ const Stepper = () => {
               </div>
             </div>
             <div>
-              <p aria-label={`text ${activeStep + 1}`} className="text-center md:-mt-[2rem]">
+              <p aria-label={`${activeStep + 1} / 4`} className="text-center md:-mt-[2rem]">
                 {steps[activeStep].text}
               </p>
             </div>
@@ -82,7 +82,7 @@ const Stepper = () => {
           <div className="flex justify-between md:justify-around md:gap-96 md:-mt-[2rem]">
             <button
               ref={buttonRefs[0]}
-              aria-label="previous step button"
+              aria-label={t("aria-previous")}
               tabIndex={0}
               type="button"
               onClick={() => {
@@ -105,7 +105,7 @@ const Stepper = () => {
             </button>
             <button
               ref={buttonRefs[1]}
-              aria-label="next step button"
+              aria-label={t("aria-next")}
               tabIndex={0}
               type="button"
               onClick={() => {

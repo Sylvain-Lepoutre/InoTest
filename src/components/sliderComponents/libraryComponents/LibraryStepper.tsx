@@ -59,7 +59,7 @@ const LibraryStepper = () => {
       <section
         className="flex justify-center align-center md:mt-0 p-6 w-[87vw]"
         role="region"
-        aria-roledescription="Fenêtre de tutoriel"
+        aria-roledescription={t("aria-step")}
       >
         <div className="flex justify-center align-center flex-col items-center rounded-lg bg-[#151515] w-[50vw] p-4 mx-8 windowStyle">
           <div>
@@ -81,7 +81,7 @@ const LibraryStepper = () => {
             {activeStep !== 0 ? (
               <button
                 ref={buttonRefs[0]}
-                aria-label="previous step button"
+                aria-label={t("aria-previous")}
                 tabIndex={0}
                 type="button"
                 onClick={() => {
@@ -100,7 +100,7 @@ const LibraryStepper = () => {
             {activeStep !== steps.length - 1 ? (
               <button
                 ref={buttonRefs[1]}
-                aria-label="next step button"
+                aria-label={t("aria-next")}
                 tabIndex={0}
                 type="button"
                 onClick={() => {
@@ -119,7 +119,7 @@ const LibraryStepper = () => {
             {activeStep === steps.length - 1 ? (
               <button
                 ref={buttonRefs[2]}
-                aria-label="start button"
+                aria-label={t("aria-start")}
                 tabIndex={0}
                 type="button"
                 onKeyDown={() => {

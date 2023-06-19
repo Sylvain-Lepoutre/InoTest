@@ -1,6 +1,11 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
+import i18n from "../../../../i18n";
 
 const LibrarySwitch = () => {
+  const { t } = useTranslation();
+  i18n.language;
+
   const [isChecked, setIsChecked] = useState<boolean>(false);
 
   const handleSwitch = () => {
@@ -17,7 +22,7 @@ const LibrarySwitch = () => {
           onKeyDown={() => {
             event.key === "Enter" || (event.key === "space" && handleSwitch);
           }}
-          aria-label="Toggle Switch"
+          aria-label={t("aria-switch")}
           className="bg-slate-900 w-16 flex justify-center items-center mx-1 rounded-xl"
         >
           <div className={`text-white py-[0.3rem] ${isChecked ? "translate-x-full" : ""}`}>

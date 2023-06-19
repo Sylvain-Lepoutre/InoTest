@@ -14,6 +14,8 @@ const LanguageSelector: React.FC<LanguageSelectorProps> = ({
   mouseFocus,
   navRef,
 }: LanguageSelectorProps) => {
+  const { t } = useTranslation();
+
   const { i18n } = useTranslation();
 
   const changeLanguage = async () => {
@@ -33,7 +35,7 @@ const LanguageSelector: React.FC<LanguageSelectorProps> = ({
         }}
         onKeyDown={horizontalFocus}
         tabIndex={0}
-        aria-label="Change language"
+        aria-label={t("aria-language")}
       >
         <img className="w-8 mt-[1.7rem] mr-[1rem] md:mt-1 p-0" src={flagImage} alt="Flag" />
       </button>

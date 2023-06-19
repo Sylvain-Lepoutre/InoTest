@@ -17,7 +17,7 @@ const FastAccesMenu: React.FC<FastAccesMenuProps> = (props: FastAccesMenuProps) 
   return (
     <a
       ref={props.navRef}
-      aria-label="go to main content"
+      aria-label={t("aria-fastAccess")}
       onKeyDown={(event) => {
         props.horizontalFocus(event);
       }}

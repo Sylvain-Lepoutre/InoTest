@@ -8,6 +8,7 @@
   "nav-home": "Home",
   "nav-about": "About",
   "main-content-button": "Main content",
+  "about-us": "About us",
   "previous": "Previous",
   "next": "Next",
   "start": "Start",
@@ -73,5 +74,18 @@
   "lmodal-1": "The aria-labelledby and aria-describedby attributes are used to provide a textual description of the dialog element, allowing assistive technology users to understand the content and purpose of the dialog.",
   "lmodal-2": "The useEscapeKey function is used to detect when the user presses the Escape key, allowing them to close the dialog. This is beneficial for users who may not be able to use a mouse or prefer keyboard navigation.",
   "lmodal-3": "The useOuterClick function is used to detect when the user clicks outside the dialog, also allowing it to be closed. This improves the user experience by providing multiple ways to close the dialog, whether it's by pressing Escape or clicking outside of it.",
-  "lmodal-4": "The aria-label and role attributes are used to indicate the nature of the dialog and provide additional contextual information for assistive technology users."
+  "lmodal-4": "The aria-label and role attributes are used to indicate the nature of the dialog and provide additional contextual information for assistive technology users.",
+  "aria-modal": "Accessibility error window",
+  "aria-language": "Change language",
+  "aria-step": "Tutorial window",
+  "aria-previous": "previous step button",
+  "aria-next": "next step button",
+  "aria-start": "start button",
+  "aria-fastAccess": "Go to main content",
+  "aria-language-button": "Language button",
+  "aria-dark-mode": "Dark mode button",
+  "aria-switch": "Toggle switch",
+  "alt-img-info": "User graphs for the last 7 days",
+  "alt-img-fonct": "W3C Home",
+  "alt-img-details": "Bar chart showing monthly and total visitors for the first quarter 2014 for sites 1 to 3"
 }

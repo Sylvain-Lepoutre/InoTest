@@ -8,6 +8,7 @@
   "nav-home": "Accueil",
   "nav-about": "À propos",
   "main-content-button": "Contenu principal",
+  "about-us": "À propos de nous",
   "previous": "Précédent",
   "next": "Suivant",
   "start": "Commencez",
@@ -73,5 +74,18 @@
   "lmodal-1": "Les attributs aria-labelledby et aria-describedby sont utilisés pour fournir une description textuelle de l'élément dialog, ce qui permet aux utilisateurs de technologies d'assistance de comprendre le contenu et le but du dialogue.",
   "lmodal-2": "La fonction useEscapeKey est utilisée pour détecter lorsque l'utilisateur appuie sur la touche Échap, ce qui permet de fermer le dialogue. Cela est utile pour les utilisateurs qui ne peuvent pas utiliser la souris ou préfèrent naviguer uniquement au clavier.",
   "lmodal-3": "La fonction useOuterClick est utilisée pour détecter lorsque l'utilisateur clique en dehors du dialogue, ce qui permet également de le fermer. Cela améliore l'expérience utilisateur en permettant de fermer le dialogue de différentes manières, que ce soit en appuyant sur Échap ou en cliquant à l'extérieur.",
-  "lmodal-4": "Les attributs aria-label et role sont utilisés pour indiquer la nature du dialogue et fournir une information contextuelle supplémentaire pour les utilisateurs de technologies d'assistance."
+  "lmodal-4": "Les attributs aria-label et role sont utilisés pour indiquer la nature du dialogue et fournir une information contextuelle supplémentaire pour les utilisateurs de technologies d'assistance.",
+  "aria-modal": "Fenêtre d'erreur d'accessibilité",
+  "aria-language": "Changer de langue",
+  "aria-step": "Fenêtre de tutoriel",
+  "aria-previous": "bouton étape précédente",
+  "aria-next": "bouton étape suivante",
+  "aria-start": "bouton commencer",
+  "aria-fastAccess": "Aller au contenu principal",
+  "aria-language-button": "Bouton de langue",
+  "aria-dark-mode": "Bouton mode sombre",
+  "aria-switch": "Basculer l'interrupteur",
+  "alt-img-info": "Graphiques des utilisateurs des 7 derniers jours",
+  "alt-img-fonct": "Accueil W3C",
+  "alt-img-details": "Diagramme à barres montrant les visiteurs mensuels et totaux pour le premier trimestre 2014 pour les sites 1 à 3"
 }

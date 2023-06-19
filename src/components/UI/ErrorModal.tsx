@@ -46,7 +46,7 @@ export default function ErrorModal(props: ErrorModalProps) {
           aria-describedby={props.describedby}
           ref={clickRef}
           className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50 w-screen h-screen"
-          aria-label="Accessibility error window"
+          aria-label={t("aria-modal")}
         >
           <div className="bg-white p-8 rounded-lg shadow-lg z-10">
             <p className="text-gray-800 text-lg max-w-[35rem]">{modalContent}</p>
