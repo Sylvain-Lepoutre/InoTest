@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <>
       <header>
-        <NavBar href="#main" title="Inotest" />
+        <NavBar href="#main" />
       </header>
 
       <section className="flex flex-col md:grid md:grid-cols-2 md:grid-rows-2 md:justify-items-start h-[90vh]">
@@ -28,7 +28,7 @@ export default function Home() {
         </div>
         <div className="flex flex-col items-center md:col-start-2 md:row-start-1 md:col-span-2 mt-28">
           <article
-            aria-label="about us"
+            aria-label={t("about-us")}
             className="flex flex-col justify-center items-center mx-2 windowStyle w-[20rem] md:w-[25rem] h-[25rem] p-4 rounded md:block lg:block xl:block"
           >
             <p className="windowStyle">{t("inolib")}</p>

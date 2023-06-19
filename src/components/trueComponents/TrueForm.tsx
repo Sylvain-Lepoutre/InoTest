@@ -13,11 +13,11 @@ export default function TrueForm() {
         <Modal buttonText="✓" modalContent={t("form-right")} style="text-black ml-24 mb-2 md:mt-0 place-self-center" />
         <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-            <label htmlFor="grid-first-name" className="block uppercase tracking-wide formTitle text-xs font-bold mb-2">
+            <label htmlFor={t("first-name")} className="block uppercase tracking-wide formTitle text-xs font-bold mb-2">
               {t("first-name")}
             </label>
             <input
-              id="grid-first-name"
+              id={t("first-name")}
               type="text"
               placeholder="John"
               className="appearance-none block w-full formStyle border rounded py-3 px-4 mb-3 leading-tight focus:outline-none"
@@ -25,13 +25,13 @@ export default function TrueForm() {
           </div>
           <div className="w-full md:w-1/2 px-3">
             <label
-              htmlFor="grid-last-name"
+              htmlFor={t("last-name")}
               className="block uppercase tracking-wide formTitle formTitle text-xs font-bold mb-2"
             >
               {t("last-name")}
             </label>
             <input
-              id="grid-last-name"
+              id={t("last-name")}
               type="text"
               placeholder="Doe"
               className="appearance-none block w-full formStyle border rounded py-3 px-4 leading-tight focus:outline-none"
@@ -40,11 +40,11 @@ export default function TrueForm() {
         </div>
         <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full px-3">
-            <label htmlFor="grid-message" className="block uppercase tracking-wide formTitle text-xs font-bold mb-2">
+            <label htmlFor="Message" className="block uppercase tracking-wide formTitle text-xs font-bold mb-2">
               Message
             </label>
             <textarea
-              id="grid-message"
+              id="Message"
               type="message"
               placeholder={t("message")}
               className="appearance-none block w-full formStyle border rounded py-3 px-4 mb-3 leading-tight focus:outline-none"
@@ -53,18 +53,18 @@ export default function TrueForm() {
         </div>
         <div className="flex flex-wrap -mx-3 mb-2">
           <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-            <label htmlFor="grid-city" className="block uppercase tracking-wide formTitle text-xs font-bold mb-2">
+            <label htmlFor={t("city")} className="block uppercase tracking-wide formTitle text-xs font-bold mb-2">
               {t("city")}
             </label>
             <input
-              id="grid-city"
+              id={t("city")}
               type="text"
               placeholder="Albuquerque"
               className="appearance-none block w-full formStyle border rounded py-3 px-4 leading-tight focus:outline-none"
             />
           </div>
           <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-            <label htmlFor="grid-state" className="block uppercase tracking-wide formTitle text-xs font-bold mb-2">
+            <label htmlFor={t("state")} className="block uppercase tracking-wide formTitle text-xs font-bold mb-2">
               {t("state")}
             </label>
             <div className="relative">
@@ -77,11 +77,11 @@ export default function TrueForm() {
             </div>
           </div>
           <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-            <label htmlFor="grid-zip" className="block uppercase tracking-wide formTitle text-xs font-bold mb-2">
+            <label htmlFor={t("zip")} className="block uppercase tracking-wide formTitle text-xs font-bold mb-2">
               {t("zip")}
             </label>
             <input
-              id="grid-zip"
+              id={t("zip")}
               type="text"
               placeholder="90210"
               className="appearance-none block w-full formStyle border rounded py-3 px-4 leading-tight"

@@ -51,7 +51,6 @@ export default function FakeArticle(props: FakeArticleProps) {
             <div className={styleImage}>
               <img className={styleImageTop} src={imageSrcTop} />
               <ErrorModal
-                aria-label="information popup"
                 buttonText="!"
                 modalContent={t("images-error")}
                 style="text-black mt-3 md:mt-0 place-self-center"
@@ -63,12 +62,7 @@ export default function FakeArticle(props: FakeArticleProps) {
           <div className={styleTextContainer}>
             <div className="flex flex-col md:flex-row gap-2 justify-center items-center">
               <h4 className={styleTitle}>{title}</h4>
-              <ErrorModal
-                aria-label="information popup"
-                buttonText="!"
-                modalContent={t("title-error")}
-                style="text-black"
-              />
+              <ErrorModal buttonText="!" modalContent={t("title-error")} style="text-black" />
             </div>
             <h2 className={styleSubTitle}>{subTitle}</h2>
             <p className={styleContent}>{content}</p>

@@ -12,17 +12,17 @@ const LibraryTabs = () => {
     {
       id: 1,
       label: "Tab 1",
-      content: "Content 1",
+      content: "Tab 1",
     },
     {
       id: 2,
       label: "Tab 2",
-      content: "Content 2",
+      content: "Tab 2",
     },
     {
       id: 3,
       label: "Tab 3",
-      content: "Content 3",
+      content: "Tab 3",
     },
   ];
 
@@ -41,42 +41,42 @@ const LibraryTabs = () => {
 
   return (
     <section className="md:mt-0 p-6 w-[87vw]">
-    <div className="tabs ">
-      <div className="flex space-x-4" role="tablist">
-        {tabs.map((tab, index) => (
-          <button
-            ref={tabRefs[index]}
-            key={tab.id}
-            className={`px-4 py-2 font-semibold text-gray-600 rounded-t-lg focus:outline-black ${
-              activeTab === tab.id ? "bg-gray-300" : ""
-            }`}
-            role="tab"
-            id={`tab-${tab.id}`}
-            aria-selected={activeTab === tab.id ? "true" : "false"}
-            aria-controls={`tabpanel-${tab.id}`}
-            onClick={() => handleTabClick(tab.id)}
-            onKeyDown={horizontalFocus}
-            tabIndex={activeTab === tab.id ? 0 : -1}
-          >
-            {tab.label}
-          </button>
-        ))}
+      <div className="tabs ">
+        <div className="flex space-x-4" role="tablist">
+          {tabs.map((tab, index) => (
+            <button
+              ref={tabRefs[index]}
+              key={tab.id}
+              className={`px-4 py-2 font-semibold text-gray-600 rounded-t-lg focus:outline-black ${
+                activeTab === tab.id ? "bg-gray-300" : ""
+              }`}
+              role="tab"
+              id={`tab-${tab.id}`}
+              aria-selected={activeTab === tab.id ? "true" : "false"}
+              aria-controls={`tabpanel-${tab.id}`}
+              onClick={() => handleTabClick(tab.id)}
+              onKeyDown={horizontalFocus}
+              tabIndex={activeTab === tab.id ? 0 : -1}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
+        <div className="p-4 bg-gray-400">
+          {tabs.map((tab) => (
+            <div
+              key={tab.id}
+              id={`tabpanel-${tab.id}`}
+              role="tabpanel"
+              aria-labelledby={`tab-${tab.id}`}
+              className={`${activeTab === tab.id ? "block" : "hidden"} bg-gray-500`}
+              tabIndex={activeTab === tab.id ? 0 : -1}
+            >
+              {tab.content}
+            </div>
+          ))}
+        </div>
       </div>
-      <div className="p-4 bg-gray-400">
-        {tabs.map((tab) => (
-          <div
-            key={tab.id}
-            id={`tabpanel-${tab.id}`}
-            role="tabpanel"
-            aria-labelledby={`tab-${tab.id}`}
-            className={`${activeTab === tab.id ? "block" : "hidden"} bg-gray-500`}
-            tabIndex={activeTab === tab.id ? 0 : -1}
-          >
-            {tab.content}
-          </div>
-        ))}
-      </div>
-    </div>
     </section>
   );
 };

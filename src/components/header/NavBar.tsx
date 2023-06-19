@@ -130,12 +130,12 @@ const NavBar: React.FC<Props> = ({ escapeRef, href }: Props) => {
               {t("nav-about")}
             </Link>
           </li>
-          <li aria-label="language button">
+          <li aria-label={t("aria-language-button")}>
             <LanguageSelector mouseFocus={mouseFocus} horizontalFocus={horizontalFocus} navRef={navRefs[3]} />
           </li>
           <button
             type="button"
-            aria-label="dark mode button"
+            aria-label={t("aria-dark-mode")}
             ref={navRefs[4]}
             onKeyDown={(event) => {
               horizontalFocus(event);

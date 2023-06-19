@@ -17,25 +17,16 @@ export default function FakeForm() {
         />
         <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-            <p htmlFor="grid-first-name" className="block uppercase tracking-wide formTitle text-xs font-bold mb-2">
-              {t("first-name")}
-            </p>
+            <p className="block uppercase tracking-wide formTitle text-xs font-bold mb-2">{t("first-name")}</p>
             <input
-              id="grid-first-name"
               type="text"
               placeholder="John"
               className="appearance-none block w-full formStyle border rounded py-3 px-4 mb-3 leading-tight focus:outline-none"
             />
           </div>
           <div className="w-full md:w-1/2 px-3">
-            <p
-              htmlFor="grid-last-name"
-              className="block uppercase tracking-wide formTitle formTitle text-xs font-bold mb-2"
-            >
-              {t("last-name")}
-            </p>
+            <p className="block uppercase tracking-wide formTitle formTitle text-xs font-bold mb-2">{t("last-name")}</p>
             <input
-              id="grid-last-name"
               type="text"
               placeholder="Doe"
               className="appearance-none block w-full formStyle border rounded py-3 px-4 leading-tight focus:outline-none"
@@ -44,11 +35,8 @@ export default function FakeForm() {
         </div>
         <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full px-3">
-            <p htmlFor="grid-message" className="block uppercase tracking-wide formTitle text-xs font-bold mb-2">
-              Message
-            </p>
+            <p className="block uppercase tracking-wide formTitle text-xs font-bold mb-2">Message</p>
             <textarea
-              id="grid-message"
               type="message"
               placeholder={t("message")}
               className="appearance-none block w-full formStyle border rounded py-3 px-4 mb-3 leading-tight focus:outline-none"
@@ -57,25 +45,17 @@ export default function FakeForm() {
         </div>
         <div className="flex flex-wrap -mx-3 mb-2">
           <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-            <p htmlFor="grid-city" className="block uppercase tracking-wide formTitle text-xs font-bold mb-2">
-              {t("city")}
-            </p>
+            <p className="block uppercase tracking-wide formTitle text-xs font-bold mb-2">{t("city")}</p>
             <input
-              id="grid-city"
               type="text"
               placeholder="Albuquerque"
               className="appearance-none block w-full formStyle border rounded py-3 px-4 leading-tight focus:outline-none"
             />
           </div>
           <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-            <p htmlFor="grid-state" className="block uppercase tracking-wide formTitle text-xs font-bold mb-2">
-              {t("state")}
-            </p>
+            <p className="block uppercase tracking-wide formTitle text-xs font-bold mb-2">{t("state")}</p>
             <div className="relative">
-              <select
-                id="grid-state"
-                className="block appearance-none w-full py-3 px-4 pr-8 rounded leading-tight focus:outline-none formStyle"
-              >
+              <select className="block appearance-none w-full py-3 px-4 pr-8 rounded leading-tight focus:outline-none formStyle">
                 <option>New Mexico</option>
                 <option>Missouri</option>
                 <option>Texas</option>
@@ -88,11 +68,8 @@ export default function FakeForm() {
             </div>
           </div>
           <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-            <p htmlFor="grid-zip" className="block uppercase tracking-wide formTitle text-xs font-bold mb-2">
-              {t("zip")}
-            </p>
+            <p className="block uppercase tracking-wide formTitle text-xs font-bold mb-2">{t("zip")}</p>
             <input
-              id="grid-zip"
               type="text"
               placeholder="90210"
               className="appearance-none block w-full formStyle border rounded py-3 px-4 leading-tight"

@@ -47,7 +47,7 @@ export default function LibraryModal(props: ModalProps) {
           aria-describedby={props.describedby}
           ref={clickRef}
           className="fixed inset-0 flex items-center justify-center z-50 rounded w-screen h-screen bg-transparent"
-          aria-label="Accessibility window"
+          aria-label={t("aria-modal")}
         >
           <div className="bg-white p-8 rounded-lg shadow-lg z-10">
             <p className="text-gray-800 text-lg max-w-[35rem]">{t("message")}</p>

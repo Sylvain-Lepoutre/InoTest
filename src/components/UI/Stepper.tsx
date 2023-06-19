@@ -54,19 +54,19 @@ const Stepper: React.FC = (props: StepperProps) => {
 
   return (
     <>
-      <section className={`${props.container}`} role="region" aria-roledescription="Fenêtre de tutoriel">
+      <section className={`${props.container}`} role="region" aria-roledescription={t("aria-step")}>
         <div className={`${props.style}`}>
           <div>
             <img className={`${props.styledImage}`} src={steps[activeStep].image} alt={steps[activeStep].alt} />
           </div>
-          <p className={`${props.style2}`} aria-label={`${activeStep + 1} sur 4`}>
+          <p className={`${props.style2}`} aria-label={`${activeStep + 1} / 4`}>
             {steps[activeStep].text}
           </p>
           <div className={`${props.style3}`}>
             {activeStep !== 0 ? (
               <button
                 ref={buttonRefs[0]}
-                aria-label="previous step button"
+                aria-label={t("aria-previous")}
                 tabIndex={0}
                 type="button"
                 onClick={() => {
@@ -85,7 +85,7 @@ const Stepper: React.FC = (props: StepperProps) => {
             {activeStep !== steps.length - 1 ? (
               <button
                 ref={buttonRefs[1]}
-                aria-label="next step button"
+                aria-label={t("aria-next")}
                 tabIndex={0}
                 type="button"
                 onClick={() => {
@@ -102,7 +102,7 @@ const Stepper: React.FC = (props: StepperProps) => {
               <Link
                 to={`${props.href}`}
                 ref={buttonRefs[1]}
-                aria-label="start button"
+                aria-label={t("aria-start")}
                 tabIndex={0}
                 type="button"
                 onKeyDown={(event) => {
