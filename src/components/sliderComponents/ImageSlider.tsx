@@ -167,7 +167,15 @@ const ImageSlider = () => {
         )}
 
         {activeSection === "Image" && (
-          <CardSliderContent cardName="Image" libraryComponent={<LibraryImages />} componentCode={ImagesCode} />
+          <CardSliderContent
+            cardName="Image"
+            libraryComponent={<LibraryImages />}
+            componentCode={ImagesCode}
+            dash1="Les images décoratives ont des alt vides, un role 'presentation', un aria-hidden 'true'. Les images informatives quant à elle ont un alt détaillés"
+            dash2="Les images fonctionnelles sont utilisées pour déclencher des actions plutôt que pour transmettre des informations. Elles sont utilisées dans les boutons, les liens et autres éléments interactifs. L'alt de l'image doit indiquer l'action qui sera déclenchée, plutôt qu'une description de l'image."
+            dash3="Les images de textes doivent avoir un alt correspondant au texte marqué sur l'image."
+            dash4="Et les images complexes, comme les graphiques, ont un alt décrivant la chose présente sur l'image en détail."
+          />
         )}
 
         {activeSection === "Article" && (
