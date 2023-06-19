@@ -87,5 +87,10 @@
   "aria-switch": "Toggle switch",
   "alt-img-info": "User graphs for the last 7 days",
   "alt-img-fonct": "W3C Home",
-  "alt-img-details": "Bar chart showing monthly and total visitors for the first quarter 2014 for sites 1 to 3"
+  "alt-img-details": "Bar chart showing monthly and total visitors for the first quarter 2014 for sites 1 to 3",
+  "img-deco": "Decorative image",
+  "img-info": "Informative image",
+  "img-fonct": "Functional image",
+  "img-text": "Image of text",
+  "img-details": "Detailed image"
 }

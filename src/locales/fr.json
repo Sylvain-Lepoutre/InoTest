@@ -87,5 +87,10 @@
   "aria-switch": "Basculer l'interrupteur",
   "alt-img-info": "Graphiques des utilisateurs des 7 derniers jours",
   "alt-img-fonct": "Accueil W3C",
-  "alt-img-details": "Diagramme à barres montrant les visiteurs mensuels et totaux pour le premier trimestre 2014 pour les sites 1 à 3"
+  "alt-img-details": "Diagramme à barres montrant les visiteurs mensuels et totaux pour le premier trimestre 2014 pour les sites 1 à 3",
+  "img-deco": "Image décorative",
+  "img-info": "Image informatives",
+  "img-fonct": "Image fonctionnelles",
+  "img-text": "Image de texte",
+  "img-details": "Image détaillés"
 }
