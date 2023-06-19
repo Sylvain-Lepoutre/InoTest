@@ -208,6 +208,10 @@ body {
 }
 
 /* Styles pour la scrollbar */
+::-webkit-scrollbar {
+  width: 0px;
+}
+
 .testing::-webkit-scrollbar {
   width: 8px;
 }
@@ -254,8 +258,34 @@ body {
   background-color: #0d0d0d;
 }
 
-::-webkit-scrollbar {
-  width: 0px;
+.cardscroll::-webkit-scrollbar {
+  width: 8px; /* Largeur de la scrollbar */
+}
+
+#light .cardscroll::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.5); /* Couleur de la barre de défilement */
+  border-radius: 4px; /* Bordure arrondie */
+}
+
+#light .cardscroll::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.8); /* Couleur de la barre de défilement au survol */
+}
+
+#light .cardscroll::-webkit-scrollbar-track {
+  background-color: transparent; /* Fond transparent */
+}
+
+#dark .cardscroll::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.5); /* Couleur inversée de la barre de défilement */
+  border-radius: 4px; /* Bordure arrondie */
+}
+
+#dark .cardscroll::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.8); /* Couleur inversée de la barre de défilement au survol */
+}
+
+#dark .cardscroll::-webkit-scrollbar-track {
+  background-color: transparent; /* Fond transparent */
 }
 
 /* Card CSS */
