@@ -28,7 +28,7 @@ const CardSliderContent = (props: CardContentProps) => {
 
   return (
     <div className="rounded-lg element">
-      <div className="overflow-auto flex flex-col h-[70vh] bg-transparent relative cardscroll w-screen lg:w-fit overflow-x-hidden">
+      <div className="overflow-auto flex flex-col h-[70vh] bg-transparent relative cardscroll w-[90vw] overflow-x-hidden">
         <div className="flex flex-col items-center relative">
           <div>
             <h2 className="pt-3 mb-2 ml-6 text-left text-4xl font-bold title items-start">{cardName}</h2>
