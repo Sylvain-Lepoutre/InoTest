@@ -18,6 +18,8 @@ import ImagesCode from "./codeComponents/ImagesCode";
 import LibraryTabs from "./libraryComponents/LibraryTabs";
 import TabsCode from "./codeComponents/TabsCode";
 
+import { isMobile } from "react-device-detect";
+
 const ImageSlider = () => {
   const { t } = useTranslation();
   i18n.language;
@@ -26,6 +28,8 @@ const ImageSlider = () => {
   const mouseDownAtRef = useRef<number>(0);
   const minPercentage = -100;
   const maxPercentage = 0;
+  const mobileMaxDelta = window.innerWidth / 0.4; // Vitesse de défilement pour mobile
+  const desktopMaxDelta = window.innerWidth / 1; // Vitesse de défilement pour ordinateur
   const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
@@ -54,7 +58,7 @@ const ImageSlider = () => {
       if (mouseDownAtRef.current === 0) return;
 
       const mouseDelta = parseFloat(mouseDownAtRef.current) - e.clientX;
-      const maxDelta = window.innerWidth / 2;
+      const maxDelta = isMobile ? mobileMaxDelta : desktopMaxDelta;
 
       const percentage = (mouseDelta / maxDelta) * -100;
       const nextPercentageUnconstrained = parseFloat(prevPercentageRef.current) + percentage;
@@ -90,7 +94,7 @@ const ImageSlider = () => {
       window.removeEventListener("mousemove", handleOnMove);
       window.removeEventListener("touchmove", (e: TouchEvent) => handleOnMove(e.touches[0]));
     };
-  }, [minPercentage]);
+  }, [minPercentage, isMobile]);
 
   const handleButtonClick = (section: string) => {
     setActiveSection((prevSection) => {
