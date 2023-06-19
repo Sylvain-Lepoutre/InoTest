@@ -1,6 +1,6 @@
 import { useState, useRef, RefObject } from "react";
 import useFocus from "../../hook/useFocus";
-import RightModalButton from "@components/UI/RightModal";
+import Modal from "@components/UI/Modal";
 import { useTranslation } from "react-i18next";
 import i18n from "../../../i18n";
 
@@ -14,11 +14,7 @@ const Stepper = () => {
   i18n.language;
 
   const [activeStep, setActiveStep] = useState<number>(0);
-  const buttonRefs: RefObject<HTMLButtonElement>[] = [
-    useRef<HTMLButtonElement>(null),
-    useRef<HTMLButtonElement>(null),
-    useRef<HTMLButtonElement>(null),
-  ];
+  const buttonRefs: RefObject<HTMLButtonElement>[] = [useRef<HTMLButtonElement>(null), useRef<HTMLButtonElement>(null)];
 
   const steps: TrueStep[] = [
     {
@@ -69,7 +65,7 @@ const Stepper = () => {
                 className="scale-75 object-cover"
               />
               <div className="flex items-center justify-between p-4">
-                <RightModalButton buttonText="!" modalContent={t("stepper-right")} style="text-black" />
+                <Modal buttonText="!" modalContent={t("stepper-right")} style="text-black" />
               </div>
             </div>
             <div>
@@ -77,7 +73,7 @@ const Stepper = () => {
                 {steps[activeStep].text}
               </p>
             </div>
-            <RightModalButton
+            <Modal
               buttonText="!"
               modalContent={t("stepper-right")}
               style="md:hidden text-black flex items-center justify-between p-4"

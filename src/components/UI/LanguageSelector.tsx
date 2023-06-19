@@ -9,7 +9,11 @@ type LanguageSelectorProps = {
   navRef: RefObject<HTMLElement>;
 };
 
-function LanguageSelector(props: LanguageSelectorProps) {
+const LanguageSelector: React.FC<LanguageSelectorProps> = ({
+  horizontalFocus,
+  mouseFocus,
+  navRef,
+}: LanguageSelectorProps) => {
   const { i18n } = useTranslation();
 
   const changeLanguage = async () => {
@@ -22,12 +26,12 @@ function LanguageSelector(props: LanguageSelectorProps) {
   return (
     <div>
       <button
-        ref={props.navRef}
+        ref={navRef}
         onClick={() => {
-          props.mouseFocus();
+          mouseFocus();
           void changeLanguage();
         }}
-        onKeyDown={props.horizontalFocus}
+        onKeyDown={horizontalFocus}
         tabIndex={0}
         aria-label="Change language"
       >
@@ -35,6 +39,6 @@ function LanguageSelector(props: LanguageSelectorProps) {
       </button>
     </div>
   );
-}
+};
 
 export default LanguageSelector;
