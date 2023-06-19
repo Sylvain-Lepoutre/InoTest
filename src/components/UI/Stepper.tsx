@@ -26,11 +26,7 @@ const Stepper: React.FC = (props: StepperProps) => {
 
   const [activeStep, setActiveStep] = useState<number>(0);
   const [buttonVisible, setButtonVisible] = useState(false);
-  const buttonRefs: RefObject<HTMLButtonElement>[] = [
-    useRef<HTMLButtonElement>(null),
-    useRef<HTMLButtonElement>(null),
-    useRef<HTMLButtonElement>(null),
-  ];
+  const buttonRefs: RefObject<HTMLButtonElement>[] = [useRef<HTMLButtonElement>(null), useRef<HTMLButtonElement>(null)];
 
   const steps: Step[] = [
     { image: "/Step-1.jpg", text: t("step-1"), alt: "" },
@@ -103,16 +99,16 @@ const Stepper: React.FC = (props: StepperProps) => {
                 {t("next")}
               </button>
             ) : (
-              ""
-            )}
-            {activeStep === steps.length - 1 ? (
               <Link
                 to={`${props.href}`}
-                ref={buttonRefs[2]}
+                ref={buttonRefs[1]}
                 aria-label="start button"
                 tabIndex={0}
                 type="button"
-                onKeyDown={() => {
+                onKeyDown={(event) => {
+                  if (event.key === "Enter" || event.key === " ") {
+                    buttonRefs[1].current?.click();
+                  }
                   horizontalFocus(event);
                 }}
                 className={`transition-opacity duration-[1000ms] ${props.styledButtons} ${
@@ -121,8 +117,6 @@ const Stepper: React.FC = (props: StepperProps) => {
               >
                 {t("start")}
               </Link>
-            ) : (
-              ""
             )}
           </div>
         </div>

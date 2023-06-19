@@ -6,7 +6,7 @@ import TrueStepper from "@components/trueComponents/TrueStepper";
 import TrueNavBar from "@components/trueComponents/TrueNavBar";
 import TrueForm from "@components/trueComponents/TrueForm";
 import useEscapeKey from "../hook/useEscapeKey";
-import RightModalButton from "@components/UI/RightModal";
+import Modal from "@components/UI/Modal";
 import { useTranslation } from "react-i18next";
 import i18n from "../../i18n";
 
@@ -63,7 +63,7 @@ export default function Path2() {
                 aria-hidden="true"
                 role="presentation"
               />
-              <RightModalButton
+              <Modal
                 buttonText="✓"
                 modalContent={t("image-right")}
                 style="text-black mt-3 md:mt-0 place-self-center min-[1250px]:block hidden"

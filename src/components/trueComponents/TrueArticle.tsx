@@ -1,4 +1,4 @@
-import RightModalButton from "@components/UI/RightModal";
+import Modal from "@components/UI/Modal";
 import { useTranslation } from "react-i18next";
 import i18n from "../../../i18n";
 
@@ -49,7 +49,7 @@ export default function TrueArticle(props: TrueArticleProps) {
           <div className={styleImageContainer}>
             <div className={styleImage}>
               <img className={styleImageTop} src={imageSrcTop} alt="" aria-hidden="true" role="presentation" />
-              <RightModalButton
+              <Modal
                 buttonText="✓"
                 modalContent={t("images-right")}
                 style="text-black mt-3 md:mt-0 place-self-center"
@@ -61,7 +61,7 @@ export default function TrueArticle(props: TrueArticleProps) {
           <section className={styleTextContainer}>
             <div className="flex flex-col md:flex-row gap-2 justify-center items-center">
               <h1 className={styleTitle}>{title}</h1>
-              <RightModalButton buttonText="✓" modalContent={t("title-right")} style="text-black" />
+              <Modal buttonText="✓" modalContent={t("title-right")} style="text-black" />
             </div>
             <h2 className={styleSubTitle}>{subTitle}</h2>
             <p className={styleContent}>{content}</p>
