@@ -66,9 +66,10 @@ const ImageSlider = () => {
       const nextPercentageUnconstrained = parseFloat(prevPercentageRef.current) + percentage;
       let nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, maxPercentage), minPercentage);
 
-      if (nextPercentage < minPercentage || nextPercentage > maxPercentage) {
-        const overflow = Math.abs(nextPercentage) - 100;
-        nextPercentage = nextPercentage < minPercentage ? maxPercentage + overflow : minPercentage - overflow;
+      if (nextPercentage < minPercentage) {
+        nextPercentage = minPercentage;
+      } else if (nextPercentage > maxPercentage) {
+        nextPercentage = maxPercentage;
       }
 
       trackRef.current.dataset.percentage = nextPercentage.toString();
@@ -78,6 +79,10 @@ const ImageSlider = () => {
       const images = trackRef.current?.getElementsByClassName("image");
       for (const image of Array.from(images)) {
         image.setAttribute("style", `object-position: ${100 + nextPercentage}% center`);
+      }
+
+      if (window.innerWidth < 600) {
+        e.preventDefault();
       }
     };
 
