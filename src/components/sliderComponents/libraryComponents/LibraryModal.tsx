@@ -46,7 +46,7 @@ export default function LibraryModal(props: ModalProps) {
           aria-labelledby={props.labelledby}
           aria-describedby={props.describedby}
           ref={clickRef}
-          className="fixed inset-0 flex items-center justify-center z-50 rounded w-screen h-screen bg-transparent"
+          className="fixed inset-0 flex items-start justify-center m-0 z-50 rounded bg-black bg-opacity-50 w-full h-full"
           aria-label={t("aria-modal")}
         >
           <div className="bg-white p-8 rounded-lg shadow-lg z-10">
@@ -54,7 +54,7 @@ export default function LibraryModal(props: ModalProps) {
             <button
               type="button"
               ref={escapeRef}
-              className="mt-6 bg-slate-500 hover:bg-slate-700 text-white font-semibold py-3 px-6 rounded-lg"
+              className="mt-6 bg-slate-500 hover:bg-slate-700 text-white font-semibold py-3 px-20 rounded-lg"
               onClick={closeRightModal}
             >
               {t("close")}
