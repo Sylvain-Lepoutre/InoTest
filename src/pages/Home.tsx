@@ -57,6 +57,7 @@ const Home = () => {
           <p className="title text-xl">{t("library-content")}</p>
         </div>
       </section>
+      
       <section className="flex flex-col items-center justify-end overflow-x-hidden">
         <div className="mt-36">
           <ImageSlider />
