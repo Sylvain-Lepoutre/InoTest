@@ -53,7 +53,7 @@ const Stepper = () => {
 
   return (
     <>
-      <div className="flex flex-col items-center p-4">
+      <section className="flex flex-col items-center p-4">
         <div className="md:w-[40rem] bg-transparent rounded-lg">
           <div className="flex flex-col items-center ">
             <div className="mb-4 flex ">
@@ -128,7 +128,7 @@ const Stepper = () => {
             </button>
           </div>
         </div>
-      </div>
+      </section>
     </>
   );
 };
