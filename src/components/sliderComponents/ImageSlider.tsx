@@ -30,7 +30,7 @@ const ImageSlider = () => {
   const mouseDownAtRef = useRef<number>(0);
   const minPercentage = -100;
   const maxPercentage = 0;
-  const mobileMaxDelta = window.innerWidth / 0.5; // Vitesse de défilement pour mobile
+  const mobileMaxDelta = window.innerWidth / 0.4; // Vitesse de défilement pour mobile
   const desktopMaxDelta = window.innerWidth / 1; // Vitesse de défilement pour ordinateur
   const [activeSection, setActiveSection] = useState("");
 
@@ -79,10 +79,6 @@ const ImageSlider = () => {
       const images = trackRef.current?.getElementsByClassName("image");
       for (const image of Array.from(images)) {
         image.setAttribute("style", `object-position: ${100 + nextPercentage}% center`);
-      }
-
-      if (window.innerWidth < 600) {
-        e.preventDefault();
       }
     };
 
