@@ -22,7 +22,7 @@ const CardSlider: React.FC<CardSliderProps> = (props) => {
   };
 
   return (
-    <div className="flex flex-col gap-2 items-center">
+    <article className="flex flex-col gap-2 items-center">
       <div className="w-40 h-56">
         <img
           className="image image-animation w-40 h-56 object-cover object-center rounded-t"
@@ -39,7 +39,7 @@ const CardSlider: React.FC<CardSliderProps> = (props) => {
       >
         <h2>{props.cardName}</h2>
       </button>
-    </div>
+    </article>
   );
 };
 

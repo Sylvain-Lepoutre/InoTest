@@ -27,7 +27,7 @@ const CardSliderContent = (props: CardContentProps) => {
   const dash4 = props.dash4 !== undefined ? props.dash4 : "";
 
   return (
-    <div className="rounded-lg element">
+    <article className="rounded-lg element">
       <div className="overflow-auto flex flex-col h-[70vh] bg-transparent relative cardscroll w-[90vw] overflow-x-hidden">
         <div className="flex flex-col items-center relative">
           <div>
@@ -54,7 +54,7 @@ const CardSliderContent = (props: CardContentProps) => {
           </div>
         </div>
       </div>
-    </div>
+    </article>
   );
 };
 
