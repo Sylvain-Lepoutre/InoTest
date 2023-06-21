@@ -3,6 +3,7 @@ import React from "react";
 type CardSliderProps = {
   imageSrc?: string;
   cardName?: string;
+  aria?: string;
   onButtonClick: (section: string) => void;
 };
 
@@ -34,8 +35,10 @@ const CardSlider: React.FC<CardSliderProps> = (props) => {
         />
       </div>
       <button
+        role="button"
+        aria-label={props.aria}
         onClick={handleButtonClick}
-        className="buttonClass3 flex flex-col w-full rounded-b h-[4rem] transition ease-in-out delay-150 duration-300 justify-center items-center cursor-pointer"
+        className="buttonClass3 flex flex-col w-full rounded-b h-[4rem] transition ease-in-out delay-150 duration-300 justify-center items-center cursor-pointer focus-within:outline-red-500"
       >
         <h2>{props.cardName}</h2>
       </button>
