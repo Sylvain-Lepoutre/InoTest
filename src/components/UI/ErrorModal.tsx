@@ -44,7 +44,12 @@ export default function ErrorModal(props: ErrorModalProps) {
 
   return (
     <div className={style}>
-      <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" onClick={handleOpenModal}>
+      <button
+        role="button"
+        aria-label="Ouvrir une fenêtre de l'explication de la non-accessibilité du composant"
+        className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+        onClick={openErrorModal}
+      >
         {buttonText}
       </button>
 

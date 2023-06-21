@@ -118,7 +118,7 @@ const LibraryStepper = () => {
             )}
             {activeStep === steps.length - 1 ? (
               <button
-                ref={buttonRefs[2]}
+                ref={buttonRefs[1]}
                 aria-label={t("aria-start")}
                 tabIndex={0}
                 type="button"
