@@ -25,13 +25,10 @@ export default function Path2() {
           <NavBar href="#main" escapeRef={escapeRef} />
         </header>
 
-        <section
-          className="overflow-auto overflow-x-hidden mx-2 sm:mx-16 mb-6 h-[70vh] rounded shadow-lg md:mt-[1rem] windowStyle testing"
-          role="tablist"
-        >
+        <section className="overflow-auto overflow-x-hidden mx-2 sm:mx-16 mb-6 h-[70vh] rounded shadow-lg md:mt-[1rem] windowStyle testing">
           <TrueNavBar activeStep2={activeStep2} setActiveStep2={setActiveStep2} />
           {activeStep2 === 0 ? (
-            <div role="tab">
+            <div>
               <TrueArticle
                 title={t("article-title")}
                 subTitle={t("true-title")}
@@ -54,7 +51,7 @@ export default function Path2() {
               <TrueStepper />
             </div>
           ) : (
-            <section className="flex flex-row gap-12 justify-center items-center p-x-6" role="tab">
+            <section className="flex flex-row gap-12 justify-center items-center p-x-6" role="nav">
               <TrueForm />
               <img
                 src="https://picsum.photos/800/500"

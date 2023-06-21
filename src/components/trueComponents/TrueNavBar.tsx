@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, type RefObject, useEffect } from "react";
 import useFocus from "../../hook/useFocus";
 
 import { useTranslation } from "react-i18next";
@@ -13,6 +13,7 @@ const TrueNavBar: React.FC<Props> = (props: TrueNavBarProps) => {
   const { t } = useTranslation();
   i18n.language;
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const [assertiveMessage, setAssertiveMessage] = useState("");
   const genericHamburgerLine = `h-1 w-6 my-1 rounded-full burgerStyle2 transition ease transform duration-300`;
   const trueNavRefs: RefObject<HTMLElement>[] = [useRef<HTMLElement>(null), useRef<HTMLElement>(null)];
 
@@ -23,18 +24,28 @@ const TrueNavBar: React.FC<Props> = (props: TrueNavBarProps) => {
   };
 
   const handlePreviousPage = () => {
+    setAssertiveMessage(`page d'accueil de la zone de test`);
     const previousStep: number = Math.max(props.activeStep2 - 1, 0);
     props.setActiveStep2(previousStep);
   };
 
   const handleNextPage = () => {
+    setAssertiveMessage(`page contact de la zone de test`);
     const nextStep: number = Math.min(props.activeStep2 + 1, 1);
     props.setActiveStep2(nextStep);
   };
 
+  const initialMessage = () => {
+    setAssertiveMessage(`page d'accueil de la zone de test`);
+  };
+
+  useEffect(() => {
+    initialMessage();
+  }, []);
+
   return (
     <>
-      <nav className="h-[2rem] flex justify-between px-4 py-8">
+      <nav aria-label={`page d'accueil de la zone de test`} className="h-[2rem] flex justify-between px-4 py-8">
         <div className="relative md:hidden flex items-start mr-[-1rem]">
           <button className="flex flex-col h-12 w-12 rounded justify-center" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             <div
@@ -112,6 +123,9 @@ const TrueNavBar: React.FC<Props> = (props: TrueNavBarProps) => {
             </button>
           </li>
         </ul>
+        <div aria-live="assertive" role="status" className="sr-only">
+          {assertiveMessage}
+        </div>
       </nav>
     </>
   );
