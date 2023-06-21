@@ -34,7 +34,8 @@ export default function Modal(props: ModalProps) {
   return (
     <div className={props.style}>
       <button
-        type="button"
+        role="button"
+        aria-label="Ouvrir une fenêtre de l'explication de l'accessibilité du composant"
         className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
         onClick={openRightModal}
       >

@@ -78,12 +78,12 @@
   "aria-modal": "Accessibility error window",
   "aria-language": "Change language",
   "aria-step": "Tutorial window",
-  "aria-previous": "previous step button",
-  "aria-next": "next step button",
-  "aria-start": "start button",
+  "aria-previous": "previous step",
+  "aria-next": "next step",
+  "aria-start": "start",
   "aria-fastAccess": "Go to main content",
-  "aria-language-button": "Language button",
-  "aria-dark-mode": "Dark mode button",
+  "aria-language-button": "Language",
+  "aria-dark-mode": "Dark mode",
   "aria-switch": "Toggle switch",
   "alt-img-info": "User graphs for the last 7 days",
   "alt-img-fonct": "W3C Home",
@@ -92,5 +92,6 @@
   "img-info": "Informative image",
   "img-fonct": "Functional image",
   "img-text": "Image of text",
-  "img-details": "Detailed image"
+  "img-details": "Detailed image",
+  "text-lorem": "In a distant valley, the flowers danced to the rhythm of the spring breeze. Their colorful petals created a living painting under the radiant sun. Bees buzzed with joy, collecting sweet nectar for their beloved hive. It was an enchanting sight that mesmerized souls in search of beauty."
 }

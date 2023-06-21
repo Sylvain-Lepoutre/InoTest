@@ -121,41 +121,49 @@ const ImageSlider = () => {
         <CardSlider
           imageSrc="https://images.unsplash.com/photo-1524146128017-b9dd0bfd2778?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bmF2aWdhdGlvbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60"
           cardName="Navbar"
+          aria="Déployer le composant navbar"
           onButtonClick={handleButtonClick}
         />
         <CardSlider
           imageSrc="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGhvdG9ncmFwaHl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60"
           cardName="Image"
+          aria="Déployer le composant image"
           onButtonClick={handleButtonClick}
         />
         <CardSlider
           imageSrc="https://images.unsplash.com/photo-1457369804613-52c61a468e7d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YXJ0aWNsZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60"
           cardName="Article"
+          aria="Déployer le composant article"
           onButtonClick={handleButtonClick}
         />
         <CardSlider
           imageSrc="https://images.unsplash.com/photo-1502101872923-d48509bff386?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8c3RlcHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60"
           cardName="Stepper"
+          aria="Déployer le composant stepper"
           onButtonClick={handleButtonClick}
         />
         <CardSlider
           imageSrc="https://images.unsplash.com/photo-1579444741963-5ae219cfe27c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9ybXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60"
           cardName="Form"
+          aria="Déployer le composant form"
           onButtonClick={handleButtonClick}
         />
         <CardSlider
           imageSrc="https://images.unsplash.com/photo-1644682542938-abaed4287f45?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHN3aXRjaCUyMGJ1dHRvbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60"
           cardName="Switch"
+          aria="Déployer le composant switch"
           onButtonClick={handleButtonClick}
         />
         <CardSlider
           imageSrc="https://images.unsplash.com/photo-1598744609005-6c45c55c5e57?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dGFibGVhdXh8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60"
           cardName="Tabs"
+          aria="Déployer le composant tabs"
           onButtonClick={handleButtonClick}
         />
         <CardSlider
           imageSrc="https://images.unsplash.com/photo-1526398737131-11b73763ecaa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8d2luZG93fGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60"
           cardName="Modal"
+          aria="Déployer le composant modal"
           onButtonClick={handleButtonClick}
         />
       </section>

@@ -33,7 +33,7 @@ export default function Path1() {
               <FakeArticle
                 title={t("article-title")}
                 subTitle={t("fake-title")}
-                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ac interdum lectus, vitae tempus arcu. Donec molestie nisi diam, sed mattis dui volutpat eu. Pellentesque hendrerit nisl vitae mollis rhoncus. Suspendisse sed dolor in dui bibendum rhoncus ac quis odio. Suspendisse tempor odio eu aliquet ultrices."
+                content={t("text-lorem")}
                 imageSrcTop="https://picsum.photos/id/112/200/300"
                 imageSrcBottom="https://picsum.photos/id/103/300/200"
                 style="windowStyle md:mt-0 mt-12"

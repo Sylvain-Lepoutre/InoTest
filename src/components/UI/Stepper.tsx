@@ -25,7 +25,6 @@ const Stepper: React.FC = (props: StepperProps) => {
   i18n.language;
 
   const [activeStep, setActiveStep] = useState<number>(0);
-  const [buttonVisible, setButtonVisible] = useState(false);
   const buttonRefs: RefObject<HTMLButtonElement>[] = [useRef<HTMLButtonElement>(null), useRef<HTMLButtonElement>(null)];
 
   const steps: Step[] = [
@@ -49,19 +48,16 @@ const Stepper: React.FC = (props: StepperProps) => {
 
   useEffect(() => {
     const lastStep = activeStep === steps.length - 1;
-    setButtonVisible(lastStep);
   }, [activeStep, steps.length]);
 
   return (
     <>
-      <section className={`${props.container}`} role="region" aria-roledescription={t("aria-step")}>
+      <section className={`${props.container}`} role="region" aria-roledescription={`${t("aria-step")}`}>
         <div className={`${props.style}`}>
           <div>
             <img className={`${props.styledImage}`} src={steps[activeStep].image} alt={steps[activeStep].alt} />
           </div>
-          <p className={`${props.style2}`} aria-label={`${activeStep + 1} / 4`}>
-            {steps[activeStep].text}
-          </p>
+          <p className={`${props.style2}`}>{steps[activeStep].text}</p>
           <div className={`${props.style3}`}>
             {activeStep !== 0 ? (
               <button
@@ -111,9 +107,7 @@ const Stepper: React.FC = (props: StepperProps) => {
                   }
                   horizontalFocus(event);
                 }}
-                className={`transition-opacity duration-[1000ms] text-center ${props.styledButtons} ${
-                  buttonVisible ? "opacity-100" : "opacity-0"
-                }`}
+                className={`text-center ${props.styledButtons}`}
               >
                 {t("start")}
               </Link>

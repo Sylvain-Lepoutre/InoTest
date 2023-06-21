@@ -78,12 +78,12 @@
   "aria-modal": "Fenêtre d'erreur d'accessibilité",
   "aria-language": "Changer de langue",
   "aria-step": "Fenêtre de tutoriel",
-  "aria-previous": "bouton étape précédente",
-  "aria-next": "bouton étape suivante",
-  "aria-start": "bouton commencer",
+  "aria-previous": "étape précédente",
+  "aria-next": "étape suivante",
+  "aria-start": "commencer",
   "aria-fastAccess": "Aller au contenu principal",
-  "aria-language-button": "Bouton de langue",
-  "aria-dark-mode": "Bouton mode sombre",
+  "aria-language-button": "langue",
+  "aria-dark-mode": "mode sombre",
   "aria-switch": "Basculer l'interrupteur",
   "alt-img-info": "Graphiques des utilisateurs des 7 derniers jours",
   "alt-img-fonct": "Accueil W3C",
@@ -92,5 +92,6 @@
   "img-info": "Image informatives",
   "img-fonct": "Image fonctionnelles",
   "img-text": "Image de texte",
-  "img-details": "Image détaillés"
+  "img-details": "Image détaillés",
+  "text-lorem": "Dans une vallée lointaine, les fleurs dansaient au rythme du vent printanier. Leurs pétales colorés créaient un tableau vivant sous le soleil radieux. Les abeilles bourdonnaient avec joie, récoltant le nectar sucré pour leur ruche bien-aimée. C'était un spectacle enchanteur qui émerveillait les âmes en quête de beauté."
 }
