@@ -74,7 +74,7 @@ const Stepper = () => {
               </p>
             </div>
             <Modal
-              buttonText="!"
+              buttonText="✓"
               modalContent={t("stepper-right")}
               style="md:hidden text-black flex items-center justify-between p-4"
             />
