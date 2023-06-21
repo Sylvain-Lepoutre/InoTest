@@ -59,9 +59,7 @@ const Stepper: React.FC = (props: StepperProps) => {
           <div>
             <img className={`${props.styledImage}`} src={steps[activeStep].image} alt={steps[activeStep].alt} />
           </div>
-          <p className={`${props.style2}`} aria-label={`${activeStep + 1} / 4`}>
-            {steps[activeStep].text}
-          </p>
+          <p className={`${props.style2}`}>{steps[activeStep].text}</p>
           <div className={`${props.style3}`}>
             {activeStep !== 0 ? (
               <button
@@ -118,6 +116,9 @@ const Stepper: React.FC = (props: StepperProps) => {
                 {t("start")}
               </Link>
             )}
+          </div>
+          <div aria-live="polite" role="status" className="sr-only">
+            {t("Étape")} {activeStep + 1} {t("sur")} 4
           </div>
         </div>
       </section>
