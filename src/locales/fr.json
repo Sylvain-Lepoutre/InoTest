@@ -95,5 +95,6 @@
   "img-details": "Image détaillés",
   "sur": "sur",
   "Étape": "Étape",
-  "text-lorem": "Dans une vallée lointaine, les fleurs dansaient au rythme du vent printanier. Leurs pétales colorés créaient un tableau vivant sous le soleil radieux. Les abeilles bourdonnaient avec joie, récoltant le nectar sucré pour leur ruche bien-aimée. C'était un spectacle enchanteur qui émerveillait les âmes en quête de beauté."
+  "text-lorem": "Dans une vallée lointaine, les fleurs dansaient au rythme du vent printanier. Leurs pétales colorés créaient un tableau vivant sous le soleil radieux. Les abeilles bourdonnaient avec joie, récoltant le nectar sucré pour leur ruche bien-aimée. C'était un spectacle enchanteur qui émerveillait les âmes en quête de beauté.",
+  "aria-testing-zone": "Vous êtes dans la zone de test"
 }

@@ -1,8 +1,9 @@
-import { useRef, useState } from "react";
-import useFocus from "../../hook/useFocus";
-
+import { useContext, useRef, useState, type RefObject, useEffect } from "react";
 import { useTranslation } from "react-i18next";
+
 import i18n from "../../../i18n";
+import useFocus from "../../hook/useFocus";
+import { useLiveRegion } from "../LiveRegion";
 
 type TrueNavBarProps = {
   activeStep2: number;
@@ -11,30 +12,39 @@ type TrueNavBarProps = {
 
 const TrueNavBar: React.FC<Props> = (props: TrueNavBarProps) => {
   const { t } = useTranslation();
-  i18n.language;
+
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const genericHamburgerLine = `h-1 w-6 my-1 rounded-full burgerStyle2 transition ease transform duration-300`;
   const trueNavRefs: RefObject<HTMLElement>[] = [useRef<HTMLElement>(null), useRef<HTMLElement>(null)];
 
   const { horizontalFocus } = useFocus(trueNavRefs);
 
+  const { setAssertiveMessage } = useLiveRegion();
+
   const closeMenu = () => {
     setIsMenuOpen(false);
   };
 
   const handlePreviousPage = () => {
+    setAssertiveMessage(`page d'accueil de la zone de test`);
     const previousStep: number = Math.max(props.activeStep2 - 1, 0);
     props.setActiveStep2(previousStep);
   };
 
   const handleNextPage = () => {
+    setAssertiveMessage(`page contact de la zone de test`);
     const nextStep: number = Math.min(props.activeStep2 + 1, 1);
     props.setActiveStep2(nextStep);
   };
 
+  useEffect(() => {
+    trueNavRefs[0].current?.focus();
+    setAssertiveMessage(`page d'accueil de la zone de test`);
+  }, []);
+
   return (
     <>
-      <nav className="h-[2rem] flex justify-between px-4 py-8">
+      <nav aria-label={`page d'accueil de la zone de test`} className="h-[2rem] flex justify-between px-4 py-8">
         <div className="relative md:hidden flex items-start mr-[-1rem]">
           <button className="flex flex-col h-12 w-12 rounded justify-center" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             <div

@@ -14,6 +14,7 @@ const Stepper = () => {
   i18n.language;
 
   const [activeStep, setActiveStep] = useState<number>(0);
+  const [assertiveMessage, setAssertiveMessage] = useState("");
   const buttonRefs: RefObject<HTMLButtonElement>[] = [useRef<HTMLButtonElement>(null), useRef<HTMLButtonElement>(null)];
 
   const steps: TrueStep[] = [
@@ -39,14 +40,14 @@ const Stepper = () => {
     },
   ];
 
-  const { horizontalFocus } = useFocus(buttonRefs);
-
-  const handleNext = (array: FakeStep[]) => {
+  const handleNext = (array: TrueStep[]) => {
+    setAssertiveMessage(`${t("Étape")} ${activeStep + 2} ${t("sur")} 4`);
     const nextStep: number = Math.min(activeStep + 1, array.length - 1);
     setActiveStep(nextStep);
   };
 
   const handlePrevious = () => {
+    setAssertiveMessage(`${t("Étape")} ${activeStep} ${t("sur")} 4`);
     const previousStep: number = Math.max(activeStep - 1, 0);
     setActiveStep(previousStep);
   };
@@ -69,27 +70,23 @@ const Stepper = () => {
               </div>
             </div>
             <div>
-              <p aria-label={`${activeStep + 1} / 4`} className="text-center md:-mt-[2rem]">
+              <p aria-live="polite" role="status">
                 {steps[activeStep].text}
               </p>
             </div>
             <Modal
               buttonText="✓"
               modalContent={t("stepper-right")}
-              style="md:hidden text-black flex items-center justify-between p-4"
+              style="md:hidden text -black flex items-center justify-between p-4"
             />
           </div>
           <div className="flex justify-between md:justify-around md:gap-96 md:-mt-[2rem]">
             <button
-              ref={buttonRefs[0]}
               aria-label={t("aria-previous")}
               tabIndex={0}
               type="button"
               onClick={() => {
                 handlePrevious();
-              }}
-              onKeyDown={() => {
-                horizontalFocus(event);
               }}
               className="md:place-self-center  flex items-center buttonClass2 justify-center px-4 py-2 rounded-md hover:-translate-x-1 transform md:transition-transform duration-200"
             >
@@ -104,15 +101,11 @@ const Stepper = () => {
               </svg>
             </button>
             <button
-              ref={buttonRefs[1]}
               aria-label={t("aria-next")}
               tabIndex={0}
               type="button"
               onClick={() => {
                 handleNext(steps);
-              }}
-              onKeyDown={() => {
-                horizontalFocus(event);
               }}
               className="md:place-self-center  flex items-center buttonClass2 justify-center px-4 py-2 rounded-md hover:translate-x-1 transform md:transition-transform duration-200"
             >
@@ -126,6 +119,9 @@ const Stepper = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
             </button>
+          </div>
+          <div aria-live="assertive" role="status" className="sr-only">
+            {assertiveMessage}
           </div>
         </div>
       </section>
