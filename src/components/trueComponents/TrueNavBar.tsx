@@ -1,8 +1,9 @@
-import { useRef, useState, type RefObject, useEffect } from "react";
-import useFocus from "../../hook/useFocus";
-
+import { useContext, useRef, useState, type RefObject, useEffect } from "react";
 import { useTranslation } from "react-i18next";
+
 import i18n from "../../../i18n";
+import useFocus from "../../hook/useFocus";
+import { useLiveRegion } from "../LiveRegion";
 
 type TrueNavBarProps = {
   activeStep2: number;
@@ -11,13 +12,14 @@ type TrueNavBarProps = {
 
 const TrueNavBar: React.FC<Props> = (props: TrueNavBarProps) => {
   const { t } = useTranslation();
-  i18n.language;
+
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
-  const [assertiveMessage, setAssertiveMessage] = useState("");
   const genericHamburgerLine = `h-1 w-6 my-1 rounded-full burgerStyle2 transition ease transform duration-300`;
   const trueNavRefs: RefObject<HTMLElement>[] = [useRef<HTMLElement>(null), useRef<HTMLElement>(null)];
 
   const { horizontalFocus } = useFocus(trueNavRefs);
+
+  const { setAssertiveMessage } = useLiveRegion();
 
   const closeMenu = () => {
     setIsMenuOpen(false);
@@ -35,12 +37,9 @@ const TrueNavBar: React.FC<Props> = (props: TrueNavBarProps) => {
     props.setActiveStep2(nextStep);
   };
 
-  const initialMessage = () => {
-    setAssertiveMessage(`page d'accueil de la zone de test`);
-  };
-
   useEffect(() => {
-    initialMessage();
+    trueNavRefs[0].current?.focus();
+    setAssertiveMessage(`page d'accueil de la zone de test`);
   }, []);
 
   return (
@@ -123,9 +122,6 @@ const TrueNavBar: React.FC<Props> = (props: TrueNavBarProps) => {
             </button>
           </li>
         </ul>
-        <div aria-live="assertive" role="status" className="sr-only">
-          {assertiveMessage}
-        </div>
       </nav>
     </>
   );

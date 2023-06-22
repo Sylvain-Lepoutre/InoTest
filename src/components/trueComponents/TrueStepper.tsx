@@ -40,8 +40,6 @@ const Stepper = () => {
     },
   ];
 
-  const { horizontalFocus } = useFocus(buttonRefs);
-
   const handleNext = (array: TrueStep[]) => {
     setAssertiveMessage(`${t("Étape")} ${activeStep + 2} ${t("sur")} 4`);
     const nextStep: number = Math.min(activeStep + 1, array.length - 1);
@@ -84,15 +82,11 @@ const Stepper = () => {
           </div>
           <div className="flex justify-between md:justify-around md:gap-96 md:-mt-[2rem]">
             <button
-              ref={buttonRefs[0]}
               aria-label={t("aria-previous")}
               tabIndex={0}
               type="button"
               onClick={() => {
                 handlePrevious();
-              }}
-              onKeyDown={() => {
-                horizontalFocus(event);
               }}
               className="md:place-self-center  flex items-center buttonClass2 justify-center px-4 py-2 rounded-md hover:-translate-x-1 transform md:transition-transform duration-200"
             >
@@ -107,15 +101,11 @@ const Stepper = () => {
               </svg>
             </button>
             <button
-              ref={buttonRefs[1]}
               aria-label={t("aria-next")}
               tabIndex={0}
               type="button"
               onClick={() => {
                 handleNext(steps);
-              }}
-              onKeyDown={() => {
-                horizontalFocus(event);
               }}
               className="md:place-self-center  flex items-center buttonClass2 justify-center px-4 py-2 rounded-md hover:translate-x-1 transform md:transition-transform duration-200"
             >

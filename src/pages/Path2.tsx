@@ -12,7 +12,7 @@ import i18n from "../../i18n";
 
 export default function Path2() {
   const { t } = useTranslation();
-  i18n.language;
+
   const [activeStep2, setActiveStep2] = useState<number>(0);
   const escapeRef = useRef<HTMLElement>(null);
 
