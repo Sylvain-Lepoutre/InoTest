@@ -33,6 +33,14 @@ const ImageSlider = () => {
   const mobileMaxDelta = window.innerWidth / 0.4; // Vitesse de défilement pour mobile
   const desktopMaxDelta = window.innerWidth / 1; // Vitesse de défilement pour ordinateur
   const [activeSection, setActiveSection] = useState("");
+  const activeSectionRef = useRef(null);
+  const navRef = useRef(null);
+
+  useEffect(() => {
+    if (navRef.current) {
+      activeSectionRef.current.focus();
+    }
+  }, []);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -178,6 +186,7 @@ const ImageSlider = () => {
             dash2={t("lnav-2")}
             dash3={t("lnav-3")}
             dash4={t("lnav-4")}
+            ref={activeSectionRef}
           />
         )}
 
