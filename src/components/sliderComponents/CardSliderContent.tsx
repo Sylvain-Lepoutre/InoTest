@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect, useRef, RefObject, type ReactNode } from "react";
 import { useTranslation } from "react-i18next";
 import i18n from "../../../i18n";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
@@ -6,7 +6,7 @@ import { dracula } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 type CardContentProps = {
   cardName?: string;
-  libraryComponent?: React.ReactNode;
+  libraryComponent?: ReactNode;
   componentCode?: string;
   dash1?: string;
   dash2?: string;
@@ -15,7 +15,6 @@ type CardContentProps = {
 };
 
 const CardSliderContent = (props: CardContentProps) => {
-  i18n.language;
   const { t } = useTranslation();
 
   const imageSrc = props.imageSrc !== undefined ? props.imageSrc : "";
@@ -31,7 +30,9 @@ const CardSliderContent = (props: CardContentProps) => {
       <div className="overflow-auto flex flex-col h-[70vh] bg-transparent relative cardscroll w-[90vw] overflow-x-hidden">
         <div className="flex flex-col items-center relative">
           <div>
-            <h2 className="pt-3 mb-2 ml-6 text-left text-4xl font-bold title items-start">{cardName}</h2>
+            <h2 className="pt-3 mb-2 ml-6 text-left text-4xl font-bold title items-start" tabIndex={0}>
+              {cardName}
+            </h2>
             <div className="px-6 mb-2">{libraryComponent}</div>
           </div>
           <div className="w-[90vw] title px-6">

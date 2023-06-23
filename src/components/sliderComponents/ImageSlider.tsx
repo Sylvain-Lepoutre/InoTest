@@ -22,9 +22,11 @@ import StepperCode from "./codeComponents/StepperCode";
 import LibraryModal from "./libraryComponents/LibraryModal";
 import ModalCode from "./codeComponents/ModalCode";
 
+import { Composite } from "../Composite";
+
 const ImageSlider = () => {
   const { t } = useTranslation();
-  i18n.language;
+
   const trackRef = useRef<HTMLElement>(null);
   const prevPercentageRef = useRef<number>(0);
   const mouseDownAtRef = useRef<number>(0);
@@ -33,14 +35,6 @@ const ImageSlider = () => {
   const mobileMaxDelta = window.innerWidth / 0.4; // Vitesse de défilement pour mobile
   const desktopMaxDelta = window.innerWidth / 1; // Vitesse de défilement pour ordinateur
   const [activeSection, setActiveSection] = useState("");
-  const activeSectionRef = useRef(null);
-  const navRef = useRef(null);
-
-  useEffect(() => {
-    if (navRef.current) {
-      activeSectionRef.current.focus();
-    }
-  }, []);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -126,54 +120,56 @@ const ImageSlider = () => {
         ref={trackRef}
         className="flex gap-4vmin left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 select-none overflow-hidden h-fit"
       >
-        <CardSlider
-          imageSrc="https://images.unsplash.com/photo-1524146128017-b9dd0bfd2778?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bmF2aWdhdGlvbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60"
-          cardName="Navbar"
-          aria="Déployer le composant navbar"
-          onButtonClick={handleButtonClick}
-        />
-        <CardSlider
-          imageSrc="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGhvdG9ncmFwaHl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60"
-          cardName="Image"
-          aria="Déployer le composant image"
-          onButtonClick={handleButtonClick}
-        />
-        <CardSlider
-          imageSrc="https://images.unsplash.com/photo-1457369804613-52c61a468e7d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YXJ0aWNsZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60"
-          cardName="Article"
-          aria="Déployer le composant article"
-          onButtonClick={handleButtonClick}
-        />
-        <CardSlider
-          imageSrc="https://images.unsplash.com/photo-1502101872923-d48509bff386?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8c3RlcHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60"
-          cardName="Stepper"
-          aria="Déployer le composant stepper"
-          onButtonClick={handleButtonClick}
-        />
-        <CardSlider
-          imageSrc="https://images.unsplash.com/photo-1579444741963-5ae219cfe27c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9ybXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60"
-          cardName="Form"
-          aria="Déployer le composant form"
-          onButtonClick={handleButtonClick}
-        />
-        <CardSlider
-          imageSrc="https://images.unsplash.com/photo-1644682542938-abaed4287f45?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHN3aXRjaCUyMGJ1dHRvbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60"
-          cardName="Switch"
-          aria="Déployer le composant switch"
-          onButtonClick={handleButtonClick}
-        />
-        <CardSlider
-          imageSrc="https://images.unsplash.com/photo-1598744609005-6c45c55c5e57?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dGFibGVhdXh8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60"
-          cardName="Tabs"
-          aria="Déployer le composant tabs"
-          onButtonClick={handleButtonClick}
-        />
-        <CardSlider
-          imageSrc="https://images.unsplash.com/photo-1526398737131-11b73763ecaa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8d2luZG93fGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60"
-          cardName="Modal"
-          aria="Déployer le composant modal"
-          onButtonClick={handleButtonClick}
-        />
+        <Composite orientation="horizontal">
+          <CardSlider
+            ariaLabel="Déployer le composant navbar"
+            cardName="Navbar"
+            imageSrc="https://images.unsplash.com/photo-1524146128017-b9dd0bfd2778?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bmF2aWdhdGlvbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60"
+            onButtonClick={handleButtonClick}
+          />
+          <CardSlider
+            ariaLabel="Déployer le composant image"
+            cardName="Image"
+            imageSrc="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGhvdG9ncmFwaHl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60"
+            onButtonClick={handleButtonClick}
+          />
+          <CardSlider
+            ariaLabel="Déployer le composant article"
+            cardName="Article"
+            imageSrc="https://images.unsplash.com/photo-1457369804613-52c61a468e7d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YXJ0aWNsZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60"
+            onButtonClick={handleButtonClick}
+          />
+          <CardSlider
+            ariaLabel="Déployer le composant stepper"
+            cardName="Stepper"
+            imageSrc="https://images.unsplash.com/photo-1502101872923-d48509bff386?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8c3RlcHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60"
+            onButtonClick={handleButtonClick}
+          />
+          <CardSlider
+            ariaLabel="Déployer le composant form"
+            cardName="Form"
+            imageSrc="https://images.unsplash.com/photo-1579444741963-5ae219cfe27c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9ybXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60"
+            onButtonClick={handleButtonClick}
+          />
+          <CardSlider
+            ariaLabel="Déployer le composant switch"
+            cardName="Switch"
+            imageSrc="https://images.unsplash.com/photo-1644682542938-abaed4287f45?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHN3aXRjaCUyMGJ1dHRvbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60"
+            onButtonClick={handleButtonClick}
+          />
+          <CardSlider
+            ariaLabel="Déployer le composant tabs"
+            cardName="Tabs"
+            imageSrc="https://images.unsplash.com/photo-1598744609005-6c45c55c5e57?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dGFibGVhdXh8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60"
+            onButtonClick={handleButtonClick}
+          />
+          <CardSlider
+            ariaLabel="Déployer le composant modal"
+            cardName="Modal"
+            imageSrc="https://images.unsplash.com/photo-1526398737131-11b73763ecaa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8d2luZG93fGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60"
+            onButtonClick={handleButtonClick}
+          />
+        </Composite>
       </section>
 
       <section className="flex justify-center -mt-32 p-6">
@@ -186,7 +182,6 @@ const ImageSlider = () => {
             dash2={t("lnav-2")}
             dash3={t("lnav-3")}
             dash4={t("lnav-4")}
-            ref={activeSectionRef}
           />
         )}
 

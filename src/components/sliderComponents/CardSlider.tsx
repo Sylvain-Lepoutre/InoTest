@@ -1,13 +1,19 @@
-import React from "react";
+import { useEffect, useRef, type RefObject } from "react";
+
+import { useComposite } from "../Composite";
 
 type CardSliderProps = {
-  imageSrc?: string;
+  ariaLabel?: string;
   cardName?: string;
-  aria?: string;
+  imageSrc?: string;
   onButtonClick: (section: string) => void;
 };
 
-const CardSlider: React.FC<CardSliderProps> = (props) => {
+const CardSlider = (props: CardSliderProps) => {
+  const ref = useRef<HTMLButtonElement>(null);
+
+  const { addRef } = useComposite();
+
   const handleButtonClick = () => {
     props.onButtonClick(props.cardName || "");
     scrollDown();
@@ -22,6 +28,10 @@ const CardSlider: React.FC<CardSliderProps> = (props) => {
     }, 100);
   };
 
+  useEffect(() => {
+    addRef(ref);
+  }, [addRef]);
+
   return (
     <article className="flex flex-col gap-2 items-center">
       <div className="w-40 h-56">
@@ -35,10 +45,11 @@ const CardSlider: React.FC<CardSliderProps> = (props) => {
         />
       </div>
       <button
-        role="button"
-        aria-label={props.aria}
-        onClick={handleButtonClick}
+        aria-label={props.ariaLabel}
         className="buttonClass3 flex flex-col w-full rounded-b h-[4rem] transition ease-in-out delay-150 duration-300 justify-center items-center cursor-pointer focus-within:outline-red-500"
+        onClick={handleButtonClick}
+        ref={ref}
+        role="button"
       >
         <h2>{props.cardName}</h2>
       </button>
