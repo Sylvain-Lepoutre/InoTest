@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import useEscapeKey from "../../hook/useEscapeKey";
 import { useTranslation } from "react-i18next";
 import i18n from "../../../i18n";
@@ -19,20 +19,28 @@ export default function ErrorModal(props: ErrorModalProps) {
   const buttonText = props.buttonText !== undefined ? props.buttonText : "";
   const modalContent = props.modalContent !== undefined ? props.modalContent : "";
   const style = props.style !== undefined ? props.style : "";
-  const [isErrorModalOpen, setIsErrorModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const escapeRef = useRef<HTMLElement>(null);
-  const clickRef = useRef<HTMLElement>();
+  const clickRef = useRef<HTMLDialogElement>();
 
-  const closeErrorModal = () => {
-    setIsErrorModalOpen(false);
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
   };
 
-  const openErrorModal = () => {
-    setIsErrorModalOpen(true);
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
   };
 
-  useEscapeKey(closeErrorModal);
-  useOuterClick(clickRef, closeErrorModal);
+  useEscapeKey(handleCloseModal);
+  useOuterClick(clickRef, handleCloseModal);
+
+  useEffect(() => {
+    if (isModalOpen) {
+      clickRef.current?.showModal();
+    } else {
+      clickRef.current?.close();
+    }
+  }, [isModalOpen]);
 
   return (
     <div className={style}>
@@ -40,31 +48,29 @@ export default function ErrorModal(props: ErrorModalProps) {
         role="button"
         aria-label="Ouvrir une fenêtre de l'explication de la non-accessibilité du composant"
         className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
-        onClick={openErrorModal}
+        onClick={handleOpenModal}
       >
         {buttonText}
       </button>
 
-      {isErrorModalOpen && (
-        <dialog
-          aria-labelledby={props.labelledby}
-          aria-describedby={props.describedby}
-          ref={clickRef}
-          className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50 w-screen h-screen"
-          aria-label={t("aria-modal")}
-        >
-          <div className="bg-white p-8 rounded-lg shadow-lg z-10">
-            <p className="text-gray-800 text-lg max-w-[35rem]">{modalContent}</p>
-            <button
-              ref={escapeRef}
-              className="mt-6 bg-red-500 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg"
-              onClick={closeErrorModal}
-            >
-              {t("close")}
-            </button>
-          </div>
-        </dialog>
-      )}
+      <dialog
+        aria-describedby={props.describedby}
+        aria-label={t("aria-modal")}
+        aria-labelledby={props.labelledby}
+        ref={clickRef}
+        className="bg-white rounded-lg shadow-lg"
+      >
+        <div className="flex items-center justify-center p-8 flex-col">
+          <p className="text-gray-800 text-lg max-w-[35rem]">{modalContent}</p>
+          <button
+            ref={escapeRef}
+            className="mt-6 bg-red-500 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg"
+            onClick={handleCloseModal}
+          >
+            {t("close")}
+          </button>
+        </div>
+      </dialog>
     </div>
   );
 }

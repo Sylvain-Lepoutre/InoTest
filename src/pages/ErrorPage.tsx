@@ -10,7 +10,7 @@ export default function ErrorPage() {
         <h1 className="text-4xl font-bold my-7">404 ERROR</h1>
         <p className="my-3">Sorry, an unexpected error has occurred.</p>
         <p className="my-3">
-          <i> Page {error.statusText || error.message}</i>
+          <i> {error.statusText || error.message}</i>
         </p>
         <a className="hover:font-bold" href="/">
           Go back home

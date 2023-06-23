@@ -1,7 +1,9 @@
 import { useState, createContext } from "react";
+import { Outlet } from "react-router-dom";
+
+import { LiveRegion } from "../components/LiveRegion";
 
 import "../App.css";
-import { Outlet } from "react-router-dom";
 
 type ThemeContextType = {
   theme: string;
@@ -22,6 +24,7 @@ function Root() {
       <div id={theme} className="h-full w-full">
         <Outlet />
       </div>
+      <LiveRegion />
     </ThemeContext.Provider>
   );
 }

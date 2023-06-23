@@ -1,4 +1,4 @@
-import { RefObject, useCallback } from "react";
+import { RefObject, useCallback, useEffect } from "react";
 
 /**
  *
@@ -19,7 +19,13 @@ const useEscapeKey = (callbackOrRef: (() => void) | RefObject<HTMLElement>) => {
     [callbackOrRef]
   );
 
-  window.addEventListener("keydown", handleEscape);
+  useEffect(() => {
+    window.addEventListener("keydown", handleEscape);
+
+    return () => {
+      window.removeEventListener("keydown", handleEscape);
+    };
+  }, [handleEscape]);
 };
 
 export default useEscapeKey;
