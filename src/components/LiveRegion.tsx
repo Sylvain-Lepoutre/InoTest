@@ -1,4 +1,4 @@
-import { createContext, useContext, useRef, type PropsWithChildren, type RefObject } from "react";
+import { createContext, useContext, useRef, type RefObject } from "react";
 
 type ContextType = RefObject<HTMLElement>;
 

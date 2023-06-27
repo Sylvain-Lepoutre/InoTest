@@ -1,4 +1,4 @@
-import { useEffect, useRef, type RefObject } from "react";
+import { useEffect, useRef } from "react";
 
 import { useComposite } from "../Composite";
 
@@ -49,7 +49,6 @@ const CardSlider = (props: CardSliderProps) => {
         className="buttonClass3 flex flex-col w-full rounded-b h-[4rem] transition ease-in-out delay-150 duration-300 justify-center items-center cursor-pointer focus-within:outline-red-500"
         onClick={handleButtonClick}
         ref={ref}
-        role="button"
       >
         <h2>{props.cardName}</h2>
       </button>

@@ -1,8 +1,5 @@
 import { useRef, useEffect, MouseEvent, TouchEvent, useState } from "react";
-import i18n from "../../../i18n";
 import { useTranslation } from "react-i18next";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { dracula } from "react-syntax-highlighter/dist/esm/styles/prism";
 import CardSlider from "./CardSlider";
 import CardSliderContent from "./CardSliderContent";
 import LibraryNavBar from "@components/sliderComponents/libraryComponents/LibraryNavBar";
@@ -122,49 +119,49 @@ const ImageSlider = () => {
       >
         <Composite orientation="horizontal">
           <CardSlider
-            ariaLabel="Déployer le composant navbar"
+            ariaLabel="Ouvrir le composant navbar"
             cardName="Navbar"
             imageSrc="https://images.unsplash.com/photo-1524146128017-b9dd0bfd2778?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bmF2aWdhdGlvbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60"
             onButtonClick={handleButtonClick}
           />
           <CardSlider
-            ariaLabel="Déployer le composant image"
+            ariaLabel="Ouvrir le composant image"
             cardName="Image"
             imageSrc="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGhvdG9ncmFwaHl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60"
             onButtonClick={handleButtonClick}
           />
           <CardSlider
-            ariaLabel="Déployer le composant article"
+            ariaLabel="Ouvrir le composant article"
             cardName="Article"
             imageSrc="https://images.unsplash.com/photo-1457369804613-52c61a468e7d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YXJ0aWNsZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60"
             onButtonClick={handleButtonClick}
           />
           <CardSlider
-            ariaLabel="Déployer le composant stepper"
+            ariaLabel="Ouvrir le composant stepper"
             cardName="Stepper"
             imageSrc="https://images.unsplash.com/photo-1502101872923-d48509bff386?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8c3RlcHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60"
             onButtonClick={handleButtonClick}
           />
           <CardSlider
-            ariaLabel="Déployer le composant form"
+            ariaLabel="Ouvrir le composant form"
             cardName="Form"
             imageSrc="https://images.unsplash.com/photo-1579444741963-5ae219cfe27c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9ybXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60"
             onButtonClick={handleButtonClick}
           />
           <CardSlider
-            ariaLabel="Déployer le composant switch"
+            ariaLabel="Ouvrir le composant switch"
             cardName="Switch"
             imageSrc="https://images.unsplash.com/photo-1644682542938-abaed4287f45?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHN3aXRjaCUyMGJ1dHRvbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60"
             onButtonClick={handleButtonClick}
           />
           <CardSlider
-            ariaLabel="Déployer le composant tabs"
+            ariaLabel="Ouvrir le composant tabs"
             cardName="Tabs"
             imageSrc="https://images.unsplash.com/photo-1598744609005-6c45c55c5e57?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dGFibGVhdXh8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60"
             onButtonClick={handleButtonClick}
           />
           <CardSlider
-            ariaLabel="Déployer le composant modal"
+            ariaLabel="Ouvrir le composant modal"
             cardName="Modal"
             imageSrc="https://images.unsplash.com/photo-1526398737131-11b73763ecaa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8d2luZG93fGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60"
             onButtonClick={handleButtonClick}

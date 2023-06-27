@@ -8,16 +8,14 @@ import FastAccesMenu from "./FastAccesMenu";
 import LanguageSelector from "@components/UI/LanguageSelector";
 
 import { useTranslation } from "react-i18next";
-import i18n from "../../../i18n";
 
 type Props = {
   href?: string;
   escapeRef?: RefObject<HTMLElement>;
 };
 
-const NavBar: React.FC<Props> = ({ escapeRef, href }: Props) => {
+const NavBar = ({ escapeRef, href }: Props) => {
   const { t } = useTranslation();
-  i18n.language;
 
   const { theme, toggleTheme } = useContext(ThemeContext) as {
     theme: string;

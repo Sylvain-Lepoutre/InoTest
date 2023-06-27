@@ -1,5 +1,4 @@
 import ErrorModal from "@components/UI/ErrorModal";
-import SelectMenu from "@components/UI/SelectMenu";
 import { useTranslation } from "react-i18next";
 import i18n from "../../../i18n";
 

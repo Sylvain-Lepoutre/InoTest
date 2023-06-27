@@ -239,7 +239,6 @@ export const useComposite = () => {
  *
  *   const Item = ({ children }) => {
  *     const { addRef } = useComposite();
- *     const id = useId();
  *     const ref = useRef<HTMLButtonElement>(null);
  *
  *     useEffect(() => {
@@ -248,7 +247,7 @@ export const useComposite = () => {
  *
  *     return (
  *       <li role="none">
- *         <button id={id} ref={ref} role="menuitem">
+ *         <button ref={ref} role="menuitem">
  *           {children}
  *         </button>
  *       </li>

@@ -1,23 +1,24 @@
-import { useContext, useRef, useState, type RefObject, useEffect } from "react";
+import { useRef, useState, useEffect, type Dispatch, type SetStateAction } from "react";
 import { useTranslation } from "react-i18next";
 
-import i18n from "../../../i18n";
-import useFocus from "../../hook/useFocus";
+import { Composite } from "../Composite";
 import { useLiveRegion } from "../LiveRegion";
+import { TrueNavBarButton } from "./TrueNavBarButton";
 
-type TrueNavBarProps = {
-  activeStep2: number;
-  setActiveStep2: React.Dispatch<React.SetStateAction<number>>;
+type Props = {
+  activeStep: number;
+  setActiveStep: Dispatch<SetStateAction<number>>;
+  tabIds: string[];
+  tabpanelId: string;
 };
 
-const TrueNavBar: React.FC<Props> = (props: TrueNavBarProps) => {
+const TrueNavBar = (props: Props) => {
   const { t } = useTranslation();
 
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const genericHamburgerLine = `h-1 w-6 my-1 rounded-full burgerStyle2 transition ease transform duration-300`;
-  const trueNavRefs: RefObject<HTMLElement>[] = [useRef<HTMLElement>(null), useRef<HTMLElement>(null)];
 
-  const { horizontalFocus } = useFocus(trueNavRefs);
+  const ref = useRef<HTMLButtonElement>(null);
 
   const { setAssertiveMessage } = useLiveRegion();
 
@@ -27,18 +28,18 @@ const TrueNavBar: React.FC<Props> = (props: TrueNavBarProps) => {
 
   const handlePreviousPage = () => {
     setAssertiveMessage(`page d'accueil de la zone de test`);
-    const previousStep: number = Math.max(props.activeStep2 - 1, 0);
-    props.setActiveStep2(previousStep);
+    const previousStep: number = props.activeStep - 1;
+    props.setActiveStep(previousStep);
   };
 
   const handleNextPage = () => {
     setAssertiveMessage(`page contact de la zone de test`);
-    const nextStep: number = Math.min(props.activeStep2 + 1, 1);
-    props.setActiveStep2(nextStep);
+    const nextStep: number = props.activeStep + 1;
+    props.setActiveStep(nextStep);
   };
 
   useEffect(() => {
-    trueNavRefs[0].current?.focus();
+    ref.current?.focus();
     setAssertiveMessage(`page d'accueil de la zone de test`);
   }, []);
 
@@ -93,35 +94,30 @@ const TrueNavBar: React.FC<Props> = (props: TrueNavBarProps) => {
             </li>
           </ul>
         </div>
-
-        <ul className="menu hidden md:flex md:items-end mt-5 windowStyle">
-          <li>
-            <button
-              type="button"
-              ref={trueNavRefs[0]}
-              onKeyDown={(event) => {
-                horizontalFocus(event);
-              }}
-              className="block px-4 py-2 transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-md"
-              onClick={handlePreviousPage}
-            >
-              {t("nav-home")}
-            </button>
-          </li>
-          <li>
-            <button
-              type="button"
-              ref={trueNavRefs[1]}
-              onKeyDown={(event) => {
-                horizontalFocus(event);
-              }}
-              className="block px-4 py-2 transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-md"
-              onClick={handleNextPage}
-            >
-              Contact
-            </button>
-          </li>
-        </ul>
+        <Composite role="tablist">
+          <ul className="menu hidden md:flex md:items-end mt-5 windowStyle" role="tablist">
+            <li>
+              <TrueNavBarButton
+                id={props.tabIds[0]}
+                ariaControls={props.tabpanelId}
+                ariaSelected={props.activeStep === 0 ? true : false}
+                onClick={handlePreviousPage}
+              >
+                {t("nav-home")}
+              </TrueNavBarButton>
+            </li>
+            <li>
+              <TrueNavBarButton
+                id={props.tabIds[1]}
+                ariaControls={props.tabpanelId}
+                ariaSelected={props.activeStep === !0 ? true : false}
+                onClick={handleNextPage}
+              >
+                Contact
+              </TrueNavBarButton>
+            </li>
+          </ul>
+        </Composite>
       </nav>
     </>
   );

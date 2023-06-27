@@ -1,8 +1,6 @@
-import { useState, useRef, RefObject } from "react";
-import useFocus from "../../hook/useFocus";
+import { useState } from "react";
 import Modal from "@components/UI/Modal";
 import { useTranslation } from "react-i18next";
-import i18n from "../../../i18n";
 
 interface TrueStep {
   image?: string;
@@ -11,11 +9,9 @@ interface TrueStep {
 
 const Stepper = () => {
   const { t } = useTranslation();
-  i18n.language;
 
   const [activeStep, setActiveStep] = useState<number>(0);
   const [assertiveMessage, setAssertiveMessage] = useState("");
-  const buttonRefs: RefObject<HTMLButtonElement>[] = [useRef<HTMLButtonElement>(null), useRef<HTMLButtonElement>(null)];
 
   const steps: TrueStep[] = [
     {

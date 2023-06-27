@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useId, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import NavBar from "@components/header/NavBar";
 import TrueArticle from "@components/trueComponents/TrueArticle";
@@ -8,13 +8,15 @@ import TrueForm from "@components/trueComponents/TrueForm";
 import useEscapeKey from "../hook/useEscapeKey";
 import Modal from "@components/UI/Modal";
 import { useTranslation } from "react-i18next";
-import i18n from "../../i18n";
 
 export default function Path2() {
   const { t } = useTranslation();
 
-  const [activeStep2, setActiveStep2] = useState<number>(0);
+  const [activeStep, setActiveStep] = useState<number>(0);
   const escapeRef = useRef<HTMLElement>(null);
+
+  const tabIds = [useId(), useId()];
+  const tabpanelId = useId();
 
   useEscapeKey(escapeRef);
 
@@ -26,9 +28,9 @@ export default function Path2() {
         </header>
 
         <section className="overflow-auto overflow-x-hidden mx-2 sm:mx-16 mb-6 h-[70vh] rounded shadow-lg md:mt-[1rem] windowStyle testing">
-          <TrueNavBar activeStep2={activeStep2} setActiveStep2={setActiveStep2} />
-          {activeStep2 === 0 ? (
-            <div>
+          <TrueNavBar tabIds={tabIds} tabpanelId={tabpanelId} activeStep={activeStep} setActiveStep={setActiveStep} />
+          {activeStep === 0 ? (
+            <div aria-labelledby={tabIds[0]} id={tabpanelId} role="tabpanel">
               <TrueArticle
                 title={t("article-title")}
                 subTitle={t("true-title")}
@@ -51,7 +53,12 @@ export default function Path2() {
               <TrueStepper />
             </div>
           ) : (
-            <section className="flex flex-row gap-12 justify-center items-center p-x-6" role="nav">
+            <section
+              aria-labelledby={tabIds[1]}
+              id={tabpanelId}
+              role="tabpanel"
+              className="flex flex-row gap-12 justify-center items-center p-x-6"
+            >
               <TrueForm />
               <img
                 src="https://picsum.photos/800/500"

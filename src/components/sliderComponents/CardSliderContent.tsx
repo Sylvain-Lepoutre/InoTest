@@ -1,6 +1,5 @@
-import { useEffect, useRef, RefObject, type ReactNode } from "react";
+import { type ReactNode } from "react";
 import { useTranslation } from "react-i18next";
-import i18n from "../../../i18n";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { dracula } from "react-syntax-highlighter/dist/esm/styles/prism";
 
@@ -17,7 +16,6 @@ type CardContentProps = {
 const CardSliderContent = (props: CardContentProps) => {
   const { t } = useTranslation();
 
-  const imageSrc = props.imageSrc !== undefined ? props.imageSrc : "";
   const cardName = props.cardName !== undefined ? props.cardName : "";
   const libraryComponent = props.libraryComponent !== undefined ? props.libraryComponent : "";
   const dash1 = props.dash1 !== undefined ? props.dash1 : "";

@@ -85,10 +85,10 @@ export default function LibraryForm() {
               className="appearance-none block w-full formStyle border rounded py-3 px-4 leading-tight"
             />
           </div>
-          <div class="flex flex-row gap-20 md:w-full md:mt-6 ml-3">
+          <div className="flex flex-row gap-20 md:w-full md:mt-6 ml-3">
             <button
               type="submit"
-              class="cursor-pointer shadow formStyle focus:shadow-outline focus:outline-none font-bold py-2 px-4 rounded hover:scale-110 transform transition-transform duration-200"
+              className="cursor-pointer shadow formStyle focus:shadow-outline focus:outline-none font-bold py-2 px-4 rounded hover:scale-110 transform transition-transform duration-200"
             >
               {t("send")}
             </button>
