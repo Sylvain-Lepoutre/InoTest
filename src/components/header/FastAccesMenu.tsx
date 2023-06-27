@@ -1,7 +1,5 @@
 import { RefObject } from "react";
-
 import { useTranslation } from "react-i18next";
-import i18n from "../../../i18n";
 
 type FastAccesMenuProps = {
   mouseFocus: (event: MouseEvent) => void;
@@ -12,7 +10,6 @@ type FastAccesMenuProps = {
 
 const FastAccesMenu: React.FC<FastAccesMenuProps> = (props: FastAccesMenuProps) => {
   const { t } = useTranslation();
-  i18n.language;
 
   return (
     <a

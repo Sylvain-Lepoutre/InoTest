@@ -1,8 +1,5 @@
-import React, { useState, useRef, RefObject, useEffect } from "react";
-import { Link } from "react-router-dom";
-
+import { useState, useRef, RefObject, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import i18n from "../../../../i18n";
 import useFocus from "../../../hook/useFocus";
 
 interface Step {
@@ -12,7 +9,6 @@ interface Step {
 
 const LibraryStepper = () => {
   const { t } = useTranslation();
-  i18n.language;
 
   const [activeStep, setActiveStep] = useState<number>(0);
   const [buttonVisible, setButtonVisible] = useState(false);
@@ -56,11 +52,7 @@ const LibraryStepper = () => {
 
   return (
     <>
-      <section
-        className="flex justify-center align-center md:mt-0 p-6 w-[87vw]"
-        role="region"
-        aria-roledescription={t("aria-step")}
-      >
+      <section className="flex justify-center align-center md:mt-0 p-6 w-[87vw]" aria-roledescription={t("aria-step")}>
         <div className="flex justify-center align-center flex-col items-center rounded-lg bg-[#151515] w-[50vw] p-4 mx-8 windowStyle">
           <div>
             <img

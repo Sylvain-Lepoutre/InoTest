@@ -30,6 +30,8 @@ module.exports = {
     tsconfigRootDir: __dirname,
   },
   rules: {
+    strict: "error",
+    "@typescript-eslint/no-unused-vars": ["error", { varsIgnorePattern: "^_" }],
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
   },

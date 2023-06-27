@@ -1,8 +1,5 @@
 import { useRef, useEffect, MouseEvent, TouchEvent, useState } from "react";
-import i18n from "../../../i18n";
 import { useTranslation } from "react-i18next";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { dracula } from "react-syntax-highlighter/dist/esm/styles/prism";
 import CardSlider from "./CardSlider";
 import CardSliderContent from "./CardSliderContent";
 import LibraryNavBar from "@components/sliderComponents/libraryComponents/LibraryNavBar";

@@ -1,8 +1,6 @@
-import React, { useState, useRef, RefObject, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-
 import { useTranslation } from "react-i18next";
-import i18n from "../../../i18n";
 
 interface Step {
   image?: string;
@@ -21,7 +19,6 @@ interface StepperProps {
 
 const Stepper: React.FC = (props: StepperProps) => {
   const { t } = useTranslation();
-  i18n.language;
 
   const [activeStep, setActiveStep] = useState<number>(0);
   const [assertiveMessage, setAssertiveMessage] = useState("");

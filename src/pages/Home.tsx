@@ -3,11 +3,8 @@ import { Link, useLocation } from "react-router-dom";
 import ImageSlider from "../components/sliderComponents/ImageSlider";
 import TextReveal from "@components/UI/TextReveal";
 import { useTranslation } from "react-i18next";
-import i18n from "../../i18n";
-import DatePicker from "@components/sliderComponents/libraryComponents/DatePicker";
 
 const Home = () => {
-  i18n.language;
   const { t } = useTranslation();
   const location = useLocation();
 
@@ -50,7 +47,6 @@ const Home = () => {
           </a>
         </div>
       </section>
-      <DatePicker />
       <section id="main">
         <TextReveal />
         <div className="flex flex-col gap-6 max-w-3xl ml-5 p-6 mt-0 items-start reveal">
