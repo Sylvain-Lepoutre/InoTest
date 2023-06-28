@@ -35,8 +35,8 @@ export default function DatePicker() {
   }, [calendarDate, today]);
 
   useEffect(() => {
-    setAssertiveMessage(`Nous somme le ${today.format("DD/MM/YYYY")}`);
-  }, [setCalendarDate, setAssertiveMessage, today]);
+    setAssertiveMessage(`Date du jour : ${today.format("DD/MM/YYYY")}`);
+  }, [calendarDate]);
 
   return (
     <div className="w-64 h-auto bg-slate-200">
@@ -45,7 +45,8 @@ export default function DatePicker() {
           <DateButton
             style="scale-[0.4] w-6 hover:scale-[0.5] transition-all ease-in-out"
             ariaLabel="année précédente"
-            onClick={() => {
+            onClick={(e) => {
+              e.stopPropagation();
               setCalendarDate(calendarDate.subtract(1, "year"));
             }}
           >
@@ -53,8 +54,9 @@ export default function DatePicker() {
           </DateButton>
           <DateButton
             style="scale-[0.4] w-6 hover:scale-[0.5] transition-all ease-in-out"
-            ariaLabel="mois précédente"
-            onClick={() => {
+            ariaLabel="mois précédent"
+            onClick={(e) => {
+              e.stopPropagation();
               setCalendarDate(calendarDate.subtract(1, "month"));
             }}
           >
@@ -69,7 +71,8 @@ export default function DatePicker() {
             <DateButton
               style="scale-[0.6] bg-slate-100 hover:bg-slate-500 hover:text-white transition-all rounded-lg p-1 w-[10rem] "
               ariaLabel="revenir au jour actuel"
-              onClick={() => {
+              onClick={(e) => {
+                e.stopPropagation();
                 setCalendarDate(today);
               }}
             >
@@ -80,7 +83,8 @@ export default function DatePicker() {
           <DateButton
             style="scale-[0.4] w-6 hover:scale-[0.5] transition-all ease-in-out"
             ariaLabel="mois suivant"
-            onClick={() => {
+            onClick={(e) => {
+              e.stopPropagation();
               setCalendarDate(calendarDate.add(1, "month"));
             }}
           >
@@ -89,7 +93,8 @@ export default function DatePicker() {
           <DateButton
             style="scale-[0.4] w-6 hover:scale-[0.5] transition-all ease-in-out"
             ariaLabel="année suivante"
-            onClick={() => {
+            onClick={(e) => {
+              e.stopPropagation();
               setCalendarDate(calendarDate.add(1, "year"));
             }}
           >

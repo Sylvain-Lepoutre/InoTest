@@ -52,6 +52,9 @@ export default function DateInput() {
             setShowDatePicker(!showDatePicker);
           }
         }}
+        onChange={() => {
+          console.log("todo");
+        }}
         role="button"
         aria-haspopup="true"
         aria-expanded={showDatePicker}
