@@ -10,15 +10,14 @@ import LibraryForm from "./libraryComponents/LibraryForm";
 import FormCode from "./codeComponents/FormCode";
 import LibraryArticle from "./libraryComponents/LibraryArticle";
 import ArticleCode from "./codeComponents/ArticleCode";
-import LibraryImages from "./libraryComponents/LibraryImages";
-import ImagesCode from "./codeComponents/ImagesCode";
+import DatePickerCode from "./codeComponents/DatePickerCode";
 import LibraryTabs from "./libraryComponents/LibraryTabs";
 import TabsCode from "./codeComponents/TabsCode";
 import LibraryStepper from "./libraryComponents/LibraryStepper";
 import StepperCode from "./codeComponents/StepperCode";
 import LibraryModal from "./libraryComponents/LibraryModal";
 import ModalCode from "./codeComponents/ModalCode";
-
+import DateInput from "./libraryComponents/DatePicker/DateInput";
 import { Composite } from "../Composite";
 
 const ImageSlider = () => {
@@ -96,7 +95,7 @@ const ImageSlider = () => {
       window.removeEventListener("mousemove", handleOnMove);
       window.removeEventListener("touchmove", (e: TouchEvent) => handleOnMove(e.touches[0]));
     };
-  }, [minPercentage]);
+  }, [minPercentage, desktopMaxDelta, mobileMaxDelta]);
 
   const handleButtonClick = (section: string) => {
     setActiveSection((prevSection) => {
@@ -125,9 +124,9 @@ const ImageSlider = () => {
             onButtonClick={handleButtonClick}
           />
           <CardSlider
-            ariaLabel="Ouvrir le composant image"
-            cardName="Image"
-            imageSrc="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGhvdG9ncmFwaHl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60"
+            ariaLabel="Ouvrir le composant date picker"
+            cardName="Date Picker"
+            imageSrc="https://images.unsplash.com/photo-1535981767287-35259dbf7d0e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Y2FsZW5kcmllcnxlbnwwfDF8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
             onButtonClick={handleButtonClick}
           />
           <CardSlider
@@ -182,15 +181,15 @@ const ImageSlider = () => {
           />
         )}
 
-        {activeSection === "Image" && (
+        {activeSection === "Date Picker" && (
           <CardSliderContent
-            cardName="Image"
-            libraryComponent={<LibraryImages />}
-            componentCode={ImagesCode}
-            dash1={t("limg-1")}
-            dash2={t("limg-2")}
-            dash3={t("limg-3")}
-            dash4={t("limg-4")}
+            cardName="Date Picker"
+            libraryComponent={<DateInput />}
+            componentCode={DatePickerCode}
+            dash1={t("date-1")}
+            dash2={t("date-2")}
+            dash3={t("date-3")}
+            dash4={t("date-4")}
           />
         )}
 

@@ -1,8 +1,6 @@
-import { useRef, useState, RefObject, useContext } from "react";
+import { useState, useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
-
-import useFocus from "../../hook/useFocus";
 import { ThemeContext } from "../../routes/Root";
 import FastAccesMenu from "./FastAccesMenu";
 import LanguageSelector from "@components/UI/LanguageSelector";
@@ -11,10 +9,9 @@ import { useTranslation } from "react-i18next";
 
 type Props = {
   href?: string;
-  escapeRef?: RefObject<HTMLElement>;
 };
 
-const NavBar = ({ escapeRef, href }: Props) => {
+const NavBar = ({ href }: Props) => {
   const { t } = useTranslation();
 
   const { theme, toggleTheme } = useContext(ThemeContext) as {
@@ -24,17 +21,6 @@ const NavBar = ({ escapeRef, href }: Props) => {
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const genericHamburgerLine = `h-1 w-6 my-1 rounded-full burgerStyle transition ease transform duration-300`;
-  const navRefs: RefObject<HTMLElement>[] = [
-    useRef<HTMLElement>(null),
-    useRef<HTMLElement>(null),
-    useRef<HTMLElement>(null),
-    useRef<HTMLElement>(null),
-    useRef<HTMLElement>(null),
-  ];
-
-  navRefs[0] = escapeRef ?? navRefs[0];
-
-  const { horizontalFocus, mouseFocus } = useFocus(navRefs);
 
   const closeMenu = () => {
     setIsMenuOpen(false);
@@ -44,7 +30,7 @@ const NavBar = ({ escapeRef, href }: Props) => {
     <>
       <nav className="h-[10vh] flex justify-end px-4">
         <div className="relative md:hidden flex mr-[-1rem] z-50">
-          <LanguageSelector mouseFocus={mouseFocus} />
+          <LanguageSelector />
           <DarkModeSwitch
             style={{ marginRight: "1rem", marginTop: "1.7rem", marginLeft: "0.3rem" }}
             checked={theme === "dark"}
@@ -94,17 +80,10 @@ const NavBar = ({ escapeRef, href }: Props) => {
 
         <ul className="menu hidden md:flex md:items-start mt-5">
           <li>
-            <FastAccesMenu href={href} horizontalFocus={horizontalFocus} mouseFocus={mouseFocus} navRef={navRefs[0]} />
+            <FastAccesMenu href={href} />
           </li>
           <li>
             <Link
-              ref={navRefs[1]}
-              onKeyDown={(event) => {
-                horizontalFocus(event);
-              }}
-              onClick={() => {
-                mouseFocus();
-              }}
               to="/"
               className="block px-4 py-2 link link-underline link-underline-black navStyle"
               aria-current={location.pathname === "/" ? "page" : undefined}
@@ -114,13 +93,6 @@ const NavBar = ({ escapeRef, href }: Props) => {
           </li>
           <li>
             <Link
-              ref={navRefs[2]}
-              onKeyDown={(event) => {
-                horizontalFocus(event);
-              }}
-              onClick={() => {
-                mouseFocus();
-              }}
               to="/about"
               className="block px-4 py-2 link link-underline link-underline-black navStyle"
               aria-current={location.pathname === "/about" ? "page" : undefined}
@@ -129,18 +101,12 @@ const NavBar = ({ escapeRef, href }: Props) => {
             </Link>
           </li>
           <li aria-label={t("aria-language-button")}>
-            <LanguageSelector mouseFocus={mouseFocus} horizontalFocus={horizontalFocus} navRef={navRefs[3]} />
+            <LanguageSelector />
           </li>
           <button
             type="button"
             aria-label={t("aria-dark-mode")}
-            ref={navRefs[4]}
-            onKeyDown={(event) => {
-              horizontalFocus(event);
-              event.key === "Enter" || (event.key === "space" && toggleTheme());
-            }}
             onClick={(event) => {
-              mouseFocus();
               toggleTheme(event);
             }}
           >

@@ -1,6 +1,5 @@
 import { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import i18n from "../../../../i18n";
 import useEscapeKey from "../../../hook/useEscapeKey";
 import useOuterClick from "../../../hook/useOuterClick";
 
@@ -14,7 +13,6 @@ type ModalProps = {
 
 export default function LibraryModal(props: ModalProps) {
   const { t } = useTranslation();
-  i18n.language;
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const escapeRef = useRef<HTMLElement>(null);

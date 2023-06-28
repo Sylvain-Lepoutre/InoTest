@@ -13,7 +13,6 @@ const Home = () => {
       <header id="header">
         <NavBar href="#main" />
       </header>
-
       <section className="md:grid md:grid-cols-2 md:grid-rows-2 md:justify-items-start h-[90vh] mb-12">
         <div className=" md:ml-[3rem] col-start-1 row-start-1 -mt-[3.5rem] ml-4 relative md:text-7xl text-4xl font-bold flex flex-row items-start lg:text-9xl lg:mt-[7rem] lg:ml-[5rem]">
           <h1 className="title">
@@ -47,6 +46,7 @@ const Home = () => {
           </a>
         </div>
       </section>
+
       <section id="main">
         <TextReveal />
         <div className="flex flex-col gap-6 max-w-3xl ml-5 p-6 mt-0 items-start reveal">
@@ -54,7 +54,6 @@ const Home = () => {
           <p className="title text-xl">{t("library-content")}</p>
         </div>
       </section>
-
       <article className="flex flex-col items-center justify-end overflow-x-hidden">
         <div className="mt-36">
           <ImageSlider />

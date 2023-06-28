@@ -5,15 +5,10 @@ import { RefObject, KeyboardEvent } from "react";
 
 type LanguageSelectorProps = {
   horizontalFocus: (event: KeyboardEvent) => void;
-  mouseFocus: (event: MouseEvent) => void;
   navRef: RefObject<HTMLElement>;
 };
 
-const LanguageSelector: React.FC<LanguageSelectorProps> = ({
-  horizontalFocus,
-  mouseFocus,
-  navRef,
-}: LanguageSelectorProps) => {
+const LanguageSelector: React.FC<LanguageSelectorProps> = ({ horizontalFocus, navRef }: LanguageSelectorProps) => {
   const { t } = useTranslation();
 
   const { i18n } = useTranslation();
@@ -30,7 +25,6 @@ const LanguageSelector: React.FC<LanguageSelectorProps> = ({
       <button
         ref={navRef}
         onClick={() => {
-          mouseFocus();
           void changeLanguage();
         }}
         onKeyDown={horizontalFocus}

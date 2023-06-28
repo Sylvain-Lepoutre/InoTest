@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 interface Step {
   image?: string;
   text?: string;
+  alt?: string;
 }
 
 interface StepperProps {
@@ -41,10 +42,6 @@ const Stepper: React.FC = (props: StepperProps) => {
     const previousStep: number = Math.max(activeStep - 1, 0);
     setActiveStep(previousStep);
   };
-
-  useEffect(() => {
-    const lastStep = activeStep === steps.length - 1;
-  }, [activeStep, steps.length]);
 
   return (
     <>
