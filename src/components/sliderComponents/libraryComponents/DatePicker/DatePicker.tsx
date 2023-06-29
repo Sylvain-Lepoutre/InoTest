@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import dayjs from "dayjs";
-import { useLiveRegion } from "@components/LiveRegion";
 import { generateDate, months } from "../../../../util/Calendar";
 import { DateButton } from "./DateButton";
 import { Composite } from "@components/Composite";
@@ -10,8 +9,6 @@ export default function DatePicker() {
   const [today] = useState(dayjs());
   const [calendarDate, setCalendarDate] = useState(dayjs());
   const [calendarData, setCalendarData] = useState([] as Array<{ date: dayjs.Dayjs; classes: string }>);
-
-  const { setAssertiveMessage } = useLiveRegion();
 
   useEffect(() => {
     const monthClasses = (isCurrentMonth: boolean) =>
@@ -33,10 +30,6 @@ export default function DatePicker() {
 
     setCalendarData(calendarData);
   }, [calendarDate, today]);
-
-  useEffect(() => {
-    setAssertiveMessage(`Date du jour : ${today.format("DD/MM/YYYY")}`);
-  }, [calendarDate]);
 
   return (
     <div className="w-64 h-auto bg-slate-200">
@@ -78,7 +71,10 @@ export default function DatePicker() {
             >
               Date du jour
             </DateButton>
-            <span className="font-bold text-sm">{today.format("DD/MM/YYYY")}</span>
+            <span aria-hidden="true" className="font-bold text-sm">
+              {today.format("DD/MM/YYYY")}
+            </span>
+            <span className="sr-only">Nous sommes le : {today.format("DD/MM/YYYY")}</span>
           </div>
           <DateButton
             style="scale-[0.4] w-6 hover:scale-[0.5] transition-all ease-in-out"

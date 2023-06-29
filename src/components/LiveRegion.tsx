@@ -21,7 +21,7 @@ export const LiveRegion = () => {
 
   return (
     <Context.Provider value={ref}>
-      <div aria-live="assertive" className="sr-only" ref={(el) => (ref.current = el)} role="status"></div>
+      <div aria-live="assertive" className="sr-only" ref={ref} role="status"></div>
     </Context.Provider>
   );
 };

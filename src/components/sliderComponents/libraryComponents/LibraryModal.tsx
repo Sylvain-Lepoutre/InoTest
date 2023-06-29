@@ -34,7 +34,10 @@ export default function LibraryModal(props: ModalProps) {
       <button
         type="button"
         className="bg-slate-500 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded"
-        onClick={openRightModal}
+        onClick={(e) => {
+          openRightModal();
+          e.stopPropagation();
+        }}
       >
         {t("open")}
       </button>
@@ -43,11 +46,10 @@ export default function LibraryModal(props: ModalProps) {
         <dialog
           aria-labelledby={props.labelledby}
           aria-describedby={props.describedby}
-          ref={clickRef}
           className="fixed inset-0 flex items-start justify-center m-0 z-50 rounded bg-black bg-opacity-50 w-full h-full"
           aria-label={t("aria-modal")}
         >
-          <div className="bg-white p-8 rounded-lg shadow-lg z-10">
+          <div ref={clickRef} className="bg-white p-8 rounded-lg shadow-lg z-10">
             <p className="text-gray-800 text-lg max-w-[35rem]">{t("message")}</p>
             <button
               type="button"

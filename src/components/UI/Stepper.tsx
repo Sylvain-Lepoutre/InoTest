@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
@@ -23,6 +23,7 @@ const Stepper: React.FC = (props: StepperProps) => {
 
   const [activeStep, setActiveStep] = useState<number>(0);
   const [assertiveMessage, setAssertiveMessage] = useState("");
+  const ref = useRef<HTMLParagraphElement>(null);
 
   const steps: Step[] = [
     { image: "/Step-1.jpg", text: t("step-1"), alt: "" },
@@ -30,7 +31,6 @@ const Stepper: React.FC = (props: StepperProps) => {
     { image: "/Step-3.png", text: t("step-3"), alt: "Tutoriel sur les modals" },
     { image: "/Step-4.png", text: t("step-4"), alt: "Tutoriel sur la page des composant accessible" },
   ];
-
   const handleNext = (array: Step[]) => {
     setAssertiveMessage(`${t("Étape")} ${activeStep + 2} ${t("sur")} 4`);
     const nextStep: number = Math.min(activeStep + 1, array.length - 1);
@@ -50,9 +50,11 @@ const Stepper: React.FC = (props: StepperProps) => {
           <div>
             <img className={`${props.styledImage}`} src={steps[activeStep].image} alt={steps[activeStep].alt} />
           </div>
-          <p aria-live="polite" role="status" className={`${props.style2}`}>
-            {steps[activeStep].text}
-          </p>
+          <span>
+            <p aria-live="polite" role="status" className={`${props.style2}`}>
+              {steps[activeStep].text}
+            </p>
+          </span>
           <div className={`${props.style3}`}>
             {activeStep !== 0 ? (
               <button
@@ -71,6 +73,7 @@ const Stepper: React.FC = (props: StepperProps) => {
             )}
             {activeStep !== steps.length - 1 ? (
               <button
+                ref={ref}
                 aria-label={t("aria-next")}
                 tabIndex={0}
                 type="button"

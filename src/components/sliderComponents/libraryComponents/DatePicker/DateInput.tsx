@@ -16,8 +16,6 @@ export default function DateInput() {
 
   useOuterClick(clickRef, closeDatePicker);
 
-  console.log(showDatePicker);
-
   return (
     <div className="relative h-fit">
       <button

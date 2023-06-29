@@ -1,8 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import useEscapeKey from "../../hook/useEscapeKey";
 import { useTranslation } from "react-i18next";
-import i18n from "../../../i18n";
-import useOuterClick from "../../hook/useOuterClick";
 
 type ModalProps = {
   buttonText: string;
@@ -14,7 +12,6 @@ type ModalProps = {
 
 export default function Modal(props: ModalProps) {
   const { t } = useTranslation();
-  i18n.language;
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const escapeRef = useRef<HTMLElement>(null);
@@ -37,12 +34,11 @@ export default function Modal(props: ModalProps) {
   }, [isModalOpen]);
 
   useEscapeKey(handleCloseModal);
-  useOuterClick(clickRef, handleCloseModal);
 
   return (
     <div className={props.style}>
       <button
-        role="button"
+        type="button"
         aria-label="Ouvrir une fenêtre de l'explication de l'accessibilité du composant"
         className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
         onClick={handleOpenModal}
