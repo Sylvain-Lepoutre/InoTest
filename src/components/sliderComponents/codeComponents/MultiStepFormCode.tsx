@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+export default `import { useEffect, useState } from "react";
 
 const MultiStepForm = () => {
   const [step, setStep] = useState<number>(1);
@@ -6,7 +6,7 @@ const MultiStepForm = () => {
   const [email, setEmail] = useState<string>("");
   const [nameError, setNameError] = useState<string>("");
   const [emailError, setEmailError] = useState<string>("");
-  const [ariaMessage, setAriaMessage] = useState<string>(`étape ${step}`);
+  const [ariaMessage, setAriaMessage] = useState<string>(étape ${"step"});
 
   const handleNext = (): void => {
     event.preventDefault();
@@ -41,7 +41,7 @@ const MultiStepForm = () => {
   };
 
   useEffect(() => {
-    setAriaMessage(`step ${step}`);
+    setAriaMessage(step ${"step"});
   }, [step]);
 
   useEffect(() => {
@@ -142,3 +142,4 @@ const MultiStepForm = () => {
 };
 
 export default MultiStepForm;
+`;
