@@ -1,7 +1,7 @@
 {
   "home-title": "Test d'accessibilité",
   "getstarted": "TUTORIEL",
-  "learnmore": "LIBRAIRIE",
+  "learnmore": "Découvrir",
   "library-title": "Bibliothèque de composants accessibles",
   "library-content": "Voici la bibliothèque des composants accessibles, votre ressource de référence pour le développement de sites web inclusifs. Explorez notre large gamme de composants axés sur l'accessibilité et conçus pour améliorer l'expérience de l'utilisateur. Construisez un monde numérique inclusif avec la bibliothèque de composants accessibles.",
   "backtop": "Retournez en haut",
@@ -11,6 +11,7 @@
   "about-us": "À propos de nous",
   "previous": "Précédent",
   "next": "Suivant",
+  "library": "LIBRAIRIE",
   "start": "Commencez",
   "return-home": "Retour à l'accueil",
   "article-title": "Ceci est une zone de test",
