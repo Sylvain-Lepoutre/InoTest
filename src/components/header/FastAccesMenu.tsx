@@ -13,14 +13,7 @@ const FastAccesMenu: React.FC<FastAccesMenuProps> = (props: FastAccesMenuProps) 
 
   return (
     <a
-      ref={props.navRef}
       aria-label={t("aria-fastAccess")}
-      onKeyDown={(event) => {
-        props.horizontalFocus(event);
-      }}
-      onClick={() => {
-        props.mouseFocus();
-      }}
       className="sr-only focus:not-sr-only block focus:px-4 focus:py-2 navStyle"
       href={props.href}
     >

@@ -1,8 +1,6 @@
 import { useRef, useState, useEffect, type Dispatch, type SetStateAction } from "react";
 import { useTranslation } from "react-i18next";
-
 import { Composite } from "../Composite";
-import { useLiveRegion } from "../LiveRegion";
 import { TrueNavBarButton } from "./TrueNavBarButton";
 
 type Props = {
@@ -20,7 +18,7 @@ const TrueNavBar = (props: Props) => {
 
   const ref = useRef<HTMLButtonElement>(null);
 
-  const { setAssertiveMessage } = useLiveRegion();
+  const [assertiveMessage, setAssertiveMessage] = useState("");
 
   const closeMenu = () => {
     setIsMenuOpen(false);
@@ -96,7 +94,7 @@ const TrueNavBar = (props: Props) => {
         </div>
         <Composite role="tablist">
           <ul className="menu hidden md:flex md:items-end mt-5 windowStyle" role="tablist">
-            <li>
+            <li ref={ref}>
               <TrueNavBarButton
                 id={props.tabIds[0]}
                 ariaControls={props.tabpanelId}
@@ -118,6 +116,9 @@ const TrueNavBar = (props: Props) => {
             </li>
           </ul>
         </Composite>
+        <div aria-live="assertive" role="status" className="sr-only">
+          {assertiveMessage}
+        </div>
       </nav>
     </>
   );

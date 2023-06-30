@@ -62,7 +62,7 @@ const Stepper = () => {
                 className="scale-75 object-cover"
               />
               <div className="flex items-center justify-between p-4">
-                <Modal buttonText="!" modalContent={t("stepper-right")} style="text-black" />
+                <Modal buttonText="✓" modalContent={t("stepper-right")} style="text-black" />
               </div>
             </div>
             <div>

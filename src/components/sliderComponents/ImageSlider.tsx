@@ -10,16 +10,17 @@ import LibraryForm from "./libraryComponents/LibraryForm";
 import FormCode from "./codeComponents/FormCode";
 import LibraryArticle from "./libraryComponents/LibraryArticle";
 import ArticleCode from "./codeComponents/ArticleCode";
-import LibraryImages from "./libraryComponents/LibraryImages";
-import ImagesCode from "./codeComponents/ImagesCode";
+import DatePickerCode from "./codeComponents/DatePickerCode";
 import LibraryTabs from "./libraryComponents/LibraryTabs";
 import TabsCode from "./codeComponents/TabsCode";
 import LibraryStepper from "./libraryComponents/LibraryStepper";
 import StepperCode from "./codeComponents/StepperCode";
 import LibraryModal from "./libraryComponents/LibraryModal";
 import ModalCode from "./codeComponents/ModalCode";
-
+import DateInput from "./libraryComponents/DatePicker/DateInput";
 import { Composite } from "../Composite";
+import MultiStepForm from "./libraryComponents/MultipleStepForm";
+import MultiStepFormCode from "./codeComponents/MultiStepFormCode";
 
 const ImageSlider = () => {
   const { t } = useTranslation();
@@ -96,7 +97,7 @@ const ImageSlider = () => {
       window.removeEventListener("mousemove", handleOnMove);
       window.removeEventListener("touchmove", (e: TouchEvent) => handleOnMove(e.touches[0]));
     };
-  }, [minPercentage]);
+  }, [minPercentage, desktopMaxDelta, mobileMaxDelta]);
 
   const handleButtonClick = (section: string) => {
     setActiveSection((prevSection) => {
@@ -125,9 +126,9 @@ const ImageSlider = () => {
             onButtonClick={handleButtonClick}
           />
           <CardSlider
-            ariaLabel="Ouvrir le composant image"
-            cardName="Image"
-            imageSrc="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGhvdG9ncmFwaHl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60"
+            ariaLabel="Ouvrir le composant date picker"
+            cardName="Date Picker"
+            imageSrc="https://images.unsplash.com/photo-1506784365847-bbad939e9335?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1168&q=80"
             onButtonClick={handleButtonClick}
           />
           <CardSlider
@@ -161,6 +162,12 @@ const ImageSlider = () => {
             onButtonClick={handleButtonClick}
           />
           <CardSlider
+            ariaLabel="Ouvrir le composant Multistep Form"
+            cardName="Multistep Form"
+            imageSrc="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+            onButtonClick={handleButtonClick}
+          />
+          <CardSlider
             ariaLabel="Ouvrir le composant modal"
             cardName="Modal"
             imageSrc="https://images.unsplash.com/photo-1526398737131-11b73763ecaa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8d2luZG93fGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60"
@@ -182,15 +189,15 @@ const ImageSlider = () => {
           />
         )}
 
-        {activeSection === "Image" && (
+        {activeSection === "Date Picker" && (
           <CardSliderContent
-            cardName="Image"
-            libraryComponent={<LibraryImages />}
-            componentCode={ImagesCode}
-            dash1={t("limg-1")}
-            dash2={t("limg-2")}
-            dash3={t("limg-3")}
-            dash4={t("limg-4")}
+            cardName="Date Picker"
+            libraryComponent={<DateInput />}
+            componentCode={DatePickerCode}
+            dash1={t("date-1")}
+            dash2={t("date-2")}
+            dash3={t("date-3")}
+            dash4={t("date-4")}
           />
         )}
 
@@ -251,6 +258,18 @@ const ImageSlider = () => {
             dash2={t("ltabs-2")}
             dash3={t("ltabs-3")}
             dash4={t("ltabs-4")}
+          />
+        )}
+
+        {activeSection === "Multistep Form" && (
+          <CardSliderContent
+            cardName="Multistep Form"
+            libraryComponent={<MultiStepForm />}
+            componentCode={MultiStepFormCode}
+            dash1={t("multi-1")}
+            dash2={t("multi-2")}
+            dash3={t("multi-3")}
+            dash4={t("multi-4")}
           />
         )}
 
