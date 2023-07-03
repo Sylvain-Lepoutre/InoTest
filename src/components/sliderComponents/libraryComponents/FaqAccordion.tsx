@@ -2,40 +2,25 @@ import { useState } from "react";
 
 type Question = {
   id: string;
-  content: string;
+  question: string;
   answer: string;
-  state: boolean;
+  isExpanded: boolean;
 };
 
-export default function FaqAccordion() {
-  const [expanded, setExpanded] = useState<Question[]>([
-    {
-      id: "1",
-      content: "question 1",
-      answer: "answer 1",
-      state: false,
-    },
-    {
-      id: "2",
-      content: "question 2",
-      answer: "answer 2",
-      state: false,
-    },
-    {
-      id: "3",
-      content: "question 3",
-      answer: "answer 3",
-      state: false,
-    },
-  ]);
+const FaqAccordion = ({ questions }: { questions: Pick<Question, "question" | "answer">[] }) => {
+  const [expanded, setExpanded] = useState<Question[]>(
+    questions.map((q, index) => ({ ...q, id: index, isExpanded: false }))
+  );
 
-  const handleExpand = (id: string) => {
+  const handleExpand = (currentQuestionId: string) => {
     setExpanded((prevState) =>
-      prevState.map((question) => (question.id === id ? { ...question, state: !question.state } : question))
+      prevState.map((question) =>
+        question.id === currentQuestionId ? { ...question, isExpanded: !question.isExpanded } : question
+      )
     );
   };
 
-  console.log(expanded.map((question) => question.state));
+  console.log(expanded);
 
   return (
     <div className="flex justify-center">
@@ -45,9 +30,9 @@ export default function FaqAccordion() {
             <summary
               className="text-white py-2 pl-2 pr-8 bg-gray-600 rounded-md"
               onClick={() => handleExpand(question.id)}
-              aria-expanded={question.state}
+              aria-expanded={question.isExpanded}
             >
-              {question.content}
+              {question.question}
             </summary>
             <p className="bg-gray-500 p-2 rounded-md">{question.answer}</p>
           </details>
@@ -55,4 +40,6 @@ export default function FaqAccordion() {
       </div>
     </div>
   );
-}
+};
+
+export default FaqAccordion;
