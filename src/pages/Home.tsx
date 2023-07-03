@@ -48,7 +48,14 @@ const Home = () => {
           </a>
         </div>
       </section>
-      <FaqAccordion questions={questions} />
+      <FaqAccordion
+        questions={questions}
+        styles={{
+          container: "flex justify-center",
+          question: "bg-slate-500 my-1 rounded p-2 font-bold",
+          answer: "bg-slate-300 rounded p-2 text-xs",
+        }}
+      />
       <section id="main">
         <TextReveal />
         <div className="flex flex-col gap-6 max-w-3xl ml-5 p-6 mt-0 items-start reveal">

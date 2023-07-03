@@ -1,21 +1,42 @@
 import { useState } from "react";
+import { nanoid } from "nanoid";
 
 type Question = {
-  id: string;
+  id: number;
   question: string;
   answer: string;
   isExpanded: boolean;
+  answerId: string;
 };
 
-const FaqAccordion = ({ questions }: { questions: Pick<Question, "question" | "answer">[] }) => {
+type Styles = {
+  container?: string;
+  childContainer?: string;
+  details?: string;
+  question?: string;
+  answer?: string;
+};
+
+const FaqAccordion = ({
+  questions,
+  styles,
+}: {
+  questions: Pick<Question, "question" | "answer">[];
+  styles: Styles;
+}) => {
   const [expanded, setExpanded] = useState<Question[]>(
-    questions.map((q, index) => ({ ...q, id: index, isExpanded: false }))
+    questions.map((q, index) => ({
+      ...q,
+      id: index + 1,
+      answerId: nanoid(),
+      isExpanded: false,
+    }))
   );
 
-  const handleExpand = (currentQuestionId: string) => {
+  const handleExpand = (currentId: string) => {
     setExpanded((prevState) =>
       prevState.map((question) =>
-        question.id === currentQuestionId ? { ...question, isExpanded: !question.isExpanded } : question
+        question.id === currentId ? { ...question, isExpanded: !question.isExpanded } : question
       )
     );
   };
@@ -23,18 +44,23 @@ const FaqAccordion = ({ questions }: { questions: Pick<Question, "question" | "a
   console.log(expanded);
 
   return (
-    <div className="flex justify-center">
-      <div className="flex-col justify-center">
+    <div className={styles?.container}>
+      <div className={styles?.childContainer}>
         {expanded.map((question) => (
-          <details key={question.id} className="my-1 text-white max-w-max">
+          <details key={question.id} className={styles?.details}>
             <summary
-              className="text-white py-2 pl-2 pr-8 bg-gray-600 rounded-md"
-              onClick={() => handleExpand(question.id)}
+              aria-controls={question.answerId}
+              // aria-disabled={}
               aria-expanded={question.isExpanded}
+              className={styles?.question}
+              onClick={() => handleExpand(question.id)}
+              role="button"
             >
               {question.question}
             </summary>
-            <p className="bg-gray-500 p-2 rounded-md">{question.answer}</p>
+            <p id={question.answerId} className={styles?.answer}>
+              {question.answer}
+            </p>
           </details>
         ))}
       </div>
