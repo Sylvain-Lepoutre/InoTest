@@ -3,6 +3,8 @@ import { Link, useLocation } from "react-router-dom";
 import ImageSlider from "../components/sliderComponents/ImageSlider";
 import TextReveal from "@components/UI/TextReveal";
 import { useTranslation } from "react-i18next";
+import FaqAccordion from "@components/sliderComponents/libraryComponents/FaqAccordion";
+import questions from "@components/../local-files/faq-fr.json";
 
 const Home = () => {
   const { t } = useTranslation();
@@ -42,10 +44,11 @@ const Home = () => {
             href="#main"
             className="bg-[#000] buttonClass text-white w-[15rem] rounded-lg h-[3rem] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 flex justify-center items-center"
           >
-            {t("learnmore")}
+            {t("library")}
           </a>
         </div>
       </section>
+      <FaqAccordion questions={questions} />
       <section id="main">
         <TextReveal />
         <div className="flex flex-col gap-6 max-w-3xl ml-5 p-6 mt-0 items-start reveal">

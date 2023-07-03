@@ -1,7 +1,7 @@
 {
   "home-title": "Accessibility testing",
   "getstarted": "TUTORIAL",
-  "learnmore": "LIBRARY",
+  "learnmore": "Learn more",
   "library-title": "Accessible components library",
   "library-content": "Introducing the Accessible Components Library, your go-to resource for inclusive web development. Explore our wide range of accessibility-focused components designed to enhance user experience. Build an inclusive digital world with the Accessible Components Library.",
   "backtop": "Back to the top",
@@ -11,6 +11,7 @@
   "about-us": "About us",
   "previous": "Previous",
   "next": "Next",
+  "library": "LIBRARY",
   "start": "Start",
   "return-home": "Return to home",
   "article-title": "This is a testing zone",

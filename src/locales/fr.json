@@ -1,7 +1,7 @@
 {
   "home-title": "Test d'accessibilité",
   "getstarted": "TUTORIEL",
-  "learnmore": "LIBRAIRIE",
+  "learnmore": "Découvrir",
   "library-title": "Bibliothèque de composants accessibles",
   "library-content": "Voici la bibliothèque des composants accessibles, votre ressource de référence pour le développement de sites web inclusifs. Explorez notre large gamme de composants axés sur l'accessibilité et conçus pour améliorer l'expérience de l'utilisateur. Construisez un monde numérique inclusif avec la bibliothèque de composants accessibles.",
   "backtop": "Retournez en haut",
@@ -11,6 +11,7 @@
   "about-us": "À propos de nous",
   "previous": "Précédent",
   "next": "Suivant",
+  "library": "LIBRAIRIE",
   "start": "Commencez",
   "return-home": "Retour à l'accueil",
   "article-title": "Ceci est une zone de test",
@@ -100,5 +101,25 @@
   "sur": "sur",
   "Étape": "Étape",
   "text-lorem": "Dans une vallée lointaine, les fleurs dansaient au rythme du vent printanier. Leurs pétales colorés créaient un tableau vivant sous le soleil radieux. Les abeilles bourdonnaient avec joie, récoltant le nectar sucré pour leur ruche bien-aimée. C'était un spectacle enchanteur qui émerveillait les âmes en quête de beauté.",
-  "aria-testing-zone": "Vous êtes dans la zone de test"
+  "aria-testing-zone": "Vous êtes dans la zone de test",
+  "faq-question1": "question1",
+  "faq-question2": "question2",
+  "faq-question3": "question3",
+  "faq-réponse1": "réponse1",
+  "faq-réponse2": "réponse2",
+  "faq-réponse3": "réponse3",
+  "faq-questions": [
+    {
+      "question": "question 1",
+      "answer": "answer 1"
+    },
+    {
+      "question": "question 2",
+      "answer": "answer 2"
+    },
+    {
+      "question": "question 3",
+      "answer": "answer 3"
+    }
+  ]
 }

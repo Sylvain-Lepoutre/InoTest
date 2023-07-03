@@ -108,15 +108,13 @@ export default function DatePicker() {
         })}
       </div>
       <div className="w-full grid grid-cols-7 text-xs text-gray-500 bg-slate-200 px-1 ">
-        {calendarData.map(({ date, classes }, index) => {
-          return (
-            <div key={index} className="h-9  border-t grid">
-              <h1 className={classes} style={{ minWidth: "1.5rem" }}>
-                {date.date()}
-              </h1>
-            </div>
-          );
-        })}
+        {calendarData.map(({ date, classes }, index) => (
+          <div key={index} className="h-9  border-t grid">
+            <h1 className={classes} style={{ minWidth: "1.5rem" }}>
+              {date.date()}
+            </h1>
+          </div>
+        ))}
       </div>
     </div>
   );
