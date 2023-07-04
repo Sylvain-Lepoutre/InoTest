@@ -9,9 +9,10 @@ import SwitchCode from "./codeComponents/SwitchCode";
 import LibraryForm from "./libraryComponents/LibraryForm";
 import FormCode from "./codeComponents/FormCode";
 import LibraryArticle from "./libraryComponents/LibraryArticle";
+import FaqAccordion from "./libraryComponents/FaqAccordion";
 import ArticleCode from "./codeComponents/ArticleCode";
 import DatePickerCode from "./codeComponents/DatePickerCode";
-import LibraryTabs from "./libraryComponents/LibraryTabs";
+import Tabs from "./libraryComponents/Tabs";
 import TabsCode from "./codeComponents/TabsCode";
 import LibraryStepper from "./libraryComponents/LibraryStepper";
 import StepperCode from "./codeComponents/StepperCode";
@@ -21,6 +22,9 @@ import DateInput from "./libraryComponents/DatePicker/DateInput";
 import { Composite } from "../Composite";
 import MultiStepForm from "./libraryComponents/MultipleStepForm";
 import MultiStepFormCode from "./codeComponents/MultiStepFormCode";
+import FaqAccordionCode from "./codeComponents/FaqAccordionCode";
+import question from "../../local-files/accordion.json";
+import tabs from "../../local-files/tabs.json";
 
 const ImageSlider = () => {
   const { t } = useTranslation();
@@ -131,6 +135,14 @@ const ImageSlider = () => {
             imageSrc="https://images.unsplash.com/photo-1506784365847-bbad939e9335?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1168&q=80"
             onButtonClick={handleButtonClick}
           />
+
+          <CardSlider
+            ariaLabel="Ouvrir le composant accordion"
+            cardName="Accordion"
+            imageSrc="https://images.unsplash.com/photo-1563485572084-eb7405aa3b5a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YWNjb3JkaW9ufGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60"
+            onButtonClick={handleButtonClick}
+          />
+
           <CardSlider
             ariaLabel="Ouvrir le composant article"
             cardName="Article"
@@ -201,6 +213,26 @@ const ImageSlider = () => {
           />
         )}
 
+        {activeSection === "Accordion" && (
+          <CardSliderContent
+            cardName="Accordion"
+            libraryComponent={
+              <FaqAccordion
+                questions={question}
+                styles={{
+                  question: "buttonClass my-1 p-1 rounded font-bold",
+                  answer: "buttonClass2 p-1 rounded italic",
+                }}
+              />
+            }
+            componentCode={FaqAccordionCode}
+            dash1={t("accordion-1")}
+            dash2={t("accordion-2")}
+            dash3={t("accordion-3")}
+            dash4={t("accordion-4")}
+          />
+        )}
+
         {activeSection === "Article" && (
           <CardSliderContent
             cardName="Article"
@@ -252,7 +284,7 @@ const ImageSlider = () => {
         {activeSection === "Tabs" && (
           <CardSliderContent
             cardName="Tabs"
-            libraryComponent={<LibraryTabs />}
+            libraryComponent={<Tabs tabs={tabs} />}
             componentCode={TabsCode}
             dash1={t("ltabs-1")}
             dash2={t("ltabs-2")}
