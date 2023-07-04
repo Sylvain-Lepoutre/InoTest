@@ -1,20 +1,12 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import DatePicker from "./DatePicker";
-import useOuterClick from "../../../../hook/useOuterClick";
 
 export default function DateInput() {
   const [showDatePicker, setShowDatePicker] = useState(false);
-  const clickRef = useRef(null);
 
   const toggleDatePicker = () => {
     setShowDatePicker(!showDatePicker);
   };
-
-  const closeDatePicker = () => {
-    setShowDatePicker(false);
-  };
-
-  useOuterClick(clickRef, closeDatePicker);
 
   return (
     <div className="relative h-fit">
@@ -37,7 +29,6 @@ export default function DateInput() {
         />
       </button>
       <input
-        ref={clickRef}
         type="text"
         value="Choisissez une date"
         onClick={(e) => {

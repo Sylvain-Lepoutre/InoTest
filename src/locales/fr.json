@@ -52,6 +52,10 @@
   "date-2": "Prise en charge des lecteurs d'écran : Les boîtes de sélection de date doivent être conçues pour fonctionner parfaitement avec les lecteurs d'écran. Cela comprend la fourniture de libellés et de descriptions appropriés pour la boîte de sélection et ses composants, ainsi que la transmission de la date sélectionnée et de toute modification à l'utilisateur.",
   "date-3": "Indicateur de focus clair : Un indicateur de focus clair et visible doit être fourni pour mettre en évidence l'élément actuellement sélectionné dans la boîte de sélection de date. Cela aide les utilisateurs qui se déplacent au clavier à identifier facilement quel élément est actuellement actif.",
   "date-4": "Validation des dates : La boîte de sélection de date doit comporter une validation intégrée pour garantir que seules des dates valides peuvent être sélectionnées. Si une date invalide est saisie manuellement, la boîte de sélection doit fournir un message d'erreur ou une rétroaction visuelle pour indiquer le problème.",
+  "accordion-1": "HTML sémantique : Le composant utilise des éléments HTML sémantiques tels que <details>, <summary> et <p> pour représenter la structure de l'accordéon et son contenu. Cela garantit que les technologies d'assistance peuvent interpréter et naviguer correctement dans l'accordéon.",
+  "accordion-2": "Attributs ARIA : Des attributs ARIA sont utilisés pour améliorer l'accessibilité du composant. L'attribut aria-controls est appliqué à l'élément <summary> pour établir la relation entre le résumé et la réponse correspondante. L'attribut aria-expanded est mis à jour dynamiquement pour refléter l'état actuel de l'expansion de chaque question.",
+  "accordion-3": "Interaction au clavier : Le composant prend en charge l'interaction au clavier pour les utilisateurs qui dépendent de la navigation au clavier. Les utilisateurs peuvent utiliser les touches Entrée ou Espace pour basculer l'état d'expansion d'une question lorsque l'élément <summary> est en focus.",
+  "accordion-4": "Styles personnalisables : Le composant permet des styles personnalisables via la propriété styles. En fournissant des classes CSS pour différents éléments, les développeurs peuvent garantir que la représentation visuelle de l'accordéon est accessible et répond à leurs exigences de conception spécifiques.",
   "larticle-1": "Les balises HTML sont utilisées de manière appropriée : Le code utilise des balises sémantiques telles que <article>, <section>, <h1>, <h2>, <p>, etc., ce qui améliore l'accessibilité pour les lecteurs d'écran et facilite la compréhension de la structure de la page pour tous les utilisateurs.",
   "larticle-2": "Les attributs alt et aria-hidden sont utilisés pour les images : Les images incluses dans le code ont des attributs alt et aria-hidden définis, ce qui permet aux lecteurs d'écran de comprendre le contenu des images et de les ignorer lorsqu'elles ne sont pas pertinentes pour le contexte.",
   "larticle-3": "Les classes CSS sont utilisées de manière adaptative : Le code utilise des classes CSS adaptatives, telles que md:mt-0, sm:px-6, lg:px-8, etc., qui permettent de modifier le style en fonction de la taille de l'écran. Cela garantit que le contenu reste lisible et bien disposé sur différents appareils et résolutions d'écran.",
@@ -101,25 +105,5 @@
   "sur": "sur",
   "Étape": "Étape",
   "text-lorem": "Dans une vallée lointaine, les fleurs dansaient au rythme du vent printanier. Leurs pétales colorés créaient un tableau vivant sous le soleil radieux. Les abeilles bourdonnaient avec joie, récoltant le nectar sucré pour leur ruche bien-aimée. C'était un spectacle enchanteur qui émerveillait les âmes en quête de beauté.",
-  "aria-testing-zone": "Vous êtes dans la zone de test",
-  "faq-question1": "question1",
-  "faq-question2": "question2",
-  "faq-question3": "question3",
-  "faq-réponse1": "réponse1",
-  "faq-réponse2": "réponse2",
-  "faq-réponse3": "réponse3",
-  "faq-questions": [
-    {
-      "question": "question 1",
-      "answer": "answer 1"
-    },
-    {
-      "question": "question 2",
-      "answer": "answer 2"
-    },
-    {
-      "question": "question 3",
-      "answer": "answer 3"
-    }
-  ]
+  "aria-testing-zone": "Vous êtes dans la zone de test"
 }

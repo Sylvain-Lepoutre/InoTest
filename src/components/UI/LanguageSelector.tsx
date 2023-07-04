@@ -19,7 +19,7 @@ const LanguageSelector: React.FC<LanguageSelectorProps> = ({ horizontalFocus, na
     await i18n.changeLanguage(newLanguage);
   };
 
-  const flagImage = i18n.language === "en" ? (frenchFlag as string) : (englishFlag as string);
+  const flagImage = i18n.language === "en" ? (englishFlag as string) : (frenchFlag as string);
   return (
     <div>
       <button
