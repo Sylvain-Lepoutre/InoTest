@@ -1,81 +1,72 @@
-export default `import { useState, useRef, RefObject } from "react";
-import useFocus from "../../../hook/useFocus";
+export default `import React, { useState } from "react";
+import { nanoid } from "nanoid";
+
+import useAttributes from "../../../hook/useAttributes";
 
 type Tab = {
   id: number;
   label: string;
   content: string;
+  panelId: string;
 };
 
-const LibraryTabs = () => {
-  const tabs: Tab[] = [
-    {
-      id: 1,
-      label: "Tab 1",
-      content: "Content 1",
-    },
-    {
-      id: 2,
-      label: "Tab 2",
-      content: "Content 2",
-    },
-    {
-      id: 3,
-      label: "Tab 3",
-      content: "Content 3",
-    },
-  ];
+type Styles = {
+  container?: string;
+  childContainer?: string;
+  tabs?: string;
+  activeTabs?: string;
+  tabpanelContainer?: string;
+  tabpanels?: string;
+};
 
-  const [activeTab, setActiveTab] = useState(tabs[0].id);
-  const tabRefs: RefObject<HTMLButtonElement>[] = [
-    useRef<HTMLButtonElement>(null),
-    useRef<HTMLButtonElement>(null),
-    useRef<HTMLButtonElement>(null),
-  ];
+const Tabs = ({ tabs, style }: { tabs: Pick<Tab, "content" | "label">[]; style: Styles }) => {
+  const [activeTab, setActiveTab] = useState<number>(0);
+  const _tabs: Tab[] = tabs.map((tab, index) => ({
+    ...tab,
+    id: index,
+    panelId: nanoid(),
+  }));
 
-  const { horizontalFocus } = useFocus(tabRefs);
+  const getAttributes = useAttributes(activeTab);
 
   const handleTabClick = (tabId: number) => {
     setActiveTab(tabId);
   };
 
   return (
-    <div className="tabs">
-      <div className="flex space-x-4" role="tablist">
-        {tabs.map((tab, index) => (
-          <button
-            ref={tabRefs[index]}
-            key={tab.id}
-            className={\`px-4 py-2 font-semibold text-gray-600 rounded-t-lg focus:outline-black \${activeTab === tab.id ? "bg-gray-300" : ""}\`}
-            role="tab"
-            id={\`tab-\${tab.id}\`}
-            aria-selected={activeTab === tab.id ? "true" : "false"}
-            aria-controls={\`tabpanel-\${tab.id}\`}
-            onClick={() => handleTabClick(tab.id)}
-            onKeyDown={horizontalFocus}
-            tabIndex={activeTab === tab.id ? 0 : -1}
-          >
-            {tab.label}
-          </button>
-        ))}
+    <div className={style?.container}>
+      <div className={style?.childContainer} role="tablist">
+        {_tabs.map((tab) => {
+          const { selected, tabIndex } = getAttributes(tab.id);
+          return (
+            <button
+              key={tab.id}
+              className={\`\${activeTab === tab.id ? style?.activeTabs || "" : ""} \${style?.tabs || ""}\`}              role="tab"
+              aria-selected={selected}
+              aria-controls={tab.panelId}
+              onClick={() => handleTabClick(tab.id)}
+              tabIndex={tabIndex}
+            >
+              {tab.label}
+            </button>
+          );
+        })}
       </div>
-      <div className="p-4 bg-gray-400">
-        {tabs.map((tab) => (
-          <div
-            key={tab.id}
-            id={\`tabpanel-\${tab.id}\`}
-            role="tabpanel"
-            aria-labelledby={\`tab-\${tab.id}\`}
-            className={\`\${activeTab === tab.id ? "block" : "hidden"} bg-gray-500\`}
-            tabIndex={activeTab === tab.id ? 0 : -1}
-          >
-            {tab.content}
-          </div>
-        ))}
+      <div className={style?.tabpanelContainer}>
+        {_tabs.map((tab) => {
+          const { tabIndex } = getAttributes(tab.id);
+          return (
+            activeTab === tab.id && (
+              <div key={tab.id} id={tab.panelId} role="tabpanel" className={style?.tabpanels} tabIndex={tabIndex}>
+                {tab.content}
+              </div>
+            )
+          );
+        })}
       </div>
     </div>
   );
 };
 
-export default LibraryTabs;
+export default Tabs;
 `;

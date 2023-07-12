@@ -1,8 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import useEscapeKey from "../../hook/useEscapeKey";
 import { useTranslation } from "react-i18next";
-import i18n from "../../../i18n";
-import useOuterClick from "../../hook/useOuterClick";
 
 type ErrorModalProps = {
   buttonText: string;
@@ -14,11 +11,7 @@ type ErrorModalProps = {
 
 export default function ErrorModal(props: ErrorModalProps) {
   const { t } = useTranslation();
-  i18n.language;
 
-  const buttonText = props.buttonText !== undefined ? props.buttonText : "";
-  const modalContent = props.modalContent !== undefined ? props.modalContent : "";
-  const style = props.style !== undefined ? props.style : "";
   const [isModalOpen, setIsModalOpen] = useState(false);
   const escapeRef = useRef<HTMLElement>(null);
   const clickRef = useRef<HTMLDialogElement>();
@@ -31,9 +24,6 @@ export default function ErrorModal(props: ErrorModalProps) {
     setIsModalOpen(false);
   };
 
-  useEscapeKey(handleCloseModal);
-  useOuterClick(clickRef, handleCloseModal);
-
   useEffect(() => {
     if (isModalOpen) {
       clickRef.current?.showModal();
@@ -43,14 +33,13 @@ export default function ErrorModal(props: ErrorModalProps) {
   }, [isModalOpen]);
 
   return (
-    <div className={style}>
+    <div className={props.style}>
       <button
-        role="button"
         aria-label="Ouvrir une fenêtre de l'explication de la non-accessibilité du composant"
         className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
         onClick={handleOpenModal}
       >
-        {buttonText}
+        {props.buttonText}
       </button>
 
       <dialog
@@ -61,7 +50,7 @@ export default function ErrorModal(props: ErrorModalProps) {
         className="bg-white rounded-lg shadow-lg"
       >
         <div className="flex items-center justify-center p-8 flex-col">
-          <p className="text-gray-800 text-lg max-w-[35rem]">{modalContent}</p>
+          <p className="text-gray-800 text-lg max-w-[35rem]">{props.modalContent}</p>
           <button
             ref={escapeRef}
             className="mt-6 bg-red-500 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg"

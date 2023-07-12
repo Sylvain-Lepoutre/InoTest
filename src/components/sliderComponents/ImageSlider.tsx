@@ -284,7 +284,19 @@ const ImageSlider = () => {
         {activeSection === "Tabs" && (
           <CardSliderContent
             cardName="Tabs"
-            libraryComponent={<Tabs tabs={tabs} />}
+            libraryComponent={
+              <Tabs
+                tabs={tabs}
+                style={{
+                  container: "md:mt-0 p-6 w-[87vw]",
+                  childContainer: "flex space-x-4",
+                  tabs: "px-4 py-2 font-semibold text-gray-600 rounded-t-lg focus:outline-black",
+                  activeTabs: "bg-slate-300",
+                  tabpanelContainer: "p-4 bg-gray-400",
+                  tabpanels: "bg-gray-500",
+                }}
+              />
+            }
             componentCode={TabsCode}
             dash1={t("ltabs-1")}
             dash2={t("ltabs-2")}
