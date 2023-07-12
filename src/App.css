@@ -12,14 +12,6 @@ body {
   min-height: 100vh;
 }
 
-.isNotVisible {
-  display: none;
-}
-
-.isVisible {
-  display: block;
-}
-
 #light {
   background: linear-gradient(-90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
     linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),

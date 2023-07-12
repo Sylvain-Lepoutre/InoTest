@@ -1,17 +1,7 @@
-import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import i18n from "../../../../i18n";
 
 const LibraryNavBar = () => {
   const { t } = useTranslation();
-  i18n.language;
-
-  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
-  const genericHamburgerLine = `h-1 w-6 my-1 rounded-full burgerStyle2 transition ease transform duration-300`;
-
-  const closeMenu = () => {
-    setIsMenuOpen(false);
-  };
 
   return (
     <>

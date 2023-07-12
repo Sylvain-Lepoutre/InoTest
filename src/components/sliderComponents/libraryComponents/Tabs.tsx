@@ -6,7 +6,7 @@ import useAttributes from "../../../hook/useAttributes";
 type Tabs = {
   id: number;
   label: string;
-  content: string;
+  content: string | JSX.Element;
   panelId: string;
 };
 
@@ -41,7 +41,7 @@ const Tabs = ({ tabs, style }: { tabs: Pick<Tabs, "content" | "label">[]; style:
           return (
             <button
               key={tab.id}
-              className={`${activeTab === tab.id ? style?.activeTabs || "" : ""} ${style?.tabs || ""}`}
+              className={`${activeTab === tab.id ? style.activeTabs ?? "" : ""} ${style.tabs ?? ""}`}
               role="tab"
               aria-selected={selected}
               aria-controls={tab.panelId}

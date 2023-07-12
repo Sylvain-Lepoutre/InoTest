@@ -46,6 +46,7 @@ const Home = () => {
           </a>
         </div>
       </section>
+
       <section id="main">
         <TextReveal />
         <div className="flex flex-col gap-6 max-w-3xl ml-5 p-6 mt-0 items-start reveal">

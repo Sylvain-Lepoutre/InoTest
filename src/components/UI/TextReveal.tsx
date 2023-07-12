@@ -17,6 +17,10 @@ const TextReveal = () => {
     };
 
     window.addEventListener("scroll", revealOnScroll);
+
+    return () => {
+      window.removeEventListener("scroll", revealOnScroll);
+    };
   });
 };
 
