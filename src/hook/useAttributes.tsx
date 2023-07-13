@@ -1,7 +1,7 @@
 const useAttributes = (activeTab: number) => {
   return (tabId: number) => ({
     tabIndex: activeTab === tabId ? 0 : -1,
-    selected: activeTab === tabId ? "true" : "false",
+    selected: activeTab === tabId ? true : false,
   });
 };
 
