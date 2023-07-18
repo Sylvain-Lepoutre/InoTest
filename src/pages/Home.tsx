@@ -1,8 +1,12 @@
 import NavBar from "@components/header/NavBar";
 import { Link, useLocation } from "react-router-dom";
+
 import ImageSlider from "../components/sliderComponents/ImageSlider";
 import TextReveal from "@components/UI/TextReveal";
 import { useTranslation } from "react-i18next";
+import { Menu } from "@components/sliderComponents/libraryComponents/AccessibilityMenu/Menu";
+import { ButtonList } from "@components/sliderComponents/libraryComponents/AccessibilityMenu/ButtonList";
+import { Button } from "@components/sliderComponents/libraryComponents/AccessibilityMenu/Button";
 
 const Home = () => {
   const { t } = useTranslation();
@@ -46,6 +50,27 @@ const Home = () => {
           </a>
         </div>
       </section>
+      <Menu style="flex justify-center bg-slate-300 h-[5rem] items-center ">
+        <Menu.ButtonList style=" h-[3rem] flex flex-row">
+          <Menu.Button selectOption="font" style="p-2 bg-white mx-2 rounded">
+            <option value="select a option">Font size</option>
+            <option value="small">small</option>
+            <option value="medidum">medium</option>
+            <option value="large">large</option>
+          </Menu.Button>
+          <Menu.Button selectOption="line" style="p-2 bg-white mx-2 rounded">
+            <option value="select a option">Line spacing</option>
+            <option value="small">small</option>
+            <option value="medidum">medium</option>
+            <option value="large">large</option>
+          </Menu.Button>
+          <Menu.Button selectOption="image" style="p-2 bg-white mx-2 rounded">
+            <option value="select a option">Image</option>
+            <option value="small">visible</option>
+            <option value="medidum">hidden</option>
+          </Menu.Button>
+        </Menu.ButtonList>
+      </Menu>
       <section id="main">
         <TextReveal />
         <div className="flex flex-col gap-6 max-w-3xl ml-5 p-6 mt-0 items-start reveal">
