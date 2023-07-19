@@ -1,51 +1,90 @@
-import { createContext, useState, type Dispatch, type HTMLAttributes, type SetStateAction } from "react";
+import { createContext, useEffect, useState, type Dispatch, type HTMLAttributes, type SetStateAction } from "react";
 
-import { ButtonList, OptionButtonRef, Size, Spacing } from "./ButtonList";
-import { Button } from "./Button";
+import { Button, type SelectState } from "./Button";
+import { ButtonList } from "./ButtonList";
 
 type State = {
-  fontSizeButtonRef?: OptionButtonRef;
-  lineSpacingRef?: OptionButtonRef;
-  imageRef?: OptionButtonRef;
-  option: {
-    fontSize?: Size[];
-    lineSpacing?: Spacing[];
-    image?: Image[];
-  };
+  selectButton: SelectState[];
 };
 
-type Props = HTMLAttributes<HTMLDivElement> & {
-  style: string;
-};
+type Props = HTMLAttributes<HTMLDivElement>;
 
-export const SetStateContext = createContext<Dispatch<SetStateAction<State>>>(() => undefined);
+export const SetStateContext = createContext<Dispatch<SetStateAction<State>>>(() => {
+  throw new Error("Cannot access SetStateContext outside of the Menu component");
+});
 
-export const Menu = ({ children, style, ...rest }: Props) => {
+export const Menu = ({ children, ...rest }: Props) => {
   const [state, setState] = useState<State>({
-    fontSizeButtonRef: undefined,
-    lineSpacingRef: undefined,
-    imageRef: undefined,
-    option: {
-      fontSize: ["small", "medium", "large", "xl"],
-      lineSpacing: ["small", "medium", "large", "xl"],
-      image: ["visible", "hidden"],
-    },
+    selectButton: [],
   });
 
-  const handleState = (e) => {
-    if (ref.current) setState(e.target.value);
+  const handleChangeFont = (event: Event) => {
+    const select = event.target as HTMLSelectElement;
+    console.log("Font :", select.value);
+
+    if (select.value === "Default") {
+      document.documentElement.style.fontSize = "16px";
+    } else if (select.value === "Large") {
+      document.documentElement.style.fontSize = "20px";
+    } else if (select.value === "Extra Large") {
+      document.documentElement.style.fontSize = "24px";
+    }
   };
 
-  state.fontSizeButtonRef?.current?.addEventListener("click", handleState);
-  state.lineSpacingRef?.current?.addEventListener("click", handleState);
-  state.image?.current?.addEventListener("click", handleState);
+  const handleChangeLine = (event: Event) => {
+    const select = event.target as HTMLSelectElement;
+    console.log("Line spacing :", select.value);
+
+    if (select.value === "Default") {
+      document.documentElement.style.lineHeight = "1.5";
+    } else if (select.value === "Large") {
+      document.documentElement.style.lineHeight = "2";
+    } else if (select.value === "Extra Large") {
+      document.documentElement.style.lineHeight = "2.5";
+    }
+  };
+
+  const handleChangeImage = () => {
+    const select = event.target as HTMLSelectElement;
+    console.log("Image :", select.value);
+
+    if (select.value === "visible") {
+      //TODO
+    } else if (select.value === "hidden") {
+      //TODO
+    }
+  };
+
+  useEffect(() => {
+    for (const selectState of state.selectButton) {
+      if (selectState.option === "font") {
+        selectState.ref.current?.addEventListener("change", handleChangeFont);
+      } else if (selectState.option === "line") {
+        selectState.ref.current?.addEventListener("change", handleChangeLine);
+      } else if (selectState.option === "image") {
+        selectState.ref.current?.addEventListener("change", handleChangeImage);
+      }
+    }
+
+    return () => {
+      for (const selectState of state.selectButton) {
+        if (selectState.option === "font") {
+          selectState.ref.current?.removeEventListener("change", handleChangeFont);
+        } else if (selectState.option === "line") {
+          selectState.ref.current?.removeEventListener("change", handleChangeLine);
+        } else if (selectState.option === "image") {
+          selectState.ref.current?.removeEventListener("change", handleChangeImage);
+        }
+      }
+    };
+  }, [state.selectButton]);
 
   return (
-    <div className={style} {...rest}>
-      {children}
+    <div {...rest}>
+      <SetStateContext.Provider value={setState}>{children}</SetStateContext.Provider>
     </div>
   );
 };
 
-Menu.ButtonList = ButtonList;
 Menu.Button = Button;
+Menu.ButtonList = ButtonList;

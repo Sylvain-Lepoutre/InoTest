@@ -50,24 +50,24 @@ const Home = () => {
           </a>
         </div>
       </section>
-      <Menu style="flex justify-center bg-slate-300 h-[5rem] items-center ">
+      <Menu className="flex justify-center bg-slate-300 h-[5rem] items-center">
         <Menu.ButtonList style=" h-[3rem] flex flex-row">
-          <Menu.Button selectOption="font" style="p-2 bg-white mx-2 rounded">
+          <Menu.Button option="font" className="p-2 bg-white mx-2 rounded">
             <option value="select a option">Font size</option>
-            <option value="small">small</option>
-            <option value="medidum">medium</option>
-            <option value="large">large</option>
+            <option value="Default">Default</option>
+            <option value="Large">Large</option>
+            <option value="Extra Large">Extra Large</option>
           </Menu.Button>
-          <Menu.Button selectOption="line" style="p-2 bg-white mx-2 rounded">
+          <Menu.Button option="line" className="p-2 bg-white mx-2 rounded">
             <option value="select a option">Line spacing</option>
-            <option value="small">small</option>
-            <option value="medidum">medium</option>
-            <option value="large">large</option>
+            <option value="Default">Default</option>
+            <option value="Large">Large</option>
+            <option value="Extra Large">Extra Large</option>
           </Menu.Button>
-          <Menu.Button selectOption="image" style="p-2 bg-white mx-2 rounded">
+          <Menu.Button option="image" className="p-2 bg-white mx-2 rounded">
             <option value="select a option">Image</option>
-            <option value="small">visible</option>
-            <option value="medidum">hidden</option>
+            <option value="visible">visible</option>
+            <option value="hidden">hidden</option>
           </Menu.Button>
         </Menu.ButtonList>
       </Menu>

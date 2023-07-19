@@ -1,29 +1,33 @@
 import { useContext, useRef, RefObject, type SelectHTMLAttributes, useEffect } from "react";
-
 import { SetStateContext } from "./Menu";
 
-export type OptionButtonRef = RefObject<HTMLButtonElement>;
-
-export type OptionButton = "font" | "line" | "image";
-
 type Props = SelectHTMLAttributes<HTMLSelectElement> & {
-  selectOption: OptionButton;
-  style: string;
+  option: Options;
 };
 
-export const Button = ({ children, selectOption, style, ...rest }: Props) => {
-  const ref = useRef<HTMLButtonElement>(null);
+type Options = "font" | "line" | "image";
+
+export type OptionButtonRef = RefObject<HTMLSelectElement>;
+
+export type SelectState = {
+  ref: OptionButtonRef;
+  option: Options;
+};
+
+export const Button = ({ children, option, ...rest }: Props) => {
+  const ref = useRef<HTMLSelectElement>(null);
 
   const setState = useContext(SetStateContext);
 
   useEffect(() => {
-    setState((prevState) => {
-      return { ...prevState, [`${selectOption}`]: ref };
-    });
-  }, [setState, selectOption]);
+    setState((prevState) => ({
+      ...prevState,
+      selectButton: [...prevState.selectButton, { ref, option }],
+    }));
+  }, [setState, option]);
 
   return (
-    <select className={style} ref={ref} {...rest}>
+    <select ref={ref} {...rest}>
       {children}
     </select>
   );
