@@ -50,7 +50,7 @@ const Home = () => {
           </a>
         </div>
       </section>
-      <Menu className="flex justify-center bg-slate-300 h-[5rem] items-center">
+      {/* <Menu className="flex justify-center bg-slate-300 h-[5rem] items-center">
         <Menu.ButtonList style=" h-[3rem] flex flex-row">
           <Menu.Button option="font" className="p-2 bg-white mx-2 rounded">
             <option value="select a option">Font size</option>
@@ -70,7 +70,7 @@ const Home = () => {
             <option value="hidden">hidden</option>
           </Menu.Button>
         </Menu.ButtonList>
-      </Menu>
+      </Menu> */}
       <section id="main">
         <TextReveal />
         <div className="flex flex-col gap-6 max-w-3xl ml-5 p-6 mt-0 items-start reveal">
