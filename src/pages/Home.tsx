@@ -5,8 +5,6 @@ import ImageSlider from "../components/sliderComponents/ImageSlider";
 import TextReveal from "@components/UI/TextReveal";
 import { useTranslation } from "react-i18next";
 import { Menu } from "@components/sliderComponents/libraryComponents/AccessibilityMenu/Menu";
-import { ButtonList } from "@components/sliderComponents/libraryComponents/AccessibilityMenu/ButtonList";
-import { Button } from "@components/sliderComponents/libraryComponents/AccessibilityMenu/Button";
 
 const Home = () => {
   const { t } = useTranslation();
@@ -50,27 +48,30 @@ const Home = () => {
           </a>
         </div>
       </section>
-      {/* <Menu className="flex justify-center bg-slate-300 h-[5rem] items-center">
-        <Menu.ButtonList style=" h-[3rem] flex flex-row">
-          <Menu.Button option="font" className="p-2 bg-white mx-2 rounded">
-            <option value="select a option">Font size</option>
+      <Menu className="flex justify-center bg-slate-300 h-[5rem] items-center">
+        <Menu.ButtonList style="h-[3rem] flex flex-row">
+          <Menu.Button label="Change the font size" option="fontSize" className="p-2 bg-white mx-2 rounded">
             <option value="Default">Default</option>
             <option value="Large">Large</option>
-            <option value="Extra Large">Extra Large</option>
+            <option value="ExtraLarge">Extra Large</option>
           </Menu.Button>
-          <Menu.Button option="line" className="p-2 bg-white mx-2 rounded">
-            <option value="select a option">Line spacing</option>
+          <Menu.Button label="Change the line spacing" option="line" className="p-2 bg-white mx-2 rounded">
             <option value="Default">Default</option>
             <option value="Large">Large</option>
-            <option value="Extra Large">Extra Large</option>
+            <option value="ExtraLarge">Extra Large</option>
           </Menu.Button>
-          <Menu.Button option="image" className="p-2 bg-white mx-2 rounded">
-            <option value="select a option">Image</option>
+          <Menu.Button label="Display images" option="image" className="p-2 bg-white mx-2 rounded">
             <option value="visible">visible</option>
             <option value="hidden">hidden</option>
           </Menu.Button>
+          <Menu.Button label="Change the font" option="fontChange" className="p-2 bg-white mx-2 rounded">
+            <option value="Basis, arial">Default</option>
+            <option value="Georgia, serif">Georgia</option>
+            <option value="fantasy">Fantasy</option>
+            <option value="cursive">Cursive</option>
+          </Menu.Button>
         </Menu.ButtonList>
-      </Menu> */}
+      </Menu>
       <section id="main">
         <TextReveal />
         <div className="flex flex-col gap-6 max-w-3xl ml-5 p-6 mt-0 items-start reveal">
