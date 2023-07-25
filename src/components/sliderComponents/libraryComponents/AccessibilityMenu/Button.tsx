@@ -31,10 +31,12 @@ export const Button = ({ children, label, option, ...rest }: Props) => {
 
   return (
     <>
-      <label htmlFor={labelId}>{label}</label>
-      <select id={labelId} data-option={option} ref={ref} {...rest}>
-        {children}
-      </select>
+      <div>
+        <label htmlFor={labelId}>{label}</label>
+        <select id={labelId} data-option={option} ref={ref} {...rest}>
+          {children}
+        </select>
+      </div>
     </>
   );
 };
