@@ -1,11 +1,12 @@
-import { useContext, useRef, RefObject, type SelectHTMLAttributes, useEffect } from "react";
+import { useContext, useRef, RefObject, type SelectHTMLAttributes, useEffect, useId } from "react";
 import { SetStateContext } from "./Menu";
 
 type Props = SelectHTMLAttributes<HTMLSelectElement> & {
+  label: string;
   option: Options;
 };
 
-type Options = "font" | "line" | "image";
+type Options = "fontSize" | "line" | "image" | "fontChange";
 
 export type OptionButtonRef = RefObject<HTMLSelectElement>;
 
@@ -14,8 +15,10 @@ export type SelectState = {
   option: Options;
 };
 
-export const Button = ({ children, option, ...rest }: Props) => {
+export const Button = ({ children, label, option, ...rest }: Props) => {
   const ref = useRef<HTMLSelectElement>(null);
+
+  const labelId = useId();
 
   const setState = useContext(SetStateContext);
 
@@ -27,8 +30,13 @@ export const Button = ({ children, option, ...rest }: Props) => {
   }, [setState, option]);
 
   return (
-    <select ref={ref} {...rest}>
-      {children}
-    </select>
+    <>
+      <div>
+        <label htmlFor={labelId}>{label}</label>
+        <select id={labelId} data-option={option} ref={ref} {...rest}>
+          {children}
+        </select>
+      </div>
+    </>
   );
 };

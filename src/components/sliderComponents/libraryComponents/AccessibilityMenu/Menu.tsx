@@ -1,4 +1,12 @@
-import { createContext, useEffect, useState, type Dispatch, type HTMLAttributes, type SetStateAction } from "react";
+import {
+  createContext,
+  useCallback,
+  useEffect,
+  useState,
+  type Dispatch,
+  type HTMLAttributes,
+  type SetStateAction,
+} from "react";
 
 import { Button, type SelectState } from "./Button";
 import { ButtonList } from "./ButtonList";
@@ -18,46 +26,85 @@ export const Menu = ({ children, ...rest }: Props) => {
     selectButton: [],
   });
 
-  const handleChangeFont = (event: Event) => {
-    const select = event.target as HTMLSelectElement;
-    console.log("Font :", select.value);
+  const changeLineHeight = useCallback((selectedValue: string) => {
+    const lineHeightValues: { [key: string]: string } = {
+      Default: "1.5",
+      Large: "2",
+      ExtraLarge: "2.5",
+    };
 
+    const items = document.querySelectorAll<HTMLElement>("p, li");
+
+    items.forEach((item) => {
+      console.log(item);
+      item.style.lineHeight = lineHeightValues[selectedValue];
+    });
+  }, []);
+
+  const handleChangeFontSize = useCallback((event: Event) => {
+    const select = event.target as HTMLSelectElement;
     if (select.value === "Default") {
       document.documentElement.style.fontSize = "16px";
     } else if (select.value === "Large") {
       document.documentElement.style.fontSize = "20px";
-    } else if (select.value === "Extra Large") {
+    } else if (select.value === "ExtraLarge") {
       document.documentElement.style.fontSize = "24px";
     }
-  };
+  }, []);
 
-  const handleChangeLine = (event: Event) => {
+  const handleChangeFont = useCallback((event: Event) => {
     const select = event.target as HTMLSelectElement;
-    console.log("Line spacing :", select.value);
+    document.querySelectorAll<HTMLElement>("*").forEach((item) => {
+      if (select.value !== "") {
+        item.style.fontFamily = select.value;
+      }
+    });
+  }, []);
 
-    if (select.value === "Default") {
-      document.documentElement.style.lineHeight = "1.5";
-    } else if (select.value === "Large") {
-      document.documentElement.style.lineHeight = "2";
-    } else if (select.value === "Extra Large") {
-      document.documentElement.style.lineHeight = "2.5";
-    }
-  };
+  const handleChangeLine = useCallback(
+    (event: Event) => {
+      const select = event.target as HTMLSelectElement;
 
-  const handleChangeImage = () => {
+      changeLineHeight(select.value);
+    },
+    [changeLineHeight]
+  );
+
+  const handleChangeImage = useCallback(() => {
     const select = event.target as HTMLSelectElement;
-    console.log("Image :", select.value);
+    document.querySelectorAll("img").forEach((img) => {
+      img.style.display = select.value === "visible" ? "initial" : "none";
+    });
+  }, []);
 
-    if (select.value === "visible") {
-      //TODO
-    } else if (select.value === "hidden") {
-      //TODO
-    }
-  };
+  const handleMutation = useCallback(
+    (records: MutationRecord[]) => {
+      for (const record of records) {
+        if (record.addedNodes.length > 0) {
+          const selectedValue = document.querySelector<HTMLSelectElement>("select[data-option='line']").value;
+
+          changeLineHeight(selectedValue);
+        }
+      }
+    },
+    [changeLineHeight]
+  );
+
+  useEffect(() => {
+    const observer = new MutationObserver(handleMutation);
+
+    observer.observe(document.querySelector("body"), { subtree: true, childList: true });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [handleMutation]);
 
   useEffect(() => {
     for (const selectState of state.selectButton) {
-      if (selectState.option === "font") {
+      if (selectState.option === "fontSize") {
+        selectState.ref.current?.addEventListener("change", handleChangeFontSize);
+      } else if (selectState.option === "fontChange") {
         selectState.ref.current?.addEventListener("change", handleChangeFont);
       } else if (selectState.option === "line") {
         selectState.ref.current?.addEventListener("change", handleChangeLine);
@@ -68,7 +115,9 @@ export const Menu = ({ children, ...rest }: Props) => {
 
     return () => {
       for (const selectState of state.selectButton) {
-        if (selectState.option === "font") {
+        if (selectState.option === "fontSize") {
+          selectState.ref.current?.removeEventListener("change", handleChangeFontSize);
+        } else if (selectState.option === "fontChange") {
           selectState.ref.current?.removeEventListener("change", handleChangeFont);
         } else if (selectState.option === "line") {
           selectState.ref.current?.removeEventListener("change", handleChangeLine);
@@ -77,7 +126,7 @@ export const Menu = ({ children, ...rest }: Props) => {
         }
       }
     };
-  }, [state.selectButton]);
+  }, [handleChangeFont, handleChangeFontSize, handleChangeImage, handleChangeLine, state.selectButton]);
 
   return (
     <div {...rest}>
