@@ -4,6 +4,7 @@ import { Outlet } from "react-router-dom";
 import { LiveRegion } from "../components/LiveRegion";
 
 import "../App.css";
+import NavBar from "@components/header/NavBar";
 
 type ThemeContextType = {
   theme: string;
@@ -22,6 +23,9 @@ function Root() {
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <div id={theme} className="h-full w-full">
+        <header id="header">
+          <NavBar href="#main" />
+        </header>
         <Outlet />
       </div>
       <LiveRegion />

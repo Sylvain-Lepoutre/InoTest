@@ -1,10 +1,8 @@
-import NavBar from "@components/header/NavBar";
 import { Link, useLocation } from "react-router-dom";
 
 import ImageSlider from "../components/sliderComponents/ImageSlider";
 import TextReveal from "@components/UI/TextReveal";
 import { useTranslation } from "react-i18next";
-import { Menu } from "@components/sliderComponents/libraryComponents/AccessibilityMenu/Menu";
 
 const Home = () => {
   const { t } = useTranslation();
@@ -12,33 +10,6 @@ const Home = () => {
 
   return (
     <>
-      <header id="header">
-        <NavBar href="#main" />
-      </header>
-      <Menu aria-label="Accessibility menu" className="flex justify-center bg-slate-300 h-[5rem] items-center">
-        <Menu.ButtonList className="h-[4rem] flex ">
-          <Menu.Button label="Change the font size" option="fontSize" className="p-2 mx-[4rem] rounded flex flex-col">
-            <option value="Default">Default</option>
-            <option value="Large">Large</option>
-            <option value="ExtraLarge">Extra Large</option>
-          </Menu.Button>
-          <Menu.Button label="Change the line spacing" option="line" className="p-2 mx-[4rem] rounded flex flex-col">
-            <option value="Default">Default</option>
-            <option value="Large">Large</option>
-            <option value="ExtraLarge">Extra Large</option>
-          </Menu.Button>
-          <Menu.Button label="Display images" option="image" className="p-2 mx-[4rem] rounded flex flex-col">
-            <option value="visible">visible</option>
-            <option value="hidden">hidden</option>
-          </Menu.Button>
-          <Menu.Button label="Change the font" option="fontChange" className="p-2 mx-[4rem] rounded flex flex-col">
-            <option value="Basis, arial">Default</option>
-            <option value="Georgia, serif">Georgia</option>
-            <option value="fantasy">Fantasy</option>
-            <option value="cursive">Cursive</option>
-          </Menu.Button>
-        </Menu.ButtonList>
-      </Menu>
       <section className="md:grid md:grid-cols-2 md:grid-rows-2 md:justify-items-start h-[90vh] mb-12">
         <div className=" md:ml-[3rem] col-start-1 row-start-1 -mt-[3.5rem] ml-4 relative md:text-7xl text-4xl font-bold flex flex-row items-start lg:text-9xl lg:mt-[7rem] lg:ml-[5rem]">
           <h1 className="title">

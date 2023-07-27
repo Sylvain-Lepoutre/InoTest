@@ -8,8 +8,9 @@ import {
   type SetStateAction,
 } from "react";
 
-import { Button, type SelectState } from "./Button";
-import { ButtonList } from "./ButtonList";
+import { Option } from "./Option";
+import { Select, type SelectState } from "./Select";
+import { SelectList } from "./SelectList";
 
 type State = {
   selectButton: SelectState[];
@@ -36,7 +37,6 @@ export const Menu = ({ children, ...rest }: Props) => {
     const items = document.querySelectorAll<HTMLElement>("p, li");
 
     items.forEach((item) => {
-      console.log(item);
       item.style.lineHeight = lineHeightValues[selectedValue];
     });
   }, []);
@@ -81,9 +81,11 @@ export const Menu = ({ children, ...rest }: Props) => {
     (records: MutationRecord[]) => {
       for (const record of records) {
         if (record.addedNodes.length > 0) {
-          const selectedValue = document.querySelector<HTMLSelectElement>("select[data-option='line']").value;
-
-          changeLineHeight(selectedValue);
+          const selectElement = document.querySelector<HTMLSelectElement>("select[data-option='line']");
+          if (selectElement) {
+            const selectedValue = selectElement.value;
+            changeLineHeight(selectedValue);
+          }
         }
       }
     },
@@ -91,9 +93,14 @@ export const Menu = ({ children, ...rest }: Props) => {
   );
 
   useEffect(() => {
-    const observer = new MutationObserver(handleMutation);
+    const observer = new MutationObserver((records: MutationRecord[]) => {
+      handleMutation(records);
+    });
 
-    observer.observe(document.querySelector("body"), { subtree: true, childList: true });
+    const targetNode = document.querySelector("body");
+    if (targetNode) {
+      observer.observe(targetNode, { subtree: true, childList: true });
+    }
 
     return () => {
       observer.disconnect();
@@ -102,14 +109,18 @@ export const Menu = ({ children, ...rest }: Props) => {
 
   useEffect(() => {
     for (const selectState of state.selectButton) {
-      if (selectState.option === "fontSize") {
-        selectState.ref.current?.addEventListener("change", handleChangeFontSize);
-      } else if (selectState.option === "fontChange") {
-        selectState.ref.current?.addEventListener("change", handleChangeFont);
-      } else if (selectState.option === "line") {
-        selectState.ref.current?.addEventListener("change", handleChangeLine);
-      } else if (selectState.option === "image") {
-        selectState.ref.current?.addEventListener("change", handleChangeImage);
+      const select = selectState.ref.current;
+
+      if (select !== null) {
+        if (selectState.option === "fontSize") {
+          select.addEventListener("change", handleChangeFontSize);
+        } else if (selectState.option === "fontChange") {
+          select.addEventListener("change", handleChangeFont);
+        } else if (selectState.option === "line") {
+          select.addEventListener("change", handleChangeLine);
+        } else if (selectState.option === "image") {
+          select.addEventListener("change", handleChangeImage);
+        }
       }
     }
 
@@ -135,5 +146,6 @@ export const Menu = ({ children, ...rest }: Props) => {
   );
 };
 
-Menu.Button = Button;
-Menu.ButtonList = ButtonList;
+Menu.Option = Option;
+Menu.Select = Select;
+Menu.SelectList = SelectList;

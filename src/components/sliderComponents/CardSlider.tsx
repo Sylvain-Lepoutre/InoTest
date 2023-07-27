@@ -12,7 +12,7 @@ type CardSliderProps = {
 const CardSlider = (props: CardSliderProps) => {
   const ref = useRef<HTMLButtonElement>(null);
 
-  const { addRef } = useComposite();
+  // const { addRef } = useComposite();
 
   const handleButtonClick = () => {
     props.onButtonClick(props.cardName || "");
@@ -28,9 +28,9 @@ const CardSlider = (props: CardSliderProps) => {
     }, 100);
   };
 
-  useEffect(() => {
-    addRef(ref);
-  }, [addRef]);
+  // useEffect(() => {
+  //   addRef(ref);
+  // }, [addRef]);
 
   return (
     <article className="flex flex-col gap-2 items-center">
