@@ -17,9 +17,9 @@ const Home = () => {
             {location.pathname !== "/getstarted" &&
               location.pathname !== "/path1" &&
               location.pathname !== "/path2" && (
-                <p className="scale-50 lg:block absolute top-0 left-[25rem] xl:mt-[-3rem] xl:mr-[-4.5rem] lg:mt-[-3.5rem] lg:mr-[-4.5rem] hidden">
+                <span className="scale-50 lg:block absolute top-0 left-[25rem] xl:mt-[-3rem] xl:mr-[-4.5rem] lg:mt-[-3.5rem] lg:mr-[-4.5rem] hidden">
                   ©
-                </p>
+                </span>
               )}
           </h1>
         </div>
