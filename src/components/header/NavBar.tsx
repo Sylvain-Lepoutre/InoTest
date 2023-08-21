@@ -15,10 +15,7 @@ type Props = {
 const NavBar = ({ href }: Props) => {
   const { t } = useTranslation();
 
-  const { theme, toggleTheme } = useContext(ThemeContext) as {
-    theme: string;
-    toggleTheme: () => void;
-  };
+  const { theme, toggleTheme } = useContext(ThemeContext);
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const genericHamburgerLine = `h-1 w-6 my-1 rounded-full burgerStyle transition ease transform duration-300`;
@@ -76,12 +73,14 @@ const NavBar = ({ href }: Props) => {
         </Menu>
         <div className="relative md:hidden flex mr-[-1rem] z-50">
           <LanguageSelector />
-          <DarkModeSwitch
-            style={{ marginRight: "1rem", marginTop: "1.7rem", marginLeft: "0.3rem" }}
-            checked={theme === "dark"}
-            onChange={toggleTheme}
-            size={30}
-          />
+          <button aria-label={t("aria-dark-mode")} type="button">
+            <DarkModeSwitch
+              style={{ marginRight: "1rem", marginLeft: "0.3rem" }}
+              checked={theme === "dark"}
+              onChange={toggleTheme}
+              size={30}
+            />
+          </button>
           <button
             className="flex flex-col h-12 w-12  mt-5 rounded justify-center"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -148,16 +147,11 @@ const NavBar = ({ href }: Props) => {
           <li aria-label={t("aria-language-button")}>
             <LanguageSelector />
           </li>
-          <button
-            type="button"
-            aria-label={t("aria-dark-mode")}
-            onClick={(event) => {
-              toggleTheme(event);
-            }}
-          >
+          <button aria-label={t("aria-dark-mode")} type="button">
             <DarkModeSwitch
               style={{ marginRight: "0.3rem", marginTop: "0.2rem", marginLeft: "0.3rem" }}
               checked={theme === "dark"}
+              onChange={toggleTheme}
               size={33}
             />
           </button>

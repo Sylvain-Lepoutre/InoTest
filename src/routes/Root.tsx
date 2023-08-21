@@ -11,25 +11,26 @@ type ThemeContextType = {
   toggleTheme: () => void;
 };
 
-export const ThemeContext = createContext<ThemeContextType | null>(null);
+export const ThemeContext = createContext<ThemeContextType>({ theme: "", toggleTheme: () => undefined });
 
 function Root() {
   const [theme, setTheme] = useState("light");
 
-  const toggleTheme: void = () => {
+  const toggleTheme = () => {
     setTheme((current) => (current === "light" ? "dark" : "light"));
   };
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      <div id={theme} className="h-full w-full">
-        <header id="header">
-          <NavBar href="#main" />
-        </header>
-        <Outlet />
-      </div>
-      <LiveRegion />
-    </ThemeContext.Provider>
+    <LiveRegion live="assertive" className="sr-only">
+      <ThemeContext.Provider value={{ theme, toggleTheme }}>
+        <div id={theme} className="h-full w-full">
+          <header id="header">
+            <NavBar href="#main" />
+          </header>
+          <Outlet />
+        </div>
+      </ThemeContext.Provider>
+    </LiveRegion>
   );
 }
 

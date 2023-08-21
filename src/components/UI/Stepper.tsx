@@ -1,6 +1,8 @@
-import React, { useState, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+
+import { useLiveRegion } from "@components/LiveRegion";
 
 interface Step {
   image?: string;
@@ -18,12 +20,13 @@ interface StepperProps {
   styledButtons: string;
 }
 
-const Stepper: React.FC = (props: StepperProps) => {
+const Stepper = (props: StepperProps) => {
   const { t } = useTranslation();
 
   const [activeStep, setActiveStep] = useState<number>(0);
-  const [assertiveMessage, setAssertiveMessage] = useState("");
   const ref = useRef<HTMLParagraphElement>(null);
+
+  const { setAssertiveMessage } = useLiveRegion();
 
   const steps: Step[] = [
     { image: "/Step-1.jpg", text: t("step-1"), alt: "" },
@@ -31,17 +34,20 @@ const Stepper: React.FC = (props: StepperProps) => {
     { image: "/Step-3.png", text: t("step-3"), alt: "Tutoriel sur les modals" },
     { image: "/Step-4.png", text: t("step-4"), alt: "Tutoriel sur la page des composant accessible" },
   ];
+
   const handleNext = (array: Step[]) => {
-    setAssertiveMessage(`${t("Étape")} ${activeStep + 2} ${t("sur")} 4`);
-    const nextStep: number = Math.min(activeStep + 1, array.length - 1);
+    const nextStep = Math.min(activeStep + 1, array.length - 1);
     setActiveStep(nextStep);
   };
 
   const handlePrevious = () => {
-    setAssertiveMessage(`${t("Étape")} ${activeStep} ${t("sur")} 4`);
-    const previousStep: number = Math.max(activeStep - 1, 0);
+    const previousStep = Math.max(activeStep - 1, 0);
     setActiveStep(previousStep);
   };
+
+  useEffect(() => {
+    setAssertiveMessage(`${t("Étape")} ${activeStep + 1} ${t("sur")} 4`);
+  }, [activeStep, setAssertiveMessage, t]);
 
   return (
     <>
@@ -95,9 +101,6 @@ const Stepper: React.FC = (props: StepperProps) => {
                 {t("start")}
               </Link>
             )}
-          </div>
-          <div aria-live="assertive" role="status" className="sr-only">
-            {assertiveMessage}
           </div>
         </div>
       </section>
