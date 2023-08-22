@@ -1,6 +1,5 @@
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import NavBar from "@components/header/NavBar";
 import FakeArticle from "@components/fakeComponents/FakeArticle";
 import FakeStepper from "@components/fakeComponents/FakeStepper";
 import FakeNavBar from "@components/fakeComponents/FakeNavBar";
@@ -8,11 +7,9 @@ import FakeForm from "@components/fakeComponents/FakeForm";
 import useEscapeKey from "../hook/useEscapeKey";
 import ErrorModal from "@components/UI/ErrorModal";
 import { useTranslation } from "react-i18next";
-import i18n from "../../i18n";
 
 export default function Path1() {
   const { t } = useTranslation();
-  i18n.language;
 
   const [activeStep2, setActiveStep2] = useState<number>(0);
   const escapeRef = useRef<HTMLElement>(null);

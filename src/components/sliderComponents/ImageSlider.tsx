@@ -38,6 +38,8 @@ const ImageSlider = () => {
   const desktopMaxDelta = window.innerWidth / 1; // Vitesse de défilement pour ordinateur
   const [activeSection, setActiveSection] = useState("");
 
+  // effet de paralax sur le slider
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
