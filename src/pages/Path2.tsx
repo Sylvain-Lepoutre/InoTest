@@ -1,6 +1,5 @@
 import { useId, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import NavBar from "@components/header/NavBar";
 import TrueArticle from "@components/trueComponents/TrueArticle";
 import TrueStepper from "@components/trueComponents/TrueStepper";
 import TrueNavBar from "@components/trueComponents/TrueNavBar";
