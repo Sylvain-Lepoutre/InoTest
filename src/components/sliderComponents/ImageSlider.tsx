@@ -25,6 +25,8 @@ import MultiStepFormCode from "./codeComponents/MultiStepFormCode";
 import FaqAccordionCode from "./codeComponents/FaqAccordionCode";
 import question from "../../local-files/accordion.json";
 import tabs from "../../local-files/tabs.json";
+import { Menu } from "./libraryComponents/AccessibilityMenu/Menu";
+import AccessibilityMenuCode from "./codeComponents/AccessibilityMenuCode";
 
 const ImageSlider = () => {
   const { t } = useTranslation();
@@ -187,6 +189,12 @@ const ImageSlider = () => {
             imageSrc="https://images.unsplash.com/photo-1526398737131-11b73763ecaa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8d2luZG93fGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60"
             onButtonClick={handleButtonClick}
           />
+          <CardSlider
+            ariaLabel="Ouvrir le composant accessibility menu"
+            cardName="Accessibility menu"
+            imageSrc="https://images.unsplash.com/photo-1574887427561-d3d5d58c9273?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"
+            onButtonClick={handleButtonClick}
+          />
         </Composite>
       </section>
 
@@ -328,6 +336,60 @@ const ImageSlider = () => {
             dash2={t("lmodal-2")}
             dash3={t("lmodal-3")}
             dash4={t("lmodal-4")}
+          />
+        )}
+        {activeSection === "Accessibility menu" && (
+          <CardSliderContent
+            cardName="Accessibility menu"
+            libraryComponent={<Menu aria-label="Accessibility menu" className="flex justify-center h-[5rem] items-center">
+              <Menu.SelectList className="h-[4rem] flex ">
+                <Menu.Select
+                  labelStyle="navStyle"
+                  label="Change the font size"
+                  option="fontSize"
+                  className="p-2 mx-[4rem] rounded buttonClass bg-black text-white flex flex-col"
+                >
+                  <Menu.Option value="Default">Default</Menu.Option>
+                  <Menu.Option value="Large">Large</Menu.Option>
+                  <Menu.Option value="ExtraLarge">Extra Large</Menu.Option>
+                </Menu.Select>
+                <Menu.Select
+                  labelStyle="navStyle"
+                  label="Change the line spacing"
+                  option="line"
+                  className="p-2 mx-[4rem] rounded buttonClass bg-black text-white flex flex-col"
+                >
+                  <Menu.Option value="Default">Default</Menu.Option>
+                  <Menu.Option value="Large">Large</Menu.Option>
+                  <Menu.Option value="ExtraLarge">Extra Large</Menu.Option>
+                </Menu.Select>
+                <Menu.Select
+                  labelStyle="navStyle"
+                  label="Display images"
+                  option="image"
+                  className="p-2 mx-[4rem] rounded buttonClass bg-black text-white flex flex-col"
+                >
+                  <Menu.Option value="visible">visible</Menu.Option>
+                  <Menu.Option value="hidden">hidden</Menu.Option>
+                </Menu.Select>
+                <Menu.Select
+                  labelStyle="navStyle"
+                  label="Change the font"
+                  option="fontChange"
+                  className="p-2 mx-[4rem] rounded buttonClass bg-black text-white flex flex-col"
+                >
+                  <Menu.Option value="Basis, arial">Default</Menu.Option>
+                  <Menu.Option value="Georgia, serif">Georgia</Menu.Option>
+                  <Menu.Option value="fantasy">Fantasy</Menu.Option>
+                  <Menu.Option value="cursive">Cursive</Menu.Option>
+                </Menu.Select>
+              </Menu.SelectList>
+            </Menu>}
+            componentCode={AccessibilityMenuCode}
+            dash1={t("access-1")}
+            dash2={t("access-2")}
+            dash3={t("access-3")}
+            dash4={t("access-4")}
           />
         )}
       </section>
