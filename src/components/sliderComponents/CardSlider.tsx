@@ -46,7 +46,7 @@ const CardSlider = (props: CardSliderProps) => {
       </div>
       <button
         aria-label={props.ariaLabel}
-        className="buttonClass3 flex flex-col w-full rounded-b h-[4rem] transition ease-in-out delay-150 duration-300 justify-center items-center cursor-pointer focus-within:outline-red-500"
+        className="buttonClass3 flex flex-col w-full rounded-b h-[4rem] transition ease-in-out delay-150 duration-300 justify-center items-center cursor-pointer focus-within:outline-red-500 hover:scale-110"
         onClick={handleButtonClick}
         ref={ref}
       >

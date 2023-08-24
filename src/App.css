@@ -55,11 +55,23 @@ body {
 #light .buttonClass {
   background-color: #222222;
   color: #f2f2f2;
+  transition: ease-in-out 500ms;
+}
+
+#light .buttonClass:focus {
+  background-color: #f2f2f2;
+  color: #222222;
 }
 
 #dark .buttonClass {
   background-color: #e1e8f5;
   color: #000;
+  transition: ease-in-out 500ms;
+}
+
+#dark .buttonClass:focus {
+  background-color: #000;
+  color: #e1e8f5;
 }
 
 #light .buttonClass2 {
@@ -75,22 +87,34 @@ body {
 #light .buttonClass3 {
   background-color: #222;
   color: #f2f2f2;
+  transition: ease-in-out 500ms;
+}
+
+#light .buttonClass3:focus {
+  background-color: #f2f2f2;
+  color: #222;
 }
 
 #dark .buttonClass3 {
   background-color: #e1e8f5;
   color: #000;
+  transition: ease-in-out 500ms;
 }
 
-#light .buttonClass3:hover {
+#dark .buttonClass3:focus {
+  background-color: #000;
+  color: #e1e8f5;
+}
+
+/* #light .buttonClass3:hover {
   background-color: #000;
   color: #f2f2f2;
-}
+} */
 
-#dark .buttonClass3:hover {
+/* #dark .buttonClass3:hover {
   background-color: #e1efff;
   color: #000;
-}
+} */
 
 #light .navStyle {
   color: #000;

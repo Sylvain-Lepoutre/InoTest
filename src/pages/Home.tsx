@@ -28,16 +28,16 @@ const Home = () => {
             {t("home-title")}
           </h2>
         </div>
-        <div className="md:mt-[5rem] mt-60 flex min-[1050px]:flex-row flex-col items-center gap-6 md:col-start-2 md:row-start-2">
+        <div className="md:mt-[5rem] mt-60 flex min-[1050px]:flex-row flex-col items-center gap-7 md:col-start-2 md:row-start-2">
           <Link
             to="/getstarted"
-            className="bg-[#000] buttonClass text-white w-[15rem] rounded-lg h-[3rem] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 flex justify-center items-center"
+            className="bg-[#000] buttonClass text-white w-[15rem] rounded-lg h-[3rem] transition ease-in-out delay-150  hover:scale-110 duration-300 flex justify-center items-center"
           >
             {t("getstarted")}
           </Link>
           <a
             href="#main"
-            className="bg-[#000] buttonClass text-white w-[15rem] rounded-lg h-[3rem] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 flex justify-center items-center"
+            className="bg-[#000] buttonClass text-white w-[15rem] rounded-lg h-[3rem] transition ease-in-out delay-150  hover:scale-110 duration-300 flex justify-center items-center"
           >
             {t("library")}
           </a>
