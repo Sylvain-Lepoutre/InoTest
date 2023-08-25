@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import ImageSlider from "../components/sliderComponents/ImageSlider";
 import TextReveal from "@components/UI/TextReveal";
 import { useTranslation } from "react-i18next";
+import GridLayout from "@components/UI/GridLayout";
 
 const Home = () => {
   const { t } = useTranslation();
@@ -52,9 +53,10 @@ const Home = () => {
         </div>
       </section>
       <article className="flex flex-col items-center justify-end overflow-x-hidden">
-        <div className="mt-36">
-          <ImageSlider />
-        </div>
+        {/* <div className="mt-36"> */}
+          {/* <ImageSlider /> */}
+          <GridLayout />
+        {/* </div> */}
       </article>
     </>
   );

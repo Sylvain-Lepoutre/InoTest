@@ -33,17 +33,17 @@ const CardSlider = (props: CardSliderProps) => {
   // }, [addRef]);
 
   return (
-    <article className="flex flex-col gap-2 items-center">
-      <div className="w-40 h-56">
+    <article className="flex flex-col gap-2 items-center w-60">
+      {/* <div className="w-40 h-56"> */}
         <img
-          className="image image-animation w-40 h-56 object-cover object-center rounded-t"
+          className="image image-animation w-60 h-56 object-cover object-center rounded-t"
           src={props.imageSrc || ""}
           draggable="false"
           alt=""
           role="presentation"
           aria-hidden="true"
         />
-      </div>
+      {/* </div> */}
       <button
         aria-label={props.ariaLabel}
         className="buttonClass3 flex flex-col w-full rounded-b h-[4rem] transition ease-in-out delay-150 duration-300 justify-center items-center cursor-pointer focus-within:outline-red-500 hover:scale-110"
