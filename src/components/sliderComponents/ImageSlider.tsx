@@ -124,7 +124,7 @@ const ImageSlider = () => {
         data-mouse-down-at="0"
         data-prev-percentage="0"
         ref={trackRef}
-        className="flex gap-4vmin left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 select-none overflow-hidden h-fit"
+        className="flex gap-4vmin left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 select-none overflow-hidden h-fit py-2 px-3"
       >
         <Composite orientation="horizontal">
           <CardSlider

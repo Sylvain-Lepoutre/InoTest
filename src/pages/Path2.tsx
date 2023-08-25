@@ -74,13 +74,13 @@ export default function Path2() {
         <section className="md:grid md:grid-cols-2 md:justify-items-end flex flex-col gap-1 justify-center items-center h-fit">
           <Link
             to="/path1"
-            className="md:col-start-1 md:place-self-start buttonClass h-12 w-[15rem] rounded-lg xl:h-[2rem] 2xl:h-[3rem] md:ml-16 md:row-start-1 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 flex justify-center items-center"
+            className="md:col-start-1 md:place-self-start buttonClass h-12 w-[15rem] rounded-lg xl:h-[2rem] 2xl:h-[3rem] md:ml-16 md:row-start-1 transition ease-in-out delay-150 hover:scale-110 duration-300 flex justify-center items-center"
           >
             {t("previous")}
           </Link>
           <Link
             to="/"
-            className="md:col-start-2 buttonClass h-12 w-[15rem] rounded-lg xl:h-[2rem] 2xl:h-[3rem] md:mr-16 md:row-start-1 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 flex justify-center items-center"
+            className="md:col-start-2 buttonClass h-12 w-[15rem] rounded-lg xl:h-[2rem] 2xl:h-[3rem] md:mr-16 md:row-start-1 transition ease-in-out delay-150 hover:scale-110 duration-300 flex justify-center items-center"
           >
             {t("return-home")}
           </Link>
