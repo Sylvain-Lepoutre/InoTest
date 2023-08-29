@@ -9,24 +9,8 @@ const Home = () => {
   const { t } = useTranslation();
   const location = useLocation();
 
-  console.log("Location :", location);
-
-
-
   return (
     <>
-      <nav>
-        <ul className="flex">
-          <li className="mx-4">UrlPart1</li>
-          <span>&gt;</span>
-          <li className="mx-4">UrlPart2</li>
-          <li className="mx-4">UrlPart3</li>
-          <li className="mx-4">UrlPart4</li>
-          <li className="mx-4">UrlPart5</li>
-        </ul>
-      </nav>
-
-
       <section className="md:grid md:grid-cols-2 md:grid-rows-2 md:justify-items-start h-[90vh] mb-12">
         <div className=" md:ml-[3rem] col-start-1 row-start-1 -mt-[3.5rem] ml-4 relative md:text-7xl text-4xl font-bold flex flex-row items-start lg:text-9xl lg:mt-[7rem] lg:ml-[5rem]">
           <h1 className="title">
