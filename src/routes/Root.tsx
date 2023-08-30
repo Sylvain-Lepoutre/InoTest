@@ -1,9 +1,9 @@
 import { useState, createContext } from "react";
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 
 import { LiveRegion } from "@components/LiveRegion";
 import NavBar from "@components/header/NavBar";
-import { Breadcrumb } from "@components/header/Breadcrumb_";
+import { Breadcrumb } from "@components/header/Breadcrumb";
 
 import "../App.css";
 
@@ -27,19 +27,7 @@ function Root() {
         <div id={theme} className="h-full w-full">
           <header id="header">
             <NavBar href="#main" />
-            <Breadcrumb
-              path={useLocation().pathname}
-              styles={{
-                nav: "",
-                ol: "flex p-2",
-                li: "py-2",
-                a: {
-                  interactive:
-                    "p-2 focus:bg-black focus:text-white transition ease-in-out duration-500 hover:underline hover:underline-offset-4",
-                  nonInteractive: "p-2 focus:bg-black focus:text-white transition ease-in-out duration-500",
-                },
-              }}
-            />
+            <Breadcrumb />
           </header>
           <Outlet />
         </div>

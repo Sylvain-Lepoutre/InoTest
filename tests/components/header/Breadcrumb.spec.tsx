@@ -1,34 +1,79 @@
-import { render, screen, getByRole, queryByRole } from "@testing-library/react";
-import { expect, it } from "vitest";
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import { describe, expect, it } from "vitest";
 
-import { Breadcrumb } from "@components/header/Breadcrumb_";
+import { Breadcrumb } from "@components/Breadcrumb/Breadcrumb";
 
-it("should have the `navigation` role", () => {
-  render(<Breadcrumb label="Fil d'Ariane" path="/path/to/the/page" />);
+describe("WAI-ARIA Roles, States, and Properties", () => {
+  it("should have the `navigation` role", () => {
+    render(
+      <Breadcrumb separator="/">
+        <Breadcrumb.SegmentList>
+          <Breadcrumb.Segment noSeparator>
+            <Breadcrumb.Link href="/">Home</Breadcrumb.Link>
+          </Breadcrumb.Segment>
+        </Breadcrumb.SegmentList>
+      </Breadcrumb>
+    );
 
-  expect(screen.getByRole("navigation")).toBeInTheDocument();
+    expect(screen.getByRole("navigation")).toBeInTheDocument();
+  });
+
+  it("should have an accessible name for the landmark region", () => {
+    render(
+      <Breadcrumb aria-label="Fil d'Ariane" separator="/">
+        <Breadcrumb.SegmentList>
+          <Breadcrumb.Segment noSeparator>
+            <Breadcrumb.Link href="/">Home</Breadcrumb.Link>
+          </Breadcrumb.Segment>
+        </Breadcrumb.SegmentList>
+      </Breadcrumb>
+    );
+
+    expect(screen.getByRole("navigation")).toHaveAccessibleName("Fil d'Ariane");
+  });
+
+  it("should generate a link with `aria-current='page'` for the last segment", () => {
+    render(
+      <Breadcrumb separator="/">
+        <Breadcrumb.SegmentList>
+          <Breadcrumb.Segment noSeparator>
+            <Breadcrumb.Link href="/">Home</Breadcrumb.Link>
+          </Breadcrumb.Segment>
+          <Breadcrumb.Segment>
+            <Breadcrumb.Link aria-current="page" href="/path">
+              Path
+            </Breadcrumb.Link>
+          </Breadcrumb.Segment>
+        </Breadcrumb.SegmentList>
+      </Breadcrumb>
+    );
+
+    expect(screen.getByText("Path")).toHaveAttribute("aria-current", "page");
+  });
 });
 
-it("should have an accessible name for the landmark region", () => {
-  render(<Breadcrumb label="Fil d'Ariane" path="/path/to/the/page" />);
+describe("Keyboard Interaction", () => {
+  it("should move the focus onto the second link", async () => {
+    render(
+      <Breadcrumb separator="/">
+        <Breadcrumb.SegmentList>
+          <Breadcrumb.Segment noSeparator>
+            <Breadcrumb.Link href="/">Home</Breadcrumb.Link>
+          </Breadcrumb.Segment>
+          <Breadcrumb.Segment>
+            <Breadcrumb.Link aria-current="page" href="/path">
+              Path
+            </Breadcrumb.Link>
+          </Breadcrumb.Segment>
+        </Breadcrumb.SegmentList>
+      </Breadcrumb>
+    );
 
-  expect(screen.getByRole("navigation")).toHaveAccessibleName("Fil d'Ariane");
-});
+    const user = userEvent.setup();
+    await user.tab();
+    await user.tab();
 
-it("should generate a link with `aria-current='page'` for the last segment", () => {
-  render(<Breadcrumb label="Fil d'Ariane" path="/path/to/the/page" />);
-
-  const listItems = screen.getByRole("navigation").querySelectorAll("li");
-  const lastListItem = listItems[listItems.length - 1];
-
-  expect(getByRole(lastListItem, "link")).toBeInTheDocument();
-});
-
-it("should not generate a link for the last segment", () => {
-  render(<Breadcrumb label="Fil d'Ariane" linkForLast={false} path="/path/to/the/page" />);
-
-  const listItems = screen.getByRole("navigation").querySelectorAll("li");
-  const lastListItem = listItems[listItems.length - 1];
-
-  expect(queryByRole(lastListItem, "link")).not.toBeInTheDocument();
+    expect(screen.getByText("Path")).toHaveFocus();
+  });
 });
