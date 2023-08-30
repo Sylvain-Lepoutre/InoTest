@@ -11,10 +11,7 @@ export const Breadcrumb = () => {
     <GenericBreadcrumb aria-label="Vous êtes ici" separator="/">
       <GenericBreadcrumb.SegmentList className="flex p-2">
         <GenericBreadcrumb.Segment className="py-2" noSeparator>
-          <Link
-            className="p-2 focus:bg-black focus:text-white transition ease-in-out duration-500 hover:underline hover:underline-offset-4"
-            to="/"
-          >
+          <Link className="p-2 hover:underline hover:underline-offset-4 breadcrumbSegment" to="/">
             Home
           </Link>
         </GenericBreadcrumb.Segment>
@@ -22,7 +19,7 @@ export const Breadcrumb = () => {
         {segments.map((segment, index) => (
           <GenericBreadcrumb.Segment className="py-2" key={index}>
             <Link
-              className="p-2 focus:bg-black focus:text-white transition ease-in-out duration-500 hover:underline hover:underline-offset-4"
+              className="p-2 hover:underline hover:underline-offset-4 breadcrumbSegment"
               to={`/${segments.slice(0, index + 1).join("/")}`}
             >
               {segment.charAt(0).toUpperCase() + segment.slice(1)}

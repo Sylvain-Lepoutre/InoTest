@@ -7,6 +7,7 @@ import Home from "@pages/Home";
 import Path1 from "@pages/Path1";
 import Path2 from "@pages/Path2";
 import Root from "./routes/Root";
+import { Library } from "@pages/Library";
 
 export const router = createBrowserRouter([
   {
@@ -17,6 +18,10 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/library",
+        element: <Library />,
       },
       {
         path: "/about",

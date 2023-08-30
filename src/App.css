@@ -136,6 +136,24 @@ body {
   color: #f2f2f2;
 }
 
+#light .breadcrumbSegment {
+  color: #000;
+  transition: ease-in-out 500ms;
+}
+#light .breadcrumbSegment:focus {
+  background-color: #000;
+  color: #fff;
+}
+
+#dark .breadcrumbSegment {
+  color: #fff;
+  transition: ease-in-out 500ms;
+}
+#dark .breadcrumbSegment:focus {
+  background-color: #fff;
+  color: #000;
+}
+
 #light .burgerStyle {
   background-color: #222222;
 }

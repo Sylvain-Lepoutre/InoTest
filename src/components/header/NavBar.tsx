@@ -27,7 +27,6 @@ const NavBar = ({ href }: Props) => {
   return (
     <>
       <nav className="h-[10vh] flex justify-end px-4">
-        
         <div className="relative md:hidden flex mr-[-1rem] z-50">
           <LanguageSelector />
           <button aria-label={t("aria-dark-mode")} type="button">
@@ -72,6 +71,11 @@ const NavBar = ({ href }: Props) => {
               </Link>
             </li>
             <li>
+              <Link onClick={closeMenu} to="/library" className="block px-4 py-2">
+                {t("nav-library")}
+              </Link>
+            </li>
+            <li>
               <Link onClick={closeMenu} to="/about" className="block max-w-full px-4 py-2">
                 {t("nav-about")}
               </Link>
@@ -90,6 +94,15 @@ const NavBar = ({ href }: Props) => {
               aria-current={location.pathname === "/" ? "page" : undefined}
             >
               {t("nav-home")}
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/library"
+              className="block px-4 py-2 link link-underline link-underline-black navStyle"
+              aria-current={location.pathname === "/library" ? "page" : undefined}
+            >
+              {t("nav-library")}
             </Link>
           </li>
           <li>
