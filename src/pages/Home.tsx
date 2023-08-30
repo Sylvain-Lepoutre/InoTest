@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 // import ImageSlider from "../components/sliderComponents/ImageSlider";
 import TextReveal from "@components/UI/TextReveal";
 import { useTranslation } from "react-i18next";
-import GridLayout from "@components/UI/GridLayout";
+import GridLayout from "@components/UI/LibraryComponents";
 
 const Home = () => {
   const { t } = useTranslation();

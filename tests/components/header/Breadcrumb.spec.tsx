@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it } from "vitest";
 
-import { Breadcrumb } from "@components/Breadcrumb/Breadcrumb";
+import { Breadcrumb } from "@components/sliderComponents/libraryComponents/Breadcrumb/Breadcrumb";
 
 describe("WAI-ARIA Roles, States, and Properties", () => {
   it("should have the `navigation` role", () => {
