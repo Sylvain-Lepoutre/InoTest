@@ -18,7 +18,7 @@ it("should only display one slide", () => {
     </Carousel>
   );
 
-  console.log(prettyDOM(screen.getByTestId("carousel")));
+  // console.log(prettyDOM(screen.getByTestId("carousel")));
 
   expect(screen.getByText("Slide 1")).not.toBeVisible();
   expect(screen.getByText("Slide 2")).toBeVisible();

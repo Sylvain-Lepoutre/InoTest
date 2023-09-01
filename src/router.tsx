@@ -8,6 +8,8 @@ import Path1 from "@pages/Path1";
 import Path2 from "@pages/Path2";
 import Root from "./routes/Root";
 import { Library } from "@pages/Library";
+import { Inotest } from "@pages/Inotest";
+import { InotestPersona1 } from "@components/inotestComponents/InotestPersona1";
 
 export const router = createBrowserRouter([
   {
@@ -20,8 +22,22 @@ export const router = createBrowserRouter([
         element: <Home />,
       },
       {
+        path: "/inotest",
+        element: <Inotest />,
+      },
+      {
+        path: "/inotest/persona1",
+        element: <InotestPersona1 />,
+      },
+      {
         path: "/library",
         element: <Library />,
+        children: [
+          {
+            path: "test",
+            element: <p>Hello Test!</p>,
+          },
+        ],
       },
       {
         path: "/about",

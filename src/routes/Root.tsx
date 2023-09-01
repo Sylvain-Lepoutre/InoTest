@@ -1,5 +1,5 @@
 import { useState, createContext } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 
 import { LiveRegion } from "@components/LiveRegion";
 import NavBar from "@components/header/NavBar";
@@ -20,6 +20,10 @@ function Root() {
   const toggleTheme = () => {
     setTheme((current) => (current === "light" ? "dark" : "light"));
   };
+
+  const segments = useLocation().pathname.split("/");
+
+  console.log(segments);
 
   return (
     <LiveRegion live="assertive" className="sr-only">

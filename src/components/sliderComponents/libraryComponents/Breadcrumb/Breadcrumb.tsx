@@ -4,7 +4,7 @@ import { Link } from "./Link";
 import { Segment } from "./Segment";
 import { SegmentList } from "./SegmentList";
 
-type Props = DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> & {
+export type Props = DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> & {
   separator: string;
 };
 
@@ -12,6 +12,10 @@ const SeparatorContext = createContext<string | null>(null);
 
 export const useBreadcrumb = () => {
   const separator = useContext(SeparatorContext);
+
+  if (separator === null) {
+    throw new Error("This component must be a child of the `Breadcrumb` component");
+  }
 
   return {
     separator,

@@ -1,18 +1,74 @@
-import type { DetailedHTMLProps, LiHTMLAttributes } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+  type DetailedHTMLProps,
+  type Dispatch,
+  type LiHTMLAttributes,
+  type SetStateAction,
+} from "react";
 
-import { useBreadcrumb } from "./Breadcrumb";
+import type { Props as BreadcrumbProps } from "./Breadcrumb";
+import type { LinkObject } from "./Link";
+import { useSegmentList } from "./SegmentList";
 
-type Props = DetailedHTMLProps<LiHTMLAttributes<HTMLLIElement>, HTMLLIElement> & {
-  noSeparator?: boolean;
+export type SegmentObject = {
+  link: LinkObject | null;
+  setHasSeparator: Dispatch<SetStateAction<boolean>>;
 };
 
-export const Segment = ({ children, noSeparator = false, ...rest }: Props) => {
-  const { separator } = useBreadcrumb();
+type Props = DetailedHTMLProps<LiHTMLAttributes<HTMLLIElement>, HTMLLIElement> & {
+  separator?: BreadcrumbProps["separator"];
+};
+
+type SetLink = Dispatch<SetStateAction<LinkObject>>;
+
+const SetLinkContext = createContext<SetLink | null>(null);
+
+const registerLink = (setLink: SetLink) => (link: LinkObject) => {
+  setLink(link);
+};
+
+export const useSegment = () => {
+  const setLink = useContext(SetLinkContext);
+
+  if (setLink === null) {
+    throw new Error("This component must be a child of the `Segment` component");
+  }
+
+  return {
+    registerLink: registerLink(setLink),
+  };
+};
+
+export const Segment = ({ children, separator, ...rest }: Props) => {
+  const [hasSeparator, setHasSeparator] = useState(true);
+  const [link, setLink] = useState<LinkObject | null>(null);
+
+  const { registerSegment, separator: segmentListSeparator } = useSegmentList();
+
+  if (separator === undefined) {
+    separator = segmentListSeparator;
+  }
+
+  const segment = useMemo(
+    () => ({
+      link,
+      setHasSeparator,
+    }),
+    [link]
+  );
+
+  useEffect(() => {
+    registerSegment(segment);
+  }, [registerSegment, segment]);
 
   return (
     <li {...rest}>
-      {!noSeparator ? <span>{separator}</span> : null}
-      {children}
+      {hasSeparator ? <span>{separator}</span> : null}
+      <SetLinkContext.Provider value={setLink}>{children}</SetLinkContext.Provider>
     </li>
   );
 };
