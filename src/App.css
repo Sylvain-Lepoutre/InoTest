@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "NanumBrushScript-Regular";
+  src: url("./fonts/NanumBrushScript-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
 * {
   scroll-behavior: smooth;
 }

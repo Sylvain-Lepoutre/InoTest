@@ -1,11 +1,12 @@
 /* eslint-disable react/no-unescaped-entities */
-export const InotestIntroduction = () => {
-  const pStyles = "m-10";
-  const h2Styles = "text-2xl text-center";
-  const liStyles = "list-disc m-2";
+export const h2Styles = "text-2xl text-center";
+export const liStyles = "list-disc m-2";
+export const pStyles = "m-10";
+export const sectionStyles = "bg-white m-4 p-4";
 
+export const InotestIntroduction = () => {
   return (
-    <>
+    <section id="main" className={sectionStyles}>
       <h2 className={h2Styles}>Découvrez l'inclusion en ligne : 5 Personas, 5 perspectives différentes</h2>
       <p className={pStyles}>
         Bienvenue sur Inotest, l'endroit où nous vous invitons à explorer le web sous un nouvel angle, à travers les
@@ -63,6 +64,6 @@ export const InotestIntroduction = () => {
         voyage collectif. Venez explorer le web à travers de nouvelles perspectives et contribuez à faire du web un
         espace plus accessible pour tous les internautes. Rejoignez-nous maintenant !
       </p>
-    </>
+    </section>
   );
 };
