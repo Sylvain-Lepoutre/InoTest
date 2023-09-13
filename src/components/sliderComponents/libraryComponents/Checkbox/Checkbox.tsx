@@ -1,32 +1,33 @@
-import { useState, type DetailedHTMLProps, type FieldsetHTMLAttributes, type ChangeEvent } from "react";
+import { createContext, useContext, useId, type DetailedHTMLProps, type FieldsetHTMLAttributes } from "react";
+import { CheckboxLabel } from "./CheckboxLabel";
+import { CheckboxLegend } from "./CheckboxLegend";
+import { CheckboxInput } from "./CheckboxInput";
 
 type Props = DetailedHTMLProps<FieldsetHTMLAttributes<HTMLFieldSetElement>, HTMLFieldSetElement>;
 
-export const CheckboxMenu = ({ legendContent, ...rest }: Props) => {
-  const choicesName = "Test";
-  const choicesList = ["TestChoice1", "TestChoice2", "TestChoice3"];
+const IdContext = createContext<ReturnType<typeof useId> | null>(null);
 
-  const [checkedState, setCheckedState] = useState(new Array(choicesList.length).fill(false));
-  console.log(checkedState);
+export const useCheckbox = () => {
+  const id = useContext(IdContext);
 
-  const handleOnChange = (event: ChangeEvent) => {
-    console.log(event.target.value);
+  if (id === null) {
+    throw new Error(""); //TODO error message
+  }
 
-    console.log("test");
+  return {
+    id,
   };
+};
 
+export const Checkbox = ({ children, ...rest }: Props) => {
+  const id = useId();
   return (
-    <fieldset {...rest}>
-      <legend>Veuillez choisir un {choicesName}</legend>
-
-      {choicesList.map((choice, index) => {
-        return (
-          <div key={index}>
-            <input type="checkbox" id={choice} name={choicesName} value={choice} onChange={handleOnChange} />
-            <label htmlFor={choice}>{choice}</label>
-          </div>
-        );
-      })}
+    <fieldset {...rest} aria-labelledby={id}>
+      <IdContext.Provider value={id}>{children}</IdContext.Provider>
     </fieldset>
   );
 };
+
+Checkbox.Label = CheckboxLabel;
+Checkbox.Legend = CheckboxLegend;
+Checkbox.Input = CheckboxInput;

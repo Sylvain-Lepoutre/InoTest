@@ -10,6 +10,7 @@ import Root from "./routes/Root";
 import { Library } from "@pages/Library";
 import { Inotest } from "@pages/Inotest";
 import { InotestPersona1 } from "@components/inotestComponents/InotestPersona1";
+import { Checkbox } from "@components/LibraryTest/Checkbox";
 
 export const router = createBrowserRouter([
   {
@@ -32,12 +33,10 @@ export const router = createBrowserRouter([
       {
         path: "/library",
         element: <Library />,
-        children: [
-          {
-            path: "test",
-            element: <p>Hello Test!</p>,
-          },
-        ],
+      },
+      {
+        path: "/library/test",
+        element: <Checkbox />,
       },
       {
         path: "/about",

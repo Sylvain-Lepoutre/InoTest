@@ -24,8 +24,6 @@ export const Breadcrumb = () => {
 
         {segments.map((segment, index) => {
           const url = `/${segments.slice(0, index + 1).join("/")}`;
-          // console.log(url);
-          // console.log(location.pathname);
 
           return (
             <GenericBreadcrumb.Segment className="py-2" key={index}>
